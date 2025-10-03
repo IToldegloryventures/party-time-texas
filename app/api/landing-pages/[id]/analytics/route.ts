@@ -3,13 +3,10 @@ import { auth } from '@clerk/nextjs/server';
 import { supabase } from '@/lib/supabase/client';
 import { getUserOrganizationData } from '@/lib/supabase/user-org';
 
-interface RouteParams {
-  params: {
-    id: string;
-  };
-}
-
-export async function GET(request: NextRequest, { params }: RouteParams) {
+export async function GET(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
   try {
     const { userId } = await auth();
     if (!userId) {
