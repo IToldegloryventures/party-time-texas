@@ -5,18 +5,17 @@ import { getUserOrganizationData } from '@/lib/supabase/user-org';
 import DragDropBuilder from '../_components/DragDropBuilder';
 
 interface BuilderPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default async function BuilderPage({ params }: BuilderPageProps) {
+  const { id } = await params;
   const { userId } = await auth();
   if (!userId) {
     return notFound();
   }
-
-  const { id } = await params;
 
   // Get user's organization
   const orgData = await getUserOrganizationData(userId);

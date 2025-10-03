@@ -3,12 +3,13 @@
 import NFCLandingPage from './_components/NFCLandingPage';
 
 interface ScanPageProps {
-  params: {
+  params: Promise<{
     deviceId: string;
-  };
+  }>;
 }
 
 export default async function ScanPage({ params }: ScanPageProps) {
+  const { deviceId } = await params;
   // Record the scan (we'll do this in the component)
-  return <NFCLandingPage deviceId={params.deviceId} />;
+  return <NFCLandingPage deviceId={deviceId} />;
 }

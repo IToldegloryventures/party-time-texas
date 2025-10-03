@@ -4,13 +4,13 @@ import { supabase } from '@/lib/supabase/client';
 import InviteAcceptance from './_components/InviteAcceptance';
 
 interface InvitePageProps {
-  params: {
+  params: Promise<{
     token: string;
-  };
+  }>;
 }
 
 export default async function InvitePage({ params }: InvitePageProps) {
-  const { token } = params;
+  const { token } = await params;
 
   try {
     // Verify invitation exists and is valid

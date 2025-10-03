@@ -6,16 +6,16 @@ import Link from 'next/link';
 import { getUserOrganizationData } from '@/lib/supabase/user-org';
 import { registerNFCDevice, getNFCDevices, deleteNFCDevice } from '@/lib/nfc';
 
-interface NFCDevice {
-  id: string;
-  device_id: string;
-  device_type: string;
-  status: string;
-  last_scan?: string;
-  scan_count: number;
-  metadata: Record<string, unknown>;
-  created_at: string;
-}
+// interface NFCDevice {
+//   id: string;
+//   device_id: string;
+//   device_type: string;
+//   status: string;
+//   last_scan?: string;
+//   scan_count: number;
+//   metadata: Record<string, unknown>;
+//   created_at: string;
+// }
 
 const NFCDeviceManager = () => {
   const { user, isLoaded } = useUser();

@@ -2,9 +2,9 @@
 import { supabase } from '@/lib/supabase/client';
 
 interface LandingPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default async function LandingPage({ params }: LandingPageProps) {
