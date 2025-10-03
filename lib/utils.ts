@@ -41,7 +41,7 @@ export const truncateText = (text: string, maxLength: number): string => {
 /**
  * Debounce function for API calls
  */
-export const debounce = <T extends (...args: any[]) => any>(
+export const debounce = <T extends (...args: unknown[]) => unknown>(
   func: T,
   wait: number
 ): ((...args: Parameters<T>) => void) => {

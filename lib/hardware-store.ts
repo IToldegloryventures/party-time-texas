@@ -245,7 +245,10 @@ export class HardwareStoreService {
   /**
    * Calculate shipping cost
    */
-  private calculateShippingCost(subtotal: number, address: Record<string, unknown>): number {
+  private calculateShippingCost(
+    subtotal: number,
+    address: Record<string, unknown>
+  ): number {
     // Free shipping over $100
     if (subtotal >= 100) return 0;
 
@@ -259,7 +262,10 @@ export class HardwareStoreService {
   /**
    * Calculate tax
    */
-  private calculateTax(subtotal: number, address: Record<string, unknown>): number {
+  private calculateTax(
+    subtotal: number,
+    address: Record<string, unknown>
+  ): number {
     // Simplified tax calculation
     const taxRates: Record<string, number> = {
       CA: 0.0875,

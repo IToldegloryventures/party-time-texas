@@ -13,8 +13,8 @@ export interface EventReport {
   report_type: 'recap' | 'analytics' | 'attendee' | 'financial';
   content: {
     summary: string;
-    statistics: Record<string, any>;
-    charts: Array<{ type: string; data: any; title: string }>;
+    statistics: Record<string, unknown>;
+    charts: Array<{ type: string; data: Record<string, unknown>; title: string }>;
     recommendations: string[];
   };
   branding: {
@@ -253,9 +253,9 @@ export class ReportingService {
    * Generate event highlights
    */
   private generateEventHighlights(
-    stats: any,
-    attendees: any[],
-    photos: any[]
+    stats: Record<string, unknown>,
+    attendees: Record<string, unknown>[],
+    photos: Record<string, unknown>[]
   ): string[] {
     const highlights: string[] = [];
 
@@ -286,7 +286,7 @@ export class ReportingService {
   /**
    * Calculate engagement score
    */
-  private calculateEngagementScore(stats: any, attendees: any[]): number {
+  private calculateEngagementScore(stats: Record<string, unknown>, attendees: Record<string, unknown>[]): number {
     let score = 0;
 
     // Check-in rate (40% weight)
@@ -310,7 +310,7 @@ export class ReportingService {
   /**
    * Generate thank you message
    */
-  private generateThankYouMessage(event: any, stats: any): string {
+  private generateThankYouMessage(event: Record<string, unknown>, stats: Record<string, unknown>): string {
     return `Thank you for making ${event.name} such a memorable experience! Your participation helped create ${stats.total_attendees} connections and ${stats.photos_uploaded} shared moments. We can't wait to see you at our next event!`;
   }
 
@@ -318,9 +318,9 @@ export class ReportingService {
    * Generate report summary
    */
   private generateReportSummary(
-    event: any,
-    stats: any,
-    attendees: any[]
+    event: Record<string, unknown>,
+    stats: Record<string, unknown>,
+    attendees: Record<string, unknown>[]
   ): string {
     return `${event.name} was a tremendous success with ${stats.total_attendees} attendees, ${stats.checked_in} check-ins, and ${stats.photos_uploaded} photos shared. The event achieved a ${this.calculateEngagementScore(stats, attendees)}% engagement score.`;
   }
@@ -329,10 +329,10 @@ export class ReportingService {
    * Generate report charts data
    */
   private generateReportCharts(
-    stats: any,
-    attendees: any[],
-    analytics: any
-  ): Array<{ type: string; data: any; title: string }> {
+    stats: Record<string, unknown>,
+    attendees: Record<string, unknown>[],
+    analytics: Record<string, unknown>
+  ): Array<{ type: string; data: Record<string, unknown>; title: string }> {
     return [
       {
         type: 'attendance',
@@ -357,7 +357,7 @@ export class ReportingService {
   /**
    * Generate recommendations
    */
-  private generateRecommendations(stats: any, attendees: any[]): string[] {
+  private generateRecommendations(stats: Record<string, unknown>, attendees: Record<string, unknown>[]): string[] {
     const recommendations: string[] = [];
 
     if (stats.checked_in < stats.total_attendees * 0.8) {
@@ -384,7 +384,7 @@ export class ReportingService {
   /**
    * Render PDF content
    */
-  private async renderPDFContent(report: any): Promise<string> {
+  private async renderPDFContent(report: Record<string, unknown>): Promise<string> {
     // This would integrate with a PDF generation service
     // For now, return HTML that can be converted to PDF
     return `
@@ -432,9 +432,9 @@ export class ReportingService {
    * Send attendee email
    */
   private async sendAttendeeEmail(
-    attendee: any,
-    event: any,
-    recapPage: any
+    attendee: Record<string, unknown>,
+    event: Record<string, unknown>,
+    recapPage: Record<string, unknown>
   ): Promise<void> {
     // Email integration would go here
     console.log(
@@ -446,9 +446,9 @@ export class ReportingService {
    * Send organizer email
    */
   private async sendOrganizerEmail(
-    event: any,
-    recapPage: any,
-    attendees: any[]
+    event: Record<string, unknown>,
+    recapPage: Record<string, unknown>,
+    attendees: Record<string, unknown>[]
   ): Promise<void> {
     // Email integration would go here
     console.log(`Sending organizer summary for event ${event.name}`);

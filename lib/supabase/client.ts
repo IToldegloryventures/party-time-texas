@@ -30,8 +30,8 @@ export interface Database {
           subscription_status: string;
           created_at: string;
           updated_at: string;
-          settings: any;
-          white_label_config: any;
+          settings: Record<string, unknown>;
+          white_label_config: Record<string, unknown>;
         };
         Insert: {
           id?: string;
@@ -41,8 +41,8 @@ export interface Database {
           subscription_status?: string;
           created_at?: string;
           updated_at?: string;
-          settings?: any;
-          white_label_config?: any;
+          settings?: Record<string, unknown>;
+          white_label_config?: Record<string, unknown>;
         };
         Update: {
           id?: string;
@@ -52,8 +52,8 @@ export interface Database {
           subscription_status?: string;
           created_at?: string;
           updated_at?: string;
-          settings?: any;
-          white_label_config?: any;
+          settings?: Record<string, unknown>;
+          white_label_config?: Record<string, unknown>;
         };
       };
       users: {
@@ -69,7 +69,7 @@ export interface Database {
           invited_by: string | null;
           invited_at: string | null;
           last_login: string | null;
-          permissions: any;
+          permissions: Record<string, unknown>;
           created_at: string;
           updated_at: string;
         };
@@ -85,7 +85,7 @@ export interface Database {
           invited_by?: string | null;
           invited_at?: string | null;
           last_login?: string | null;
-          permissions?: any;
+          permissions?: Record<string, unknown>;
           created_at?: string;
           updated_at?: string;
         };
@@ -101,7 +101,7 @@ export interface Database {
           invited_by?: string | null;
           invited_at?: string | null;
           last_login?: string | null;
-          permissions?: any;
+          permissions?: Record<string, unknown>;
           created_at?: string;
           updated_at?: string;
         };
@@ -117,7 +117,7 @@ export interface Database {
           end_date: string | null;
           location: string | null;
           status: string;
-          settings: any;
+          settings: Record<string, unknown>;
           created_at: string;
           updated_at: string;
         };
@@ -131,7 +131,7 @@ export interface Database {
           end_date?: string | null;
           location?: string | null;
           status?: string;
-          settings?: any;
+          settings?: Record<string, unknown>;
           created_at?: string;
           updated_at?: string;
         };
@@ -145,7 +145,7 @@ export interface Database {
           end_date?: string | null;
           location?: string | null;
           status?: string;
-          settings?: any;
+          settings?: Record<string, unknown>;
           created_at?: string;
           updated_at?: string;
         };
@@ -159,7 +159,7 @@ export interface Database {
           status: string;
           last_scan: string | null;
           scan_count: number;
-          metadata: any;
+          metadata: Record<string, unknown>;
           created_at: string;
           updated_at: string;
         };
@@ -171,7 +171,7 @@ export interface Database {
           status?: string;
           last_scan?: string | null;
           scan_count?: number;
-          metadata?: any;
+          metadata?: Record<string, unknown>;
           created_at?: string;
           updated_at?: string;
         };
@@ -183,7 +183,7 @@ export interface Database {
           status?: string;
           last_scan?: string | null;
           scan_count?: number;
-          metadata?: any;
+          metadata?: Record<string, unknown>;
           created_at?: string;
           updated_at?: string;
         };

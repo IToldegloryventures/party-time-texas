@@ -17,16 +17,16 @@ export interface Organization {
   slug: string;
   plan_type: string;
   subscription_status: string;
-  settings: any;
-  white_label_config: any;
+  settings: Record<string, unknown>;
+  white_label_config: Record<string, unknown>;
 }
 
 export interface OrganizationData {
   user: User;
   organization: Organization;
-  nfcDevices: any[];
-  events: any[];
-  attendees: any[];
+  nfcDevices: Record<string, unknown>[];
+  events: Record<string, unknown>[];
+  attendees: Record<string, unknown>[];
 }
 
 /**

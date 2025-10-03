@@ -2,12 +2,13 @@
 
 import { useUser } from '@clerk/nextjs';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { getUserOrganizationData } from '@/lib/supabase/user-org';
 import { registerNFCDevice } from '@/lib/nfc';
 
 const NFCDiscovery = () => {
   const { user, isLoaded } = useUser();
-  const [orgData, setOrgData] = useState<any>(null);
+  const [orgData, setOrgData] = useState<Record<string, unknown> | null>(null);
   const [loading, setLoading] = useState(true);
   const [nfcSupported, setNfcSupported] = useState(false);
   const [nfcId, setNfcId] = useState<string>('');
@@ -19,7 +20,7 @@ const NFCDiscovery = () => {
       fetchOrgData();
       checkNFCSupport();
     }
-  }, [user, isLoaded]);
+  }, [user, isLoaded, fetchOrgData]);
 
   const fetchOrgData = async () => {
     try {
@@ -52,17 +53,17 @@ const NFCDiscovery = () => {
     }
 
     try {
-      // @ts-ignore - NDEFReader is not in TypeScript types yet
+      // @ts-expect-error - NDEFReader is not in TypeScript types yet
       const reader = new NDEFReader();
       await reader.scan();
 
-      reader.addEventListener('reading', (event: any) => {
+      reader.addEventListener('reading', (event: Record<string, unknown>) => {
         const { serialNumber } = event;
         setNfcId(serialNumber);
         alert(`NFC Tag Discovered! ID: ${serialNumber}`);
       });
 
-      reader.addEventListener('error', (error: any) => {
+      reader.addEventListener('error', (error: Record<string, unknown>) => {
         console.error('NFC reading error:', error);
         alert(
           'Error reading NFC tag. Make sure your device supports NFC and the tag is close to your phone.'
@@ -185,7 +186,7 @@ const NFCDiscovery = () => {
             <ol className="list-inside list-decimal space-y-3 text-white/70">
               <li>Make sure NFC is enabled on your phone</li>
               <li>Hold your Party Time Texas keychain close to your phone</li>
-              <li>Click "Discover NFC Tag" below</li>
+              <li>Click &quot;Discover NFC Tag&quot; below</li>
               <li>Your phone will read the NFC tag and show the ID</li>
               <li>Register the device to start tracking analytics</li>
             </ol>
@@ -196,7 +197,7 @@ const NFCDiscovery = () => {
               Register Your Party Time Texas Keychain
             </h3>
             <p className="mb-4 text-white/70">
-              Since NFC discovery isn't available in this browser, you can
+              Since NFC discovery isn&apos;t available in this browser, you can
               manually register your keychain device. This will allow you to
               start tracking analytics and engagement data.
             </p>
@@ -243,7 +244,7 @@ const NFCDiscovery = () => {
                     className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
                   />
                   <p className="mt-1 text-xs text-white/50">
-                    If you don't know your NFC device ID, we'll generate one for
+                    If you don&apos;t know your NFC device ID, we&apos;ll generate one for
                     you
                   </p>
                 </div>
@@ -271,8 +272,8 @@ const NFCDiscovery = () => {
             </div>
             <p className="mb-4 text-white/70">
               {nfcSupported
-                ? 'This is your NFC tag ID. Click "Register Device" to add it to your Party Time Texas account.'
-                : 'This device ID is ready for registration. Click "Register Device" to add it to your Party Time Texas account.'}
+                ? &apos;This is your NFC tag ID. Click &quot;Register Device&quot; to add it to your Party Time Texas account.&apos;
+                : &apos;This device ID is ready for registration. Click &quot;Register Device&quot; to add it to your Party Time Texas account.&apos;}
             </p>
             <button
               onClick={handleRegisterDevice}
@@ -309,12 +310,12 @@ const NFCDiscovery = () => {
               Your Party Time Texas keychain is now registered and ready to
               track analytics.
             </p>
-            <a
+            <Link
               href="/dashboard/devices"
               className="rounded-lg bg-green-600 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-green-700"
             >
               View All Devices
-            </a>
+            </Link>
           </div>
         )}
       </div>
