@@ -3,9 +3,9 @@ import { auth } from '@clerk/nextjs/server';
 import NFCDeviceDetails from './_components/NFCDeviceDetails';
 
 interface DevicePageProps {
-  params: {
+  params: Promise<{
     deviceId: string;
-  };
+  }>;
 }
 
 export default async function DevicePage({ params }: DevicePageProps) {
@@ -16,5 +16,6 @@ export default async function DevicePage({ params }: DevicePageProps) {
     redirect('/pricing');
   }
 
-  return <NFCDeviceDetails deviceId={params.deviceId} />;
+  const { deviceId } = await params;
+  return <NFCDeviceDetails deviceId={deviceId} />;
 }
