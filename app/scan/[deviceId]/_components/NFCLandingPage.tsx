@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-// import Link from 'next/link';
+import Link from 'next/link';
 import { getNFCDevice, recordNFCScan } from '@/lib/nfc';
 
 interface NFCLandingPageProps {
@@ -109,7 +109,7 @@ const NFCLandingPage = ({ deviceId }: NFCLandingPageProps) => {
             Device Not Found
           </h1>
           <p className="mb-8 text-white/70">
-            This NFC device doesn't exist or has been deactivated.
+            This NFC device doesn&apos;t exist or has been deactivated.
           </p>
         </div>
       </div>
@@ -200,14 +200,14 @@ const NFCLandingPage = ({ deviceId }: NFCLandingPageProps) => {
 
             {/* Action Buttons */}
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <a
+              <Link
                 href="/"
                 className="group relative inline-flex items-center gap-2 rounded-full bg-black px-8 py-4 text-lg font-semibold text-white transition-all hover:bg-white/5"
               >
                 <span className="absolute inset-0 rounded-full bg-gradient-to-r from-[#FF1E56] via-[#FF00FF] to-[#00FFFF] opacity-70 blur-sm transition-all group-hover:opacity-100" />
                 <span className="absolute inset-0.5 rounded-full bg-black/50" />
                 <span className="relative font-bold">Visit Our Platform</span>
-              </a>
+              </Link>
 
               <button
                 onClick={() => window.history.back()}

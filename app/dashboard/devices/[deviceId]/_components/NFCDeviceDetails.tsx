@@ -78,7 +78,7 @@ const NFCDeviceDetails = ({ deviceId }: NFCDeviceDetailsProps) => {
             Device Not Found
           </h1>
           <p className="mb-8 text-white/70">
-            The NFC device you're looking for doesn't exist or you don't have
+            The NFC device you&apos;re looking for doesn&apos;t exist or you don&apos;t have
             access to it.
           </p>
           <Link
@@ -204,7 +204,7 @@ const NFCDeviceDetails = ({ deviceId }: NFCDeviceDetailsProps) => {
             </h3>
             <p className="mb-4 text-white/70">
               This is the URL your NFC keychain should redirect to. When someone
-              scans your keychain, they'll land here.
+              scans your keychain, they&apos;ll land here.
             </p>
             <div className="mb-4 rounded-lg bg-black/50 p-4">
               <p className="font-mono text-sm break-all text-green-400">
@@ -294,7 +294,7 @@ const NFCDeviceDetails = ({ deviceId }: NFCDeviceDetailsProps) => {
                 <div className="space-y-2">
                   {analytics.daily_scans
                     .slice(0, 7)
-                    .map((day: any, index: number) => (
+                    .map((day: Record<string, unknown>, index: number) => (
                       <div
                         key={index}
                         className="flex items-center justify-between"
@@ -305,7 +305,7 @@ const NFCDeviceDetails = ({ deviceId }: NFCDeviceDetailsProps) => {
                             <div
                               className="h-2 rounded-full bg-purple-400"
                               style={{
-                                width: `${Math.min((day.count / Math.max(...analytics.daily_scans.map((d: any) => d.count))) * 100, 100)}%`,
+                                width: `${Math.min((day.count / Math.max(...analytics.daily_scans.map((d: Record<string, unknown>) => d.count))) * 100, 100)}%`,
                               }}
                             ></div>
                           </div>

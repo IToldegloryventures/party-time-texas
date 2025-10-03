@@ -63,7 +63,7 @@ export default function UserInfoPage() {
                 {userData?.email}
               </code>
             </li>
-            <li>We'll use this to update the Supabase records</li>
+            <li>We&apos;ll use this to update the Supabase records</li>
           </ol>
         </div>
       </div>

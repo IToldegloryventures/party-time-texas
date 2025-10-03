@@ -21,7 +21,7 @@ export interface HardwareProduct {
   sku: string;
   inventory_count: number;
   images: string[];
-  specifications: Record<string, any>;
+  specifications: Record<string, unknown>;
   is_active: boolean;
   created_at: string;
   updated_at: string;

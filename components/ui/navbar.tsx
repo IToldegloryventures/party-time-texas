@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { useUser } from '@clerk/nextjs';
+// import { useUser } from '@clerk/nextjs';
 
 interface NavbarProps {
   children: ReactNode;

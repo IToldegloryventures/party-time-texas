@@ -13,7 +13,7 @@ interface NFCDevice {
   status: string;
   last_scan?: string;
   scan_count: number;
-  metadata: any;
+  metadata: Record<string, unknown>;
   created_at: string;
 }
 
@@ -61,7 +61,7 @@ const NFCDeviceManager = () => {
         await registerNFCDevice({
           organization_id: orgData.organization.id,
           device_id: deviceId,
-          device_type: newDevice.device_type as any,
+          device_type: newDevice.device_type as string,
           status: 'active',
           metadata: {
             name: newDevice.name,

@@ -252,7 +252,7 @@ export class AIInsightsService {
   private async getAnalyticsData(
     organizationId: string,
     period: string
-  ): Promise<any> {
+  ): Promise<Record<string, unknown>> {
     const startDate = this.calculateStartDate(period);
 
     const { data: events } = await this.supabase
@@ -279,7 +279,7 @@ export class AIInsightsService {
   /**
    * Get historical data for predictions
    */
-  private async getHistoricalData(organizationId: string): Promise<any> {
+  private async getHistoricalData(organizationId: string): Promise<Record<string, unknown>> {
     const sixMonthsAgo = new Date();
     sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
 

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useUser } from '@clerk/nextjs';
 import { TeamManagementService } from '@/lib/team-management';
 import { useRouter } from 'next/navigation';
-// import Link from 'next/link';
+import Link from 'next/link';
 
 interface InviteAcceptanceProps {
   invitation: {
@@ -86,7 +86,7 @@ const InviteAcceptance = ({ invitation }: InviteAcceptanceProps) => {
               </svg>
             </div>
             <h1 className="mb-2 text-3xl font-bold text-white">
-              You're Invited!
+              You&apos;re Invited!
             </h1>
             <p className="text-white/70">Join your team on Cosmic Portals</p>
           </div>
@@ -196,12 +196,12 @@ const InviteAcceptance = ({ invitation }: InviteAcceptanceProps) => {
                 {loading ? 'Accepting...' : 'Accept Invitation'}
               </button>
             ) : (
-              <a
+              <Link
                 href="/sign-in"
                 className="flex-1 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 text-center font-semibold text-white transition-all duration-300 hover:from-purple-700 hover:to-blue-700"
               >
                 Sign In to Accept
-              </a>
+              </Link>
             )}
 
             <button

@@ -125,7 +125,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
   const addComponent = (type: string) => {
     const newComponent: PageComponent = {
       id: `${type}-${Date.now()}`,
-      type: type as any,
+      type: type as string,
       position: components.length,
       data: getDefaultData(type),
     };
