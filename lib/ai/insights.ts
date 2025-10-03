@@ -326,7 +326,7 @@ export class AIInsightsService {
   /**
    * Fallback basic trend analysis
    */
-  private generateBasicTrendAnalysis(data: any): TrendAnalysis {
+  private generateBasicTrendAnalysis(_data: Record<string, unknown>): TrendAnalysis {
     return {
       period: '30d',
       engagement_trend: 'stable',
@@ -343,11 +343,11 @@ export class AIInsightsService {
   /**
    * Fallback basic predictions
    */
-  private generateBasicPredictions(data: any): PredictiveAnalytics {
+  private generateBasicPredictions(_data: Record<string, unknown>): PredictiveAnalytics {
     return {
       next_month_predictions: {
-        expected_events: Math.round(data.total_events * 1.1),
-        expected_scans: Math.round(data.total_scans * 1.1),
+        expected_events: Math.round((_data.total_events as number) * 1.1),
+        expected_scans: Math.round((_data.total_scans as number) * 1.1),
         expected_revenue: 0,
       },
       risk_factors: [],

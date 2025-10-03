@@ -61,19 +61,19 @@ export async function getUserOrganizationData(
     }
 
     // Get NFC devices for this organization
-    const { data: nfcDevices, error: devicesError } = await supabase
+    const { data: nfcDevices, error: _devicesError } = await supabase
       .from('nfc_devices')
       .select('*')
       .eq('organization_id', user.organization_id);
 
     // Get events for this organization
-    const { data: events, error: eventsError } = await supabase
+    const { data: events, error: _eventsError } = await supabase
       .from('events')
       .select('*')
       .eq('organization_id', user.organization_id);
 
     // Get attendees for this organization
-    const { data: attendees, error: attendeesError } = await supabase
+    const { data: attendees, error: _attendeesError } = await supabase
       .from('attendees')
       .select('*')
       .eq('organization_id', user.organization_id);

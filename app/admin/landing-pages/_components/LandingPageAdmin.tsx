@@ -150,7 +150,7 @@ const LandingPageAdmin = () => {
       }
 
       // Create the landing page in the database
-      const { data: pageData } = await supabase
+      const { data: _pageData } = await supabase
         .from('landing_pages')
         .insert({
           organization_id: userData.organization_id,

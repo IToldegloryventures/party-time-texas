@@ -81,7 +81,7 @@ export class ComplianceService {
    */
   async getUserConsent(
     userId: string,
-    organizationId: string
+    _organizationId: string
   ): Promise<CookieConsent> {
     const { data: consents } = await this.supabase
       .from('consent_records')
@@ -198,7 +198,7 @@ export class ComplianceService {
    */
   private async generateDataExport(
     userId: string,
-    organizationId: string
+    _organizationId: string
   ): Promise<any> {
     const [userData, events, scans, analytics] = await Promise.all([
       this.supabase.from('users').select('*').eq('id', userId).single(),
@@ -224,7 +224,7 @@ export class ComplianceService {
    */
   private async generateDataPortability(
     userId: string,
-    organizationId: string
+    _organizationId: string
   ): Promise<any> {
     const exportData = await this.generateDataExport(userId, organizationId);
 
@@ -241,7 +241,7 @@ export class ComplianceService {
    */
   private async executeDataErasure(
     userId: string,
-    organizationId: string
+    _organizationId: string
   ): Promise<void> {
     // Delete user data across all tables
     await Promise.all([
@@ -261,7 +261,7 @@ export class ComplianceService {
    */
   private async restrictDataProcessing(
     userId: string,
-    organizationId: string
+    _organizationId: string
   ): Promise<void> {
     // Mark user as restricted
     await this.supabase

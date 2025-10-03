@@ -70,7 +70,7 @@ export class ReportingService {
     const event = await this.eventService.getEvent(eventId);
     if (!event) throw new Error('Event not found');
 
-    const attendees = await this.eventService.getEventAttendees(eventId);
+    const _attendees = await this.eventService.getEventAttendees(eventId);
     const stats = await this.eventService.getEventStats(eventId);
     const photos = await this.eventService.getEventPhotoGallery(eventId);
 
@@ -87,9 +87,9 @@ export class ReportingService {
     };
 
     // Generate highlights
-    const highlights = this.generateEventHighlights(stats, attendees, photos);
+    const highlights = this.generateEventHighlights(stats, _attendees, photos);
 
-    const recapPage: RecapPage = {
+    const _recapPage: RecapPage = {
       event_id: eventId,
       organization_id: event.organization_id,
       page_url: `${process.env.NEXT_PUBLIC_APP_URL}/recap/${eventId}`,
@@ -124,9 +124,9 @@ export class ReportingService {
     };
 
     // Store recap page
-    await this.supabase.from('recap_pages').insert(recapPage);
+    await this.supabase.from('recap_pages').insert(_recapPage);
 
-    return recapPage;
+    return _recapPage;
   }
 
   /**
@@ -139,9 +139,9 @@ export class ReportingService {
     const event = await this.eventService.getEvent(eventId);
     if (!event) throw new Error('Event not found');
 
-    const attendees = await this.eventService.getEventAttendees(eventId);
+    const _attendees = await this.eventService.getEventAttendees(eventId);
     const stats = await this.eventService.getEventStats(eventId);
-    const analytics = await this.analyticsService.getDashboardData(
+    const _analytics = await this.analyticsService.getDashboardData(
       event.organization_id
     );
 
@@ -210,7 +210,7 @@ export class ReportingService {
 
     // Upload to Supabase Storage
     const fileName = `event-report-${report.event_id}-${Date.now()}.pdf`;
-    const { data: uploadData, error: uploadError } = await this.supabase.storage
+    const { data: _uploadData, error: uploadError } = await this.supabase.storage
       .from('reports')
       .upload(fileName, pdfBuffer, {
         contentType: 'application/pdf',
@@ -235,18 +235,18 @@ export class ReportingService {
     const event = await this.eventService.getEvent(eventId);
     if (!event) throw new Error('Event not found');
 
-    const attendees = await this.eventService.getEventAttendees(eventId);
-    const recapPage = await this.generateEventRecap(eventId);
+    const _attendees = await this.eventService.getEventAttendees(eventId);
+    const _recapPage = await this.generateEventRecap(eventId);
 
     // Send emails to attendees
-    for (const attendee of attendees) {
+    for (const attendee of _attendees) {
       if (attendee.email) {
-        await this.sendAttendeeEmail(attendee, event, recapPage);
+        await this.sendAttendeeEmail(attendee, event, _recapPage);
       }
     }
 
     // Send summary email to event organizer
-    await this.sendOrganizerEmail(event, recapPage, attendees);
+    await this.sendOrganizerEmail(event, _recapPage, _attendees);
   }
 
   /**

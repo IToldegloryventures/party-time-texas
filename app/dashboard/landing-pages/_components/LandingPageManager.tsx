@@ -2,7 +2,7 @@
 
 import { useUser } from '@clerk/nextjs';
 import { useEffect, useState } from 'react';
-import { getUserOrganizationData } from '@/lib/supabase/user-org';
+// import { getUserOrganizationData } from '@/lib/supabase/user-org';
 
 const LandingPageManager = () => {
   const { user, isLoaded } = useUser();

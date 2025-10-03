@@ -132,7 +132,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
     setComponents([...components, newComponent]);
   };
 
-  const getDefaultData = (type: string) => {
+  const getDefaultData = (type: string): Record<string, unknown> => {
     switch (type) {
       case 'hero':
         return {

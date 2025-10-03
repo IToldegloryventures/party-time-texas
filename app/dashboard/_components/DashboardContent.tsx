@@ -3,7 +3,7 @@
 import { useUser } from '@clerk/nextjs';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-// import Link from 'next/link';
+import Link from 'next/link';
 import PaymentSuccess from '@/components/PaymentSuccess';
 import {
   getUserOrganizationData,

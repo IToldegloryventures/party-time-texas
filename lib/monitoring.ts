@@ -202,7 +202,7 @@ export class MonitoringService {
     // This would integrate with Redis for rate limiting
     // For now, return a simple implementation
     const now = Date.now();
-    const window_start = now - config.window_ms;
+    // const window_start = now - config.window_ms;
 
     // In a real implementation, this would check Redis
     // For now, simulate rate limiting

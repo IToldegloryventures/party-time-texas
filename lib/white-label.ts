@@ -243,7 +243,7 @@ export class WhiteLabelService {
         valid: true,
         available: true,
       };
-    } catch (error) {
+    } catch (_error) {
       return {
         valid: false,
         available: false,

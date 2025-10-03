@@ -1,5 +1,5 @@
 import { supabase } from './supabase/client';
-import { supabaseAdmin } from './supabase/client';
+// import { supabaseAdmin } from './supabase/client';
 
 export interface TeamMember {
   id: string;
@@ -241,7 +241,7 @@ export class TeamManagementService {
       }
 
       // Create user record
-      const { data: user, error: userError } = await supabase
+      const { data: _user, error: userError } = await supabase
         .from('users')
         .insert({
           clerk_id: clerkId,

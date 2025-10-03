@@ -9,12 +9,11 @@ import {
 } from '@/lib/team-management';
 import { supabase } from '@/lib/supabase/client';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-interface TeamManagementProps {
-  // Add props as needed
-}
+// interface TeamManagementProps {
+//   // Add props as needed
+// }
 
-const TeamManagement = (_props: TeamManagementProps) => {
+const TeamManagement = () => {
   const { user, isLoaded } = useUser();
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
   const [pendingInvitations, setPendingInvitations] = useState<

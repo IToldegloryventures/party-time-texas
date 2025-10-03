@@ -422,7 +422,7 @@ export class CommunityPricingService {
   calculateCommunityPricing(
     basePrice: number,
     organizationType: string,
-    organizationSize: string
+    _organizationSize: string
   ): {
     original_price: number;
     discount_percentage: number;
