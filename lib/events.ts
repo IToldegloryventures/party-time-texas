@@ -20,7 +20,7 @@ export interface Event {
   end_date?: string;
   location?: string;
   status: 'draft' | 'published' | 'live' | 'completed' | 'cancelled';
-  settings: Record<string, any>;
+  settings: Record<string, unknown>;
   created_at: string;
   updated_at: string;
 }
@@ -38,7 +38,7 @@ export interface Attendee {
   plus_ones: number;
   meal_choice?: string;
   dietary_restrictions?: string;
-  metadata: Record<string, any>;
+  metadata: Record<string, unknown>;
   created_at: string;
   updated_at: string;
 }
@@ -65,7 +65,7 @@ export class EventService {
     start_date?: string;
     end_date?: string;
     location?: string;
-    settings?: Record<string, any>;
+    settings?: Record<string, unknown>;
   }): Promise<Event> {
     const { data: event, error } = await this.supabase
       .from('events')
@@ -142,7 +142,7 @@ export class EventService {
     plus_ones?: number;
     meal_choice?: string;
     dietary_restrictions?: string;
-    metadata?: Record<string, any>;
+    metadata?: Record<string, unknown>;
   }): Promise<Attendee> {
     const { data: attendee, error } = await this.supabase
       .from('attendees')

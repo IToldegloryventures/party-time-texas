@@ -18,8 +18,8 @@ export interface AnalyticsEvent {
   device_type?: string;
   browser?: string;
   os?: string;
-  location?: Record<string, any>;
-  custom_data?: Record<string, any>;
+  location?: Record<string, unknown>;
+  custom_data?: Record<string, unknown>;
   created_at: string;
 }
 
@@ -61,8 +61,8 @@ export class AnalyticsService {
     device_type?: string;
     browser?: string;
     os?: string;
-    location?: Record<string, any>;
-    custom_data?: Record<string, any>;
+    location?: Record<string, unknown>;
+    custom_data?: Record<string, unknown>;
   }): Promise<AnalyticsEvent> {
     const { data: event, error } = await this.supabase
       .from('analytics_events')

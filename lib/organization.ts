@@ -10,7 +10,7 @@ export interface Organization {
   slug: string;
   plan_type: 'starter' | 'professional' | 'enterprise';
   subscription_status: 'active' | 'inactive' | 'cancelled';
-  settings: Record<string, any>;
+  settings: Record<string, unknown>;
   created_at: string;
   updated_at: string;
 }
@@ -23,7 +23,7 @@ export interface User {
   first_name?: string;
   last_name?: string;
   role: 'owner' | 'admin' | 'member' | 'viewer';
-  permissions: Record<string, any>;
+  permissions: Record<string, unknown>;
   created_at: string;
   updated_at: string;
 }

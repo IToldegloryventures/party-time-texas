@@ -178,8 +178,8 @@ export const recordPageScan = async (
   scanData: {
     ip_address?: string;
     user_agent?: string;
-    location_data?: Record<string, any>;
-    utm_params?: Record<string, any>;
+    location_data?: Record<string, unknown>;
+    utm_params?: Record<string, unknown>;
     referrer?: string;
   }
 ) => {

@@ -10,7 +10,7 @@ export interface HealthCheck {
   status: 'healthy' | 'degraded' | 'unhealthy';
   response_time: number;
   last_check: string;
-  details?: Record<string, any>;
+  details?: Record<string, unknown>;
 }
 
 export interface RateLimitConfig {
@@ -249,7 +249,7 @@ export class MonitoringService {
       organization_id?: string;
       endpoint?: string;
       method?: string;
-      additional_data?: Record<string, any>;
+      additional_data?: Record<string, unknown>;
     }
   ): Promise<void> {
     try {

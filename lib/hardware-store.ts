@@ -115,7 +115,7 @@ export class HardwareStoreService {
   async createOrder(data: {
     organization_id: string;
     customer_email: string;
-    shipping_address: any;
+    shipping_address: Record<string, unknown>;
     items: Array<{
       product_id: string;
       quantity: number;
@@ -245,7 +245,7 @@ export class HardwareStoreService {
   /**
    * Calculate shipping cost
    */
-  private calculateShippingCost(subtotal: number, address: any): number {
+  private calculateShippingCost(subtotal: number, address: Record<string, unknown>): number {
     // Free shipping over $100
     if (subtotal >= 100) return 0;
 
@@ -259,7 +259,7 @@ export class HardwareStoreService {
   /**
    * Calculate tax
    */
-  private calculateTax(subtotal: number, address: any): number {
+  private calculateTax(subtotal: number, address: Record<string, unknown>): number {
     // Simplified tax calculation
     const taxRates: Record<string, number> = {
       CA: 0.0875,
@@ -367,7 +367,7 @@ export class HardwareStoreService {
   /**
    * Calculate estimated delivery
    */
-  private calculateEstimatedDelivery(address: any): string {
+  private calculateEstimatedDelivery(address: Record<string, unknown>): string {
     const deliveryDate = new Date();
     deliveryDate.setDate(
       deliveryDate.getDate() + (address.country === 'US' ? 3 : 7)

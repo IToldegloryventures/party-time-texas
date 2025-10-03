@@ -12,7 +12,7 @@ export interface NFCDevice {
   status: 'active' | 'inactive' | 'maintenance';
   last_scan?: string;
   scan_count: number;
-  metadata: Record<string, any>;
+  metadata: Record<string, unknown>;
   created_at: string;
   updated_at: string;
 }
@@ -26,8 +26,8 @@ export interface NFCScan {
   scan_type: 'nfc_tap' | 'qr_scan' | 'link_click';
   ip_address?: string;
   user_agent?: string;
-  location_data?: Record<string, any>;
-  utm_params?: Record<string, any>;
+  location_data?: Record<string, unknown>;
+  utm_params?: Record<string, unknown>;
   referrer?: string;
   created_at: string;
 }
@@ -42,7 +42,7 @@ export class NFCService {
     organization_id: string;
     device_id: string;
     device_type: string;
-    metadata?: Record<string, any>;
+    metadata?: Record<string, unknown>;
   }): Promise<NFCDevice> {
     const { data: device, error } = await this.supabase
       .from('nfc_devices')
@@ -118,8 +118,8 @@ export class NFCService {
     scan_type: string;
     ip_address?: string;
     user_agent?: string;
-    location_data?: Record<string, any>;
-    utm_params?: Record<string, any>;
+    location_data?: Record<string, unknown>;
+    utm_params?: Record<string, unknown>;
     referrer?: string;
   }): Promise<NFCScan> {
     // Record the scan

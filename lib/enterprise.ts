@@ -398,7 +398,7 @@ export class EnterpriseService {
     recognitions: Recognition[];
     onboarding_tasks: OnboardingTask[];
     available_portals: InternalPortal[];
-    recent_activity: any[];
+    recent_activity: Record<string, unknown>[];
   }> {
     const [employee, recognitions, onboardingTasks, portals] =
       await Promise.all([

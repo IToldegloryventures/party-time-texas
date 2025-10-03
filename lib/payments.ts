@@ -369,7 +369,7 @@ export class PaymentService {
     invoice_number: string;
     period: { start: string; end: string };
     subscription: Subscription;
-    usage: any;
+    usage: Record<string, unknown>;
     overages: Record<string, number>;
     total_amount: number;
     line_items: Array<{

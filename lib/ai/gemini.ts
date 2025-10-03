@@ -12,7 +12,7 @@ export interface AnalysisOptions {
 export interface AnalysisResult {
   summary?: string;
   keyPoints?: string[];
-  extractedData?: any;
+  extractedData?: Record<string, unknown>;
   sentiment?: 'positive' | 'negative' | 'neutral';
   wordCount: number;
   processingTime: number;

@@ -32,7 +32,7 @@ export interface DataSubjectRequest {
   description: string;
   requested_at: string;
   completed_at?: string;
-  response_data?: any;
+  response_data?: Record<string, unknown>;
 }
 
 export interface CookieConsent {
@@ -40,7 +40,7 @@ export interface CookieConsent {
   functional: boolean;
   analytics: boolean;
   marketing: boolean;
-  preferences: Record<string, any>;
+  preferences: Record<string, unknown>;
 }
 
 export class ComplianceService {
@@ -146,7 +146,7 @@ export class ComplianceService {
 
     if (!request) throw new Error('Request not found');
 
-    let responseData: any = {};
+    let responseData: Record<string, unknown> = {};
 
     switch (request.request_type) {
       case 'access':
@@ -199,7 +199,7 @@ export class ComplianceService {
   private async generateDataExport(
     userId: string,
     _organizationId: string
-  ): Promise<any> {
+  ): Promise<Record<string, unknown>> {
     const [userData, events, scans, analytics] = await Promise.all([
       this.supabase.from('users').select('*').eq('id', userId).single(),
       this.supabase
@@ -225,7 +225,7 @@ export class ComplianceService {
   private async generateDataPortability(
     userId: string,
     _organizationId: string
-  ): Promise<any> {
+  ): Promise<Record<string, unknown>> {
     const exportData = await this.generateDataExport(userId, organizationId);
 
     return {
