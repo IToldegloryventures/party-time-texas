@@ -209,7 +209,7 @@ const NFCDiscovery = () => {
                 <li>
                   Your keychain will be added to your Party Time Texas account
                 </li>
-                <li>You'll be able to track scans and engagement analytics</li>
+                <li>You&apos;ll be able to track scans and engagement analytics</li>
                 <li>Generate QR codes and NFC URLs for your device</li>
                 <li>View real-time analytics in your dashboard</li>
               </ul>
@@ -244,8 +244,8 @@ const NFCDiscovery = () => {
                     className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
                   />
                   <p className="mt-1 text-xs text-white/50">
-                    If you don&apos;t know your NFC device ID, we&apos;ll generate one for
-                    you
+                    If you don&apos;t know your NFC device ID, we&apos;ll
+                    generate one for you
                   </p>
                 </div>
                 <button

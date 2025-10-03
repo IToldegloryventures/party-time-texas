@@ -279,7 +279,9 @@ export class AIInsightsService {
   /**
    * Get historical data for predictions
    */
-  private async getHistoricalData(organizationId: string): Promise<Record<string, unknown>> {
+  private async getHistoricalData(
+    organizationId: string
+  ): Promise<Record<string, unknown>> {
     const sixMonthsAgo = new Date();
     sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
 
@@ -326,7 +328,9 @@ export class AIInsightsService {
   /**
    * Fallback basic trend analysis
    */
-  private generateBasicTrendAnalysis(_data: Record<string, unknown>): TrendAnalysis {
+  private generateBasicTrendAnalysis(
+    _data: Record<string, unknown>
+  ): TrendAnalysis {
     return {
       period: '30d',
       engagement_trend: 'stable',
@@ -343,7 +347,9 @@ export class AIInsightsService {
   /**
    * Fallback basic predictions
    */
-  private generateBasicPredictions(_data: Record<string, unknown>): PredictiveAnalytics {
+  private generateBasicPredictions(
+    _data: Record<string, unknown>
+  ): PredictiveAnalytics {
     return {
       next_month_predictions: {
         expected_events: Math.round((_data.total_events as number) * 1.1),

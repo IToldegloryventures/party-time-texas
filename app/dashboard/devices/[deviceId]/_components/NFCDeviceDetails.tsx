@@ -14,7 +14,9 @@ const NFCDeviceDetails = ({ deviceId }: NFCDeviceDetailsProps) => {
   const { user, isLoaded } = useUser();
   // const [orgData, setOrgData] = useState<Record<string, unknown> | null>(null);
   const [device, setDevice] = useState<Record<string, unknown> | null>(null);
-  const [analytics, setAnalytics] = useState<Record<string, unknown> | null>(null);
+  const [analytics, setAnalytics] = useState<Record<string, unknown> | null>(
+    null
+  );
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -78,8 +80,8 @@ const NFCDeviceDetails = ({ deviceId }: NFCDeviceDetailsProps) => {
             Device Not Found
           </h1>
           <p className="mb-8 text-white/70">
-            The NFC device you&apos;re looking for doesn&apos;t exist or you don&apos;t have
-            access to it.
+            The NFC device you&apos;re looking for doesn&apos;t exist or you
+            don&apos;t have access to it.
           </p>
           <Link
             href="/dashboard/devices"
