@@ -1,13 +1,13 @@
 // Cosmic Portals NFC Scan Tracking Script
 // Add this to your link.bio page to track scans
 
-(function() {
+(function () {
   'use strict';
-  
+
   // Configuration
   const DEVICE_ID = '04:70:94:EA:9F:20:90'; // Your NFC Tag ID
   const TRACKING_URL = 'https://192.168.0.178:3000/api/track-scan'; // Your Cosmic Portals URL
-  
+
   // Track the scan
   function trackScan() {
     const metadata = {
@@ -15,7 +15,7 @@
       utm: getUTMParams(),
       referrer: document.referrer,
       timestamp: new Date().toISOString(),
-      page: window.location.href
+      page: window.location.href,
     };
 
     fetch(TRACKING_URL, {
@@ -26,16 +26,16 @@
       body: JSON.stringify({
         deviceId: DEVICE_ID,
         scanType: 'nfc_tap',
-        metadata: metadata
+        metadata: metadata,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Scan tracked successfully:', data);
       })
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Scan tracked successfully:', data);
-    })
-    .catch(error => {
-      console.error('Error tracking scan:', error);
-    });
+      .catch(error => {
+        console.error('Error tracking scan:', error);
+      });
   }
 
   // Get location data if available
@@ -55,7 +55,7 @@
       utm_medium: urlParams.get('utm_medium'),
       utm_campaign: urlParams.get('utm_campaign'),
       utm_term: urlParams.get('utm_term'),
-      urlm_content: urlParams.get('utm_content')
+      urlm_content: urlParams.get('utm_content'),
     };
   }
 
@@ -63,10 +63,9 @@
   trackScan();
 
   // Also track on page visibility change (in case user switches tabs)
-  document.addEventListener('visibilitychange', function() {
+  document.addEventListener('visibilitychange', function () {
     if (!document.hidden) {
       trackScan();
     }
   });
-
 })();

@@ -44,7 +44,7 @@ export class OrganizationService {
         slug: data.slug,
         plan_type: data.plan_type || 'starter',
         settings: {},
-        white_label_config: {}
+        white_label_config: {},
       })
       .select()
       .single();

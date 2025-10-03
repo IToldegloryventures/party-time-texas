@@ -12,22 +12,23 @@ const LandingPageBuilder = () => {
     name: 'Party Time Texas Landing Page',
     title: 'Welcome to Party Time Texas!',
     subtitle: 'Your premier event planning and corporate entertainment company',
-    description: 'We specialize in creating unforgettable experiences for corporate events, private parties, and special occasions throughout Texas.',
+    description:
+      'We specialize in creating unforgettable experiences for corporate events, private parties, and special occasions throughout Texas.',
     contact: {
       email: 'ashton@partytimetexas.com',
       phone: '(555) 123-4567',
-      website: 'https://partytimetexas.com'
+      website: 'https://partytimetexas.com',
     },
     social: {
       facebook: 'https://facebook.com/partytimetexas',
       instagram: 'https://instagram.com/partytimetexas',
-      linkedin: 'https://linkedin.com/company/partytimetexas'
+      linkedin: 'https://linkedin.com/company/partytimetexas',
     },
     branding: {
       primaryColor: '#FF1E56',
       secondaryColor: '#FF00FF',
-      accentColor: '#00FFFF'
-    }
+      accentColor: '#00FFFF',
+    },
   });
 
   useEffect(() => {
@@ -49,15 +50,66 @@ const LandingPageBuilder = () => {
   };
 
   const handleSave = async () => {
-    // In real app, this would save to database
-    console.log('Saving landing page:', pageData);
-    alert('Landing page saved! (This would save to database in production)');
+    try {
+      // For now, we'll create a new page since we don't have an ID
+      const response = await fetch('/api/landing-pages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: pageData.name,
+          title: pageData.title,
+          slug: pageData.name.toLowerCase().replace(/\s+/g, '-'),
+          content: pageData,
+          status: 'draft',
+        }),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log('Landing page saved:', result);
+        alert('Landing page saved successfully!');
+      } else {
+        console.error('Failed to save landing page');
+        alert('Failed to save landing page. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error saving landing page:', error);
+      alert('Error saving landing page. Please try again.');
+    }
   };
 
   const handlePublish = async () => {
-    // In real app, this would publish the page
-    console.log('Publishing landing page:', pageData);
-    alert('Landing page published! (This would make it live in production)');
+    try {
+      // For now, we'll create a new page since we don't have an ID
+      const response = await fetch('/api/landing-pages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: pageData.name,
+          title: pageData.title,
+          slug: pageData.name.toLowerCase().replace(/\s+/g, '-'),
+          content: pageData,
+          status: 'published',
+          is_published: true,
+        }),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log('Landing page published:', result);
+        alert('Landing page published successfully!');
+      } else {
+        console.error('Failed to publish landing page');
+        alert('Failed to publish landing page. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error publishing landing page:', error);
+      alert('Error publishing landing page. Please try again.');
+    }
   };
 
   const handlePreview = () => {
@@ -68,9 +120,9 @@ const LandingPageBuilder = () => {
 
   if (!isLoaded || loading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="flex min-h-screen items-center justify-center bg-black">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-400 mx-auto mb-4"></div>
+          <div className="mx-auto mb-4 h-12 w-12 animate-spin rounded-full border-b-2 border-purple-400"></div>
           <p className="text-white/70">Loading builder...</p>
         </div>
       </div>
@@ -79,10 +131,10 @@ const LandingPageBuilder = () => {
 
   return (
     <div className="min-h-screen bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-200 mb-4">
+          <h1 className="mb-4 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-4xl font-bold text-transparent">
             Landing Page Builder
           </h1>
           <p className="text-xl text-white/70">
@@ -90,166 +142,280 @@ const LandingPageBuilder = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           {/* Builder Panel */}
           <div className="space-y-6">
-            <div className="bg-gray-900/50 border border-gray-600/30 rounded-xl p-6">
-              <h3 className="text-lg font-semibold text-white mb-4">Page Settings</h3>
-              
+            <div className="rounded-xl border border-gray-600/30 bg-gray-900/50 p-6">
+              <h3 className="mb-4 text-lg font-semibold text-white">
+                Page Settings
+              </h3>
+
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-white/70 mb-2">Page Name</label>
+                  <label className="mb-2 block text-sm font-medium text-white/70">
+                    Page Name
+                  </label>
                   <input
                     type="text"
                     value={pageData.name}
-                    onChange={(e) => setPageData({...pageData, name: e.target.value})}
-                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
+                    onChange={e =>
+                      setPageData({ ...pageData, name: e.target.value })
+                    }
+                    className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-white/70 mb-2">Title</label>
+                  <label className="mb-2 block text-sm font-medium text-white/70">
+                    Title
+                  </label>
                   <input
                     type="text"
                     value={pageData.title}
-                    onChange={(e) => setPageData({...pageData, title: e.target.value})}
-                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
+                    onChange={e =>
+                      setPageData({ ...pageData, title: e.target.value })
+                    }
+                    className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-white/70 mb-2">Subtitle</label>
+                  <label className="mb-2 block text-sm font-medium text-white/70">
+                    Subtitle
+                  </label>
                   <input
                     type="text"
                     value={pageData.subtitle}
-                    onChange={(e) => setPageData({...pageData, subtitle: e.target.value})}
-                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
+                    onChange={e =>
+                      setPageData({ ...pageData, subtitle: e.target.value })
+                    }
+                    className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-white/70 mb-2">Description</label>
+                  <label className="mb-2 block text-sm font-medium text-white/70">
+                    Description
+                  </label>
                   <textarea
                     value={pageData.description}
-                    onChange={(e) => setPageData({...pageData, description: e.target.value})}
+                    onChange={e =>
+                      setPageData({ ...pageData, description: e.target.value })
+                    }
                     rows={3}
-                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
+                    className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
                   />
                 </div>
               </div>
             </div>
 
             {/* Contact Information */}
-            <div className="bg-gray-900/50 border border-gray-600/30 rounded-xl p-6">
-              <h3 className="text-lg font-semibold text-white mb-4">Contact Information</h3>
-              
+            <div className="rounded-xl border border-gray-600/30 bg-gray-900/50 p-6">
+              <h3 className="mb-4 text-lg font-semibold text-white">
+                Contact Information
+              </h3>
+
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-white/70 mb-2">Email</label>
+                  <label className="mb-2 block text-sm font-medium text-white/70">
+                    Email
+                  </label>
                   <input
                     type="email"
                     value={pageData.contact.email}
-                    onChange={(e) => setPageData({...pageData, contact: {...pageData.contact, email: e.target.value}})}
-                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
+                    onChange={e =>
+                      setPageData({
+                        ...pageData,
+                        contact: { ...pageData.contact, email: e.target.value },
+                      })
+                    }
+                    className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-white/70 mb-2">Phone</label>
+                  <label className="mb-2 block text-sm font-medium text-white/70">
+                    Phone
+                  </label>
                   <input
                     type="tel"
                     value={pageData.contact.phone}
-                    onChange={(e) => setPageData({...pageData, contact: {...pageData.contact, phone: e.target.value}})}
-                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
+                    onChange={e =>
+                      setPageData({
+                        ...pageData,
+                        contact: { ...pageData.contact, phone: e.target.value },
+                      })
+                    }
+                    className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-white/70 mb-2">Website</label>
+                  <label className="mb-2 block text-sm font-medium text-white/70">
+                    Website
+                  </label>
                   <input
                     type="url"
                     value={pageData.contact.website}
-                    onChange={(e) => setPageData({...pageData, contact: {...pageData.contact, website: e.target.value}})}
-                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
+                    onChange={e =>
+                      setPageData({
+                        ...pageData,
+                        contact: {
+                          ...pageData.contact,
+                          website: e.target.value,
+                        },
+                      })
+                    }
+                    className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
                   />
                 </div>
               </div>
             </div>
 
             {/* Social Media */}
-            <div className="bg-gray-900/50 border border-gray-600/30 rounded-xl p-6">
-              <h3 className="text-lg font-semibold text-white mb-4">Social Media Links</h3>
-              
+            <div className="rounded-xl border border-gray-600/30 bg-gray-900/50 p-6">
+              <h3 className="mb-4 text-lg font-semibold text-white">
+                Social Media Links
+              </h3>
+
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-white/70 mb-2">Facebook</label>
+                  <label className="mb-2 block text-sm font-medium text-white/70">
+                    Facebook
+                  </label>
                   <input
                     type="url"
                     value={pageData.social.facebook}
-                    onChange={(e) => setPageData({...pageData, social: {...pageData.social, facebook: e.target.value}})}
-                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
+                    onChange={e =>
+                      setPageData({
+                        ...pageData,
+                        social: {
+                          ...pageData.social,
+                          facebook: e.target.value,
+                        },
+                      })
+                    }
+                    className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-white/70 mb-2">Instagram</label>
+                  <label className="mb-2 block text-sm font-medium text-white/70">
+                    Instagram
+                  </label>
                   <input
                     type="url"
                     value={pageData.social.instagram}
-                    onChange={(e) => setPageData({...pageData, social: {...pageData.social, instagram: e.target.value}})}
-                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
+                    onChange={e =>
+                      setPageData({
+                        ...pageData,
+                        social: {
+                          ...pageData.social,
+                          instagram: e.target.value,
+                        },
+                      })
+                    }
+                    className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-white/70 mb-2">LinkedIn</label>
+                  <label className="mb-2 block text-sm font-medium text-white/70">
+                    LinkedIn
+                  </label>
                   <input
                     type="url"
                     value={pageData.social.linkedin}
-                    onChange={(e) => setPageData({...pageData, social: {...pageData.social, linkedin: e.target.value}})}
-                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
+                    onChange={e =>
+                      setPageData({
+                        ...pageData,
+                        social: {
+                          ...pageData.social,
+                          linkedin: e.target.value,
+                        },
+                      })
+                    }
+                    className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
                   />
                 </div>
               </div>
             </div>
 
             {/* Branding Colors */}
-            <div className="bg-gray-900/50 border border-gray-600/30 rounded-xl p-6">
-              <h3 className="text-lg font-semibold text-white mb-4">Branding Colors</h3>
-              
+            <div className="rounded-xl border border-gray-600/30 bg-gray-900/50 p-6">
+              <h3 className="mb-4 text-lg font-semibold text-white">
+                Branding Colors
+              </h3>
+
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-white/70 mb-2">Primary Color</label>
+                  <label className="mb-2 block text-sm font-medium text-white/70">
+                    Primary Color
+                  </label>
                   <div className="flex items-center gap-3">
                     <input
                       type="color"
                       value={pageData.branding.primaryColor}
-                      onChange={(e) => setPageData({...pageData, branding: {...pageData.branding, primaryColor: e.target.value}})}
-                      className="w-12 h-10 rounded border border-gray-600"
+                      onChange={e =>
+                        setPageData({
+                          ...pageData,
+                          branding: {
+                            ...pageData.branding,
+                            primaryColor: e.target.value,
+                          },
+                        })
+                      }
+                      className="h-10 w-12 rounded border border-gray-600"
                     />
                     <input
                       type="text"
                       value={pageData.branding.primaryColor}
-                      onChange={(e) => setPageData({...pageData, branding: {...pageData.branding, primaryColor: e.target.value}})}
-                      className="flex-1 px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
+                      onChange={e =>
+                        setPageData({
+                          ...pageData,
+                          branding: {
+                            ...pageData.branding,
+                            primaryColor: e.target.value,
+                          },
+                        })
+                      }
+                      className="flex-1 rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-white/70 mb-2">Secondary Color</label>
+                  <label className="mb-2 block text-sm font-medium text-white/70">
+                    Secondary Color
+                  </label>
                   <div className="flex items-center gap-3">
                     <input
                       type="color"
                       value={pageData.branding.secondaryColor}
-                      onChange={(e) => setPageData({...pageData, branding: {...pageData.branding, secondaryColor: e.target.value}})}
-                      className="w-12 h-10 rounded border border-gray-600"
+                      onChange={e =>
+                        setPageData({
+                          ...pageData,
+                          branding: {
+                            ...pageData.branding,
+                            secondaryColor: e.target.value,
+                          },
+                        })
+                      }
+                      className="h-10 w-12 rounded border border-gray-600"
                     />
                     <input
                       type="text"
                       value={pageData.branding.secondaryColor}
-                      onChange={(e) => setPageData({...pageData, branding: {...pageData.branding, secondaryColor: e.target.value}})}
-                      className="flex-1 px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
+                      onChange={e =>
+                        setPageData({
+                          ...pageData,
+                          branding: {
+                            ...pageData.branding,
+                            secondaryColor: e.target.value,
+                          },
+                        })
+                      }
+                      className="flex-1 rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
                     />
                   </div>
                 </div>
@@ -260,19 +426,19 @@ const LandingPageBuilder = () => {
             <div className="flex gap-4">
               <button
                 onClick={handleSave}
-                className="px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold rounded-lg transition-all duration-300"
+                className="rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 font-semibold text-white transition-all duration-300 hover:from-purple-700 hover:to-blue-700"
               >
                 Save Draft
               </button>
               <button
                 onClick={handlePublish}
-                className="px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold rounded-lg transition-all duration-300"
+                className="rounded-lg bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-3 font-semibold text-white transition-all duration-300 hover:from-green-700 hover:to-emerald-700"
               >
                 Publish Page
               </button>
               <button
                 onClick={handlePreview}
-                className="px-6 py-3 bg-gray-600 hover:bg-gray-700 text-white font-semibold rounded-lg transition-colors duration-300"
+                className="rounded-lg bg-gray-600 px-6 py-3 font-semibold text-white transition-colors duration-300 hover:bg-gray-700"
               >
                 Preview
               </button>
@@ -280,14 +446,20 @@ const LandingPageBuilder = () => {
           </div>
 
           {/* Preview Panel */}
-          <div className="bg-gray-900/30 border border-gray-600/30 rounded-xl p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">Live Preview</h3>
-            <div className="bg-black rounded-lg p-4 min-h-[400px]">
+          <div className="rounded-xl border border-gray-600/30 bg-gray-900/30 p-6">
+            <h3 className="mb-4 text-lg font-semibold text-white">
+              Live Preview
+            </h3>
+            <div className="min-h-[400px] rounded-lg bg-black p-4">
               <div className="text-center">
-                <h1 className="text-2xl font-bold text-white mb-2">{pageData.title}</h1>
-                <p className="text-purple-300 mb-4">{pageData.subtitle}</p>
-                <p className="text-white/70 text-sm mb-6">{pageData.description}</p>
-                
+                <h1 className="mb-2 text-2xl font-bold text-white">
+                  {pageData.title}
+                </h1>
+                <p className="mb-4 text-purple-300">{pageData.subtitle}</p>
+                <p className="mb-6 text-sm text-white/70">
+                  {pageData.description}
+                </p>
+
                 <div className="space-y-2 text-sm text-white/60">
                   <p>📧 {pageData.contact.email}</p>
                   <p>📞 {pageData.contact.phone}</p>

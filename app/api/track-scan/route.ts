@@ -1,18 +1,28 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase/client';
+import { geolocationService } from '@/lib/geolocation';
 
 export async function POST(request: NextRequest) {
   try {
-    const { deviceId, scanType = 'nfc_tap', metadata = {} } = await request.json();
+    const {
+      deviceId,
+      scanType = 'nfc_tap',
+      metadata = {},
+      locationData = null,
+    } = await request.json();
 
     if (!deviceId) {
-      return NextResponse.json({ error: 'Device ID is required' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Device ID is required' },
+        { status: 400 }
+      );
     }
 
     // Get client IP
-    const ip = request.headers.get('x-forwarded-for') || 
-               request.headers.get('x-real-ip') || 
-               'unknown';
+    const ip =
+      request.headers.get('x-forwarded-for') ||
+      request.headers.get('x-real-ip') ||
+      'unknown';
 
     // Get user agent
     const userAgent = request.headers.get('user-agent') || 'unknown';
@@ -37,17 +47,20 @@ export async function POST(request: NextRequest) {
         scan_type: scanType,
         ip_address: ip,
         user_agent: userAgent,
-        location_data: metadata.location || null,
+        location_data: locationData || metadata.location || null,
         utm_params: metadata.utm || null,
         referrer: metadata.referrer || null,
-        created_at: new Date().toISOString()
+        created_at: new Date().toISOString(),
       })
       .select()
       .single();
 
     if (error) {
       console.error('Error recording scan:', error);
-      return NextResponse.json({ error: 'Failed to record scan' }, { status: 500 });
+      return NextResponse.json(
+        { error: 'Failed to record scan' },
+        { status: 500 }
+      );
     }
 
     // Update device scan count (get current count first, then increment)
@@ -61,21 +74,23 @@ export async function POST(request: NextRequest) {
 
     await supabase
       .from('nfc_devices')
-      .update({ 
+      .update({
         scan_count: newScanCount,
-        last_scan: new Date().toISOString()
+        last_scan: new Date().toISOString(),
       })
       .eq('id', device.id);
 
-    return NextResponse.json({ 
-      success: true, 
+    return NextResponse.json({
+      success: true,
       scanId: scan.id,
-      message: 'Scan recorded successfully' 
+      message: 'Scan recorded successfully',
     });
-
   } catch (error) {
     console.error('Error in track-scan API:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }
 
@@ -84,7 +99,10 @@ export async function GET(request: NextRequest) {
   const deviceId = searchParams.get('deviceId');
 
   if (!deviceId) {
-    return NextResponse.json({ error: 'Device ID is required' }, { status: 400 });
+    return NextResponse.json(
+      { error: 'Device ID is required' },
+      { status: 400 }
+    );
   }
 
   try {
@@ -108,16 +126,21 @@ export async function GET(request: NextRequest) {
 
     if (error) {
       console.error('Error fetching scans:', error);
-      return NextResponse.json({ error: 'Failed to fetch scans' }, { status: 500 });
+      return NextResponse.json(
+        { error: 'Failed to fetch scans' },
+        { status: 500 }
+      );
     }
 
-    return NextResponse.json({ 
+    return NextResponse.json({
       scans: scans || [],
-      totalScans: scans?.length || 0
+      totalScans: scans?.length || 0,
     });
-
   } catch (error) {
     console.error('Error in track-scan GET:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }

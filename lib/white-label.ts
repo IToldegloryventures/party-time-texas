@@ -49,13 +49,13 @@ export class WhiteLabelService {
           'Custom branding',
           'Logo customization',
           'Color scheme',
-          'Basic white-label support'
+          'Basic white-label support',
         ],
         limits: {
           max_portals: 3,
           max_customizations: 5,
-          support_level: 'basic'
-        }
+          support_level: 'basic',
+        },
       },
       professional: {
         plan_type: 'professional',
@@ -67,13 +67,13 @@ export class WhiteLabelService {
           'Custom domain support',
           'Advanced CSS customization',
           'Priority white-label support',
-          'Custom email templates'
+          'Custom email templates',
         ],
         limits: {
           max_portals: 10,
           max_customizations: 25,
-          support_level: 'priority'
-        }
+          support_level: 'priority',
+        },
       },
       enterprise: {
         plan_type: 'enterprise',
@@ -86,14 +86,14 @@ export class WhiteLabelService {
           'Advanced branding options',
           'Dedicated white-label support',
           'Custom integrations',
-          'API access for branding'
+          'API access for branding',
         ],
         limits: {
           max_portals: -1, // unlimited
           max_customizations: -1, // unlimited
-          support_level: 'dedicated'
-        }
-      }
+          support_level: 'dedicated',
+        },
+      },
     };
   }
 
@@ -119,7 +119,7 @@ export class WhiteLabelService {
         secondary_color: data.secondary_color,
         custom_domain: data.custom_domain,
         custom_css: data.custom_css,
-        is_active: true
+        is_active: true,
       })
       .select()
       .single();
@@ -131,7 +131,9 @@ export class WhiteLabelService {
   /**
    * Get white-label configuration
    */
-  async getWhiteLabelConfig(organizationId: string): Promise<WhiteLabelConfig | null> {
+  async getWhiteLabelConfig(
+    organizationId: string
+  ): Promise<WhiteLabelConfig | null> {
     const { data, error } = await this.supabase
       .from('white_label_configs')
       .select('*')
@@ -211,12 +213,13 @@ export class WhiteLabelService {
   }> {
     try {
       // Check if domain is valid
-      const domainRegex = /^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}$/;
+      const domainRegex =
+        /^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}$/;
       if (!domainRegex.test(domain)) {
         return {
           valid: false,
           available: false,
-          error: 'Invalid domain format'
+          error: 'Invalid domain format',
         };
       }
 
@@ -232,19 +235,19 @@ export class WhiteLabelService {
         return {
           valid: true,
           available: false,
-          error: 'Domain already in use'
+          error: 'Domain already in use',
         };
       }
 
       return {
         valid: true,
-        available: true
+        available: true,
       };
     } catch (error) {
       return {
         valid: false,
         available: false,
-        error: 'Domain validation failed'
+        error: 'Domain validation failed',
       };
     }
   }
@@ -252,7 +255,10 @@ export class WhiteLabelService {
   /**
    * Setup custom domain
    */
-  async setupCustomDomain(organizationId: string, domain: string): Promise<{
+  async setupCustomDomain(
+    organizationId: string,
+    domain: string
+  ): Promise<{
     success: boolean;
     dns_records: Array<{ type: string; name: string; value: string }>;
     error?: string;
@@ -263,29 +269,29 @@ export class WhiteLabelService {
         {
           type: 'CNAME',
           name: domain,
-          value: 'cosmic-portals.com'
+          value: 'cosmic-portals.com',
         },
         {
           type: 'TXT',
           name: `_cosmic-portals.${domain}`,
-          value: `cosmic-portals-verification=${organizationId}`
-        }
+          value: `cosmic-portals-verification=${organizationId}`,
+        },
       ];
 
       // Update configuration
       await this.updateWhiteLabelConfig(organizationId, {
-        custom_domain: domain
+        custom_domain: domain,
       });
 
       return {
         success: true,
-        dns_records
+        dns_records,
       };
     } catch (error) {
       return {
         success: false,
         dns_records: [],
-        error: error instanceof Error ? error.message : 'Domain setup failed'
+        error: error instanceof Error ? error.message : 'Domain setup failed',
       };
     }
   }
@@ -301,14 +307,14 @@ export class WhiteLabelService {
     last_updated: string;
   }> {
     const { data: config } = await this.getWhiteLabelConfig(organizationId);
-    
+
     if (!config) {
       return {
         total_portals: 0,
         active_portals: 0,
         customizations_used: 0,
         domain_setup: false,
-        last_updated: new Date().toISOString()
+        last_updated: new Date().toISOString(),
       };
     }
 
@@ -323,7 +329,7 @@ export class WhiteLabelService {
       config.primary_color,
       config.secondary_color,
       config.custom_domain,
-      config.custom_css
+      config.custom_css,
     ].filter(Boolean).length;
 
     return {
@@ -331,7 +337,7 @@ export class WhiteLabelService {
       active_portals: portals || 0,
       customizations_used,
       domain_setup: !!config.custom_domain,
-      last_updated: config.updated_at
+      last_updated: config.updated_at,
     };
   }
 
@@ -348,7 +354,7 @@ export class WhiteLabelService {
       return {
         within_limits: true,
         exceeded_limits: [],
-        warnings: []
+        warnings: [],
       };
     }
 
@@ -363,7 +369,7 @@ export class WhiteLabelService {
       return {
         within_limits: true,
         exceeded_limits: [],
-        warnings: []
+        warnings: [],
       };
     }
 
@@ -374,23 +380,35 @@ export class WhiteLabelService {
     const warnings: string[] = [];
 
     // Check portal limits
-    if (pricing.limits.max_portals !== -1 && metrics.total_portals >= pricing.limits.max_portals) {
+    if (
+      pricing.limits.max_portals !== -1 &&
+      metrics.total_portals >= pricing.limits.max_portals
+    ) {
       exceeded.push('portals');
-    } else if (pricing.limits.max_portals !== -1 && metrics.total_portals >= pricing.limits.max_portals * 0.8) {
+    } else if (
+      pricing.limits.max_portals !== -1 &&
+      metrics.total_portals >= pricing.limits.max_portals * 0.8
+    ) {
       warnings.push('portals');
     }
 
     // Check customization limits
-    if (pricing.limits.max_customizations !== -1 && metrics.customizations_used >= pricing.limits.max_customizations) {
+    if (
+      pricing.limits.max_customizations !== -1 &&
+      metrics.customizations_used >= pricing.limits.max_customizations
+    ) {
       exceeded.push('customizations');
-    } else if (pricing.limits.max_customizations !== -1 && metrics.customizations_used >= pricing.limits.max_customizations * 0.8) {
+    } else if (
+      pricing.limits.max_customizations !== -1 &&
+      metrics.customizations_used >= pricing.limits.max_customizations * 0.8
+    ) {
       warnings.push('customizations');
     }
 
     return {
       within_limits: exceeded.length === 0,
       exceeded_limits: exceeded,
-      warnings
+      warnings,
     };
   }
 
@@ -420,7 +438,7 @@ export class WhiteLabelService {
     const invoice_number = `WL-${Date.now()}`;
     const billing_period = new Date().toLocaleDateString('en-US', {
       year: 'numeric',
-      month: 'long'
+      month: 'long',
     });
 
     return {
@@ -430,7 +448,7 @@ export class WhiteLabelService {
       base_price: pricing.base_price,
       white_label_fee: pricing.white_label_fee,
       total_amount: pricing.total_price,
-      billing_period
+      billing_period,
     };
   }
 }

@@ -7,138 +7,185 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 // Server-side client with service role key (for admin operations)
 // Only available on server side
-export const supabaseAdmin = typeof window === 'undefined' 
-  ? createClient(
-      supabaseUrl,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!,
-      {
+export const supabaseAdmin =
+  typeof window === 'undefined'
+    ? createClient(supabaseUrl, process.env.SUPABASE_SERVICE_ROLE_KEY!, {
         auth: {
           autoRefreshToken: false,
-          persistSession: false
-        }
-      }
-    )
-  : null;
+          persistSession: false,
+        },
+      })
+    : null;
 
-// Database types (generate these with: npx supabase gen types typescript --project-id YOUR_PROJECT_ID)
+// Database types for Cosmic Portals
 export interface Database {
   public: {
     Tables: {
+      organizations: {
+        Row: {
+          id: string;
+          name: string;
+          slug: string;
+          plan_type: string;
+          subscription_status: string;
+          created_at: string;
+          updated_at: string;
+          settings: any;
+          white_label_config: any;
+        };
+        Insert: {
+          id?: string;
+          name: string;
+          slug: string;
+          plan_type?: string;
+          subscription_status?: string;
+          created_at?: string;
+          updated_at?: string;
+          settings?: any;
+          white_label_config?: any;
+        };
+        Update: {
+          id?: string;
+          name?: string;
+          slug?: string;
+          plan_type?: string;
+          subscription_status?: string;
+          created_at?: string;
+          updated_at?: string;
+          settings?: any;
+          white_label_config?: any;
+        };
+      };
       users: {
         Row: {
           id: string;
+          clerk_id: string;
+          organization_id: string;
           email: string;
           first_name: string | null;
           last_name: string | null;
+          role: string;
+          status: string;
+          invited_by: string | null;
+          invited_at: string | null;
+          last_login: string | null;
+          permissions: any;
           created_at: string;
           updated_at: string;
-          subscription_tier: string;
-          usage_count: number;
-          last_activity: string;
         };
         Insert: {
-          id: string;
+          id?: string;
+          clerk_id: string;
+          organization_id: string;
           email: string;
           first_name?: string | null;
           last_name?: string | null;
+          role?: string;
+          status?: string;
+          invited_by?: string | null;
+          invited_at?: string | null;
+          last_login?: string | null;
+          permissions?: any;
           created_at?: string;
           updated_at?: string;
-          subscription_tier?: string;
-          usage_count?: number;
-          last_activity?: string;
         };
         Update: {
           id?: string;
+          clerk_id?: string;
+          organization_id?: string;
           email?: string;
           first_name?: string | null;
           last_name?: string | null;
+          role?: string;
+          status?: string;
+          invited_by?: string | null;
+          invited_at?: string | null;
+          last_login?: string | null;
+          permissions?: any;
           created_at?: string;
           updated_at?: string;
-          subscription_tier?: string;
-          usage_count?: number;
-          last_activity?: string;
         };
       };
-      documents: {
+      events: {
         Row: {
           id: string;
-          user_id: string;
-          organization_id: string | null;
-          filename: string;
-          original_filename: string;
-          file_path: string;
-          file_size: number;
-          file_type: string;
-          upload_status: string;
+          organization_id: string;
+          name: string;
+          description: string | null;
+          event_type: string;
+          start_date: string | null;
+          end_date: string | null;
+          location: string | null;
+          status: string;
+          settings: any;
           created_at: string;
           updated_at: string;
         };
         Insert: {
           id?: string;
-          user_id: string;
-          organization_id?: string | null;
-          filename: string;
-          original_filename: string;
-          file_path: string;
-          file_size: number;
-          file_type: string;
-          upload_status?: string;
+          organization_id: string;
+          name: string;
+          description?: string | null;
+          event_type: string;
+          start_date?: string | null;
+          end_date?: string | null;
+          location?: string | null;
+          status?: string;
+          settings?: any;
           created_at?: string;
           updated_at?: string;
         };
         Update: {
           id?: string;
-          user_id?: string;
-          organization_id?: string | null;
-          filename?: string;
-          original_filename?: string;
-          file_path?: string;
-          file_size?: number;
-          file_type?: string;
-          upload_status?: string;
+          organization_id?: string;
+          name?: string;
+          description?: string | null;
+          event_type?: string;
+          start_date?: string | null;
+          end_date?: string | null;
+          location?: string | null;
+          status?: string;
+          settings?: any;
           created_at?: string;
           updated_at?: string;
         };
       };
-      analyses: {
+      nfc_devices: {
         Row: {
           id: string;
-          document_id: string;
-          user_id: string;
-          organization_id: string | null;
-          analysis_type: string;
+          organization_id: string;
+          device_id: string;
+          device_type: string;
           status: string;
-          input_data: any;
-          result_data: any;
-          processing_time_ms: number | null;
+          last_scan: string | null;
+          scan_count: number;
+          metadata: any;
           created_at: string;
-          completed_at: string | null;
+          updated_at: string;
         };
         Insert: {
           id?: string;
-          document_id: string;
-          user_id: string;
-          organization_id?: string | null;
-          analysis_type: string;
+          organization_id: string;
+          device_id: string;
+          device_type: string;
           status?: string;
-          input_data?: any;
-          result_data?: any;
-          processing_time_ms?: number | null;
+          last_scan?: string | null;
+          scan_count?: number;
+          metadata?: any;
           created_at?: string;
-          completed_at?: string | null;
+          updated_at?: string;
         };
         Update: {
           id?: string;
-          document_id?: string;
-          user_id?: string;
-          organization_id?: string | null;
-          analysis_type?: string;
+          organization_id?: string;
+          device_id?: string;
+          device_type?: string;
           status?: string;
-          input_data?: any;
-          result_data?: any;
-          processing_time_ms?: number | null;
+          last_scan?: string | null;
+          scan_count?: number;
+          metadata?: any;
           created_at?: string;
-          completed_at?: string | null;
+          updated_at?: string;
         };
       };
     };

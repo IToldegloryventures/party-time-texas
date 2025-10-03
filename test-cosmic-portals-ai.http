@@ -1,0 +1,78 @@
+### Cosmic Portals AI Integration Tests
+### Test the AI-powered features for your NFC engagement platform
+
+### Test 1: Generate Landing Page Content
+POST http://localhost:3000/api/ai/generate-content
+Content-Type: application/json
+Authorization: Bearer your_auth_token
+
+{
+  "businessType": "Restaurant",
+  "businessName": "Mario's Italian Bistro",
+  "targetAudience": "Food lovers and families",
+  "keyFeatures": ["Authentic Italian cuisine", "Family-friendly atmosphere", "Fresh ingredients", "Wine selection"]
+}
+
+### Test 2: Analyze NFC Scan Data
+POST http://localhost:3000/api/ai/analyze-scans
+Content-Type: application/json
+Authorization: Bearer your_auth_token
+
+{
+  "scanData": {
+    "totalScans": 1250,
+    "uniqueVisitors": 890,
+    "conversionRate": 15.2,
+    "topPages": [
+      {"page": "menu", "scans": 450},
+      {"page": "reservations", "scans": 320},
+      {"page": "about", "scans": 280},
+      {"page": "contact", "scans": 200}
+    ],
+    "timeData": [
+      {"hour": 12, "scans": 180},
+      {"hour": 18, "scans": 220},
+      {"hour": 19, "scans": 195}
+    ],
+    "deviceData": [
+      {"device": "iPhone", "scans": 680},
+      {"device": "Android", "scans": 420},
+      {"device": "Desktop", "scans": 150}
+    ]
+  }
+}
+
+### Test 3: Get Event Recommendations
+POST http://localhost:3000/api/ai/event-recommendations
+Content-Type: application/json
+Authorization: Bearer your_auth_token
+
+{
+  "eventType": "Wedding Reception",
+  "expectedAttendees": 150,
+  "duration": "4 hours",
+  "venue": "Garden venue with outdoor ceremony"
+}
+
+### Test 4: Optimize Landing Page Content
+POST http://localhost:3000/api/ai/optimize-content
+Content-Type: application/json
+Authorization: Bearer your_auth_token
+
+{
+  "currentContent": "Welcome to our restaurant. We serve great food and have a nice atmosphere. Come visit us today!",
+  "scanData": {
+    "scans": 45,
+    "bounceRate": 65,
+    "timeOnPage": 23
+  }
+}
+
+### Test 5: Check Rate Limiting Headers
+# Look for these headers in all responses:
+# X-RateLimit-Remaining: number
+# X-RateLimit-Reset: timestamp
+
+### Test 6: Test Rate Limit Exceeded
+# Make multiple requests quickly to test rate limiting
+# Should get 429 status with retry information

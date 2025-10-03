@@ -8,8 +8,8 @@ export default async function TestDB() {
       .limit(5);
 
     return (
-      <div className="min-h-screen bg-black text-white p-8">
-        <h1 className="text-2xl font-bold mb-4">Database Test</h1>
+      <div className="min-h-screen bg-black p-8 text-white">
+        <h1 className="mb-4 text-2xl font-bold">Database Test</h1>
         <div className="mb-4">
           <strong>Error:</strong> {error ? JSON.stringify(error) : 'None'}
         </div>
@@ -18,7 +18,7 @@ export default async function TestDB() {
         </div>
         <div>
           <strong>Data:</strong>
-          <pre className="bg-gray-800 p-4 rounded mt-2 overflow-auto">
+          <pre className="mt-2 overflow-auto rounded bg-gray-800 p-4">
             {JSON.stringify(pages, null, 2)}
           </pre>
         </div>
@@ -26,9 +26,11 @@ export default async function TestDB() {
     );
   } catch (err) {
     return (
-      <div className="min-h-screen bg-black text-white p-8">
-        <h1 className="text-2xl font-bold mb-4">Database Test - Error</h1>
-        <pre className="bg-red-900 p-4 rounded">{JSON.stringify(err, null, 2)}</pre>
+      <div className="min-h-screen bg-black p-8 text-white">
+        <h1 className="mb-4 text-2xl font-bold">Database Test - Error</h1>
+        <pre className="rounded bg-red-900 p-4">
+          {JSON.stringify(err, null, 2)}
+        </pre>
       </div>
     );
   }

@@ -36,36 +36,37 @@ const PaymentSuccess = ({ onClose }: PaymentSuccessProps) => {
         isVisible ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
       }`}
     >
-      <div className="bg-gradient-to-r from-green-900/90 to-emerald-800/90 backdrop-blur-sm border border-green-500/30 rounded-xl p-6 shadow-2xl max-w-md">
+      <div className="max-w-md rounded-xl border border-green-500/30 bg-gradient-to-r from-green-900/90 to-emerald-800/90 p-6 shadow-2xl backdrop-blur-sm">
         <div className="flex items-start gap-4">
           {/* Success Icon */}
           <div className="flex-shrink-0">
-            <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center">
-              <CheckCircle className="w-8 h-8 text-green-400 animate-pulse" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-500/20">
+              <CheckCircle className="h-8 w-8 animate-pulse text-green-400" />
             </div>
           </div>
 
           {/* Content */}
-          <div className="flex-1 min-w-0">
-            <h3 className="text-lg font-bold text-green-100 mb-1">
+          <div className="min-w-0 flex-1">
+            <h3 className="mb-1 text-lg font-bold text-green-100">
               Payment Successful! 🎉
             </h3>
-            <p className="text-green-200/80 text-sm mb-3">
-              Welcome to PDFtoolAI Pro! Your subscription is now active and you have access to all premium features.
+            <p className="mb-3 text-sm text-green-200/80">
+              Welcome to PDFtoolAI Pro! Your subscription is now active and you
+              have access to all premium features.
             </p>
-            
+
             {/* Features List */}
-            <div className="space-y-1 mb-4">
-              <div className="flex items-center gap-2 text-green-200/70 text-xs">
-                <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
+            <div className="mb-4 space-y-1">
+              <div className="flex items-center gap-2 text-xs text-green-200/70">
+                <div className="h-1.5 w-1.5 rounded-full bg-green-400"></div>
                 Unlimited PDF uploads
               </div>
-              <div className="flex items-center gap-2 text-green-200/70 text-xs">
-                <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
+              <div className="flex items-center gap-2 text-xs text-green-200/70">
+                <div className="h-1.5 w-1.5 rounded-full bg-green-400"></div>
                 Advanced AI analysis
               </div>
-              <div className="flex items-center gap-2 text-green-200/70 text-xs">
-                <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
+              <div className="flex items-center gap-2 text-xs text-green-200/70">
+                <div className="h-1.5 w-1.5 rounded-full bg-green-400"></div>
                 Priority support
               </div>
             </div>
@@ -73,7 +74,7 @@ const PaymentSuccess = ({ onClose }: PaymentSuccessProps) => {
             {/* Action Button */}
             <button
               onClick={handleClose}
-              className="bg-green-600/20 hover:bg-green-600/30 border border-green-500/30 text-green-200 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
+              className="rounded-lg border border-green-500/30 bg-green-600/20 px-4 py-2 text-sm font-medium text-green-200 transition-colors duration-200 hover:bg-green-600/30"
             >
               Start Using Pro Features
             </button>
@@ -82,15 +83,15 @@ const PaymentSuccess = ({ onClose }: PaymentSuccessProps) => {
           {/* Close Button */}
           <button
             onClick={handleClose}
-            className="flex-shrink-0 text-green-400/60 hover:text-green-300 transition-colors duration-200"
+            className="flex-shrink-0 text-green-400/60 transition-colors duration-200 hover:text-green-300"
           >
-            <X className="w-5 h-5" />
+            <X className="h-5 w-5" />
           </button>
         </div>
 
         {/* Progress Bar */}
-        <div className="mt-4 h-1 bg-green-900/30 rounded-full overflow-hidden">
-          <div className="h-full bg-gradient-to-r from-green-400 to-emerald-400 rounded-full animate-pulse"></div>
+        <div className="mt-4 h-1 overflow-hidden rounded-full bg-green-900/30">
+          <div className="h-full animate-pulse rounded-full bg-gradient-to-r from-green-400 to-emerald-400"></div>
         </div>
       </div>
     </div>

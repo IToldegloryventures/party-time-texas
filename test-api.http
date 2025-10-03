@@ -1,0 +1,38 @@
+### Test your NFC tracking endpoint
+POST http://localhost:3000/api/track-scan
+Content-Type: application/json
+
+{
+  "deviceId": "test-device-123",
+  "scanType": "nfc_tap",
+  "metadata": {
+    "location": "test-location",
+    "utm": {
+      "source": "test",
+      "medium": "nfc",
+      "campaign": "test-campaign"
+    }
+  }
+}
+
+### Test your analytics endpoint
+GET http://localhost:3000/api/analytics?organizationId=test-org-123
+Authorization: Bearer your-test-token
+
+### Test your events endpoint
+GET http://localhost:3000/api/events
+Authorization: Bearer your-test-token
+
+### Test your organizations endpoint
+GET http://localhost:3000/api/organizations
+Authorization: Bearer your-test-token
+
+### Test your team invite endpoint
+POST http://localhost:3000/api/team/invite
+Content-Type: application/json
+Authorization: Bearer your-test-token
+
+{
+  "email": "test@example.com",
+  "role": "member"
+}

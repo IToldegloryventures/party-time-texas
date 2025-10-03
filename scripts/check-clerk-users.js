@@ -12,11 +12,13 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 async function checkUsers() {
   try {
     console.log('🔍 Checking current Supabase users...\n');
-    
+
     // Check what users we have in Supabase
-    const { data: users, error: userError } = await supabase.from('users').select('*');
+    const { data: users, error: userError } = await supabase
+      .from('users')
+      .select('*');
     if (userError) throw userError;
-    
+
     console.log('📊 Current Supabase users:');
     users.forEach(user => {
       console.log(`  - ${user.first_name} ${user.last_name} (${user.email})`);
@@ -24,12 +26,11 @@ async function checkUsers() {
       console.log(`    Organization: ${user.organization_id}`);
       console.log('');
     });
-    
+
     console.log('🎯 Next steps:');
     console.log('1. We need to get your real Clerk user IDs');
     console.log('2. Update the Supabase records with the real Clerk IDs');
     console.log('3. Connect your accounts to the right organizations');
-    
   } catch (err) {
     console.error('❌ Error checking users:', err.message);
   }

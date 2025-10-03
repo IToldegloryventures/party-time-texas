@@ -49,7 +49,9 @@ export interface PageTemplate {
   preview_image: string;
 }
 
-export const createLandingPage = async (page: Omit<LandingPage, 'id' | 'created_at' | 'updated_at'>) => {
+export const createLandingPage = async (
+  page: Omit<LandingPage, 'id' | 'created_at' | 'updated_at'>
+) => {
   const { data, error } = await supabase
     .from('landing_pages')
     .insert([page])
@@ -83,7 +85,10 @@ export const getLandingPageBySlug = async (slug: string) => {
   return data;
 };
 
-export const updateLandingPage = async (id: string, updates: Partial<LandingPage>) => {
+export const updateLandingPage = async (
+  id: string,
+  updates: Partial<LandingPage>
+) => {
   const { data, error } = await supabase
     .from('landing_pages')
     .update(updates)
@@ -96,10 +101,7 @@ export const updateLandingPage = async (id: string, updates: Partial<LandingPage
 };
 
 export const deleteLandingPage = async (id: string) => {
-  const { error } = await supabase
-    .from('landing_pages')
-    .delete()
-    .eq('id', id);
+  const { error } = await supabase.from('landing_pages').delete().eq('id', id);
 
   if (error) throw error;
   return { success: true };
@@ -108,14 +110,16 @@ export const deleteLandingPage = async (id: string) => {
 export const getAllLandingPages = async () => {
   const { data, error } = await supabase
     .from('landing_pages')
-    .select(`
+    .select(
+      `
       *,
       organizations (
         id,
         name,
         owner_id
       )
-    `)
+    `
+    )
     .order('created_at', { ascending: false });
 
   if (error) throw error;
@@ -136,21 +140,28 @@ export const getOrganizationLandingPages = async (organizationId: string) => {
 export const getUserLandingPages = async (userId: string) => {
   const { data, error } = await supabase
     .from('landing_pages')
-    .select(`
+    .select(
+      `
       *,
       organizations (
         id,
         name
       )
-    `)
-    .or(`permissions->owner_id.eq.${userId},permissions->editors.cs.{${userId}},permissions->viewers.cs.{${userId}}`)
+    `
+    )
+    .or(
+      `permissions->owner_id.eq.${userId},permissions->editors.cs.{${userId}},permissions->viewers.cs.{${userId}}`
+    )
     .order('created_at', { ascending: false });
 
   if (error) throw error;
   return data;
 };
 
-export const updatePagePermissions = async (pageId: string, permissions: LandingPage['permissions']) => {
+export const updatePagePermissions = async (
+  pageId: string,
+  permissions: LandingPage['permissions']
+) => {
   const { data, error } = await supabase
     .from('landing_pages')
     .update({ permissions })
@@ -162,13 +173,16 @@ export const updatePagePermissions = async (pageId: string, permissions: Landing
   return data;
 };
 
-export const recordPageScan = async (pageId: string, scanData: {
-  ip_address?: string;
-  user_agent?: string;
-  location_data?: Record<string, any>;
-  utm_params?: Record<string, any>;
-  referrer?: string;
-}) => {
+export const recordPageScan = async (
+  pageId: string,
+  scanData: {
+    ip_address?: string;
+    user_agent?: string;
+    location_data?: Record<string, any>;
+    utm_params?: Record<string, any>;
+    referrer?: string;
+  }
+) => {
   // Record the scan
   const { data: scan, error: scanError } = await supabase
     .from('landing_page_scans')
@@ -178,7 +192,7 @@ export const recordPageScan = async (pageId: string, scanData: {
       user_agent: scanData.user_agent,
       location_data: scanData.location_data,
       utm_params: scanData.utm_params,
-      referrer: scanData.referrer
+      referrer: scanData.referrer,
     })
     .select()
     .single();
@@ -188,9 +202,9 @@ export const recordPageScan = async (pageId: string, scanData: {
   // Update page scan count
   const { error: updateError } = await supabase
     .from('landing_pages')
-    .update({ 
+    .update({
       scan_count: supabase.raw('scan_count + 1'),
-      last_scan: new Date().toISOString()
+      last_scan: new Date().toISOString(),
     })
     .eq('id', pageId);
 
@@ -199,7 +213,11 @@ export const recordPageScan = async (pageId: string, scanData: {
   return scan;
 };
 
-export const getPageAnalytics = async (pageId: string, startDate?: string, endDate?: string) => {
+export const getPageAnalytics = async (
+  pageId: string,
+  startDate?: string,
+  endDate?: string
+) => {
   let query = supabase
     .from('landing_page_scans')
     .select('*')
@@ -216,14 +234,17 @@ export const getPageAnalytics = async (pageId: string, startDate?: string, endDa
   if (error) throw error;
 
   const total_scans = scans?.length || 0;
-  
+
   // Daily breakdown
   const dailyMap = new Map<string, number>();
   scans?.forEach(scan => {
     const date = scan.created_at.split('T')[0];
     dailyMap.set(date, (dailyMap.get(date) || 0) + 1);
   });
-  const daily_scans = Array.from(dailyMap.entries()).map(([date, count]) => ({ date, count }));
+  const daily_scans = Array.from(dailyMap.entries()).map(([date, count]) => ({
+    date,
+    count,
+  }));
 
   // Geographic breakdown
   const locationMap = new Map<string, number>();
@@ -246,13 +267,15 @@ export const getPageAnalytics = async (pageId: string, startDate?: string, endDa
       deviceMap.set(device, (deviceMap.get(device) || 0) + 1);
     }
   });
-  const device_breakdown = Array.from(deviceMap.entries()).map(([device, count]) => ({ device, count }));
+  const device_breakdown = Array.from(deviceMap.entries()).map(
+    ([device, count]) => ({ device, count })
+  );
 
   return {
     total_scans,
     daily_scans,
     top_locations,
-    device_breakdown
+    device_breakdown,
   };
 };
 
@@ -267,7 +290,9 @@ export const getPageTemplates = async () => {
   return data;
 };
 
-export const createPageTemplate = async (template: Omit<PageTemplate, 'id'>) => {
+export const createPageTemplate = async (
+  template: Omit<PageTemplate, 'id'>
+) => {
   const { data, error } = await supabase
     .from('page_templates')
     .insert([template])
@@ -287,11 +312,11 @@ export const generatePageSlug = (name: string): string => {
     .trim();
 };
 
-export const validatePageSlug = async (slug: string, excludeId?: string): Promise<boolean> => {
-  let query = supabase
-    .from('landing_pages')
-    .select('id')
-    .eq('slug', slug);
+export const validatePageSlug = async (
+  slug: string,
+  excludeId?: string
+): Promise<boolean> => {
+  let query = supabase.from('landing_pages').select('id').eq('slug', slug);
 
   if (excludeId) {
     query = query.neq('id', excludeId);
@@ -299,6 +324,6 @@ export const validatePageSlug = async (slug: string, excludeId?: string): Promis
 
   const { data, error } = await query;
   if (error) throw error;
-  
+
   return data.length === 0;
 };

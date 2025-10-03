@@ -21,34 +21,48 @@ export default function UserInfoPage() {
   }, [user]);
 
   if (!isLoaded) {
-    return <div className="min-h-screen bg-black flex items-center justify-center">
-      <div className="text-white">Loading...</div>
-    </div>;
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-black">
+        <div className="text-white">Loading...</div>
+      </div>
+    );
   }
 
   if (!user) {
-    return <div className="min-h-screen bg-black flex items-center justify-center">
-      <div className="text-white">Please sign in to view user info</div>
-    </div>;
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-black">
+        <div className="text-white">Please sign in to view user info</div>
+      </div>
+    );
   }
 
   return (
-    <div className="min-h-screen bg-black text-white p-8">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-8">Clerk User Information</h1>
-        
-        <div className="bg-gray-900 p-6 rounded-lg">
-          <h2 className="text-xl font-semibold mb-4">Your Clerk User Data:</h2>
-          <pre className="bg-black p-4 rounded text-sm overflow-auto">
+    <div className="min-h-screen bg-black p-8 text-white">
+      <div className="mx-auto max-w-4xl">
+        <h1 className="mb-8 text-3xl font-bold">Clerk User Information</h1>
+
+        <div className="rounded-lg bg-gray-900 p-6">
+          <h2 className="mb-4 text-xl font-semibold">Your Clerk User Data:</h2>
+          <pre className="overflow-auto rounded bg-black p-4 text-sm">
             {JSON.stringify(userData, null, 2)}
           </pre>
         </div>
 
-        <div className="mt-8 bg-blue-900 p-6 rounded-lg">
-          <h2 className="text-xl font-semibold mb-4">Next Steps:</h2>
-          <ol className="list-decimal list-inside space-y-2">
-            <li>Copy your Clerk User ID: <code className="bg-gray-800 px-2 py-1 rounded">{userData?.id}</code></li>
-            <li>Copy your email: <code className="bg-gray-800 px-2 py-1 rounded">{userData?.email}</code></li>
+        <div className="mt-8 rounded-lg bg-blue-900 p-6">
+          <h2 className="mb-4 text-xl font-semibold">Next Steps:</h2>
+          <ol className="list-inside list-decimal space-y-2">
+            <li>
+              Copy your Clerk User ID:{' '}
+              <code className="rounded bg-gray-800 px-2 py-1">
+                {userData?.id}
+              </code>
+            </li>
+            <li>
+              Copy your email:{' '}
+              <code className="rounded bg-gray-800 px-2 py-1">
+                {userData?.email}
+              </code>
+            </li>
             <li>We'll use this to update the Supabase records</li>
           </ol>
         </div>

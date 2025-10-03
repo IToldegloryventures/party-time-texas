@@ -3,6 +3,7 @@
 ## **👑 Admin-Only Features**
 
 ### **What You (Admin) Can Do:**
+
 1. **View ALL landing pages** across ALL organizations
 2. **Manage permissions** - assign editors, viewers, owners
 3. **Create pages for any organization**
@@ -13,6 +14,7 @@
 8. **Assign user roles** per page
 
 ### **What Business Owners Can Do:**
+
 1. **View only THEIR landing pages**
 2. **Edit pages** they own or have editor access to
 3. **View analytics** for their pages only
@@ -26,6 +28,7 @@
 ### **Permission Levels:**
 
 #### **👑 Admin (You)**
+
 - **Full access** to everything
 - **Can see all pages** across all organizations
 - **Can edit/delete** any page
@@ -33,18 +36,21 @@
 - **Can create pages** for any organization
 
 #### **👤 Owner**
+
 - **Full access** to their organization's pages
 - **Can invite team members** (with admin approval)
 - **Can assign editor/viewer roles** to team members
 - **Can create/edit/delete** their organization's pages
 
 #### **✏️ Editor**
+
 - **Can edit** pages they have access to
 - **Cannot delete** pages
 - **Cannot invite** new team members
 - **Can save drafts** and publish pages
 
 #### **👁️ Viewer**
+
 - **Can view** pages they have access to
 - **Cannot edit** anything
 - **Can see analytics** for accessible pages
@@ -55,12 +61,14 @@
 ## **📊 Admin Dashboard Features**
 
 ### **Main Admin Dashboard (`/admin`)**
+
 - **Overview stats** - total organizations, pages, devices, scans
 - **Recent activity** - see what's happening across the platform
 - **Quick navigation** to manage different areas
 - **System health** monitoring
 
 ### **Landing Pages Management (`/admin/landing-pages`)**
+
 - **View ALL pages** across all organizations
 - **Filter by organization** or status
 - **Bulk actions** - publish/unpublish multiple pages
@@ -68,6 +76,7 @@
 - **Analytics overview** - scan counts, engagement
 
 ### **Organizations Management (`/admin/organizations`)**
+
 - **View all organizations** and their details
 - **Manage organization settings**
 - **Assign organization admins**
@@ -75,6 +84,7 @@
 - **Manage billing and subscriptions**
 
 ### **User Management (`/admin/users`)**
+
 - **View all users** across all organizations
 - **Assign global roles** (admin, user)
 - **Manage user permissions**
@@ -86,10 +96,11 @@
 ## **🔐 Permission Management**
 
 ### **Page-Level Permissions:**
+
 ```
 Page: "Party Time Texas Landing Page"
 ├── Owner: ashton@partytimetexas.com (Full access)
-├── Editors: 
+├── Editors:
 │   ├── maria@partytimetexas.com (Can edit)
 │   └── john@partytimetexas.com (Can edit)
 └── Viewers:
@@ -98,6 +109,7 @@ Page: "Party Time Texas Landing Page"
 ```
 
 ### **Organization-Level Permissions:**
+
 ```
 Organization: "Party Time Texas"
 ├── Owner: ashton@partytimetexas.com
@@ -111,11 +123,13 @@ Organization: "Party Time Texas"
 ## **🚀 How to Use the Admin System**
 
 ### **Step 1: Access Admin Dashboard**
+
 1. **Go to:** `http://192.168.0.178:3000/admin`
 2. **You'll see:** Overview of all organizations and pages
 3. **Navigate to:** Landing Pages management
 
 ### **Step 2: Manage Landing Pages**
+
 1. **View all pages** - see every page across all organizations
 2. **Filter by organization** - focus on specific businesses
 3. **Edit any page** - make changes to any page
@@ -123,6 +137,7 @@ Organization: "Party Time Texas"
 5. **Publish/unpublish** - control page visibility
 
 ### **Step 3: Assign Permissions**
+
 1. **Click "Permissions"** on any page
 2. **Add editors** - users who can edit the page
 3. **Add viewers** - users who can only view
@@ -130,6 +145,7 @@ Organization: "Party Time Texas"
 5. **Change ownership** - transfer page ownership
 
 ### **Step 4: Monitor Activity**
+
 1. **View recent activity** - see what's happening
 2. **Check analytics** - scan counts, engagement
 3. **Monitor system health** - ensure everything works
@@ -140,12 +156,14 @@ Organization: "Party Time Texas"
 ## **📱 Business Owner Experience**
 
 ### **What They See:**
+
 - **Only THEIR pages** - can't see other organizations
 - **Limited permissions** - based on what you assign
 - **Their analytics** - only for their pages
 - **Team management** - invite team members (with approval)
 
 ### **What They Can Do:**
+
 - **Create new pages** for their organization
 - **Edit pages** they have access to
 - **View analytics** for their pages
@@ -157,6 +175,7 @@ Organization: "Party Time Texas"
 ## **🔧 Technical Implementation**
 
 ### **Database Schema:**
+
 ```sql
 -- Landing pages with permissions
 CREATE TABLE landing_pages (
@@ -182,12 +201,14 @@ CREATE TABLE organization_members (
 ```
 
 ### **API Endpoints:**
+
 - `GET /api/admin/landing-pages` - Get all pages (admin only)
 - `PUT /api/admin/landing-pages/:id/permissions` - Update permissions
 - `GET /api/admin/organizations` - Get all organizations
 - `GET /api/admin/analytics` - Get platform analytics
 
 ### **Frontend Components:**
+
 - **AdminDashboard** - main admin overview
 - **LandingPageAdmin** - manage all pages
 - **PermissionManager** - assign user roles
@@ -198,6 +219,7 @@ CREATE TABLE organization_members (
 ## **🎯 Key Benefits**
 
 ### **For You (Admin):**
+
 - **Complete control** over the platform
 - **See everything** happening across all organizations
 - **Manage permissions** easily
@@ -205,6 +227,7 @@ CREATE TABLE organization_members (
 - **Scale the business** effectively
 
 ### **For Your Clients:**
+
 - **Isolated experience** - only see their stuff
 - **Role-based access** - appropriate permissions
 - **Team collaboration** - invite team members

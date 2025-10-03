@@ -5,6 +5,11 @@ import { writeFile, unlink } from 'fs/promises';
 import { join } from 'path';
 import { randomUUID } from 'crypto';
 import * as pdf from 'pdf-parse';
+import {
+  rateLimiter,
+  RATE_LIMIT_CONFIGS,
+  createRateLimitResponse,
+} from '@/lib/rateLimiter';
 
 // Initialize Gemini AI
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
@@ -12,9 +17,18 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 export async function POST(request: NextRequest) {
   try {
     const { userId } = await auth();
-    
+
     if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    // Apply rate limiting
+    const rateLimitResult = await rateLimiter(
+      request,
+      RATE_LIMIT_CONFIGS.analyze
+    );
+    if (!rateLimitResult.allowed) {
+      return createRateLimitResponse(rateLimitResult);
     }
 
     const formData = await request.formData();
@@ -26,23 +40,26 @@ export async function POST(request: NextRequest) {
 
     // Validate file type
     if (file.type !== 'application/pdf') {
-      return NextResponse.json({ error: 'Only PDF files are allowed' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Only PDF files are allowed' },
+        { status: 400 }
+      );
     }
 
     // Generate unique analysis ID
     const analysisId = randomUUID();
-    
+
     // Save file temporarily
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
     const tempPath = join(process.cwd(), 'temp', `${analysisId}.pdf`);
-    
+
     // Ensure temp directory exists
     const fs = require('fs');
     if (!fs.existsSync(join(process.cwd(), 'temp'))) {
       fs.mkdirSync(join(process.cwd(), 'temp'), { recursive: true });
     }
-    
+
     await writeFile(tempPath, buffer);
 
     try {
@@ -57,7 +74,7 @@ export async function POST(request: NextRequest) {
 
       // Generate summary using Gemini AI
       const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
-      
+
       const prompt = `
         Please analyze the following PDF text and provide:
         1. A comprehensive summary (2-3 paragraphs)
@@ -68,12 +85,15 @@ export async function POST(request: NextRequest) {
       `;
 
       const result = await model.generateContent(prompt);
-      const response = await result.response;
-      const aiResponse = response.text();
+      const aiResponse = await result.response.text();
 
       // Parse AI response
-      const summaryMatch = aiResponse.match(/Summary:?\s*(.*?)(?=Key Points:|$)/s);
-      const keyPointsMatch = aiResponse.match(/Key Points?:?\s*([\s\S]*?)(?=Word Count:|$)/s);
+      const summaryMatch = aiResponse.match(
+        /Summary:?\s*(.*?)(?=Key Points:|$)/s
+      );
+      const keyPointsMatch = aiResponse.match(
+        /Key Points?:?\s*([\s\S]*?)(?=Word Count:|$)/s
+      );
       const wordCountMatch = aiResponse.match(/Word Count:?\s*(\d+)/);
 
       const summary = summaryMatch?.[1]?.trim() || aiResponse.substring(0, 500);
@@ -83,22 +103,34 @@ export async function POST(request: NextRequest) {
         .map(point => point.trim())
         .filter(point => point.length > 0)
         .slice(0, 7);
-      
-      const wordCount = parseInt(wordCountMatch?.[1] || '0') || text.split(' ').length;
+
+      const wordCount =
+        parseInt(wordCountMatch?.[1] || '0') || text.split(' ').length;
 
       // Clean up temp file
       await unlink(tempPath);
 
-      return NextResponse.json({
+      const successResponse = NextResponse.json({
         analysisId,
         summary,
         keyPoints,
         wordCount,
         documentName: file.name,
         status: 'completed',
-        createdAt: new Date().toISOString()
+        createdAt: new Date().toISOString(),
       });
 
+      // Add rate limit headers
+      Object.entries({
+        'X-RateLimit-Remaining': rateLimitResult.remaining.toString(),
+        'X-RateLimit-Reset': Math.ceil(
+          rateLimitResult.resetTime / 1000
+        ).toString(),
+      }).forEach(([key, value]) => {
+        successResponse.headers.set(key, value);
+      });
+
+      return successResponse;
     } catch (error) {
       // Clean up temp file on error
       try {
@@ -108,11 +140,12 @@ export async function POST(request: NextRequest) {
       }
       throw error;
     }
-
   } catch (error) {
     console.error('Analysis error:', error);
     return NextResponse.json(
-      { error: error instanceof Error ? error.message : 'Failed to process PDF' },
+      {
+        error: error instanceof Error ? error.message : 'Failed to process PDF',
+      },
       { status: 500 }
     );
   }

@@ -21,12 +21,15 @@ export interface AnalysisResult {
 export class GeminiAnalyzer {
   private model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
-  async analyzePDF(textContent: string, options: AnalysisOptions): Promise<AnalysisResult> {
+  async analyzePDF(
+    textContent: string,
+    options: AnalysisOptions
+  ): Promise<AnalysisResult> {
     const startTime = Date.now();
-    
+
     try {
       let prompt = '';
-      
+
       switch (options.type) {
         case 'summarize':
           prompt = this.createSummarizationPrompt(textContent);
@@ -47,11 +50,10 @@ export class GeminiAnalyzer {
       const result = await this.model.generateContent(prompt);
       const response = await result.response;
       const analysisText = response.text();
-      
+
       const processingTime = Date.now() - startTime;
-      
+
       return this.parseAnalysisResult(analysisText, options, processingTime);
-      
     } catch (error) {
       console.error('Gemini analysis error:', error);
       throw new Error('Failed to analyze document');
@@ -124,7 +126,11 @@ export class GeminiAnalyzer {
     `;
   }
 
-  private parseAnalysisResult(text: string, options: AnalysisOptions, processingTime: number): AnalysisResult {
+  private parseAnalysisResult(
+    text: string,
+    options: AnalysisOptions,
+    processingTime: number
+  ): AnalysisResult {
     try {
       // Try to parse as JSON first
       const jsonMatch = text.match(/\{[\s\S]*\}/);
@@ -133,29 +139,32 @@ export class GeminiAnalyzer {
         return {
           ...parsed,
           processingTime,
-          wordCount: parsed.wordCount || this.estimateWordCount(text)
+          wordCount: parsed.wordCount || this.estimateWordCount(text),
         };
       }
-      
+
       // Fallback: parse structured text
       return this.parseStructuredText(text, options, processingTime);
-      
     } catch (error) {
       console.error('Error parsing analysis result:', error);
       return {
         summary: text,
         keyPoints: [text],
         wordCount: this.estimateWordCount(text),
-        processingTime
+        processingTime,
       };
     }
   }
 
-  private parseStructuredText(text: string, options: AnalysisOptions, processingTime: number): AnalysisResult {
+  private parseStructuredText(
+    text: string,
+    options: AnalysisOptions,
+    processingTime: number
+  ): AnalysisResult {
     const lines = text.split('\n').filter(line => line.trim());
     const keyPoints: string[] = [];
     let summary = '';
-    
+
     lines.forEach(line => {
       if (line.includes('•') || line.includes('-') || line.match(/^\d+\./)) {
         keyPoints.push(line.replace(/^[•\-\d\.\s]+/, '').trim());
@@ -163,12 +172,12 @@ export class GeminiAnalyzer {
         summary += line + ' ';
       }
     });
-    
+
     return {
       summary: summary.trim(),
       keyPoints: keyPoints.length > 0 ? keyPoints : [text],
       wordCount: this.estimateWordCount(text),
-      processingTime
+      processingTime,
     };
   }
 
@@ -177,11 +186,17 @@ export class GeminiAnalyzer {
   }
 
   // Method for tracking usage analytics
-  async trackUsage(userId: string, analysisType: string, processingTime: number) {
+  async trackUsage(
+    userId: string,
+    analysisType: string,
+    processingTime: number
+  ) {
     try {
       // In production, this would save to your analytics database
-      console.log(`Usage tracked: User ${userId}, Type: ${analysisType}, Time: ${processingTime}ms`);
-      
+      console.log(
+        `Usage tracked: User ${userId}, Type: ${analysisType}, Time: ${processingTime}ms`
+      );
+
       // Example: Save to Supabase analytics table
       // await supabase.from('usage_analytics').insert({
       //   user_id: userId,

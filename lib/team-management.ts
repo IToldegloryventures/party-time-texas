@@ -29,7 +29,8 @@ export class TeamManagementService {
   static async getTeamMembers(organizationId: string): Promise<TeamMember[]> {
     const { data, error } = await supabase
       .from('users')
-      .select(`
+      .select(
+        `
         id,
         email,
         first_name,
@@ -40,7 +41,8 @@ export class TeamManagementService {
         invited_at,
         last_login,
         created_at
-      `)
+      `
+      )
       .eq('organization_id', organizationId)
       .order('created_at', { ascending: false });
 
@@ -53,10 +55,13 @@ export class TeamManagementService {
   }
 
   // Get pending invitations for an organization
-  static async getPendingInvitations(organizationId: string): Promise<TeamInvitation[]> {
+  static async getPendingInvitations(
+    organizationId: string
+  ): Promise<TeamInvitation[]> {
     const { data, error } = await supabase
       .from('team_invitations')
-      .select(`
+      .select(
+        `
         id,
         email,
         role,
@@ -64,7 +69,8 @@ export class TeamManagementService {
         invited_by,
         expires_at,
         created_at
-      `)
+      `
+      )
       .eq('organization_id', organizationId)
       .eq('status', 'pending')
       .order('created_at', { ascending: false });
@@ -94,7 +100,10 @@ export class TeamManagementService {
         .single();
 
       if (existingUser) {
-        return { success: false, error: 'User already exists in this organization' };
+        return {
+          success: false,
+          error: 'User already exists in this organization',
+        };
       }
 
       // Check for existing pending invitation
@@ -107,7 +116,10 @@ export class TeamManagementService {
         .single();
 
       if (existingInvitation) {
-        return { success: false, error: 'Invitation already sent to this email' };
+        return {
+          success: false,
+          error: 'Invitation already sent to this email',
+        };
       }
 
       // Generate invitation token
@@ -122,7 +134,7 @@ export class TeamManagementService {
           role,
           invited_by: invitedBy,
           invitation_token: invitationToken,
-          status: 'pending'
+          status: 'pending',
         })
         .select()
         .single();
@@ -167,10 +179,7 @@ export class TeamManagementService {
     userId: string
   ): Promise<{ success: boolean; error?: string }> {
     try {
-      const { error } = await supabase
-        .from('users')
-        .delete()
-        .eq('id', userId);
+      const { error } = await supabase.from('users').delete().eq('id', userId);
 
       if (error) {
         console.error('Error removing team member:', error);
@@ -243,7 +252,7 @@ export class TeamManagementService {
           role: invitation.role,
           status: 'active',
           invited_by: invitation.invited_by,
-          invited_at: invitation.created_at
+          invited_at: invitation.created_at,
         })
         .select()
         .single();
@@ -256,9 +265,9 @@ export class TeamManagementService {
       // Update invitation status
       await supabase
         .from('team_invitations')
-        .update({ 
+        .update({
           status: 'accepted',
-          accepted_at: new Date().toISOString()
+          accepted_at: new Date().toISOString(),
         })
         .eq('id', invitation.id);
 
@@ -277,13 +286,15 @@ export class TeamManagementService {
   }> {
     const { data, error } = await supabase
       .from('users')
-      .select(`
+      .select(
+        `
         organization_id,
         role,
         organizations!inner (
           name
         )
-      `)
+      `
+      )
       .eq('clerk_id', clerkId)
       .single();
 
@@ -294,7 +305,7 @@ export class TeamManagementService {
     return {
       organizationId: data.organization_id,
       role: data.role,
-      organizationName: data.organizations?.name || null
+      organizationName: data.organizations?.name || null,
     };
   }
 }

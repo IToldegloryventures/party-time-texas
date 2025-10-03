@@ -24,7 +24,11 @@ export interface Recognition {
   id: string;
   organization_id: string;
   employee_id: string;
-  recognition_type: 'achievement' | 'milestone' | 'peer_nomination' | 'leadership';
+  recognition_type:
+    | 'achievement'
+    | 'milestone'
+    | 'peer_nomination'
+    | 'leadership';
   title: string;
   description: string;
   awarded_by: string;
@@ -87,7 +91,7 @@ export class EnterpriseService {
         position: data.position,
         hire_date: data.hire_date,
         nfc_badge_id: data.nfc_badge_id,
-        status: 'active'
+        status: 'active',
       })
       .select()
       .single();
@@ -107,7 +111,10 @@ export class EnterpriseService {
     return data || [];
   }
 
-  async updateEmployee(employeeId: string, updates: Partial<Employee>): Promise<Employee> {
+  async updateEmployee(
+    employeeId: string,
+    updates: Partial<Employee>
+  ): Promise<Employee> {
     const { data, error } = await this.supabase
       .from('employees')
       .update(updates)
@@ -160,7 +167,7 @@ export class EnterpriseService {
         description: data.description,
         awarded_by: data.awarded_by,
         points: data.points,
-        is_public: data.is_public || true
+        is_public: data.is_public || true,
       })
       .select()
       .single();
@@ -180,7 +187,9 @@ export class EnterpriseService {
     return data || [];
   }
 
-  async getOrganizationRecognitions(organizationId: string): Promise<Recognition[]> {
+  async getOrganizationRecognitions(
+    organizationId: string
+  ): Promise<Recognition[]> {
     const { data, error } = await this.supabase
       .from('recognitions')
       .select('*')
@@ -214,7 +223,7 @@ export class EnterpriseService {
         category: data.category,
         status: 'pending',
         due_date: data.due_date,
-        assigned_to: data.assigned_to
+        assigned_to: data.assigned_to,
       })
       .select()
       .single();
@@ -223,7 +232,9 @@ export class EnterpriseService {
     return task;
   }
 
-  async getEmployeeOnboardingTasks(employeeId: string): Promise<OnboardingTask[]> {
+  async getEmployeeOnboardingTasks(
+    employeeId: string
+  ): Promise<OnboardingTask[]> {
     const { data, error } = await this.supabase
       .from('onboarding_tasks')
       .select('*')
@@ -237,9 +248,9 @@ export class EnterpriseService {
   async completeOnboardingTask(taskId: string): Promise<OnboardingTask> {
     const { data, error } = await this.supabase
       .from('onboarding_tasks')
-      .update({ 
+      .update({
         status: 'completed',
-        completed_at: new Date().toISOString()
+        completed_at: new Date().toISOString(),
       })
       .eq('id', taskId)
       .select()
@@ -271,7 +282,7 @@ export class EnterpriseService {
         url: data.url,
         access_level: data.access_level,
         permissions: data.permissions,
-        is_active: true
+        is_active: true,
       })
       .select()
       .single();
@@ -295,7 +306,10 @@ export class EnterpriseService {
   /**
    * Access Control
    */
-  async checkPortalAccess(employeeId: string, portalId: string): Promise<boolean> {
+  async checkPortalAccess(
+    employeeId: string,
+    portalId: string
+  ): Promise<boolean> {
     const { data: employee } = await this.supabase
       .from('employees')
       .select('department, position')
@@ -340,24 +354,39 @@ export class EnterpriseService {
       { count: totalEmployees },
       { count: activeEmployees },
       { count: recognitions },
-      { data: onboardingTasks }
+      { data: onboardingTasks },
     ] = await Promise.all([
-      this.supabase.from('employees').select('*', { count: 'exact', head: true }).eq('organization_id', organizationId),
-      this.supabase.from('employees').select('*', { count: 'exact', head: true }).eq('organization_id', organizationId).eq('status', 'active'),
-      this.supabase.from('recognitions').select('*', { count: 'exact', head: true }).eq('organization_id', organizationId),
-      this.supabase.from('onboarding_tasks').select('*').eq('organization_id', organizationId)
+      this.supabase
+        .from('employees')
+        .select('*', { count: 'exact', head: true })
+        .eq('organization_id', organizationId),
+      this.supabase
+        .from('employees')
+        .select('*', { count: 'exact', head: true })
+        .eq('organization_id', organizationId)
+        .eq('status', 'active'),
+      this.supabase
+        .from('recognitions')
+        .select('*', { count: 'exact', head: true })
+        .eq('organization_id', organizationId),
+      this.supabase
+        .from('onboarding_tasks')
+        .select('*')
+        .eq('organization_id', organizationId),
     ]);
 
-    const completedTasks = onboardingTasks?.filter(task => task.status === 'completed').length || 0;
+    const completedTasks =
+      onboardingTasks?.filter(task => task.status === 'completed').length || 0;
     const totalTasks = onboardingTasks?.length || 0;
-    const onboarding_completion_rate = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
+    const onboarding_completion_rate =
+      totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
 
     return {
       total_employees: totalEmployees || 0,
       active_employees: activeEmployees || 0,
       recognition_count: recognitions || 0,
       onboarding_completion_rate,
-      portal_usage: {} // TODO: Implement portal usage tracking
+      portal_usage: {}, // TODO: Implement portal usage tracking
     };
   }
 
@@ -371,19 +400,24 @@ export class EnterpriseService {
     available_portals: InternalPortal[];
     recent_activity: any[];
   }> {
-    const [employee, recognitions, onboardingTasks, portals] = await Promise.all([
-      this.supabase.from('employees').select('*').eq('id', employeeId).single(),
-      this.getEmployeeRecognitions(employeeId),
-      this.getEmployeeOnboardingTasks(employeeId),
-      this.getInternalPortals(employeeId) // This would need to be filtered by employee access
-    ]);
+    const [employee, recognitions, onboardingTasks, portals] =
+      await Promise.all([
+        this.supabase
+          .from('employees')
+          .select('*')
+          .eq('id', employeeId)
+          .single(),
+        this.getEmployeeRecognitions(employeeId),
+        this.getEmployeeOnboardingTasks(employeeId),
+        this.getInternalPortals(employeeId), // This would need to be filtered by employee access
+      ]);
 
     return {
       employee: employee.data,
       recognitions,
       onboarding_tasks: onboardingTasks,
       available_portals: portals,
-      recent_activity: [] // TODO: Implement activity tracking
+      recent_activity: [], // TODO: Implement activity tracking
     };
   }
 }

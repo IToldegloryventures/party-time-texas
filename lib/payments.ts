@@ -49,7 +49,10 @@ export class PaymentService {
   /**
    * Get subscription plans and pricing
    */
-  getSubscriptionPlans(): Record<string, { price: number; limits: PlanLimits; features: string[] }> {
+  getSubscriptionPlans(): Record<
+    string,
+    { price: number; limits: PlanLimits; features: string[] }
+  > {
     return {
       starter: {
         price: 29,
@@ -61,14 +64,14 @@ export class PaymentService {
           storage_gb: 1,
           white_label: false,
           api_access: false,
-          priority_support: false
+          priority_support: false,
         },
         features: [
           'Basic NFC tracking',
           'Event management',
           'Analytics dashboard',
-          'Email support'
-        ]
+          'Email support',
+        ],
       },
       professional: {
         price: 99,
@@ -80,7 +83,7 @@ export class PaymentService {
           storage_gb: 10,
           white_label: true,
           api_access: true,
-          priority_support: true
+          priority_support: true,
         },
         features: [
           'Advanced NFC tracking',
@@ -88,8 +91,8 @@ export class PaymentService {
           'Advanced analytics',
           'White-label options',
           'API access',
-          'Priority support'
-        ]
+          'Priority support',
+        ],
       },
       enterprise: {
         price: 299,
@@ -101,7 +104,7 @@ export class PaymentService {
           storage_gb: 100,
           white_label: true,
           api_access: true,
-          priority_support: true
+          priority_support: true,
         },
         features: [
           'Unlimited everything',
@@ -109,9 +112,9 @@ export class PaymentService {
           'Dedicated support',
           'Custom branding',
           'Advanced security',
-          'SLA guarantees'
-        ]
-      }
+          'SLA guarantees',
+        ],
+      },
     };
   }
 
@@ -129,7 +132,7 @@ export class PaymentService {
         organization_id: data.organization_id,
         plan_type: data.plan_type,
         stripe_subscription_id: data.stripe_subscription_id,
-        status: 'active'
+        status: 'active',
       })
       .select()
       .single();
@@ -155,7 +158,10 @@ export class PaymentService {
   /**
    * Update subscription
    */
-  async updateSubscription(subscriptionId: string, updates: Partial<Subscription>): Promise<Subscription> {
+  async updateSubscription(
+    subscriptionId: string,
+    updates: Partial<Subscription>
+  ): Promise<Subscription> {
     const { data, error } = await this.supabase
       .from('subscriptions')
       .update(updates)
@@ -190,16 +196,25 @@ export class PaymentService {
     if (plan.limits.max_users !== -1 && usage.users > plan.limits.max_users) {
       overages.users = usage.users - plan.limits.max_users;
     }
-    if (plan.limits.max_events !== -1 && usage.events > plan.limits.max_events) {
+    if (
+      plan.limits.max_events !== -1 &&
+      usage.events > plan.limits.max_events
+    ) {
       overages.events = usage.events - plan.limits.max_events;
     }
-    if (plan.limits.max_nfc_devices !== -1 && usage.nfc_devices > plan.limits.max_nfc_devices) {
+    if (
+      plan.limits.max_nfc_devices !== -1 &&
+      usage.nfc_devices > plan.limits.max_nfc_devices
+    ) {
       overages.nfc_devices = usage.nfc_devices - plan.limits.max_nfc_devices;
     }
 
     // Calculate amount due
     const baseAmount = plan.price;
-    const overageAmount = Object.values(overages).reduce((sum, count) => sum + (count * 5), 0); // $5 per overage
+    const overageAmount = Object.values(overages).reduce(
+      (sum, count) => sum + count * 5,
+      0
+    ); // $5 per overage
     const amount_due = baseAmount + overageAmount;
 
     return {
@@ -208,7 +223,7 @@ export class PaymentService {
       limits: plan.limits,
       overages,
       next_billing_date: subscription.current_period_end,
-      amount_due
+      amount_due,
     };
   }
 
@@ -226,12 +241,24 @@ export class PaymentService {
       { count: users },
       { count: events },
       { count: nfc_devices },
-      { count: landing_pages }
+      { count: landing_pages },
     ] = await Promise.all([
-      this.supabase.from('users').select('*', { count: 'exact', head: true }).eq('organization_id', organizationId),
-      this.supabase.from('events').select('*', { count: 'exact', head: true }).eq('organization_id', organizationId),
-      this.supabase.from('nfc_devices').select('*', { count: 'exact', head: true }).eq('organization_id', organizationId),
-      this.supabase.from('landing_pages').select('*', { count: 'exact', head: true }).eq('organization_id', organizationId)
+      this.supabase
+        .from('users')
+        .select('*', { count: 'exact', head: true })
+        .eq('organization_id', organizationId),
+      this.supabase
+        .from('events')
+        .select('*', { count: 'exact', head: true })
+        .eq('organization_id', organizationId),
+      this.supabase
+        .from('nfc_devices')
+        .select('*', { count: 'exact', head: true })
+        .eq('organization_id', organizationId),
+      this.supabase
+        .from('landing_pages')
+        .select('*', { count: 'exact', head: true })
+        .eq('organization_id', organizationId),
     ]);
 
     // TODO: Calculate actual storage usage
@@ -242,7 +269,7 @@ export class PaymentService {
       events: events || 0,
       nfc_devices: nfc_devices || 0,
       landing_pages: landing_pages || 0,
-      storage_gb
+      storage_gb,
     };
   }
 
@@ -297,14 +324,17 @@ export class PaymentService {
     return {
       within_limits: exceeded.length === 0,
       exceeded_limits: exceeded,
-      warnings
+      warnings,
     };
   }
 
   /**
    * Calculate upgrade cost
    */
-  calculateUpgradeCost(currentPlan: string, targetPlan: string): {
+  calculateUpgradeCost(
+    currentPlan: string,
+    targetPlan: string
+  ): {
     monthly_difference: number;
     prorated_cost: number;
     effective_date: string;
@@ -324,21 +354,29 @@ export class PaymentService {
     return {
       monthly_difference,
       prorated_cost,
-      effective_date
+      effective_date,
     };
   }
 
   /**
    * Generate invoice data
    */
-  async generateInvoiceData(organizationId: string, startDate: string, endDate: string): Promise<{
+  async generateInvoiceData(
+    organizationId: string,
+    startDate: string,
+    endDate: string
+  ): Promise<{
     invoice_number: string;
     period: { start: string; end: string };
     subscription: Subscription;
     usage: any;
     overages: Record<string, number>;
     total_amount: number;
-    line_items: Array<{ description: string; amount: number; quantity: number }>;
+    line_items: Array<{
+      description: string;
+      amount: number;
+      quantity: number;
+    }>;
   }> {
     const subscription = await this.getSubscription(organizationId);
     if (!subscription) {
@@ -358,8 +396,8 @@ export class PaymentService {
       {
         description: `${subscription.plan_type.charAt(0).toUpperCase() + subscription.plan_type.slice(1)} Plan`,
         amount: plan.price,
-        quantity: 1
-      }
+        quantity: 1,
+      },
     ];
 
     // Add overage charges
@@ -368,7 +406,7 @@ export class PaymentService {
         line_items.push({
           description: `${type} overage (${count} units)`,
           amount: count * 5,
-          quantity: count
+          quantity: count,
         });
       }
     });
@@ -380,7 +418,7 @@ export class PaymentService {
       usage,
       overages: billingInfo.overages,
       total_amount: billingInfo.amount_due,
-      line_items
+      line_items,
     };
   }
 }

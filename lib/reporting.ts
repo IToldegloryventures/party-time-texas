@@ -34,7 +34,11 @@ export interface RecapPage {
   content: {
     title: string;
     description: string;
-    photo_gallery: Array<{ url: string; caption?: string; uploaded_by: string }>;
+    photo_gallery: Array<{
+      url: string;
+      caption?: string;
+      uploaded_by: string;
+    }>;
     statistics: {
       total_attendees: number;
       check_in_rate: number;
@@ -79,7 +83,7 @@ export class ReportingService {
 
     const branding = org?.white_label_config || {
       primary_color: '#8B5CF6',
-      secondary_color: '#A78BFA'
+      secondary_color: '#A78BFA',
     };
 
     // Generate highlights
@@ -95,31 +99,32 @@ export class ReportingService {
         photo_gallery: photos.map(photo => ({
           url: photo.photo_url,
           caption: `Photo by ${photo.name}`,
-          uploaded_by: photo.name
+          uploaded_by: photo.name,
         })),
         statistics: {
           total_attendees: stats.total_attendees,
-          check_in_rate: stats.total_attendees > 0 ? (stats.checked_in / stats.total_attendees) * 100 : 0,
+          check_in_rate:
+            stats.total_attendees > 0
+              ? (stats.checked_in / stats.total_attendees) * 100
+              : 0,
           photos_uploaded: stats.photos_uploaded,
-          engagement_score: this.calculateEngagementScore(stats, attendees)
+          engagement_score: this.calculateEngagementScore(stats, attendees),
         },
         highlights,
-        thank_you_message: this.generateThankYouMessage(event, stats)
+        thank_you_message: this.generateThankYouMessage(event, stats),
       },
       branding: {
         logo_url: branding.logo_url,
         primary_color: branding.primary_color || '#8B5CF6',
         secondary_color: branding.secondary_color || '#A78BFA',
-        background_image: branding.background_image
+        background_image: branding.background_image,
       },
       is_public: true,
-      created_at: new Date().toISOString()
+      created_at: new Date().toISOString(),
     };
 
     // Store recap page
-    await this.supabase
-      .from('recap_pages')
-      .insert(recapPage);
+    await this.supabase.from('recap_pages').insert(recapPage);
 
     return recapPage;
   }
@@ -127,13 +132,18 @@ export class ReportingService {
   /**
    * Generate comprehensive event report
    */
-  async generateEventReport(eventId: string, reportType: 'recap' | 'analytics' | 'attendee' | 'financial'): Promise<EventReport> {
+  async generateEventReport(
+    eventId: string,
+    reportType: 'recap' | 'analytics' | 'attendee' | 'financial'
+  ): Promise<EventReport> {
     const event = await this.eventService.getEvent(eventId);
     if (!event) throw new Error('Event not found');
 
     const attendees = await this.eventService.getEventAttendees(eventId);
     const stats = await this.eventService.getEventStats(eventId);
-    const analytics = await this.analyticsService.getDashboardData(event.organization_id);
+    const analytics = await this.analyticsService.getDashboardData(
+      event.organization_id
+    );
 
     // Get organization branding
     const { data: org } = await this.supabase
@@ -144,7 +154,7 @@ export class ReportingService {
 
     const branding = org?.white_label_config || {
       primary_color: '#8B5CF6',
-      secondary_color: '#A78BFA'
+      secondary_color: '#A78BFA',
     };
 
     const report: EventReport = {
@@ -159,25 +169,23 @@ export class ReportingService {
           checked_out: stats.checked_out,
           photos_uploaded: stats.photos_uploaded,
           average_check_in_time: stats.average_check_in_time,
-          engagement_metrics: analytics
+          engagement_metrics: analytics,
         },
         charts: this.generateReportCharts(stats, attendees, analytics),
-        recommendations: this.generateRecommendations(stats, attendees)
+        recommendations: this.generateRecommendations(stats, attendees),
       },
       branding: {
         logo_url: branding.logo_url,
         primary_color: branding.primary_color || '#8B5CF6',
         secondary_color: branding.secondary_color || '#A78BFA',
-        custom_css: branding.custom_css
+        custom_css: branding.custom_css,
       },
       generated_at: new Date().toISOString(),
-      expires_at: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString() // 30 days
+      expires_at: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(), // 30 days
     };
 
     // Store report
-    await this.supabase
-      .from('event_reports')
-      .insert(report);
+    await this.supabase.from('event_reports').insert(report);
 
     return report;
   }
@@ -185,7 +193,9 @@ export class ReportingService {
   /**
    * Generate PDF report
    */
-  async generatePDFReport(reportId: string): Promise<{ pdf_url: string; download_url: string }> {
+  async generatePDFReport(
+    reportId: string
+  ): Promise<{ pdf_url: string; download_url: string }> {
     const { data: report } = await this.supabase
       .from('event_reports')
       .select('*')
@@ -203,7 +213,7 @@ export class ReportingService {
     const { data: uploadData, error: uploadError } = await this.supabase.storage
       .from('reports')
       .upload(fileName, pdfBuffer, {
-        contentType: 'application/pdf'
+        contentType: 'application/pdf',
       });
 
     if (uploadError) throw uploadError;
@@ -214,7 +224,7 @@ export class ReportingService {
 
     return {
       pdf_url: urlData.publicUrl,
-      download_url: urlData.publicUrl
+      download_url: urlData.publicUrl,
     };
   }
 
@@ -242,7 +252,11 @@ export class ReportingService {
   /**
    * Generate event highlights
    */
-  private generateEventHighlights(stats: any, attendees: any[], photos: any[]): string[] {
+  private generateEventHighlights(
+    stats: any,
+    attendees: any[],
+    photos: any[]
+  ): string[] {
     const highlights: string[] = [];
 
     if (stats.total_attendees > 0) {
@@ -251,7 +265,9 @@ export class ReportingService {
 
     if (stats.checked_in > 0) {
       const checkInRate = (stats.checked_in / stats.total_attendees) * 100;
-      highlights.push(`${checkInRate.toFixed(1)}% of attendees checked in successfully`);
+      highlights.push(
+        `${checkInRate.toFixed(1)}% of attendees checked in successfully`
+      );
     }
 
     if (photos.length > 0) {
@@ -259,7 +275,9 @@ export class ReportingService {
     }
 
     if (stats.average_check_in_time) {
-      highlights.push(`Average check-in time was ${this.formatCheckInTime(stats.average_check_in_time)}`);
+      highlights.push(
+        `Average check-in time was ${this.formatCheckInTime(stats.average_check_in_time)}`
+      );
     }
 
     return highlights;
@@ -270,7 +288,7 @@ export class ReportingService {
    */
   private calculateEngagementScore(stats: any, attendees: any[]): number {
     let score = 0;
-    
+
     // Check-in rate (40% weight)
     if (stats.total_attendees > 0) {
       score += (stats.checked_in / stats.total_attendees) * 40;
@@ -299,32 +317,40 @@ export class ReportingService {
   /**
    * Generate report summary
    */
-  private generateReportSummary(event: any, stats: any, attendees: any[]): string {
+  private generateReportSummary(
+    event: any,
+    stats: any,
+    attendees: any[]
+  ): string {
     return `${event.name} was a tremendous success with ${stats.total_attendees} attendees, ${stats.checked_in} check-ins, and ${stats.photos_uploaded} photos shared. The event achieved a ${this.calculateEngagementScore(stats, attendees)}% engagement score.`;
   }
 
   /**
    * Generate report charts data
    */
-  private generateReportCharts(stats: any, attendees: any[], analytics: any): Array<{ type: string; data: any; title: string }> {
+  private generateReportCharts(
+    stats: any,
+    attendees: any[],
+    analytics: any
+  ): Array<{ type: string; data: any; title: string }> {
     return [
       {
         type: 'attendance',
         data: {
           total: stats.total_attendees,
           checked_in: stats.checked_in,
-          checked_out: stats.checked_out
+          checked_out: stats.checked_out,
         },
-        title: 'Attendance Overview'
+        title: 'Attendance Overview',
       },
       {
         type: 'engagement',
         data: {
           photos_uploaded: stats.photos_uploaded,
-          engagement_score: this.calculateEngagementScore(stats, attendees)
+          engagement_score: this.calculateEngagementScore(stats, attendees),
         },
-        title: 'Engagement Metrics'
-      }
+        title: 'Engagement Metrics',
+      },
     ];
   }
 
@@ -335,15 +361,21 @@ export class ReportingService {
     const recommendations: string[] = [];
 
     if (stats.checked_in < stats.total_attendees * 0.8) {
-      recommendations.push('Consider improving check-in process or sending reminders');
+      recommendations.push(
+        'Consider improving check-in process or sending reminders'
+      );
     }
 
     if (stats.photos_uploaded < stats.total_attendees * 0.3) {
-      recommendations.push('Encourage more photo sharing with incentives or contests');
+      recommendations.push(
+        'Encourage more photo sharing with incentives or contests'
+      );
     }
 
     if (stats.checked_out < stats.checked_in * 0.7) {
-      recommendations.push('Implement check-out reminders or automated follow-up');
+      recommendations.push(
+        'Implement check-out reminders or automated follow-up'
+      );
     }
 
     return recommendations;
@@ -399,15 +431,25 @@ export class ReportingService {
   /**
    * Send attendee email
    */
-  private async sendAttendeeEmail(attendee: any, event: any, recapPage: any): Promise<void> {
+  private async sendAttendeeEmail(
+    attendee: any,
+    event: any,
+    recapPage: any
+  ): Promise<void> {
     // Email integration would go here
-    console.log(`Sending recap email to ${attendee.email} for event ${event.name}`);
+    console.log(
+      `Sending recap email to ${attendee.email} for event ${event.name}`
+    );
   }
 
   /**
    * Send organizer email
    */
-  private async sendOrganizerEmail(event: any, recapPage: any, attendees: any[]): Promise<void> {
+  private async sendOrganizerEmail(
+    event: any,
+    recapPage: any,
+    attendees: any[]
+  ): Promise<void> {
     // Email integration would go here
     console.log(`Sending organizer summary for event ${event.name}`);
   }
@@ -417,9 +459,9 @@ export class ReportingService {
    */
   private formatCheckInTime(timeString: string): string {
     const time = new Date(timeString);
-    return time.toLocaleTimeString('en-US', { 
-      hour: '2-digit', 
-      minute: '2-digit' 
+    return time.toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit',
     });
   }
 }

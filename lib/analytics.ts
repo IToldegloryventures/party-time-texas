@@ -80,7 +80,7 @@ export class AnalyticsService {
         browser: data.browser,
         os: data.os,
         location: data.location,
-        custom_data: data.custom_data
+        custom_data: data.custom_data,
       })
       .select()
       .single();
@@ -92,7 +92,11 @@ export class AnalyticsService {
   /**
    * Get analytics dashboard data
    */
-  async getDashboardData(organizationId: string, startDate?: string, endDate?: string): Promise<AnalyticsDashboard> {
+  async getDashboardData(
+    organizationId: string,
+    startDate?: string,
+    endDate?: string
+  ): Promise<AnalyticsDashboard> {
     let query = this.supabase
       .from('analytics_events')
       .select('*')
@@ -109,16 +113,22 @@ export class AnalyticsService {
     if (error) throw error;
 
     const total_events = events?.length || 0;
-    const unique_users = new Set(events?.map(e => e.user_id).filter(Boolean)).size;
-    
+    const unique_users = new Set(events?.map(e => e.user_id).filter(Boolean))
+      .size;
+
     // Calculate conversion rate (simplified)
-    const conversion_events = events?.filter(e => e.event_type === 'conversion').length || 0;
-    const conversion_rate = total_events > 0 ? (conversion_events / total_events) * 100 : 0;
+    const conversion_events =
+      events?.filter(e => e.event_type === 'conversion').length || 0;
+    const conversion_rate =
+      total_events > 0 ? (conversion_events / total_events) * 100 : 0;
 
     // Top events breakdown
     const eventTypeMap = new Map<string, number>();
     events?.forEach(event => {
-      eventTypeMap.set(event.event_type, (eventTypeMap.get(event.event_type) || 0) + 1);
+      eventTypeMap.set(
+        event.event_type,
+        (eventTypeMap.get(event.event_type) || 0) + 1
+      );
     });
     const top_events = Array.from(eventTypeMap.entries())
       .map(([event_type, count]) => ({ event_type, count }))
@@ -144,7 +154,10 @@ export class AnalyticsService {
     const deviceMap = new Map<string, number>();
     events?.forEach(event => {
       if (event.device_type) {
-        deviceMap.set(event.device_type, (deviceMap.get(event.device_type) || 0) + 1);
+        deviceMap.set(
+          event.device_type,
+          (deviceMap.get(event.device_type) || 0) + 1
+        );
       }
     });
     const device_breakdown = Object.fromEntries(deviceMap);
@@ -153,7 +166,10 @@ export class AnalyticsService {
     const locationMap = new Map<string, number>();
     events?.forEach(event => {
       if (event.location?.country) {
-        locationMap.set(event.location.country, (locationMap.get(event.location.country) || 0) + 1);
+        locationMap.set(
+          event.location.country,
+          (locationMap.get(event.location.country) || 0) + 1
+        );
       }
     });
     const location_breakdown = Object.fromEntries(locationMap);
@@ -166,21 +182,27 @@ export class AnalyticsService {
       top_events,
       daily_activity,
       device_breakdown,
-      location_breakdown
+      location_breakdown,
     };
   }
 
   /**
    * Get UTM campaign performance
    */
-  async getUTMPerformance(organizationId: string, startDate?: string, endDate?: string): Promise<Array<{
-    utm_source: string;
-    utm_medium: string;
-    utm_campaign: string;
-    events: number;
-    unique_users: number;
-    conversion_rate: number;
-  }>> {
+  async getUTMPerformance(
+    organizationId: string,
+    startDate?: string,
+    endDate?: string
+  ): Promise<
+    Array<{
+      utm_source: string;
+      utm_medium: string;
+      utm_campaign: string;
+      events: number;
+      unique_users: number;
+      conversion_rate: number;
+    }>
+  > {
     let query = this.supabase
       .from('analytics_events')
       .select('utm_source, utm_medium, utm_campaign, user_id, event_type')
@@ -198,12 +220,15 @@ export class AnalyticsService {
     if (error) throw error;
 
     // Group by UTM parameters
-    const utmGroups = new Map<string, {
-      utm_source: string;
-      utm_medium: string;
-      utm_campaign: string;
-      events: AnalyticsEvent[];
-    }>();
+    const utmGroups = new Map<
+      string,
+      {
+        utm_source: string;
+        utm_medium: string;
+        utm_campaign: string;
+        events: AnalyticsEvent[];
+      }
+    >();
 
     events?.forEach(event => {
       const key = `${event.utm_source}-${event.utm_medium}-${event.utm_campaign}`;
@@ -212,33 +237,43 @@ export class AnalyticsService {
           utm_source: event.utm_source || '',
           utm_medium: event.utm_medium || '',
           utm_campaign: event.utm_campaign || '',
-          events: []
+          events: [],
         });
       }
       utmGroups.get(key)?.events.push(event);
     });
 
-    return Array.from(utmGroups.values()).map(group => {
-      const events = group.events;
-      const unique_users = new Set(events.map(e => e.user_id).filter(Boolean)).size;
-      const conversions = events.filter(e => e.event_type === 'conversion').length;
-      const conversion_rate = events.length > 0 ? (conversions / events.length) * 100 : 0;
+    return Array.from(utmGroups.values())
+      .map(group => {
+        const events = group.events;
+        const unique_users = new Set(events.map(e => e.user_id).filter(Boolean))
+          .size;
+        const conversions = events.filter(
+          e => e.event_type === 'conversion'
+        ).length;
+        const conversion_rate =
+          events.length > 0 ? (conversions / events.length) * 100 : 0;
 
-      return {
-        utm_source: group.utm_source,
-        utm_medium: group.utm_medium,
-        utm_campaign: group.utm_campaign,
-        events: events.length,
-        unique_users,
-        conversion_rate
-      };
-    }).sort((a, b) => b.events - a.events);
+        return {
+          utm_source: group.utm_source,
+          utm_medium: group.utm_medium,
+          utm_campaign: group.utm_campaign,
+          events: events.length,
+          unique_users,
+          conversion_rate,
+        };
+      })
+      .sort((a, b) => b.events - a.events);
   }
 
   /**
    * Export analytics data
    */
-  async exportAnalyticsData(organizationId: string, startDate?: string, endDate?: string): Promise<string> {
+  async exportAnalyticsData(
+    organizationId: string,
+    startDate?: string,
+    endDate?: string
+  ): Promise<string> {
     let query = this.supabase
       .from('analytics_events')
       .select('*')
@@ -266,23 +301,24 @@ export class AnalyticsService {
       'Device Type',
       'Browser',
       'OS',
-      'Location'
+      'Location',
     ];
 
-    const rows = events?.map(event => [
-      event.created_at,
-      event.event_type,
-      event.user_id || '',
-      event.page_url || '',
-      event.referrer || '',
-      event.utm_source || '',
-      event.utm_medium || '',
-      event.utm_campaign || '',
-      event.device_type || '',
-      event.browser || '',
-      event.os || '',
-      event.location ? JSON.stringify(event.location) : ''
-    ]) || [];
+    const rows =
+      events?.map(event => [
+        event.created_at,
+        event.event_type,
+        event.user_id || '',
+        event.page_url || '',
+        event.referrer || '',
+        event.utm_source || '',
+        event.utm_medium || '',
+        event.utm_campaign || '',
+        event.device_type || '',
+        event.browser || '',
+        event.os || '',
+        event.location ? JSON.stringify(event.location) : '',
+      ]) || [];
 
     const csvContent = [headers, ...rows]
       .map(row => row.map(field => `"${field}"`).join(','))
@@ -298,11 +334,11 @@ export class AnalyticsService {
     try {
       const urlObj = new URL(url);
       const params = urlObj.searchParams;
-      
+
       const utm_source = params.get('utm_source');
       const utm_medium = params.get('utm_medium');
       const utm_campaign = params.get('utm_campaign');
-      
+
       if (!utm_source || !utm_medium || !utm_campaign) {
         return null;
       }
@@ -312,7 +348,7 @@ export class AnalyticsService {
         medium: utm_medium,
         campaign: utm_campaign,
         term: params.get('utm_term') || undefined,
-        content: params.get('utm_content') || undefined
+        content: params.get('utm_content') || undefined,
       };
     } catch {
       return null;
@@ -322,9 +358,15 @@ export class AnalyticsService {
   /**
    * Get device information from user agent
    */
-  parseUserAgent(userAgent: string): { device_type: string; browser: string; os: string } {
-    const device_type = /Mobile|Android|iPhone|iPad/.test(userAgent) ? 'mobile' : 'desktop';
-    
+  parseUserAgent(userAgent: string): {
+    device_type: string;
+    browser: string;
+    os: string;
+  } {
+    const device_type = /Mobile|Android|iPhone|iPad/.test(userAgent)
+      ? 'mobile'
+      : 'desktop';
+
     let browser = 'unknown';
     if (userAgent.includes('Chrome')) browser = 'Chrome';
     else if (userAgent.includes('Firefox')) browser = 'Firefox';

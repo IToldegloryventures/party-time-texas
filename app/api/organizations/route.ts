@@ -6,6 +6,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import OrganizationService from '@/lib/organization';
+import { supabase } from '@/lib/supabase/client';
 
 const orgService = new OrganizationService();
 
@@ -18,7 +19,10 @@ export async function GET(request: NextRequest) {
 
     const organization = await orgService.getUserOrganization(userId);
     if (!organization) {
-      return NextResponse.json({ error: 'Organization not found' }, { status: 404 });
+      return NextResponse.json(
+        { error: 'Organization not found' },
+        { status: 404 }
+      );
     }
 
     return NextResponse.json(organization);
@@ -52,7 +56,7 @@ export async function POST(request: NextRequest) {
       name,
       slug,
       plan_type,
-      owner_id: userId
+      owner_id: userId,
     });
 
     return NextResponse.json(organization, { status: 201 });
@@ -82,7 +86,31 @@ export async function PUT(request: NextRequest) {
       );
     }
 
-    const organization = await orgService.updateOrganization(organization_id, updates);
+    // Get the organization first to verify ownership
+    const { data: user } = await supabase
+      .from('users')
+      .select('organization_id')
+      .eq('clerk_id', userId)
+      .single();
+
+    if (!user || user.organization_id !== organization_id) {
+      return NextResponse.json(
+        { error: 'Unauthorized to update this organization' },
+        { status: 403 }
+      );
+    }
+
+    // Update the organization
+    const { data: organization, error } = await supabase
+      .from('organizations')
+      .update(updates)
+      .eq('id', organization_id)
+      .select()
+      .single();
+
+    if (error) {
+      throw error;
+    }
     return NextResponse.json(organization);
   } catch (error) {
     console.error('Update organization error:', error);

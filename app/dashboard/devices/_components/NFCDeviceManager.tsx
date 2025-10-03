@@ -56,7 +56,7 @@ const NFCDeviceManager = () => {
       if (orgData) {
         // Generate a unique device ID for the client
         const deviceId = `ptt_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`;
-        
+
         await registerNFCDevice({
           organization_id: orgData.organization.id,
           device_id: deviceId,
@@ -71,8 +71,14 @@ const NFCDeviceManager = () => {
             programmed_date: new Date().toISOString(),
           },
         });
-        
-        setNewDevice({ device_type: 'business_card', name: '', description: '', assigned_to: '', contact_email: '' });
+
+        setNewDevice({
+          device_type: 'business_card',
+          name: '',
+          description: '',
+          assigned_to: '',
+          contact_email: '',
+        });
         setShowAddForm(false);
         fetchDevices();
       }
@@ -94,9 +100,9 @@ const NFCDeviceManager = () => {
 
   if (!isLoaded || loading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="flex min-h-screen items-center justify-center bg-black">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-400 mx-auto mb-4"></div>
+          <div className="mx-auto mb-4 h-12 w-12 animate-spin rounded-full border-b-2 border-purple-400"></div>
           <p className="text-white/70">Loading NFC devices...</p>
         </div>
       </div>
@@ -105,10 +111,10 @@ const NFCDeviceManager = () => {
 
   return (
     <div className="min-h-screen bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-200 mb-4">
+          <h1 className="mb-4 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-4xl font-bold text-transparent">
             NFC Device Management
           </h1>
           <p className="text-xl text-white/70">
@@ -120,13 +126,13 @@ const NFCDeviceManager = () => {
         <div className="mb-8 flex gap-4">
           <button
             onClick={() => setShowAddForm(!showAddForm)}
-            className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300"
+            className="rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 font-semibold text-white transition-all duration-300 hover:from-purple-700 hover:to-blue-700"
           >
             {showAddForm ? 'Cancel' : '+ Add New Device'}
           </button>
           <a
             href="/dashboard/devices/discover"
-            className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300"
+            className="rounded-lg bg-gradient-to-r from-green-600 to-teal-600 px-6 py-3 font-semibold text-white transition-all duration-300 hover:from-green-700 hover:to-teal-700"
           >
             🔍 Discover Existing NFC
           </a>
@@ -134,24 +140,33 @@ const NFCDeviceManager = () => {
 
         {/* Add Device Form */}
         {showAddForm && (
-          <div className="bg-gray-900/50 border border-purple-400/20 rounded-xl p-6 mb-8">
-            <h3 className="text-xl font-semibold text-white mb-4">Register New NFC Device</h3>
+          <div className="mb-8 rounded-xl border border-purple-400/20 bg-gray-900/50 p-6">
+            <h3 className="mb-4 text-xl font-semibold text-white">
+              Register New NFC Device
+            </h3>
             <form onSubmit={handleAddDevice} className="space-y-4">
-              <div className="bg-blue-900/20 border border-blue-400/30 rounded-lg p-4 mb-4">
-                <p className="text-blue-200 text-sm">
-                  <strong>Note:</strong> NFC Tag ID will be automatically generated and programmed by Cosmic Portals before shipping to your client.
+              <div className="mb-4 rounded-lg border border-blue-400/30 bg-blue-900/20 p-4">
+                <p className="text-sm text-blue-200">
+                  <strong>Note:</strong> NFC Tag ID will be automatically
+                  generated and programmed by Cosmic Portals before shipping to
+                  your client.
                 </p>
               </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div>
-                  <label className="block text-sm font-medium text-white/70 mb-2">
+                  <label className="mb-2 block text-sm font-medium text-white/70">
                     Device Type
                   </label>
                   <select
                     value={newDevice.device_type}
-                    onChange={(e) => setNewDevice({ ...newDevice, device_type: e.target.value })}
-                    className="w-full bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 text-white focus:border-purple-400 focus:outline-none"
+                    onChange={e =>
+                      setNewDevice({
+                        ...newDevice,
+                        device_type: e.target.value,
+                      })
+                    }
+                    className="w-full rounded-lg border border-gray-600 bg-gray-800 px-3 py-2 text-white focus:border-purple-400 focus:outline-none"
                   >
                     <option value="business_card">Business Card</option>
                     <option value="signage">Signage</option>
@@ -160,56 +175,70 @@ const NFCDeviceManager = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-white/70 mb-2">
+                  <label className="mb-2 block text-sm font-medium text-white/70">
                     Assigned To (Client Name)
                   </label>
                   <input
                     type="text"
                     value={newDevice.assigned_to}
-                    onChange={(e) => setNewDevice({ ...newDevice, assigned_to: e.target.value })}
-                    className="w-full bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 text-white focus:border-purple-400 focus:outline-none"
+                    onChange={e =>
+                      setNewDevice({
+                        ...newDevice,
+                        assigned_to: e.target.value,
+                      })
+                    }
+                    className="w-full rounded-lg border border-gray-600 bg-gray-800 px-3 py-2 text-white focus:border-purple-400 focus:outline-none"
                     placeholder="e.g., John Smith, Sarah Johnson"
                     required
                   />
                 </div>
               </div>
-              
+
               <div>
-                <label className="block text-sm font-medium text-white/70 mb-2">
+                <label className="mb-2 block text-sm font-medium text-white/70">
                   Device Name
                 </label>
                 <input
                   type="text"
                   value={newDevice.name}
-                  onChange={(e) => setNewDevice({ ...newDevice, name: e.target.value })}
-                  className="w-full bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 text-white focus:border-purple-400 focus:outline-none"
+                  onChange={e =>
+                    setNewDevice({ ...newDevice, name: e.target.value })
+                  }
+                  className="w-full rounded-lg border border-gray-600 bg-gray-800 px-3 py-2 text-white focus:border-purple-400 focus:outline-none"
                   placeholder="e.g., John's Business Card, Sarah's Event Badge"
                   required
                 />
               </div>
-              
+
               <div>
-                <label className="block text-sm font-medium text-white/70 mb-2">
+                <label className="mb-2 block text-sm font-medium text-white/70">
                   Client Contact Email
                 </label>
                 <input
                   type="email"
                   value={newDevice.contact_email}
-                  onChange={(e) => setNewDevice({ ...newDevice, contact_email: e.target.value })}
-                  className="w-full bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 text-white focus:border-purple-400 focus:outline-none"
+                  onChange={e =>
+                    setNewDevice({
+                      ...newDevice,
+                      contact_email: e.target.value,
+                    })
+                  }
+                  className="w-full rounded-lg border border-gray-600 bg-gray-800 px-3 py-2 text-white focus:border-purple-400 focus:outline-none"
                   placeholder="client@company.com"
                   required
                 />
               </div>
-              
+
               <div>
-                <label className="block text-sm font-medium text-white/70 mb-2">
+                <label className="mb-2 block text-sm font-medium text-white/70">
                   Description
                 </label>
                 <textarea
                   value={newDevice.description}
-                  onChange={(e) => setNewDevice({ ...newDevice, description: e.target.value })}
-                  className="w-full bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 text-white focus:border-purple-400 focus:outline-none"
+                  onChange={e =>
+                    setNewDevice({ ...newDevice, description: e.target.value })
+                  }
+                  className="w-full rounded-lg border border-gray-600 bg-gray-800 px-3 py-2 text-white focus:border-purple-400 focus:outline-none"
                   placeholder="Brief description of this NFC device and its purpose..."
                   rows={3}
                 />
@@ -217,14 +246,14 @@ const NFCDeviceManager = () => {
               <div className="flex gap-4">
                 <button
                   type="submit"
-                  className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200"
+                  className="rounded-lg bg-purple-600 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-purple-700"
                 >
                   Register Device
                 </button>
                 <button
                   type="button"
                   onClick={() => setShowAddForm(false)}
-                  className="bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200"
+                  className="rounded-lg bg-gray-600 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-gray-700"
                 >
                   Cancel
                 </button>
@@ -236,57 +265,88 @@ const NFCDeviceManager = () => {
         {/* Devices List */}
         <div className="space-y-4">
           {devices.length === 0 ? (
-            <div className="text-center py-12">
-              <div className="w-16 h-16 bg-purple-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            <div className="py-12 text-center">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-purple-600/20">
+                <svg
+                  className="h-8 w-8 text-purple-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                  />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">No NFC Devices Yet</h3>
-              <p className="text-white/70 mb-6">Register your first NFC device to start tracking engagement</p>
+              <h3 className="mb-2 text-xl font-semibold text-white">
+                No NFC Devices Yet
+              </h3>
+              <p className="mb-6 text-white/70">
+                Register your first NFC device to start tracking engagement
+              </p>
               <button
                 onClick={() => setShowAddForm(true)}
-                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300"
+                className="rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 font-semibold text-white transition-all duration-300 hover:from-purple-700 hover:to-blue-700"
               >
                 Add Your First Device
               </button>
             </div>
           ) : (
-            devices.map((device) => (
-              <div key={device.id} className="bg-gray-900/50 border border-purple-400/20 rounded-xl p-6">
+            devices.map(device => (
+              <div
+                key={device.id}
+                className="rounded-xl border border-purple-400/20 bg-gray-900/50 p-6"
+              >
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <h3 className="text-lg font-semibold text-white">{device.metadata?.name || device.device_id}</h3>
-                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                        device.status === 'active' 
-                          ? 'bg-green-600/20 text-green-300' 
-                          : 'bg-gray-600/20 text-gray-300'
-                      }`}>
+                    <div className="mb-2 flex items-center gap-3">
+                      <h3 className="text-lg font-semibold text-white">
+                        {device.metadata?.name || device.device_id}
+                      </h3>
+                      <span
+                        className={`rounded-full px-2 py-1 text-xs font-medium ${
+                          device.status === 'active'
+                            ? 'bg-green-600/20 text-green-300'
+                            : 'bg-gray-600/20 text-gray-300'
+                        }`}
+                      >
                         {device.status}
                       </span>
                     </div>
-                    <p className="text-white/70 text-sm mb-2">{device.metadata?.description || 'No description'}</p>
+                    <p className="mb-2 text-sm text-white/70">
+                      {device.metadata?.description || 'No description'}
+                    </p>
                     <div className="flex items-center gap-4 text-sm text-white/50">
                       <span>ID: {device.device_id}</span>
                       <span>Type: {device.device_type.replace('_', ' ')}</span>
-                      <span>Assigned to: {device.metadata?.assigned_to || 'Unassigned'}</span>
+                      <span>
+                        Assigned to:{' '}
+                        {device.metadata?.assigned_to || 'Unassigned'}
+                      </span>
                       <span>Scans: {device.scan_count}</span>
                     </div>
-                    <div className="flex items-center gap-4 text-sm text-white/50 mt-2">
-                      <span>Contact: {device.metadata?.contact_email || 'No email'}</span>
+                    <div className="mt-2 flex items-center gap-4 text-sm text-white/50">
+                      <span>
+                        Contact: {device.metadata?.contact_email || 'No email'}
+                      </span>
                       {device.last_scan && (
-                        <span>Last scan: {new Date(device.last_scan).toLocaleDateString()}</span>
+                        <span>
+                          Last scan:{' '}
+                          {new Date(device.last_scan).toLocaleDateString()}
+                        </span>
                       )}
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200">
+                    <button className="rounded-lg bg-blue-600 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-blue-700">
                       Edit
                     </button>
-                    <button 
+                    <button
                       onClick={() => handleDeleteDevice(device.id)}
-                      className="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200"
+                      className="rounded-lg bg-red-600 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-red-700"
                     >
                       Delete
                     </button>

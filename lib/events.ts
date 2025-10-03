@@ -9,7 +9,13 @@ export interface Event {
   organization_id: string;
   name: string;
   description?: string;
-  event_type: 'business' | 'wedding' | 'corporate' | 'school' | 'nonprofit' | 'community';
+  event_type:
+    | 'business'
+    | 'wedding'
+    | 'corporate'
+    | 'school'
+    | 'nonprofit'
+    | 'community';
   start_date?: string;
   end_date?: string;
   location?: string;
@@ -72,7 +78,7 @@ export class EventService {
         end_date: data.end_date,
         location: data.location,
         status: 'draft',
-        settings: data.settings || {}
+        settings: data.settings || {},
       })
       .select()
       .single();
@@ -149,7 +155,7 @@ export class EventService {
         plus_ones: data.plus_ones || 0,
         meal_choice: data.meal_choice,
         dietary_restrictions: data.dietary_restrictions,
-        metadata: data.metadata || {}
+        metadata: data.metadata || {},
       })
       .select()
       .single();
@@ -178,8 +184,8 @@ export class EventService {
   async checkInAttendee(attendeeId: string): Promise<Attendee> {
     const { data, error } = await this.supabase
       .from('attendees')
-      .update({ 
-        check_in_time: new Date().toISOString()
+      .update({
+        check_in_time: new Date().toISOString(),
       })
       .eq('id', attendeeId)
       .select()
@@ -195,8 +201,8 @@ export class EventService {
   async checkOutAttendee(attendeeId: string): Promise<Attendee> {
     const { data, error } = await this.supabase
       .from('attendees')
-      .update({ 
-        check_out_time: new Date().toISOString()
+      .update({
+        check_out_time: new Date().toISOString(),
       })
       .eq('id', attendeeId)
       .select()
@@ -228,9 +234,10 @@ export class EventService {
       const checkInTimes = attendees
         ?.filter(a => a.check_in_time)
         .map(a => new Date(a.check_in_time).getTime());
-      
+
       if (checkInTimes && checkInTimes.length > 0) {
-        const avgTime = checkInTimes.reduce((a, b) => a + b, 0) / checkInTimes.length;
+        const avgTime =
+          checkInTimes.reduce((a, b) => a + b, 0) / checkInTimes.length;
         average_check_in_time = new Date(avgTime).toISOString();
       }
     }
@@ -240,14 +247,17 @@ export class EventService {
       checked_in,
       checked_out,
       photos_uploaded,
-      average_check_in_time
+      average_check_in_time,
     };
   }
 
   /**
    * Upload attendee photo
    */
-  async uploadAttendeePhoto(attendeeId: string, photoUrl: string): Promise<Attendee> {
+  async uploadAttendeePhoto(
+    attendeeId: string,
+    photoUrl: string
+  ): Promise<Attendee> {
     const { data, error } = await this.supabase
       .from('attendees')
       .update({ photo_url: photoUrl })
@@ -262,7 +272,11 @@ export class EventService {
   /**
    * Get event photo gallery
    */
-  async getEventPhotoGallery(eventId: string): Promise<Array<{ id: string; name: string; photo_url: string; created_at: string }>> {
+  async getEventPhotoGallery(
+    eventId: string
+  ): Promise<
+    Array<{ id: string; name: string; photo_url: string; created_at: string }>
+  > {
     const { data, error } = await this.supabase
       .from('attendees')
       .select('id, name, photo_url, created_at')
@@ -279,8 +293,16 @@ export class EventService {
    */
   async exportAttendeesCSV(eventId: string): Promise<string> {
     const attendees = await this.getEventAttendees(eventId);
-    
-    const headers = ['Name', 'Email', 'Phone', 'Check In Time', 'Check Out Time', 'Plus Ones', 'Meal Choice'];
+
+    const headers = [
+      'Name',
+      'Email',
+      'Phone',
+      'Check In Time',
+      'Check Out Time',
+      'Plus Ones',
+      'Meal Choice',
+    ];
     const rows = attendees.map(attendee => [
       attendee.name,
       attendee.email || '',
@@ -288,7 +310,7 @@ export class EventService {
       attendee.check_in_time || '',
       attendee.check_out_time || '',
       attendee.plus_ones.toString(),
-      attendee.meal_choice || ''
+      attendee.meal_choice || '',
     ]);
 
     const csvContent = [headers, ...rows]

@@ -22,7 +22,12 @@ export interface DataSubjectRequest {
   id: string;
   user_id: string;
   organization_id: string;
-  request_type: 'access' | 'portability' | 'rectification' | 'erasure' | 'restriction';
+  request_type:
+    | 'access'
+    | 'portability'
+    | 'rectification'
+    | 'erasure'
+    | 'restriction';
   status: 'pending' | 'in_progress' | 'completed' | 'rejected';
   description: string;
   requested_at: string;
@@ -62,7 +67,7 @@ export class ComplianceService {
         granted_at: data.granted ? new Date().toISOString() : null,
         ip_address: data.ip_address,
         user_agent: data.user_agent,
-        consent_version: '1.0'
+        consent_version: '1.0',
       })
       .select()
       .single();
@@ -74,7 +79,10 @@ export class ComplianceService {
   /**
    * Get user consent status
    */
-  async getUserConsent(userId: string, organizationId: string): Promise<CookieConsent> {
+  async getUserConsent(
+    userId: string,
+    organizationId: string
+  ): Promise<CookieConsent> {
     const { data: consents } = await this.supabase
       .from('consent_records')
       .select('consent_type, granted')
@@ -94,7 +102,7 @@ export class ComplianceService {
       functional: consentMap.get('functional') ?? false,
       analytics: consentMap.get('analytics') ?? false,
       marketing: consentMap.get('marketing') ?? false,
-      preferences: {}
+      preferences: {},
     };
   }
 
@@ -115,7 +123,7 @@ export class ComplianceService {
         request_type: data.request_type,
         status: 'pending',
         description: data.description,
-        requested_at: new Date().toISOString()
+        requested_at: new Date().toISOString(),
       })
       .select()
       .single();
@@ -127,7 +135,9 @@ export class ComplianceService {
   /**
    * Process data subject request
    */
-  async processDataSubjectRequest(requestId: string): Promise<DataSubjectRequest> {
+  async processDataSubjectRequest(
+    requestId: string
+  ): Promise<DataSubjectRequest> {
     const { data: request } = await this.supabase
       .from('data_subject_requests')
       .select('*')
@@ -140,10 +150,16 @@ export class ComplianceService {
 
     switch (request.request_type) {
       case 'access':
-        responseData = await this.generateDataExport(request.user_id, request.organization_id);
+        responseData = await this.generateDataExport(
+          request.user_id,
+          request.organization_id
+        );
         break;
       case 'portability':
-        responseData = await this.generateDataPortability(request.user_id, request.organization_id);
+        responseData = await this.generateDataPortability(
+          request.user_id,
+          request.organization_id
+        );
         break;
       case 'erasure':
         await this.executeDataErasure(request.user_id, request.organization_id);
@@ -154,7 +170,10 @@ export class ComplianceService {
         responseData = { message: 'Please update your profile information' };
         break;
       case 'restriction':
-        await this.restrictDataProcessing(request.user_id, request.organization_id);
+        await this.restrictDataProcessing(
+          request.user_id,
+          request.organization_id
+        );
         responseData = { message: 'Data processing restricted' };
         break;
     }
@@ -164,7 +183,7 @@ export class ComplianceService {
       .update({
         status: 'completed',
         completed_at: new Date().toISOString(),
-        response_data: responseData
+        response_data: responseData,
       })
       .eq('id', requestId)
       .select()
@@ -177,12 +196,18 @@ export class ComplianceService {
   /**
    * Generate data export for access request
    */
-  private async generateDataExport(userId: string, organizationId: string): Promise<any> {
+  private async generateDataExport(
+    userId: string,
+    organizationId: string
+  ): Promise<any> {
     const [userData, events, scans, analytics] = await Promise.all([
       this.supabase.from('users').select('*').eq('id', userId).single(),
-      this.supabase.from('events').select('*').eq('organization_id', organizationId),
+      this.supabase
+        .from('events')
+        .select('*')
+        .eq('organization_id', organizationId),
       this.supabase.from('nfc_scans').select('*').eq('user_id', userId),
-      this.supabase.from('analytics_events').select('*').eq('user_id', userId)
+      this.supabase.from('analytics_events').select('*').eq('user_id', userId),
     ]);
 
     return {
@@ -190,48 +215,60 @@ export class ComplianceService {
       events: events.data,
       scans: scans.data,
       analytics: analytics.data,
-      exported_at: new Date().toISOString()
+      exported_at: new Date().toISOString(),
     };
   }
 
   /**
    * Generate data portability export
    */
-  private async generateDataPortability(userId: string, organizationId: string): Promise<any> {
+  private async generateDataPortability(
+    userId: string,
+    organizationId: string
+  ): Promise<any> {
     const exportData = await this.generateDataExport(userId, organizationId);
-    
+
     return {
       ...exportData,
       format: 'json',
       version: '1.0',
-      compatible_platforms: ['cosmic-portals', 'general-json']
+      compatible_platforms: ['cosmic-portals', 'general-json'],
     };
   }
 
   /**
    * Execute data erasure (right to be forgotten)
    */
-  private async executeDataErasure(userId: string, organizationId: string): Promise<void> {
+  private async executeDataErasure(
+    userId: string,
+    organizationId: string
+  ): Promise<void> {
     // Delete user data across all tables
     await Promise.all([
       this.supabase.from('users').delete().eq('id', userId),
       this.supabase.from('nfc_scans').delete().eq('user_id', userId),
       this.supabase.from('analytics_events').delete().eq('user_id', userId),
       this.supabase.from('consent_records').delete().eq('user_id', userId),
-      this.supabase.from('data_subject_requests').delete().eq('user_id', userId)
+      this.supabase
+        .from('data_subject_requests')
+        .delete()
+        .eq('user_id', userId),
     ]);
   }
 
   /**
    * Restrict data processing
    */
-  private async restrictDataProcessing(userId: string, organizationId: string): Promise<void> {
+  private async restrictDataProcessing(
+    userId: string,
+    organizationId: string
+  ): Promise<void> {
     // Mark user as restricted
     await this.supabase
       .from('users')
-      .update({ 
+      .update({
         data_processing_restricted: true,
-        restricted_at: new Date().toISOString()
+        restricted_at: new Date().toISOString(),
       })
       .eq('id', userId);
   }
@@ -329,11 +366,12 @@ You can manage your cookie preferences in your account settings.
     return {
       gdpr_compliant: org?.compliance_settings?.gdpr_compliant || false,
       consent_management: org?.compliance_settings?.consent_management || false,
-      data_retention_policy: org?.compliance_settings?.data_retention_policy || false,
+      data_retention_policy:
+        org?.compliance_settings?.data_retention_policy || false,
       privacy_policy: org?.compliance_settings?.privacy_policy || false,
       cookie_policy: org?.compliance_settings?.cookie_policy || false,
       data_subject_requests: pendingRequests || 0,
-      last_audit: org?.compliance_settings?.last_audit || 'Never'
+      last_audit: org?.compliance_settings?.last_audit || 'Never',
     };
   }
 }

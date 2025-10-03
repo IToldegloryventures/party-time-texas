@@ -32,7 +32,9 @@ export interface OrganizationData {
 /**
  * Get user and organization data by Clerk user ID
  */
-export async function getUserOrganizationData(clerkUserId: string): Promise<OrganizationData | null> {
+export async function getUserOrganizationData(
+  clerkUserId: string
+): Promise<OrganizationData | null> {
   try {
     // Get user data
     const { data: user, error: userError } = await supabase
@@ -95,10 +97,19 @@ export async function getUserOrganizationData(clerkUserId: string): Promise<Orga
 export async function getOrganizationStats(organizationId: string) {
   try {
     const [nfcDevices, events, attendees, nfcScans] = await Promise.all([
-      supabase.from('nfc_devices').select('*').eq('organization_id', organizationId),
+      supabase
+        .from('nfc_devices')
+        .select('*')
+        .eq('organization_id', organizationId),
       supabase.from('events').select('*').eq('organization_id', organizationId),
-      supabase.from('attendees').select('*').eq('organization_id', organizationId),
-      supabase.from('nfc_scans').select('*').eq('organization_id', organizationId),
+      supabase
+        .from('attendees')
+        .select('*')
+        .eq('organization_id', organizationId),
+      supabase
+        .from('nfc_scans')
+        .select('*')
+        .eq('organization_id', organizationId),
     ]);
 
     return {

@@ -9,7 +9,11 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 export interface TrendAnalysis {
   period: string;
   engagement_trend: 'increasing' | 'decreasing' | 'stable';
-  top_performing_events: Array<{ event_id: string; name: string; engagement_score: number }>;
+  top_performing_events: Array<{
+    event_id: string;
+    name: string;
+    engagement_score: number;
+  }>;
   device_performance: Record<string, number>;
   location_insights: Array<{ location: string; engagement_rate: number }>;
   recommendations: string[];
@@ -21,8 +25,16 @@ export interface PredictiveAnalytics {
     expected_scans: number;
     expected_revenue: number;
   };
-  risk_factors: Array<{ factor: string; impact: 'high' | 'medium' | 'low'; description: string }>;
-  opportunities: Array<{ opportunity: string; potential_impact: number; effort_required: string }>;
+  risk_factors: Array<{
+    factor: string;
+    impact: 'high' | 'medium' | 'low';
+    description: string;
+  }>;
+  opportunities: Array<{
+    opportunity: string;
+    potential_impact: number;
+    effort_required: string;
+  }>;
 }
 
 export interface AIReport {
@@ -49,10 +61,13 @@ export class AIInsightsService {
   /**
    * Generate trend analysis for an organization
    */
-  async generateTrendAnalysis(organizationId: string, period: string = '30d'): Promise<TrendAnalysis> {
+  async generateTrendAnalysis(
+    organizationId: string,
+    period: string = '30d'
+  ): Promise<TrendAnalysis> {
     // Get analytics data for the period
     const analyticsData = await this.getAnalyticsData(organizationId, period);
-    
+
     // Prepare data for AI analysis
     const prompt = `
       Analyze the following engagement data and provide insights:
@@ -88,7 +103,7 @@ export class AIInsightsService {
         top_performing_events: aiResponse.top_performing_events,
         device_performance: aiResponse.device_performance,
         location_insights: aiResponse.location_insights,
-        recommendations: aiResponse.recommendations
+        recommendations: aiResponse.recommendations,
       };
     } catch (error) {
       console.error('AI analysis error:', error);
@@ -100,9 +115,11 @@ export class AIInsightsService {
   /**
    * Generate predictive analytics
    */
-  async generatePredictiveAnalytics(organizationId: string): Promise<PredictiveAnalytics> {
+  async generatePredictiveAnalytics(
+    organizationId: string
+  ): Promise<PredictiveAnalytics> {
     const historicalData = await this.getHistoricalData(organizationId);
-    
+
     const prompt = `
       Based on historical data, predict next month's performance:
       
@@ -125,7 +142,7 @@ export class AIInsightsService {
       return {
         next_month_predictions: aiResponse.predictions,
         risk_factors: aiResponse.risk_factors,
-        opportunities: aiResponse.opportunities
+        opportunities: aiResponse.opportunities,
       };
     } catch (error) {
       console.error('Predictive analysis error:', error);
@@ -136,10 +153,13 @@ export class AIInsightsService {
   /**
    * Generate automated AI report
    */
-  async generateAIReport(organizationId: string, reportType: 'monthly' | 'quarterly' | 'annual'): Promise<AIReport> {
+  async generateAIReport(
+    organizationId: string,
+    reportType: 'monthly' | 'quarterly' | 'annual'
+  ): Promise<AIReport> {
     const [trends, predictions] = await Promise.all([
       this.generateTrendAnalysis(organizationId),
-      this.generatePredictiveAnalytics(organizationId)
+      this.generatePredictiveAnalytics(organizationId),
     ]);
 
     const summary = await this.generateReportSummary(trends, predictions);
@@ -151,16 +171,14 @@ export class AIInsightsService {
         summary,
         trends,
         predictions,
-        recommendations: trends.recommendations
+        recommendations: trends.recommendations,
       },
       generated_at: new Date().toISOString(),
-      ai_model: 'gemini-pro'
+      ai_model: 'gemini-pro',
     };
 
     // Store report in database
-    await this.supabase
-      .from('ai_reports')
-      .insert(report);
+    await this.supabase.from('ai_reports').insert(report);
 
     return report;
   }
@@ -173,13 +191,16 @@ export class AIInsightsService {
     total_events: number;
     total_scans: number;
     average_engagement_rate: number;
-    top_performing_organizations: Array<{ organization_id: string; name: string; engagement_score: number }>;
+    top_performing_organizations: Array<{
+      organization_id: string;
+      name: string;
+      engagement_score: number;
+    }>;
     industry_trends: Record<string, number>;
     geographic_distribution: Record<string, number>;
   }> {
     // Aggregate data across all organizations (anonymized)
-    const { data: orgStats } = await this.supabase
-      .from('organizations')
+    const { data: orgStats } = await this.supabase.from('organizations')
       .select(`
         id,
         name,
@@ -189,19 +210,30 @@ export class AIInsightsService {
       `);
 
     const total_organizations = orgStats?.length || 0;
-    const total_events = orgStats?.reduce((sum, org) => sum + (org.events?.[0]?.count || 0), 0) || 0;
-    const total_scans = orgStats?.reduce((sum, org) => sum + (org.nfc_scans?.[0]?.count || 0), 0) || 0;
-    const average_engagement_rate = total_events > 0 ? (total_scans / total_events) : 0;
+    const total_events =
+      orgStats?.reduce((sum, org) => sum + (org.events?.[0]?.count || 0), 0) ||
+      0;
+    const total_scans =
+      orgStats?.reduce(
+        (sum, org) => sum + (org.nfc_scans?.[0]?.count || 0),
+        0
+      ) || 0;
+    const average_engagement_rate =
+      total_events > 0 ? total_scans / total_events : 0;
 
     // Calculate top performers
-    const top_performing_organizations = orgStats
-      ?.map(org => ({
-        organization_id: org.id,
-        name: org.name,
-        engagement_score: org.events?.[0]?.count > 0 ? (org.nfc_scans?.[0]?.count || 0) / org.events[0].count : 0
-      }))
-      .sort((a, b) => b.engagement_score - a.engagement_score)
-      .slice(0, 10) || [];
+    const top_performing_organizations =
+      orgStats
+        ?.map(org => ({
+          organization_id: org.id,
+          name: org.name,
+          engagement_score:
+            org.events?.[0]?.count > 0
+              ? (org.nfc_scans?.[0]?.count || 0) / org.events[0].count
+              : 0,
+        }))
+        .sort((a, b) => b.engagement_score - a.engagement_score)
+        .slice(0, 10) || [];
 
     return {
       total_organizations,
@@ -210,16 +242,19 @@ export class AIInsightsService {
       average_engagement_rate,
       top_performing_organizations,
       industry_trends: {}, // TODO: Implement industry categorization
-      geographic_distribution: {} // TODO: Implement geographic analysis
+      geographic_distribution: {}, // TODO: Implement geographic analysis
     };
   }
 
   /**
    * Get analytics data for AI processing
    */
-  private async getAnalyticsData(organizationId: string, period: string): Promise<any> {
+  private async getAnalyticsData(
+    organizationId: string,
+    period: string
+  ): Promise<any> {
     const startDate = this.calculateStartDate(period);
-    
+
     const { data: events } = await this.supabase
       .from('analytics_events')
       .select('*')
@@ -237,7 +272,7 @@ export class AIInsightsService {
       scans: scans || [],
       period,
       total_events: events?.length || 0,
-      total_scans: scans?.length || 0
+      total_scans: scans?.length || 0,
     };
   }
 
@@ -257,14 +292,17 @@ export class AIInsightsService {
     return {
       events: events || [],
       period: '6_months',
-      total_events: events?.length || 0
+      total_events: events?.length || 0,
     };
   }
 
   /**
    * Generate report summary using AI
    */
-  private async generateReportSummary(trends: TrendAnalysis, predictions: PredictiveAnalytics): Promise<string> {
+  private async generateReportSummary(
+    trends: TrendAnalysis,
+    predictions: PredictiveAnalytics
+  ): Promise<string> {
     const prompt = `
       Generate a concise executive summary based on:
       
@@ -295,7 +333,10 @@ export class AIInsightsService {
       top_performing_events: [],
       device_performance: {},
       location_insights: [],
-      recommendations: ['Continue current engagement strategies', 'Monitor performance metrics regularly']
+      recommendations: [
+        'Continue current engagement strategies',
+        'Monitor performance metrics regularly',
+      ],
     };
   }
 
@@ -307,10 +348,10 @@ export class AIInsightsService {
       next_month_predictions: {
         expected_events: Math.round(data.total_events * 1.1),
         expected_scans: Math.round(data.total_scans * 1.1),
-        expected_revenue: 0
+        expected_revenue: 0,
       },
       risk_factors: [],
-      opportunities: []
+      opportunities: [],
     };
   }
 

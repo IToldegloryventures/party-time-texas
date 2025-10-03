@@ -9,7 +9,12 @@ export interface HardwareProduct {
   id: string;
   name: string;
   description: string;
-  category: 'business_cards' | 'signage' | 'event_badges' | 'table_tents' | 'kits';
+  category:
+    | 'business_cards'
+    | 'signage'
+    | 'event_badges'
+    | 'table_tents'
+    | 'kits';
   price: number;
   cost: number;
   profit_margin: number;
@@ -83,7 +88,9 @@ export class HardwareStoreService {
       query = query.eq('category', category);
     }
 
-    const { data, error } = await query.order('created_at', { ascending: false });
+    const { data, error } = await query.order('created_at', {
+      ascending: false,
+    });
 
     if (error) throw error;
     return data || [];
@@ -119,17 +126,23 @@ export class HardwareStoreService {
     const orderItems = data.items.map(item => {
       const product = products.find(p => p.id === item.product_id);
       if (!product) throw new Error(`Product ${item.product_id} not found`);
-      
+
       return {
         product_id: item.product_id,
         quantity: item.quantity,
         unit_price: product.price,
-        total_price: product.price * item.quantity
+        total_price: product.price * item.quantity,
       };
     });
 
-    const subtotal = orderItems.reduce((sum, item) => sum + item.total_price, 0);
-    const shipping_cost = this.calculateShippingCost(subtotal, data.shipping_address);
+    const subtotal = orderItems.reduce(
+      (sum, item) => sum + item.total_price,
+      0
+    );
+    const shipping_cost = this.calculateShippingCost(
+      subtotal,
+      data.shipping_address
+    );
     const tax = this.calculateTax(subtotal, data.shipping_address);
     const total = subtotal + shipping_cost + tax;
 
@@ -144,7 +157,7 @@ export class HardwareStoreService {
         shipping_cost,
         tax,
         total,
-        status: 'pending'
+        status: 'pending',
       })
       .select()
       .single();
@@ -160,7 +173,9 @@ export class HardwareStoreService {
   /**
    * Get organization orders
    */
-  async getOrganizationOrders(organizationId: string): Promise<HardwareOrder[]> {
+  async getOrganizationOrders(
+    organizationId: string
+  ): Promise<HardwareOrder[]> {
     const { data, error } = await this.supabase
       .from('hardware_orders')
       .select('*')
@@ -174,13 +189,17 @@ export class HardwareStoreService {
   /**
    * Update order status
    */
-  async updateOrderStatus(orderId: string, status: string, trackingNumber?: string): Promise<HardwareOrder> {
+  async updateOrderStatus(
+    orderId: string,
+    status: string,
+    trackingNumber?: string
+  ): Promise<HardwareOrder> {
     const { data, error } = await this.supabase
       .from('hardware_orders')
       .update({
         status,
         tracking_number: trackingNumber,
-        updated_at: new Date().toISOString()
+        updated_at: new Date().toISOString(),
       })
       .eq('id', orderId)
       .select()
@@ -193,26 +212,34 @@ export class HardwareStoreService {
   /**
    * Get inventory status
    */
-  async getInventoryStatus(): Promise<Array<{
-    product_id: string;
-    name: string;
-    current_stock: number;
-    low_stock_threshold: number;
-    status: 'in_stock' | 'low_stock' | 'out_of_stock';
-  }>> {
+  async getInventoryStatus(): Promise<
+    Array<{
+      product_id: string;
+      name: string;
+      current_stock: number;
+      low_stock_threshold: number;
+      status: 'in_stock' | 'low_stock' | 'out_of_stock';
+    }>
+  > {
     const { data: products } = await this.supabase
       .from('hardware_products')
       .select('id, name, inventory_count')
       .eq('is_active', true);
 
-    return products?.map(product => ({
-      product_id: product.id,
-      name: product.name,
-      current_stock: product.inventory_count,
-      low_stock_threshold: 10,
-      status: product.inventory_count > 10 ? 'in_stock' : 
-              product.inventory_count > 0 ? 'low_stock' : 'out_of_stock'
-    })) || [];
+    return (
+      products?.map(product => ({
+        product_id: product.id,
+        name: product.name,
+        current_stock: product.inventory_count,
+        low_stock_threshold: 10,
+        status:
+          product.inventory_count > 10
+            ? 'in_stock'
+            : product.inventory_count > 0
+              ? 'low_stock'
+              : 'out_of_stock',
+      })) || []
+    );
   }
 
   /**
@@ -221,11 +248,11 @@ export class HardwareStoreService {
   private calculateShippingCost(subtotal: number, address: any): number {
     // Free shipping over $100
     if (subtotal >= 100) return 0;
-    
+
     // Standard shipping rates
     const baseRate = 8.99;
     const internationalRate = 24.99;
-    
+
     return address.country === 'US' ? baseRate : internationalRate;
   }
 
@@ -235,10 +262,10 @@ export class HardwareStoreService {
   private calculateTax(subtotal: number, address: any): number {
     // Simplified tax calculation
     const taxRates: Record<string, number> = {
-      'CA': 0.0875,
-      'NY': 0.08,
-      'TX': 0.0625,
-      'FL': 0.06
+      CA: 0.0875,
+      NY: 0.08,
+      TX: 0.0625,
+      FL: 0.06,
     };
 
     const rate = taxRates[address.state] || 0.05;
@@ -248,12 +275,16 @@ export class HardwareStoreService {
   /**
    * Update inventory after order
    */
-  private async updateInventory(items: Array<{ product_id: string; quantity: number }>): Promise<void> {
+  private async updateInventory(
+    items: Array<{ product_id: string; quantity: number }>
+  ): Promise<void> {
     for (const item of items) {
       await this.supabase
         .from('hardware_products')
         .update({
-          inventory_count: this.supabase.raw(`inventory_count - ${item.quantity}`)
+          inventory_count: this.supabase.raw(
+            `inventory_count - ${item.quantity}`
+          ),
         })
         .eq('id', item.product_id);
     }
@@ -276,7 +307,10 @@ export class HardwareStoreService {
   /**
    * Get kit recommendations for organization
    */
-  async getKitRecommendations(organizationId: string, planType: string): Promise<HardwareKit[]> {
+  async getKitRecommendations(
+    organizationId: string,
+    planType: string
+  ): Promise<HardwareKit[]> {
     const { data: org } = await this.supabase
       .from('organizations')
       .select('plan_type, settings')
@@ -318,13 +352,15 @@ export class HardwareStoreService {
       .select('*')
       .in('id', productIds);
 
-    const estimated_delivery = this.calculateEstimatedDelivery(order.shipping_address);
+    const estimated_delivery = this.calculateEstimatedDelivery(
+      order.shipping_address
+    );
 
     return {
       order,
       products: products || [],
       estimated_delivery,
-      tracking_info: order.tracking_number
+      tracking_info: order.tracking_number,
     };
   }
 
@@ -333,7 +369,9 @@ export class HardwareStoreService {
    */
   private calculateEstimatedDelivery(address: any): string {
     const deliveryDate = new Date();
-    deliveryDate.setDate(deliveryDate.getDate() + (address.country === 'US' ? 3 : 7));
+    deliveryDate.setDate(
+      deliveryDate.getDate() + (address.country === 'US' ? 3 : 7)
+    );
     return deliveryDate.toISOString();
   }
 
@@ -343,7 +381,12 @@ export class HardwareStoreService {
   async getHardwareAnalytics(): Promise<{
     total_orders: number;
     total_revenue: number;
-    top_products: Array<{ product_id: string; name: string; quantity_sold: number; revenue: number }>;
+    top_products: Array<{
+      product_id: string;
+      name: string;
+      quantity_sold: number;
+      revenue: number;
+    }>;
     inventory_alerts: number;
   }> {
     const { data: orders } = await this.supabase
@@ -352,17 +395,25 @@ export class HardwareStoreService {
       .eq('status', 'delivered');
 
     const total_orders = orders?.length || 0;
-    const total_revenue = orders?.reduce((sum, order) => sum + order.total, 0) || 0;
+    const total_revenue =
+      orders?.reduce((sum, order) => sum + order.total, 0) || 0;
 
     // Calculate top products
-    const productSales = new Map<string, { name: string; quantity: number; revenue: number }>();
+    const productSales = new Map<
+      string,
+      { name: string; quantity: number; revenue: number }
+    >();
     orders?.forEach(order => {
       order.items.forEach(item => {
-        const existing = productSales.get(item.product_id) || { name: '', quantity: 0, revenue: 0 };
+        const existing = productSales.get(item.product_id) || {
+          name: '',
+          quantity: 0,
+          revenue: 0,
+        };
         productSales.set(item.product_id, {
           name: existing.name,
           quantity: existing.quantity + item.quantity,
-          revenue: existing.revenue + item.total_price
+          revenue: existing.revenue + item.total_price,
         });
       });
     });
@@ -373,13 +424,15 @@ export class HardwareStoreService {
       .slice(0, 5);
 
     const inventoryStatus = await this.getInventoryStatus();
-    const inventory_alerts = inventoryStatus.filter(item => item.status === 'low_stock' || item.status === 'out_of_stock').length;
+    const inventory_alerts = inventoryStatus.filter(
+      item => item.status === 'low_stock' || item.status === 'out_of_stock'
+    ).length;
 
     return {
       total_orders,
       total_revenue,
       top_products,
-      inventory_alerts
+      inventory_alerts,
     };
   }
 }

@@ -6,7 +6,7 @@ import { supabase } from '@/lib/supabase/client';
 export async function POST(request: NextRequest) {
   try {
     const { userId } = await auth();
-    
+
     if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
@@ -14,7 +14,10 @@ export async function POST(request: NextRequest) {
     const { email, role } = await request.json();
 
     if (!email || !role) {
-      return NextResponse.json({ error: 'Email and role are required' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Email and role are required' },
+        { status: 400 }
+      );
     }
 
     // Get user's organization
@@ -30,7 +33,10 @@ export async function POST(request: NextRequest) {
 
     // Check if user has admin permissions
     if (!['admin', 'owner'].includes(userData.role)) {
-      return NextResponse.json({ error: 'Insufficient permissions' }, { status: 403 });
+      return NextResponse.json(
+        { error: 'Insufficient permissions' },
+        { status: 403 }
+      );
     }
 
     // Send invitation
@@ -42,20 +48,26 @@ export async function POST(request: NextRequest) {
     );
 
     if (result.success) {
-      return NextResponse.json({ 
-        success: true, 
-        message: 'Invitation sent successfully' 
+      return NextResponse.json({
+        success: true,
+        message: 'Invitation sent successfully',
       });
     } else {
-      return NextResponse.json({ 
-        success: false, 
-        error: result.error 
-      }, { status: 400 });
+      return NextResponse.json(
+        {
+          success: false,
+          error: result.error,
+        },
+        { status: 400 }
+      );
     }
   } catch (error) {
     console.error('Error sending invitation:', error);
-    return NextResponse.json({ 
-      error: 'Internal server error' 
-    }, { status: 500 });
+    return NextResponse.json(
+      {
+        error: 'Internal server error',
+      },
+      { status: 500 }
+    );
   }
 }

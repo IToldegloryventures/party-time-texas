@@ -52,7 +52,7 @@ export class NFCService {
         device_type: data.device_type,
         status: 'active',
         scan_count: 0,
-        metadata: data.metadata || {}
+        metadata: data.metadata || {},
       })
       .select()
       .single();
@@ -92,7 +92,10 @@ export class NFCService {
   /**
    * Update device
    */
-  async updateDevice(deviceId: string, updates: Partial<NFCDevice>): Promise<NFCDevice> {
+  async updateDevice(
+    deviceId: string,
+    updates: Partial<NFCDevice>
+  ): Promise<NFCDevice> {
     const { data, error } = await this.supabase
       .from('nfc_devices')
       .update(updates)
@@ -132,7 +135,7 @@ export class NFCService {
         user_agent: data.user_agent,
         location_data: data.location_data,
         utm_params: data.utm_params,
-        referrer: data.referrer
+        referrer: data.referrer,
       })
       .select()
       .single();
@@ -142,9 +145,9 @@ export class NFCService {
     // Update device scan count
     await this.supabase
       .from('nfc_devices')
-      .update({ 
+      .update({
         scan_count: this.supabase.raw('scan_count + 1'),
-        last_scan: new Date().toISOString()
+        last_scan: new Date().toISOString(),
       })
       .eq('id', data.device_id);
 
@@ -154,7 +157,11 @@ export class NFCService {
   /**
    * Get scan analytics for a device
    */
-  async getDeviceAnalytics(deviceId: string, startDate?: string, endDate?: string): Promise<{
+  async getDeviceAnalytics(
+    deviceId: string,
+    startDate?: string,
+    endDate?: string
+  ): Promise<{
     total_scans: number;
     daily_scans: Array<{ date: string; count: number }>;
     scan_types: Record<string, number>;
@@ -176,14 +183,17 @@ export class NFCService {
     if (error) throw error;
 
     const total_scans = scans?.length || 0;
-    
+
     // Daily breakdown
     const dailyMap = new Map<string, number>();
     scans?.forEach(scan => {
       const date = scan.created_at.split('T')[0];
       dailyMap.set(date, (dailyMap.get(date) || 0) + 1);
     });
-    const daily_scans = Array.from(dailyMap.entries()).map(([date, count]) => ({ date, count }));
+    const daily_scans = Array.from(dailyMap.entries()).map(([date, count]) => ({
+      date,
+      count,
+    }));
 
     // Scan types breakdown
     const scanTypes: Record<string, number> = {};
@@ -195,7 +205,10 @@ export class NFCService {
     const referrerMap = new Map<string, number>();
     scans?.forEach(scan => {
       if (scan.referrer) {
-        referrerMap.set(scan.referrer, (referrerMap.get(scan.referrer) || 0) + 1);
+        referrerMap.set(
+          scan.referrer,
+          (referrerMap.get(scan.referrer) || 0) + 1
+        );
       }
     });
     const top_referrers = Array.from(referrerMap.entries())
@@ -207,7 +220,7 @@ export class NFCService {
       total_scans,
       daily_scans,
       scan_types: scanTypes,
-      top_referrers
+      top_referrers,
     };
   }
 
@@ -244,6 +257,7 @@ export const deleteNFCDevice = async (deviceId: string) => {
   return { success: true };
 };
 export const recordNFCScan = nfcService.recordScan.bind(nfcService);
-export const getNFCScanAnalytics = nfcService.getDeviceAnalytics.bind(nfcService);
+export const getNFCScanAnalytics =
+  nfcService.getDeviceAnalytics.bind(nfcService);
 export const generateQRCode = nfcService.generateQRCode.bind(nfcService);
 export const generateNFCUrl = nfcService.generateNFCUrl.bind(nfcService);

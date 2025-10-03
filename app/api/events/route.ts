@@ -6,6 +6,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import EventService from '@/lib/events';
+import { supabase } from '@/lib/supabase/client';
 
 const eventService = new EventService();
 
@@ -17,7 +18,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Get organization ID from user
-    const { data: user } = await this.supabase
+    const { data: user } = await supabase
       .from('users')
       .select('organization_id')
       .eq('clerk_id', userId)
@@ -27,7 +28,9 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
-    const events = await eventService.getOrganizationEvents(user.organization_id);
+    const events = await eventService.getOrganizationEvents(
+      user.organization_id
+    );
     return NextResponse.json(events);
   } catch (error) {
     console.error('Get events error:', error);
@@ -46,7 +49,15 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { name, description, event_type, start_date, end_date, location, settings } = body;
+    const {
+      name,
+      description,
+      event_type,
+      start_date,
+      end_date,
+      location,
+      settings,
+    } = body;
 
     if (!name || !event_type) {
       return NextResponse.json(
@@ -56,7 +67,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Get organization ID from user
-    const { data: user } = await this.supabase
+    const { data: user } = await supabase
       .from('users')
       .select('organization_id')
       .eq('clerk_id', userId)
@@ -74,7 +85,7 @@ export async function POST(request: NextRequest) {
       start_date,
       end_date,
       location,
-      settings
+      settings,
     });
 
     return NextResponse.json(event, { status: 201 });

@@ -34,13 +34,19 @@ export async function POST(request: NextRequest) {
     // Handle the event
     switch (event.type) {
       case 'customer.subscription.created':
-        await handleSubscriptionCreated(event.data.object as Stripe.Subscription);
+        await handleSubscriptionCreated(
+          event.data.object as Stripe.Subscription
+        );
         break;
       case 'customer.subscription.updated':
-        await handleSubscriptionUpdated(event.data.object as Stripe.Subscription);
+        await handleSubscriptionUpdated(
+          event.data.object as Stripe.Subscription
+        );
         break;
       case 'customer.subscription.deleted':
-        await handleSubscriptionDeleted(event.data.object as Stripe.Subscription);
+        await handleSubscriptionDeleted(
+          event.data.object as Stripe.Subscription
+        );
         break;
       case 'invoice.payment_succeeded':
         await handlePaymentSucceeded(event.data.object as Stripe.Invoice);
@@ -71,22 +77,27 @@ async function handleSubscriptionCreated(subscription: Stripe.Subscription) {
       .single();
 
     if (!organization) {
-      console.error('Organization not found for customer:', subscription.customer);
+      console.error(
+        'Organization not found for customer:',
+        subscription.customer
+      );
       return;
     }
 
     // Create or update subscription record
-    await supabase
-      .from('subscriptions')
-      .upsert({
-        organization_id: organization.id,
-        stripe_subscription_id: subscription.id,
-        plan_type: getPlanTypeFromPriceId(subscription.items.data[0].price.id),
-        status: subscription.status,
-        current_period_start: new Date(subscription.current_period_start * 1000).toISOString(),
-        current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
-        cancel_at_period_end: subscription.cancel_at_period_end
-      });
+    await supabase.from('subscriptions').upsert({
+      organization_id: organization.id,
+      stripe_subscription_id: subscription.id,
+      plan_type: getPlanTypeFromPriceId(subscription.items.data[0].price.id),
+      status: subscription.status,
+      current_period_start: new Date(
+        subscription.current_period_start * 1000
+      ).toISOString(),
+      current_period_end: new Date(
+        subscription.current_period_end * 1000
+      ).toISOString(),
+      cancel_at_period_end: subscription.cancel_at_period_end,
+    });
 
     console.log('Subscription created for organization:', organization.id);
   } catch (error) {
@@ -100,9 +111,13 @@ async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
       .from('subscriptions')
       .update({
         status: subscription.status,
-        current_period_start: new Date(subscription.current_period_start * 1000).toISOString(),
-        current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
-        cancel_at_period_end: subscription.cancel_at_period_end
+        current_period_start: new Date(
+          subscription.current_period_start * 1000
+        ).toISOString(),
+        current_period_end: new Date(
+          subscription.current_period_end * 1000
+        ).toISOString(),
+        cancel_at_period_end: subscription.cancel_at_period_end,
       })
       .eq('stripe_subscription_id', subscription.id);
 
@@ -117,7 +132,7 @@ async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
     await supabase
       .from('subscriptions')
       .update({
-        status: 'cancelled'
+        status: 'cancelled',
       })
       .eq('stripe_subscription_id', subscription.id);
 
@@ -133,7 +148,7 @@ async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
       await supabase
         .from('subscriptions')
         .update({
-          status: 'active'
+          status: 'active',
         })
         .eq('stripe_subscription_id', invoice.subscription);
 
@@ -150,7 +165,7 @@ async function handlePaymentFailed(invoice: Stripe.Invoice) {
       await supabase
         .from('subscriptions')
         .update({
-          status: 'past_due'
+          status: 'past_due',
         })
         .eq('stripe_subscription_id', invoice.subscription);
 
@@ -166,7 +181,7 @@ function getPlanTypeFromPriceId(priceId: string): string {
   const priceMap: Record<string, string> = {
     [process.env.STRIPE_STARTER_PRICE_ID!]: 'starter',
     [process.env.STRIPE_PROFESSIONAL_PRICE_ID!]: 'professional',
-    [process.env.STRIPE_ENTERPRISE_PRICE_ID!]: 'enterprise'
+    [process.env.STRIPE_ENTERPRISE_PRICE_ID!]: 'enterprise',
   };
 
   return priceMap[priceId] || 'starter';

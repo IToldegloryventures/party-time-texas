@@ -30,7 +30,7 @@ export class MonitoringService {
       this.checkDatabase(),
       this.checkSupabaseStorage(),
       this.checkExternalAPIs(),
-      this.checkRedisConnection()
+      this.checkRedisConnection(),
     ]);
 
     return checks.map((result, index) => {
@@ -43,7 +43,7 @@ export class MonitoringService {
           status: 'unhealthy' as const,
           response_time: 0,
           last_check: new Date().toISOString(),
-          details: { error: result.reason }
+          details: { error: result.reason },
         };
       }
     });
@@ -66,7 +66,7 @@ export class MonitoringService {
         status: error ? 'unhealthy' : 'healthy',
         response_time,
         last_check: new Date().toISOString(),
-        details: error ? { error: error.message } : undefined
+        details: error ? { error: error.message } : undefined,
       };
     } catch (error) {
       return {
@@ -74,7 +74,9 @@ export class MonitoringService {
         status: 'unhealthy',
         response_time: Date.now() - start,
         last_check: new Date().toISOString(),
-        details: { error: error instanceof Error ? error.message : 'Unknown error' }
+        details: {
+          error: error instanceof Error ? error.message : 'Unknown error',
+        },
       };
     }
   }
@@ -95,7 +97,7 @@ export class MonitoringService {
         status: error ? 'unhealthy' : 'healthy',
         response_time,
         last_check: new Date().toISOString(),
-        details: error ? { error: error.message } : undefined
+        details: error ? { error: error.message } : undefined,
       };
     } catch (error) {
       return {
@@ -103,7 +105,9 @@ export class MonitoringService {
         status: 'unhealthy',
         response_time: Date.now() - start,
         last_check: new Date().toISOString(),
-        details: { error: error instanceof Error ? error.message : 'Unknown error' }
+        details: {
+          error: error instanceof Error ? error.message : 'Unknown error',
+        },
       };
     }
   }
@@ -115,18 +119,24 @@ export class MonitoringService {
     const start = Date.now();
     try {
       // Check Stripe API
-      const stripeResponse = await fetch('https://api.stripe.com/v1/charges?limit=1', {
-        headers: {
-          'Authorization': `Bearer ${process.env.STRIPE_SECRET_KEY}`
+      const stripeResponse = await fetch(
+        'https://api.stripe.com/v1/charges?limit=1',
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.STRIPE_SECRET_KEY}`,
+          },
         }
-      });
+      );
 
       // Check Clerk API
-      const clerkResponse = await fetch('https://api.clerk.com/v1/users?limit=1', {
-        headers: {
-          'Authorization': `Bearer ${process.env.CLERK_SECRET_KEY}`
+      const clerkResponse = await fetch(
+        'https://api.clerk.com/v1/users?limit=1',
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.CLERK_SECRET_KEY}`,
+          },
         }
-      });
+      );
 
       const response_time = Date.now() - start;
       const isHealthy = stripeResponse.ok && clerkResponse.ok;
@@ -138,8 +148,8 @@ export class MonitoringService {
         last_check: new Date().toISOString(),
         details: {
           stripe_status: stripeResponse.status,
-          clerk_status: clerkResponse.status
-        }
+          clerk_status: clerkResponse.status,
+        },
       };
     } catch (error) {
       return {
@@ -147,7 +157,9 @@ export class MonitoringService {
         status: 'unhealthy',
         response_time: Date.now() - start,
         last_check: new Date().toISOString(),
-        details: { error: error instanceof Error ? error.message : 'Unknown error' }
+        details: {
+          error: error instanceof Error ? error.message : 'Unknown error',
+        },
       };
     }
   }
@@ -165,7 +177,7 @@ export class MonitoringService {
         service: 'redis',
         status: 'healthy',
         response_time,
-        last_check: new Date().toISOString()
+        last_check: new Date().toISOString(),
       };
     } catch (error) {
       return {
@@ -173,7 +185,9 @@ export class MonitoringService {
         status: 'unhealthy',
         response_time: Date.now() - start,
         last_check: new Date().toISOString(),
-        details: { error: error instanceof Error ? error.message : 'Unknown error' }
+        details: {
+          error: error instanceof Error ? error.message : 'Unknown error',
+        },
       };
     }
   }
@@ -189,7 +203,7 @@ export class MonitoringService {
     // For now, return a simple implementation
     const now = Date.now();
     const window_start = now - config.window_ms;
-    
+
     // In a real implementation, this would check Redis
     // For now, simulate rate limiting
     const allowed = true;
@@ -211,17 +225,15 @@ export class MonitoringService {
     organization_id?: string
   ): Promise<void> {
     try {
-      await this.supabase
-        .from('performance_metrics')
-        .insert({
-          endpoint,
-          method,
-          response_time,
-          status_code,
-          user_id,
-          organization_id,
-          timestamp: new Date().toISOString()
-        });
+      await this.supabase.from('performance_metrics').insert({
+        endpoint,
+        method,
+        response_time,
+        status_code,
+        user_id,
+        organization_id,
+        timestamp: new Date().toISOString(),
+      });
     } catch (error) {
       console.error('Failed to log performance metrics:', error);
     }
@@ -241,18 +253,16 @@ export class MonitoringService {
     }
   ): Promise<void> {
     try {
-      await this.supabase
-        .from('error_logs')
-        .insert({
-          error_message: error.message,
-          error_stack: error.stack,
-          user_id: context.user_id,
-          organization_id: context.organization_id,
-          endpoint: context.endpoint,
-          method: context.method,
-          additional_data: context.additional_data,
-          timestamp: new Date().toISOString()
-        });
+      await this.supabase.from('error_logs').insert({
+        error_message: error.message,
+        error_stack: error.stack,
+        user_id: context.user_id,
+        organization_id: context.organization_id,
+        endpoint: context.endpoint,
+        method: context.method,
+        additional_data: context.additional_data,
+        timestamp: new Date().toISOString(),
+      });
     } catch (logError) {
       console.error('Failed to log error:', logError);
     }
@@ -275,23 +285,44 @@ export class MonitoringService {
       { count: events },
       { count: scans },
       { data: performanceData },
-      { data: errorData }
+      { data: errorData },
     ] = await Promise.all([
-      this.supabase.from('organizations').select('*', { count: 'exact', head: true }),
+      this.supabase
+        .from('organizations')
+        .select('*', { count: 'exact', head: true }),
       this.supabase.from('users').select('*', { count: 'exact', head: true }),
       this.supabase.from('events').select('*', { count: 'exact', head: true }),
-      this.supabase.from('nfc_scans').select('*', { count: 'exact', head: true }),
-      this.supabase.from('performance_metrics').select('response_time').gte('timestamp', new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString()),
-      this.supabase.from('error_logs').select('*').gte('timestamp', new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString())
+      this.supabase
+        .from('nfc_scans')
+        .select('*', { count: 'exact', head: true }),
+      this.supabase
+        .from('performance_metrics')
+        .select('response_time')
+        .gte(
+          'timestamp',
+          new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString()
+        ),
+      this.supabase
+        .from('error_logs')
+        .select('*')
+        .gte(
+          'timestamp',
+          new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString()
+        ),
     ]);
 
-    const average_response_time = performanceData?.length > 0 
-      ? performanceData.reduce((sum, metric) => sum + metric.response_time, 0) / performanceData.length 
-      : 0;
+    const average_response_time =
+      performanceData?.length > 0
+        ? performanceData.reduce(
+            (sum, metric) => sum + metric.response_time,
+            0
+          ) / performanceData.length
+        : 0;
 
-    const error_rate = performanceData?.length > 0 
-      ? (errorData?.length || 0) / performanceData.length 
-      : 0;
+    const error_rate =
+      performanceData?.length > 0
+        ? (errorData?.length || 0) / performanceData.length
+        : 0;
 
     return {
       total_organizations: organizations || 0,
@@ -299,7 +330,7 @@ export class MonitoringService {
       total_events: events || 0,
       total_scans: scans || 0,
       average_response_time,
-      error_rate
+      error_rate,
     };
   }
 
