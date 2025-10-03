@@ -5,9 +5,9 @@ import { getUserOrganizationData } from '@/lib/supabase/user-org';
 import LandingPageAnalytics from '../_components/LandingPageAnalytics';
 
 interface AnalyticsPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default async function AnalyticsPage({ params }: AnalyticsPageProps) {
