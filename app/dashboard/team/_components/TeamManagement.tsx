@@ -9,7 +9,9 @@ import {
 } from '@/lib/team-management';
 import { supabase } from '@/lib/supabase/client';
 
-interface TeamManagementProps {}
+interface TeamManagementProps {
+  // Add props as needed
+}
 
 const TeamManagement = () => {
   const { user, isLoaded } = useUser();

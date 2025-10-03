@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { getNFCDevice, recordNFCScan } from '@/lib/nfc';
 
 interface NFCLandingPageProps {
@@ -8,7 +9,7 @@ interface NFCLandingPageProps {
 }
 
 const NFCLandingPage = ({ deviceId }: NFCLandingPageProps) => {
-  const [device, setDevice] = useState<any>(null);
+  const [device, setDevice] = useState<Record<string, any> | null>(null);
   const [loading, setLoading] = useState(true);
   const [scanRecorded, setScanRecorded] = useState(false);
 

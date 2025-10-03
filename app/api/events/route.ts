@@ -10,7 +10,7 @@ import { supabase } from '@/lib/supabase/client';
 
 const eventService = new EventService();
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const { userId } = await auth();
     if (!userId) {

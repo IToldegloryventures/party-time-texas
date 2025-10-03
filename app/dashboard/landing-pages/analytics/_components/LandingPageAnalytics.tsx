@@ -3,13 +3,13 @@
 import { useState, useEffect } from 'react';
 
 interface LandingPageAnalyticsProps {
-  page: any;
+  page: Record<string, any>;
   organizationId: string;
   userId: string;
 }
 
 const LandingPageAnalytics = ({ page, organizationId, userId }: LandingPageAnalyticsProps) => {
-  const [analytics, setAnalytics] = useState<any>(null);
+  const [analytics, setAnalytics] = useState<Record<string, any> | null>(null);
   const [loading, setLoading] = useState(true);
   const [timeRange, setTimeRange] = useState('7d');
 
@@ -244,7 +244,7 @@ const LandingPageAnalytics = ({ page, organizationId, userId }: LandingPageAnaly
         <h3 className="text-white font-semibold mb-4">Recent Activity</h3>
         <div className="space-y-3">
           {analytics?.recent_activity?.length > 0 ? (
-            analytics.recent_activity.map((activity: any, index: number) => (
+            analytics.recent_activity.map((activity: Record<string, any>, index: number) => (
               <div key={index} className="flex justify-between items-center py-2 border-b border-gray-700">
                 <div>
                   <p className="text-white">{activity.description}</p>

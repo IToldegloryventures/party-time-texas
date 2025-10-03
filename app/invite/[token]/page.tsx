@@ -1,5 +1,5 @@
-import { notFound } from 'next/navigation';
-import { TeamManagementService } from '@/lib/team-management';
+// import { notFound } from 'next/navigation';
+// import { TeamManagementService } from '@/lib/team-management';
 import { supabase } from '@/lib/supabase/client';
 import InviteAcceptance from './_components/InviteAcceptance';
 

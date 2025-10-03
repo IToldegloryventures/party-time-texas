@@ -6,7 +6,7 @@ import { getUserOrganizationData } from '@/lib/supabase/user-org';
 
 const LandingPageBuilder = () => {
   const { user, isLoaded } = useUser();
-  const [orgData, setOrgData] = useState<any>(null);
+  const [orgData, setOrgData] = useState<Record<string, any> | null>(null);
   const [loading, setLoading] = useState(true);
   const [pageData, setPageData] = useState({
     name: 'Party Time Texas Landing Page',

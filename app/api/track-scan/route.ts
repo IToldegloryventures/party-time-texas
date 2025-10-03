@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase/client';
-import { geolocationService } from '@/lib/geolocation';
+// import { geolocationService } from '@/lib/geolocation';
 
 export async function POST(request: NextRequest) {
   try {

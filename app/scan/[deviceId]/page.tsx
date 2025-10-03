@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
-import { auth } from '@clerk/nextjs/server';
+// import { redirect } from 'next/navigation';
+// import { auth } from '@clerk/nextjs/server';
 import NFCLandingPage from './_components/NFCLandingPage';
 
 interface ScanPageProps {

@@ -6,8 +6,8 @@ import { getUserOrganizationData } from '@/lib/supabase/user-org';
 
 const LandingPageManager = () => {
   const { user, isLoaded } = useUser();
-  const [orgData, setOrgData] = useState<any>(null);
-  const [landingPages, setLandingPages] = useState<any[]>([]);
+  const [orgData, setOrgData] = useState<Record<string, any> | null>(null);
+  const [landingPages, setLandingPages] = useState<Record<string, any>[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -26,14 +26,16 @@ const LandingPageManager = () => {
       const response = await fetch('/api/landing-pages');
       if (response.ok) {
         const result = await response.json();
-        const formattedPages = result.pages.map((page: any) => ({
-          id: page.id,
-          name: page.name,
-          url: `${window.location.origin}/landing/${page.slug}`,
-          status: page.is_published ? 'published' : 'draft',
-          scans: page.scan_count || 0,
-          created_at: page.created_at,
-        }));
+        const formattedPages = result.pages.map(
+          (page: Record<string, any>) => ({
+            id: page.id,
+            name: page.name,
+            url: `${window.location.origin}/landing/${page.slug}`,
+            status: page.is_published ? 'published' : 'draft',
+            scans: page.scan_count || 0,
+            created_at: page.created_at,
+          })
+        );
         setLandingPages(formattedPages);
       } else {
         console.error('Failed to fetch landing pages');

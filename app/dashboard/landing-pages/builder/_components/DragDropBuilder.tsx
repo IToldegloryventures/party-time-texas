@@ -5,12 +5,12 @@ import { useState, useEffect } from 'react';
 interface PageComponent {
   id: string;
   type: 'hero' | 'text' | 'contact' | 'social' | 'image' | 'button' | 'divider';
-  data: any;
+  data: Record<string, any>;
   position: number;
 }
 
 interface DragDropBuilderProps {
-  initialPage?: any;
+  initialPage?: Record<string, any>;
   organizationId: string;
   userId: string;
 }
@@ -190,7 +190,7 @@ const DragDropBuilder = ({
     }
   };
 
-  const updateComponent = (id: string, data: any) => {
+  const updateComponent = (id: string, data: Record<string, any>) => {
     setComponents(
       components.map(comp =>
         comp.id === id ? { ...comp, data: { ...comp.data, ...data } } : comp

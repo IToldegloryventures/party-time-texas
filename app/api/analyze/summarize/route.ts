@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
     const tempPath = join(process.cwd(), 'temp', `${analysisId}.pdf`);
 
     // Ensure temp directory exists
-    const fs = require('fs');
+    const fs = await import('fs');
     if (!fs.existsSync(join(process.cwd(), 'temp'))) {
       fs.mkdirSync(join(process.cwd(), 'temp'), { recursive: true });
     }
@@ -64,7 +64,6 @@ export async function POST(request: NextRequest) {
 
     try {
       // Extract text from PDF
-      const dataBuffer = await writeFile(tempPath, buffer);
       const pdfData = await pdf.default(buffer);
       const text = pdfData.text;
 
