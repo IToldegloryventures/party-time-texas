@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useUser } from '@clerk/nextjs';
 import { TeamManagementService } from '@/lib/team-management';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+// import Link from 'next/link';
 
 interface InviteAcceptanceProps {
   invitation: {

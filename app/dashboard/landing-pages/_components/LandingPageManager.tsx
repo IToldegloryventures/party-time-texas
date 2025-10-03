@@ -6,8 +6,10 @@ import { getUserOrganizationData } from '@/lib/supabase/user-org';
 
 const LandingPageManager = () => {
   const { user, isLoaded } = useUser();
-  const [orgData, setOrgData] = useState<Record<string, any> | null>(null);
-  const [landingPages, setLandingPages] = useState<Record<string, any>[]>([]);
+  // const [orgData, setOrgData] = useState<Record<string, unknown> | null>(null);
+  const [landingPages, setLandingPages] = useState<Record<string, unknown>[]>(
+    []
+  );
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -19,15 +21,15 @@ const LandingPageManager = () => {
   const fetchData = async () => {
     try {
       setLoading(true);
-      const data = await getUserOrganizationData(user!.id);
-      setOrgData(data);
+      // const data = await getUserOrganizationData(user!.id);
+      // setOrgData(data);
 
       // Fetch landing pages from API
       const response = await fetch('/api/landing-pages');
       if (response.ok) {
         const result = await response.json();
         const formattedPages = result.pages.map(
-          (page: Record<string, any>) => ({
+          (page: Record<string, unknown>) => ({
             id: page.id,
             name: page.name,
             url: `${window.location.origin}/landing/${page.slug}`,

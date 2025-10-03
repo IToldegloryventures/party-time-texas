@@ -42,21 +42,21 @@ const AdminDashboard = () => {
       setLoading(true);
 
       // Fetch real data from Supabase
-      const { data: organizations, error: orgError } = await supabase
+      const { data: organizations } = await supabase
         .from('organizations')
         .select('id, name, created_at')
         .order('created_at', { ascending: false });
 
-      const { data: users, error: usersError } = await supabase
+      const { data: users } = await supabase
         .from('users')
         .select('id, created_at')
         .order('created_at', { ascending: false });
 
-      const { data: nfcDevices, error: devicesError } = await supabase
+      const { data: nfcDevices } = await supabase
         .from('nfc_devices')
         .select('id, created_at');
 
-      const { data: scans, error: scansError } = await supabase
+      const { data: scans } = await supabase
         .from('nfc_scans')
         .select('id, created_at');
 

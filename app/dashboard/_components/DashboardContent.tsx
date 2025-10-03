@@ -3,7 +3,7 @@
 import { useUser } from '@clerk/nextjs';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+// import Link from 'next/link';
 import PaymentSuccess from '@/components/PaymentSuccess';
 import {
   getUserOrganizationData,
@@ -15,14 +15,14 @@ const DashboardContent = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [orgData, setOrgData] = useState<Record<string, any> | null>(null);
-  const [stats, setStats] = useState<Record<string, any> | null>(null);
+  const [orgData, setOrgData] = useState<Record<string, unknown> | null>(null);
+  const [stats, setStats] = useState<Record<string, unknown> | null>(null);
   const [loading, setLoading] = useState(true);
 
   // Handle payment success redirect
   useEffect(() => {
     const paymentStatus = searchParams.get('payment');
-    const planType = searchParams.get('plan');
+    // const planType = searchParams.get('plan');
 
     if (paymentStatus === 'success') {
       setShowSuccessMessage(true);

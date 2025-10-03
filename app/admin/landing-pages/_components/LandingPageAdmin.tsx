@@ -2,7 +2,7 @@
 
 import { useUser } from '@clerk/nextjs';
 import { useEffect, useState } from 'react';
-import { getUserOrganizationData } from '@/lib/supabase/user-org';
+// import { getUserOrganizationData } from '@/lib/supabase/user-org';
 import { supabase } from '@/lib/supabase/client';
 
 interface LandingPage {
@@ -24,7 +24,7 @@ const LandingPageAdmin = () => {
   const { user, isLoaded } = useUser();
   const [landingPages, setLandingPages] = useState<LandingPage[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedPage, setSelectedPage] = useState<LandingPage | null>(null);
+  // const [selectedPage, setSelectedPage] = useState<LandingPage | null>(null);
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [newPage, setNewPage] = useState({
     name: '',
@@ -84,12 +84,12 @@ const LandingPageAdmin = () => {
       let users = [];
 
       if (organizationIds.length > 0) {
-        const { data: orgData, error: orgError } = await supabase
+        const { data: orgData } = await supabase
           .from('organizations')
           .select('id, name')
           .in('id', organizationIds);
 
-        const { data: userData, error: userError } = await supabase
+        const { data: userData } = await supabase
           .from('users')
           .select('id, email, organization_id')
           .in('organization_id', organizationIds);
@@ -150,7 +150,7 @@ const LandingPageAdmin = () => {
       }
 
       // Create the landing page in the database
-      const { data: pageData, error: pageError } = await supabase
+      const { data: pageData } = await supabase
         .from('landing_pages')
         .insert({
           organization_id: userData.organization_id,

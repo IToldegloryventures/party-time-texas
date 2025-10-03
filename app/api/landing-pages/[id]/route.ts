@@ -93,7 +93,7 @@ export async function PUT(request: NextRequest, { params }: RouteParams) {
     }
 
     // Update the landing page
-    const updateData: Record<string, any> = {};
+    const updateData: Record<string, unknown> = {};
     if (name !== undefined) updateData.name = name;
     if (title !== undefined) updateData.title = title;
     if (slug !== undefined) updateData.slug = slug;

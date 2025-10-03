@@ -5,21 +5,17 @@ import { useState, useEffect } from 'react';
 interface PageComponent {
   id: string;
   type: 'hero' | 'text' | 'contact' | 'social' | 'image' | 'button' | 'divider';
-  data: Record<string, any>;
+  data: Record<string, unknown>;
   position: number;
 }
 
 interface DragDropBuilderProps {
-  initialPage?: Record<string, any>;
+  initialPage?: Record<string, unknown>;
   organizationId: string;
   userId: string;
 }
 
-const DragDropBuilder = ({
-  initialPage,
-  organizationId,
-  userId,
-}: DragDropBuilderProps) => {
+const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
   const [components, setComponents] = useState<PageComponent[]>([]);
   const [selectedComponent, setSelectedComponent] = useState<string | null>(
     null
@@ -190,7 +186,7 @@ const DragDropBuilder = ({
     }
   };
 
-  const updateComponent = (id: string, data: Record<string, any>) => {
+  const updateComponent = (id: string, data: Record<string, unknown>) => {
     setComponents(
       components.map(comp =>
         comp.id === id ? { ...comp, data: { ...comp.data, ...data } } : comp

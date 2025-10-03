@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 export default function UserInfoPage() {
   const { user, isLoaded } = useUser();
-  const [userData, setUserData] = useState<Record<string, any> | null>(null);
+  const [userData, setUserData] = useState<Record<string, unknown> | null>(null);
 
   useEffect(() => {
     if (user) {

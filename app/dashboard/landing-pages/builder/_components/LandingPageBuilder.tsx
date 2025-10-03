@@ -6,7 +6,7 @@ import { getUserOrganizationData } from '@/lib/supabase/user-org';
 
 const LandingPageBuilder = () => {
   const { user, isLoaded } = useUser();
-  const [orgData, setOrgData] = useState<Record<string, any> | null>(null);
+  // const [orgData, setOrgData] = useState<Record<string, unknown> | null>(null);
   const [loading, setLoading] = useState(true);
   const [pageData, setPageData] = useState({
     name: 'Party Time Texas Landing Page',
@@ -40,8 +40,8 @@ const LandingPageBuilder = () => {
   const fetchData = async () => {
     try {
       setLoading(true);
-      const data = await getUserOrganizationData(user!.id);
-      setOrgData(data);
+      // const data = await getUserOrganizationData(user!.id);
+      // setOrgData(data);
     } catch (error) {
       console.error('Error fetching data:', error);
     } finally {
