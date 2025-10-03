@@ -14,7 +14,11 @@ export interface EventReport {
   content: {
     summary: string;
     statistics: Record<string, unknown>;
-    charts: Array<{ type: string; data: Record<string, unknown>; title: string }>;
+    charts: Array<{
+      type: string;
+      data: Record<string, unknown>;
+      title: string;
+    }>;
     recommendations: string[];
   };
   branding: {
@@ -210,9 +214,8 @@ export class ReportingService {
 
     // Upload to Supabase Storage
     const fileName = `event-report-${report.event_id}-${Date.now()}.pdf`;
-    const { data: _uploadData, error: uploadError } = await this.supabase.storage
-      .from('reports')
-      .upload(fileName, pdfBuffer, {
+    const { data: _uploadData, error: uploadError } =
+      await this.supabase.storage.from('reports').upload(fileName, pdfBuffer, {
         contentType: 'application/pdf',
       });
 
@@ -286,7 +289,10 @@ export class ReportingService {
   /**
    * Calculate engagement score
    */
-  private calculateEngagementScore(stats: Record<string, unknown>, attendees: Record<string, unknown>[]): number {
+  private calculateEngagementScore(
+    stats: Record<string, unknown>,
+    attendees: Record<string, unknown>[]
+  ): number {
     let score = 0;
 
     // Check-in rate (40% weight)
@@ -310,7 +316,10 @@ export class ReportingService {
   /**
    * Generate thank you message
    */
-  private generateThankYouMessage(event: Record<string, unknown>, stats: Record<string, unknown>): string {
+  private generateThankYouMessage(
+    event: Record<string, unknown>,
+    stats: Record<string, unknown>
+  ): string {
     return `Thank you for making ${event.name} such a memorable experience! Your participation helped create ${stats.total_attendees} connections and ${stats.photos_uploaded} shared moments. We can't wait to see you at our next event!`;
   }
 
@@ -357,7 +366,10 @@ export class ReportingService {
   /**
    * Generate recommendations
    */
-  private generateRecommendations(stats: Record<string, unknown>, attendees: Record<string, unknown>[]): string[] {
+  private generateRecommendations(
+    stats: Record<string, unknown>,
+    attendees: Record<string, unknown>[]
+  ): string[] {
     const recommendations: string[] = [];
 
     if (stats.checked_in < stats.total_attendees * 0.8) {
@@ -384,7 +396,9 @@ export class ReportingService {
   /**
    * Render PDF content
    */
-  private async renderPDFContent(report: Record<string, unknown>): Promise<string> {
+  private async renderPDFContent(
+    report: Record<string, unknown>
+  ): Promise<string> {
     // This would integrate with a PDF generation service
     // For now, return HTML that can be converted to PDF
     return `

@@ -78,7 +78,7 @@ const NFCDeviceDetails = ({ deviceId }: NFCDeviceDetailsProps) => {
             Device Not Found
           </h1>
           <p className="mb-8 text-white/70">
-            The NFC device you&apos;re looking for doesn&apos;t exist or you don&apos;t have
+            The NFC device you're looking for doesn't exist or you don't have
             access to it.
           </p>
           <Link
@@ -190,7 +190,7 @@ const NFCDeviceDetails = ({ deviceId }: NFCDeviceDetailsProps) => {
             <p className="font-semibold text-purple-400">
               {device.last_scan
                 ? new Date(device.last_scan).toLocaleDateString()
-                : &apos;Never&apos;}
+                : 'Never'}
             </p>
           </div>
         </div>
@@ -204,7 +204,7 @@ const NFCDeviceDetails = ({ deviceId }: NFCDeviceDetailsProps) => {
             </h3>
             <p className="mb-4 text-white/70">
               This is the URL your NFC keychain should redirect to. When someone
-              scans your keychain, they&apos;ll land here.
+              scans your keychain, they'll land here.
             </p>
             <div className="mb-4 rounded-lg bg-black/50 p-4">
               <p className="font-mono text-sm break-all text-green-400">
@@ -273,13 +273,13 @@ const NFCDeviceDetails = ({ deviceId }: NFCDeviceDetailsProps) => {
               </div>
               <div className="text-center">
                 <p className="text-3xl font-bold text-green-400">
-                  {analytics.scan_types?.[&apos;nfc_tap&apos;] || 0}
+                  {analytics.scan_types?.['nfc_tap'] || 0}
                 </p>
                 <p className="text-white/70">NFC Taps</p>
               </div>
               <div className="text-center">
                 <p className="text-3xl font-bold text-orange-400">
-                  {analytics.scan_types?.[&apos;qr_scan&apos;] || 0}
+                  {analytics.scan_types?.['qr_scan'] || 0}
                 </p>
                 <p className="text-white/70">QR Scans</p>
               </div>
@@ -338,7 +338,7 @@ const NFCDeviceDetails = ({ deviceId }: NFCDeviceDetailsProps) => {
                 Assigned To
               </label>
               <p className="text-white">
-                {device.metadata?.assigned_to || &apos;Not assigned&apos;}
+                {device.metadata?.assigned_to || 'Not assigned'}
               </p>
             </div>
             <div>
@@ -346,7 +346,7 @@ const NFCDeviceDetails = ({ deviceId }: NFCDeviceDetailsProps) => {
                 Contact Email
               </label>
               <p className="text-white">
-                {device.metadata?.contact_email || &apos;Not set&apos;}
+                {device.metadata?.contact_email || 'Not set'}
               </p>
             </div>
             <div>

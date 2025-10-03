@@ -186,7 +186,7 @@ const NFCDiscovery = () => {
             <ol className="list-inside list-decimal space-y-3 text-white/70">
               <li>Make sure NFC is enabled on your phone</li>
               <li>Hold your Party Time Texas keychain close to your phone</li>
-              <li>Click &quot;Discover NFC Tag&quot; below</li>
+              <li>Click "Discover NFC Tag" below</li>
               <li>Your phone will read the NFC tag and show the ID</li>
               <li>Register the device to start tracking analytics</li>
             </ol>
@@ -197,7 +197,7 @@ const NFCDiscovery = () => {
               Register Your Party Time Texas Keychain
             </h3>
             <p className="mb-4 text-white/70">
-              Since NFC discovery isn&apos;t available in this browser, you can
+              Since NFC discovery isn't available in this browser, you can
               manually register your keychain device. This will allow you to
               start tracking analytics and engagement data.
             </p>
@@ -244,7 +244,7 @@ const NFCDiscovery = () => {
                     className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
                   />
                   <p className="mt-1 text-xs text-white/50">
-                    If you don&apos;t know your NFC device ID, we&apos;ll generate one for
+                    If you don't know your NFC device ID, we'll generate one for
                     you
                   </p>
                 </div>
@@ -272,8 +272,8 @@ const NFCDiscovery = () => {
             </div>
             <p className="mb-4 text-white/70">
               {nfcSupported
-                ? &apos;This is your NFC tag ID. Click &quot;Register Device&quot; to add it to your Party Time Texas account.&apos;
-                : &apos;This device ID is ready for registration. Click &quot;Register Device&quot; to add it to your Party Time Texas account.&apos;}
+                ? 'This is your NFC tag ID. Click "Register Device" to add it to your Party Time Texas account.'
+                : 'This device ID is ready for registration. Click "Register Device" to add it to your Party Time Texas account.'}
             </p>
             <button
               onClick={handleRegisterDevice}
