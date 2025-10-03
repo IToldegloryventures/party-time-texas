@@ -2,6 +2,7 @@
 
 import { useUser } from '@clerk/nextjs';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { getUserOrganizationData } from '@/lib/supabase/user-org';
 import { registerNFCDevice, getNFCDevices, deleteNFCDevice } from '@/lib/nfc';
 
@@ -18,7 +19,7 @@ interface NFCDevice {
 
 const NFCDeviceManager = () => {
   const { user, isLoaded } = useUser();
-  const [devices, setDevices] = useState<NFCDevice[]>([]);
+  const [devices, setDevices] = useState<Record<string, unknown>[]>([]);
   const [loading, setLoading] = useState(true);
   const [showAddForm, setShowAddForm] = useState(false);
   const [newDevice, setNewDevice] = useState({
@@ -33,7 +34,7 @@ const NFCDeviceManager = () => {
     if (user && isLoaded) {
       fetchDevices();
     }
-  }, [user, isLoaded]);
+  }, [user, isLoaded, fetchDevices]);
 
   const fetchDevices = async () => {
     try {
@@ -130,12 +131,12 @@ const NFCDeviceManager = () => {
           >
             {showAddForm ? 'Cancel' : '+ Add New Device'}
           </button>
-          <a
+          <Link
             href="/dashboard/devices/discover"
             className="rounded-lg bg-gradient-to-r from-green-600 to-teal-600 px-6 py-3 font-semibold text-white transition-all duration-300 hover:from-green-700 hover:to-teal-700"
           >
             🔍 Discover Existing NFC
-          </a>
+          </Link>
         </div>
 
         {/* Add Device Form */}
@@ -295,7 +296,7 @@ const NFCDeviceManager = () => {
               </button>
             </div>
           ) : (
-            devices.map(device => (
+            devices.map((device: Record<string, unknown>) => (
               <div
                 key={device.id}
                 className="rounded-xl border border-purple-400/20 bg-gray-900/50 p-6"

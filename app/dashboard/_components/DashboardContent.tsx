@@ -82,14 +82,14 @@ const DashboardContent = () => {
           <p className="mb-8 text-white/70">
             You need to be signed in to access the dashboard.
           </p>
-          <a
+          <Link
             href="/sign-in"
             className="group relative inline-flex items-center gap-2 rounded-full bg-black px-6 py-3 font-semibold text-white transition-all hover:bg-white/5"
           >
             <span className="absolute inset-0 rounded-full bg-gradient-to-r from-[#FF1E56] via-[#FF00FF] to-[#00FFFF] opacity-70 blur-sm transition-all group-hover:opacity-100" />
             <span className="absolute inset-0.5 rounded-full bg-black/50" />
             <span className="relative font-medium">Sign In</span>
-          </a>
+          </Link>
         </div>
       </div>
     );
@@ -153,12 +153,12 @@ const DashboardContent = () => {
               {stats?.nfcDevices || 0} active devices • Manage your NFC business
               cards, signage, and event badges
             </p>
-            <a
+            <Link
               href="/dashboard/devices"
               className="block w-full rounded-lg bg-purple-600 px-4 py-2 text-center font-medium text-white transition-colors duration-200 hover:bg-purple-700"
             >
               Manage Devices ({stats?.nfcDevices || 0})
-            </a>
+            </Link>
           </div>
 
           {/* Events Management Card */}
@@ -227,12 +227,12 @@ const DashboardContent = () => {
             <button className="rounded-lg border border-purple-400/30 bg-purple-600/20 px-4 py-3 font-medium text-purple-200 transition-colors duration-200 hover:bg-purple-600/30">
               Create Event
             </button>
-            <a
+            <Link
               href="/dashboard/devices"
               className="block rounded-lg border border-blue-400/30 bg-blue-600/20 px-4 py-3 text-center font-medium text-blue-200 transition-colors duration-200 hover:bg-blue-600/30"
             >
               Add NFC Device
-            </a>
+            </Link>
             <a
               href="/dashboard/team"
               className="block rounded-lg border border-indigo-400/30 bg-indigo-600/20 px-4 py-3 text-center font-medium text-indigo-200 transition-colors duration-200 hover:bg-indigo-600/30"

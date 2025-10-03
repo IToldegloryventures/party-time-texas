@@ -2,6 +2,7 @@
 
 import { useUser } from '@clerk/nextjs';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { getUserOrganizationData } from '@/lib/supabase/user-org';
 import { getNFCDevice, getNFCScanAnalytics } from '@/lib/nfc';
 
@@ -11,16 +12,16 @@ interface NFCDeviceDetailsProps {
 
 const NFCDeviceDetails = ({ deviceId }: NFCDeviceDetailsProps) => {
   const { user, isLoaded } = useUser();
-  const [orgData, setOrgData] = useState<any>(null);
-  const [device, setDevice] = useState<any>(null);
-  const [analytics, setAnalytics] = useState<any>(null);
+  // const [orgData, setOrgData] = useState<Record<string, unknown> | null>(null);
+  const [device, setDevice] = useState<Record<string, unknown> | null>(null);
+  const [analytics, setAnalytics] = useState<Record<string, unknown> | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (user && isLoaded) {
       fetchData();
     }
-  }, [user, isLoaded, deviceId]);
+  }, [user, isLoaded, deviceId, fetchData]);
 
   const fetchData = async () => {
     try {
@@ -77,17 +78,17 @@ const NFCDeviceDetails = ({ deviceId }: NFCDeviceDetailsProps) => {
             Device Not Found
           </h1>
           <p className="mb-8 text-white/70">
-            The NFC device you're looking for doesn't exist or you don't have
+            The NFC device you&apos;re looking for doesn&apos;t exist or you don&apos;t have
             access to it.
           </p>
-          <a
+          <Link
             href="/dashboard/devices"
             className="group relative inline-flex items-center gap-2 rounded-full bg-black px-6 py-3 font-semibold text-white transition-all hover:bg-white/5"
           >
             <span className="absolute inset-0 rounded-full bg-gradient-to-r from-[#FF1E56] via-[#FF00FF] to-[#00FFFF] opacity-70 blur-sm transition-all group-hover:opacity-100" />
             <span className="absolute inset-0.5 rounded-full bg-black/50" />
             <span className="relative font-medium">Back to Devices</span>
-          </a>
+          </Link>
         </div>
       </div>
     );
@@ -99,12 +100,12 @@ const NFCDeviceDetails = ({ deviceId }: NFCDeviceDetailsProps) => {
         {/* Header */}
         <div className="mb-8">
           <div className="mb-4 flex items-center gap-4">
-            <a
+            <Link
               href="/dashboard/devices"
               className="text-purple-400 transition-colors hover:text-purple-300"
             >
               ← Back to Devices
-            </a>
+            </Link>
           </div>
           <h1 className="mb-2 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-4xl font-bold text-transparent">
             {device.metadata?.name || 'NFC Device'}
@@ -189,7 +190,7 @@ const NFCDeviceDetails = ({ deviceId }: NFCDeviceDetailsProps) => {
             <p className="font-semibold text-purple-400">
               {device.last_scan
                 ? new Date(device.last_scan).toLocaleDateString()
-                : 'Never'}
+                : &apos;Never&apos;}
             </p>
           </div>
         </div>
@@ -203,7 +204,7 @@ const NFCDeviceDetails = ({ deviceId }: NFCDeviceDetailsProps) => {
             </h3>
             <p className="mb-4 text-white/70">
               This is the URL your NFC keychain should redirect to. When someone
-              scans your keychain, they'll land here.
+              scans your keychain, they&apos;ll land here.
             </p>
             <div className="mb-4 rounded-lg bg-black/50 p-4">
               <p className="font-mono text-sm break-all text-green-400">
@@ -272,13 +273,13 @@ const NFCDeviceDetails = ({ deviceId }: NFCDeviceDetailsProps) => {
               </div>
               <div className="text-center">
                 <p className="text-3xl font-bold text-green-400">
-                  {analytics.scan_types?.['nfc_tap'] || 0}
+                  {analytics.scan_types?.[&apos;nfc_tap&apos;] || 0}
                 </p>
                 <p className="text-white/70">NFC Taps</p>
               </div>
               <div className="text-center">
                 <p className="text-3xl font-bold text-orange-400">
-                  {analytics.scan_types?.['qr_scan'] || 0}
+                  {analytics.scan_types?.[&apos;qr_scan&apos;] || 0}
                 </p>
                 <p className="text-white/70">QR Scans</p>
               </div>
@@ -337,7 +338,7 @@ const NFCDeviceDetails = ({ deviceId }: NFCDeviceDetailsProps) => {
                 Assigned To
               </label>
               <p className="text-white">
-                {device.metadata?.assigned_to || 'Not assigned'}
+                {device.metadata?.assigned_to || &apos;Not assigned&apos;}
               </p>
             </div>
             <div>
@@ -345,7 +346,7 @@ const NFCDeviceDetails = ({ deviceId }: NFCDeviceDetailsProps) => {
                 Contact Email
               </label>
               <p className="text-white">
-                {device.metadata?.contact_email || 'Not set'}
+                {device.metadata?.contact_email || &apos;Not set&apos;}
               </p>
             </div>
             <div>
