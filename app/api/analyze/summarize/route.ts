@@ -88,10 +88,10 @@ export async function POST(request: NextRequest) {
 
       // Parse AI response
       const summaryMatch = aiResponse.match(
-        /Summary:?\s*(.*?)(?=Key Points:|$)/s
+        /Summary:?\s*([\s\S]*?)(?=Key Points:|$)/
       );
       const keyPointsMatch = aiResponse.match(
-        /Key Points?:?\s*([\s\S]*?)(?=Word Count:|$)/s
+        /Key Points?:?\s*([\s\S]*?)(?=Word Count:|$)/
       );
       const wordCountMatch = aiResponse.match(/Word Count:?\s*(\d+)/);
 

@@ -6,16 +6,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 import Stripe from 'stripe';
-import { createClient } from '@/lib/supabase/client';
+import { supabase } from '@/lib/supabase/client';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!;
-const supabase = createClient();
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.text();
-    const headersList = headers();
+    const headersList = await headers();
     const signature = headersList.get('stripe-signature');
 
     if (!signature) {
@@ -91,10 +90,10 @@ async function handleSubscriptionCreated(subscription: Stripe.Subscription) {
       plan_type: getPlanTypeFromPriceId(subscription.items.data[0].price.id),
       status: subscription.status,
       current_period_start: new Date(
-        subscription.current_period_start * 1000
+        (subscription as unknown as Record<string, unknown>).current_period_start as number * 1000
       ).toISOString(),
       current_period_end: new Date(
-        subscription.current_period_end * 1000
+        (subscription as unknown as Record<string, unknown>).current_period_end as number * 1000
       ).toISOString(),
       cancel_at_period_end: subscription.cancel_at_period_end,
     });
@@ -112,10 +111,10 @@ async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
       .update({
         status: subscription.status,
         current_period_start: new Date(
-          subscription.current_period_start * 1000
+          (subscription as unknown as Record<string, unknown>).current_period_start as number * 1000
         ).toISOString(),
         current_period_end: new Date(
-          subscription.current_period_end * 1000
+          (subscription as unknown as Record<string, unknown>).current_period_end as number * 1000
         ).toISOString(),
         cancel_at_period_end: subscription.cancel_at_period_end,
       })
@@ -144,15 +143,15 @@ async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
 
 async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
   try {
-    if (invoice.subscription) {
+    if ((invoice as unknown as Record<string, unknown>).subscription) {
       await supabase
         .from('subscriptions')
         .update({
           status: 'active',
         })
-        .eq('stripe_subscription_id', invoice.subscription);
+        .eq('stripe_subscription_id', (invoice as unknown as Record<string, unknown>).subscription);
 
-      console.log('Payment succeeded for subscription:', invoice.subscription);
+      console.log('Payment succeeded for subscription:', (invoice as unknown as Record<string, unknown>).subscription);
     }
   } catch (error) {
     console.error('Error handling payment succeeded:', error);
@@ -161,15 +160,15 @@ async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
 
 async function handlePaymentFailed(invoice: Stripe.Invoice) {
   try {
-    if (invoice.subscription) {
+    if ((invoice as unknown as Record<string, unknown>).subscription) {
       await supabase
         .from('subscriptions')
         .update({
           status: 'past_due',
         })
-        .eq('stripe_subscription_id', invoice.subscription);
+        .eq('stripe_subscription_id', (invoice as unknown as Record<string, unknown>).subscription);
 
-      console.log('Payment failed for subscription:', invoice.subscription);
+      console.log('Payment failed for subscription:', (invoice as unknown as Record<string, unknown>).subscription);
     }
   } catch (error) {
     console.error('Error handling payment failed:', error);

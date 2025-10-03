@@ -136,7 +136,7 @@ export async function GET(
       })) || [];
 
     // Daily breakdown
-    const daily_breakdown = {};
+    const daily_breakdown: Record<string, number> = {};
     scans?.forEach(scan => {
       const date = scan.created_at.split('T')[0];
       daily_breakdown[date] = (daily_breakdown[date] || 0) + 1;

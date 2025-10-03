@@ -46,7 +46,7 @@ const DashboardContent = () => {
           setLoading(true);
           const data = await getUserOrganizationData(user.id);
           if (data) {
-            setOrgData(data);
+            setOrgData(data as unknown as Record<string, unknown>);
             const orgStats = await getOrganizationStats(data.organization.id);
             setStats(orgStats);
           }
@@ -107,21 +107,22 @@ const DashboardContent = () => {
         {/* Welcome Section */}
         <div className="mb-12">
           <h1 className="mb-4 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
-            Welcome to {orgData?.organization?.name || 'Cosmic Portals'},{' '}
+            Welcome to{' '}
+            {(orgData as any)?.organization?.name || 'Cosmic Portals'},{' '}
             {user.firstName}!
           </h1>
           <p className="max-w-2xl text-xl text-white/70">
-            {orgData?.organization?.name === 'Party Time Texas'
+            {(orgData as any)?.organization?.name === 'Party Time Texas'
               ? 'Your corporate engagement platform is ready. Manage multiple landing pages, NFC tracking, analytics, and business events.'
               : 'Your NFC-powered engagement platform is ready. Manage events, track analytics, and create memorable experiences.'}
           </p>
-          {orgData?.organization && (
+          {(orgData as any)?.organization && (
             <div className="mt-4 flex items-center gap-4">
               <span className="rounded-full bg-purple-600/20 px-3 py-1 text-sm text-purple-300">
-                {orgData.organization.plan_type} Plan
+                {(orgData as any).organization.plan_type} Plan
               </span>
               <span className="rounded-full bg-green-600/20 px-3 py-1 text-sm text-green-300">
-                {orgData.organization.subscription_status}
+                {(orgData as any).organization.subscription_status}
               </span>
             </div>
           )}

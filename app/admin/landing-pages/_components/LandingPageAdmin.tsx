@@ -80,8 +80,8 @@ const LandingPageAdmin = () => {
         ...new Set((landingPages || []).map(page => page.organization_id)),
       ];
 
-      let organizations = [];
-      let users = [];
+      let organizations: Record<string, unknown>[] = [];
+      let users: Record<string, unknown>[] = [];
 
       if (organizationIds.length > 0) {
         const { data: orgData } = await supabase
@@ -115,9 +115,9 @@ const LandingPageAdmin = () => {
           title: page.title,
           slug: page.slug,
           organization_id: page.organization_id,
-          organization_name: organization?.name || 'Unknown Organization',
-          owner_name: user?.email?.split('@')[0] || 'Unknown Owner',
-          owner_email: user?.email || 'unknown@example.com',
+          organization_name: (organization?.name as string) || 'Unknown Organization',
+          owner_name: (user?.email as string)?.split('@')[0] || 'Unknown Owner',
+          owner_email: (user?.email as string) || 'unknown@example.com',
           is_published: page.is_published || false,
           created_at: page.created_at,
           updated_at: page.updated_at,
@@ -150,7 +150,7 @@ const LandingPageAdmin = () => {
       }
 
       // Create the landing page in the database
-      await supabase
+      const { error: pageError } = await supabase
         .from('landing_pages')
         .insert({
           organization_id: userData.organization_id,
@@ -206,7 +206,7 @@ const LandingPageAdmin = () => {
   };
 
   const handleEditPage = (page: LandingPage) => {
-    setSelectedPage(page);
+    // setSelectedPage(page);
     // In real app, this would open edit modal
     alert(`Editing page: ${page.title}`);
   };
