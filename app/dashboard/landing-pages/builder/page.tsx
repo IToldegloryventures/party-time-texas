@@ -4,6 +4,7 @@ import DragDropBuilder from './_components/DragDropBuilder';
 import { getUserOrganizationData } from '@/lib/supabase/user-org';
 
 export default async function LandingPageBuilderPage() {
+  // Force deployment update
   const { userId } = await auth();
 
   // If user is not authenticated, redirect to pricing page
