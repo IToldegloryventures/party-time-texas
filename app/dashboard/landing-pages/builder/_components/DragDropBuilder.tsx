@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+// Force rebuild to clear cache
 
 interface PageComponent {
   id: string;
