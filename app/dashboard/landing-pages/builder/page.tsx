@@ -5,6 +5,7 @@ import { getUserOrganizationData } from '@/lib/supabase/user-org';
 
 export default async function LandingPageBuilderPage() {
   // Force deployment update
+  console.log('🚀 LandingPageBuilderPage is being called - NEW COMPONENT SHOULD LOAD');
   const { userId } = await auth();
 
   // If user is not authenticated, redirect to pricing page
