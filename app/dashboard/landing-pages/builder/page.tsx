@@ -20,6 +20,7 @@ export default async function LandingPageBuilderPage() {
 
   return (
     <div className="min-h-screen bg-black">
+      <div className="p-4 text-white">NEW DRAG DROP BUILDER LOADED</div>
       <DragDropBuilder 
         organizationId={orgData.organization.id}
         userId={userId}
