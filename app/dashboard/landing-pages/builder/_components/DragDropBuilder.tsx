@@ -12,7 +12,23 @@ interface PageComponent {
 }
 
 interface DragDropBuilderProps {
-  initialPage?: Record<string, unknown>;
+  initialPage?: {
+    content?: {
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      contact?: {
+        email?: string;
+        phone?: string;
+        website?: string;
+      };
+      social?: {
+        facebook?: string;
+        instagram?: string;
+        linkedin?: string;
+      };
+    };
+  };
   organizationId: string;
   userId: string;
 }
@@ -425,7 +441,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
   const addComponent = (type: string) => {
     const newComponent: PageComponent = {
       id: `${type}-${Date.now()}`,
-      type: type as string,
+      type: type as 'hero' | 'text' | 'contact' | 'social' | 'image' | 'button' | 'divider',
       position: components.length,
       data: getDefaultData(type),
     };
@@ -557,7 +573,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
   const loadTemplate = (templateId: string) => {
     const template = pageTemplates.find(t => t.id === templateId);
     if (template) {
-      setComponents(template.components);
+      setComponents(template.components as PageComponent[]);
       setSelectedComponent(null);
     }
   };
@@ -566,7 +582,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
     try {
       setLoading(true);
       const pageContent = {
-        ...initialPage?.content,
+        ...(initialPage?.content || {}),
         components: components,
       };
 
@@ -603,12 +619,12 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
           <div
             key={component.id}
             className={`relative text-center ${isSelected ? 'ring-2 ring-blue-500' : ''}`}
-            style={{
-              backgroundColor: component.data.backgroundImage
-                ? 'transparent'
-                : component.data.backgroundColor || '#1a1a1a',
-              padding: component.data.padding || '32px',
-            }}
+              style={{
+                backgroundColor: component.data.backgroundImage
+                  ? 'transparent'
+                  : (component.data.backgroundColor as string) || '#1a1a1a',
+                padding: (component.data.padding as string) || '32px',
+              }}
             onClick={() => setSelectedComponent(component.id)}
             draggable
             onDragStart={e => handleDragStart(e, component.id)}
@@ -626,13 +642,13 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
             <div className="relative z-10">
               <h1
                 className={`mb-4 font-bold text-${component.data.titleFontSize || '4xl'}`}
-                style={{ color: component.data.textColor || '#ffffff' }}
+                style={{ color: (component.data.textColor as string) || '#ffffff' }}
               >
                 {component.data.title}
               </h1>
               <p
                 className={`text-${component.data.subtitleFontSize || 'xl'}`}
-                style={{ color: component.data.textColor || '#ffffff' }}
+                style={{ color: (component.data.textColor as string) || '#ffffff' }}
               >
                 {component.data.subtitle}
               </p>
@@ -658,10 +674,10 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
           <div
             key={component.id}
             className={`${isSelected ? 'ring-2 ring-blue-500' : ''}`}
-            style={{
-              padding: component.data.padding || '16px',
-              backgroundColor: component.data.backgroundColor || 'transparent',
-            }}
+              style={{
+                padding: (component.data.padding as string) || '16px',
+                backgroundColor: (component.data.backgroundColor as string) || 'transparent',
+              }}
             onClick={() => setSelectedComponent(component.id)}
             draggable
             onDragStart={e => handleDragStart(e, component.id)}
@@ -669,12 +685,12 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
             onDrop={e => handleDrop(e, component.position)}
           >
             <p
-              style={{
-                fontSize: component.data.fontSize,
-                textAlign: component.data.textAlign,
-                color: component.data.textColor || '#000000',
-                margin: 0,
-              }}
+                style={{
+                  fontSize: component.data.fontSize as string,
+                  textAlign: component.data.textAlign as any,
+                  color: (component.data.textColor as string) || '#000000',
+                  margin: 0,
+                }}
             >
               {component.data.content}
             </p>
@@ -751,7 +767,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
             >
               {component.data.facebook && (
                 <a
-                  href={component.data.facebook}
+                  href={component.data.facebook as string}
                   className="text-blue-400 hover:text-blue-300"
                 >
                   Facebook
@@ -759,7 +775,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
               )}
               {component.data.instagram && (
                 <a
-                  href={component.data.instagram}
+                  href={component.data.instagram as string}
                   className="text-pink-400 hover:text-pink-300"
                 >
                   Instagram
@@ -767,7 +783,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
               )}
               {component.data.linkedin && (
                 <a
-                  href={component.data.linkedin}
+                  href={component.data.linkedin as string}
                   className="text-blue-600 hover:text-blue-500"
                 >
                   LinkedIn
@@ -840,9 +856,9 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
             {component.data.src ? (
               <div className="space-y-2">
                 <img
-                  src={component.data.src}
-                  alt={component.data.alt}
-                  style={{ width: component.data.width }}
+                  src={component.data.src as string}
+                  alt={component.data.alt as string}
+                  style={{ width: component.data.width as string }}
                   className="mx-auto rounded-lg"
                 />
                 {component.data.caption && (
