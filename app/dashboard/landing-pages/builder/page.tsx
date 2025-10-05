@@ -15,7 +15,11 @@ export default async function LandingPageBuilderPage() {
 
   // Get user's organization
   const orgData = await getUserOrganizationData(userId);
+  console.log('🔍 Debug - userId:', userId);
+  console.log('🔍 Debug - orgData:', orgData);
+  
   if (!orgData) {
+    console.log('❌ No org data found, redirecting to dashboard');
     redirect('/dashboard');
   }
 
