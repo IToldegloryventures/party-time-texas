@@ -20,11 +20,15 @@ export default async function LandingPageBuilderPage() {
 
   return (
     <div className="min-h-screen bg-black">
-      <div className="p-4 text-white">NEW DRAG DROP BUILDER LOADED</div>
-      <DragDropBuilder 
-        organizationId={orgData.organization.id}
-        userId={userId}
-      />
+      <div className="fixed top-0 left-0 right-0 z-50 bg-red-600 text-white p-4 text-center font-bold text-xl">
+        🚀 NEW DRAG DROP BUILDER IS LOADING - IF YOU SEE THIS, THE NEW COMPONENT IS WORKING! 🚀
+      </div>
+      <div className="pt-20">
+        <DragDropBuilder 
+          organizationId={orgData.organization.id}
+          userId={userId}
+        />
+      </div>
     </div>
   );
 }
