@@ -63,7 +63,10 @@ export interface RecapPage {
 }
 
 export class ReportingService {
-  private supabase = createClient();
+  private supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co',
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key'
+  );
   private eventService = new EventService();
   private analyticsService = new AnalyticsService();
 
@@ -213,7 +216,7 @@ export class ReportingService {
     const pdfBuffer = await this.generatePDFBuffer(pdfContent);
 
     // Upload to Supabase Storage
-    const fileName = `event-report-${report.event_id}-${Date.now()}.pdf`;
+    const fileName = `event-report-${report.event_id}-${Date.now()}.html`;
     const { data: _uploadData, error: uploadError } =
       await this.supabase.storage.from('reports').upload(fileName, pdfBuffer, {
         contentType: 'application/pdf',

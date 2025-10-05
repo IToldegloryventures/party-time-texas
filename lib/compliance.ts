@@ -44,7 +44,10 @@ export interface CookieConsent {
 }
 
 export class ComplianceService {
-  private supabase = createClient();
+  private supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co',
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key'
+  );
 
   /**
    * Record user consent

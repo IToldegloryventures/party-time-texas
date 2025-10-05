@@ -29,7 +29,10 @@ export interface User {
 }
 
 export class OrganizationService {
-  private supabase = createClient();
+  private supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co',
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key'
+  );
 
   async createOrganization(data: {
     name: string;

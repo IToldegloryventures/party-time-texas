@@ -43,7 +43,10 @@ export interface UTMData {
 }
 
 export class AnalyticsService {
-  private supabase = createClient();
+  private supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co',
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key'
+  );
 
   /**
    * Track an analytics event

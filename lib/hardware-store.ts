@@ -73,7 +73,10 @@ export interface HardwareKit {
 }
 
 export class HardwareStoreService {
-  private supabase = createClient();
+  private supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co',
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key'
+  );
 
   /**
    * Get all hardware products
