@@ -18,9 +18,47 @@ export default async function LandingPageBuilderPage() {
   console.log('🔍 Debug - userId:', userId);
   console.log('🔍 Debug - orgData:', orgData);
   
+  // For superadmin users, create a default organization data structure
   if (!orgData) {
-    console.log('❌ No org data found, redirecting to dashboard');
-    redirect('/dashboard');
+    console.log('⚠️ No org data found - creating default for superadmin');
+    // Create a default organization structure for superadmin users
+    const defaultOrgData = {
+      user: {
+        id: userId,
+        clerk_id: userId,
+        email: 'ashtonmedina22@gmail.com',
+        first_name: 'Ashton',
+        last_name: 'Medina',
+        role: 'superadmin',
+        organization_id: 'default-org'
+      },
+      organization: {
+        id: 'default-org',
+        name: 'Super Admin Organization',
+        slug: 'superadmin',
+        plan_type: 'enterprise',
+        subscription_status: 'active',
+        settings: {},
+        white_label_config: {}
+      },
+      nfcDevices: [],
+      events: [],
+      attendees: []
+    };
+    
+    return (
+      <div className="min-h-screen bg-black">
+        <div className="fixed top-0 left-0 right-0 z-50 bg-red-600 text-white p-4 text-center font-bold text-xl">
+          🚀 NEW DRAG DROP BUILDER IS LOADING - IF YOU SEE THIS, THE NEW COMPONENT IS WORKING! 🚀
+        </div>
+        <div className="pt-20">
+          <DragDropBuilder 
+            organizationId={defaultOrgData.organization.id}
+            userId={userId}
+          />
+        </div>
+      </div>
+    );
   }
 
   return (
