@@ -271,7 +271,7 @@ const LandingPageAdmin = () => {
         {/* Action Buttons */}
         <div className="mb-8 flex gap-4">
           <button
-            onClick={() => setShowCreateForm(true)}
+            onClick={() => window.location.href = '/dashboard/landing-pages/builder'}
             className="rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 font-semibold text-white transition-all duration-300 hover:from-purple-700 hover:to-blue-700"
           >
             Create New Page
@@ -311,7 +311,7 @@ const LandingPageAdmin = () => {
                 landing page to get started.
               </p>
               <button
-                onClick={() => setShowCreateForm(true)}
+                onClick={() => window.location.href = '/dashboard/landing-pages/builder'}
                 className="rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 font-semibold text-white transition-all duration-300 hover:from-purple-700 hover:to-blue-700"
               >
                 Create First Landing Page
