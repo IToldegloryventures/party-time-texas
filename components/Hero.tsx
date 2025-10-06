@@ -46,7 +46,7 @@ const Hero = () => {
           NFC-powered engagement for businesses, events, and communities.
         </p>
 
-        {/* CTA Button */}
+        {/* CTA Button - Updated for Products Page */}
         <div className="flex justify-center">
           <SignedOut>
             <Link
