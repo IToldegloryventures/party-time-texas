@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { SignupFlowService } from '@/lib/signup-flow';
 
-export default function CustomSignUpPage() {
+function SignUpForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [step, setStep] = useState(1);
@@ -303,5 +303,20 @@ export default function CustomSignUpPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function CustomSignUpPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex min-h-screen items-center justify-center bg-black">
+        <div className="text-center">
+          <div className="mb-4 text-2xl font-bold text-white">Loading...</div>
+          <div className="text-white/70">Setting up your signup experience</div>
+        </div>
+      </div>
+    }>
+      <SignUpForm />
+    </Suspense>
   );
 }
