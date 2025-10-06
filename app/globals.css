@@ -111,6 +111,180 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* ===========================================
+   COSMIC PORTALS METALLIC COLOR SCHEME
+   =========================================== */
+
+:root {
+  /* Primary Metallic Colors */
+  --cosmic-gold: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #B8860B 100%);
+  --cosmic-silver: linear-gradient(135deg, #E8E8E8 0%, #C0C0C0 50%, #808080 100%);
+  --cosmic-dark-grey: linear-gradient(135deg, #2C2C2C 0%, #1A1A1A 50%, #0D0D0D 100%);
+  --cosmic-black: linear-gradient(135deg, #1A1A1A 0%, #0D0D0D 50%, #000000 100%);
+  
+  /* Accent Metallic Colors */
+  --cosmic-deep-red: linear-gradient(135deg, #8B0000 0%, #660000 50%, #330000 100%);
+  --cosmic-deep-green: linear-gradient(135deg, #006400 0%, #004400 50%, #002200 100%);
+  --cosmic-deep-blue: linear-gradient(135deg, #000080 0%, #000066 50%, #000033 100%);
+  --cosmic-bronze: linear-gradient(135deg, #CD7F32 0%, #B87333 50%, #8B4513 100%);
+  --cosmic-rose-gold: linear-gradient(135deg, #E8B4B8 0%, #D4A5A5 50%, #B8860B 100%);
+  
+  /* Solid Metallic Colors (for backgrounds) */
+  --cosmic-gold-solid: #FFD700;
+  --cosmic-silver-solid: #C0C0C0;
+  --cosmic-dark-grey-solid: #2C2C2C;
+  --cosmic-black-solid: #0D0D0D;
+  --cosmic-deep-red-solid: #8B0000;
+  --cosmic-deep-green-solid: #006400;
+  --cosmic-deep-blue-solid: #000080;
+  
+  /* Metallic Text Colors */
+  --cosmic-gold-text: #FFD700;
+  --cosmic-silver-text: #E8E8E8;
+  --cosmic-dark-text: #1A1A1A;
+  --cosmic-light-text: #FFFFFF;
+  
+  /* Metallic Border Colors */
+  --cosmic-gold-border: #FFD700;
+  --cosmic-silver-border: #C0C0C0;
+  --cosmic-dark-border: #404040;
+  --cosmic-light-border: #808080;
+}
+
+/* Metallic Gradient Classes */
+.metallic-gold {
+  background: var(--cosmic-gold);
+  color: var(--cosmic-dark-text);
+}
+
+.metallic-silver {
+  background: var(--cosmic-silver);
+  color: var(--cosmic-dark-text);
+}
+
+.metallic-dark-grey {
+  background: var(--cosmic-dark-grey);
+  color: var(--cosmic-light-text);
+}
+
+.metallic-black {
+  background: var(--cosmic-black);
+  color: var(--cosmic-light-text);
+}
+
+.metallic-deep-red {
+  background: var(--cosmic-deep-red);
+  color: var(--cosmic-light-text);
+}
+
+.metallic-deep-green {
+  background: var(--cosmic-deep-green);
+  color: var(--cosmic-light-text);
+}
+
+.metallic-deep-blue {
+  background: var(--cosmic-deep-blue);
+  color: var(--cosmic-light-text);
+}
+
+.metallic-bronze {
+  background: var(--cosmic-bronze);
+  color: var(--cosmic-light-text);
+}
+
+.metallic-rose-gold {
+  background: var(--cosmic-rose-gold);
+  color: var(--cosmic-dark-text);
+}
+
+/* Text Gradient Classes */
+.text-gold {
+  background: var(--cosmic-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-silver {
+  background: var(--cosmic-silver);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-deep-red {
+  background: var(--cosmic-deep-red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-deep-green {
+  background: var(--cosmic-deep-green);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-deep-blue {
+  background: var(--cosmic-deep-blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Border Gradient Classes */
+.border-gold {
+  border: 2px solid;
+  border-image: var(--cosmic-gold) 1;
+}
+
+.border-silver {
+  border: 2px solid;
+  border-image: var(--cosmic-silver) 1;
+}
+
+.border-deep-red {
+  border: 2px solid;
+  border-image: var(--cosmic-deep-red) 1;
+}
+
+.border-deep-green {
+  border: 2px solid;
+  border-image: var(--cosmic-deep-green) 1;
+}
+
+.border-deep-blue {
+  border: 2px solid;
+  border-image: var(--cosmic-deep-blue) 1;
+}
+
+/* Cosmic Portals Brand Colors */
+.cosmic-primary {
+  background: var(--cosmic-gold);
+  color: var(--cosmic-dark-text);
+}
+
+.cosmic-secondary {
+  background: var(--cosmic-silver);
+  color: var(--cosmic-dark-text);
+}
+
+.cosmic-accent {
+  background: var(--cosmic-deep-red);
+  color: var(--cosmic-light-text);
+}
+
+.cosmic-dark {
+  background: var(--cosmic-dark-grey);
+  color: var(--cosmic-light-text);
+}
+
+.cosmic-black {
+  background: var(--cosmic-black);
+  color: var(--cosmic-light-text);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

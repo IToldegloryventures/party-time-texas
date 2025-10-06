@@ -9,11 +9,12 @@ export default function ServicesPage() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-16 text-center">
-          <h1 className="mb-6 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
+          <h1 className="mb-6 text-gold text-4xl font-bold sm:text-5xl">
             Choose Your Service
           </h1>
-          <p className="mx-auto max-w-2xl text-xl text-white/70">
-            Select the platform that best fits your needs. Each platform is designed for specific use cases and includes tailored features.
+          <p className="mx-auto max-w-2xl text-xl text-silver">
+            Select the platform that best fits your needs. Each platform is
+            designed for specific use cases and includes tailored features.
           </p>
         </div>
 
@@ -133,7 +134,9 @@ export default function ServicesPage() {
               <div className="mb-4 text-4xl font-bold text-white">
                 $99<span className="text-lg text-white/70">/month</span>
               </div>
-              <p className="mb-8 text-white/70">For event planners and organizers</p>
+              <p className="mb-8 text-white/70">
+                For event planners and organizers
+              </p>
             </div>
 
             <ul className="mb-8 space-y-4">
@@ -324,8 +327,10 @@ export default function ServicesPage() {
                 What's the difference between Business and Events platforms?
               </h3>
               <p className="text-white/70">
-                Business platform focuses on customer engagement, team management, and business analytics. 
-                Events platform is designed for event planners with RSVP systems, guest management, and event-specific features.
+                Business platform focuses on customer engagement, team
+                management, and business analytics. Events platform is designed
+                for event planners with RSVP systems, guest management, and
+                event-specific features.
               </p>
             </div>
             <div className="rounded-lg border border-gray-700/30 bg-gray-900/30 p-6">
@@ -333,7 +338,9 @@ export default function ServicesPage() {
                 Can I switch between platforms?
               </h3>
               <p className="text-white/70">
-                Yes, you can upgrade to Enterprise to get both Business and Events features, or contact our sales team to discuss your specific needs.
+                Yes, you can upgrade to Enterprise to get both Business and
+                Events features, or contact our sales team to discuss your
+                specific needs.
               </p>
             </div>
             <div className="rounded-lg border border-gray-700/30 bg-gray-900/30 p-6">
@@ -341,8 +348,9 @@ export default function ServicesPage() {
                 Is my data secure?
               </h3>
               <p className="text-white/70">
-                Absolutely. We use enterprise-grade encryption and never share your data with third parties. 
-                Your NFC scan data and analytics are processed securely with full privacy protection.
+                Absolutely. We use enterprise-grade encryption and never share
+                your data with third parties. Your NFC scan data and analytics
+                are processed securely with full privacy protection.
               </p>
             </div>
           </div>
