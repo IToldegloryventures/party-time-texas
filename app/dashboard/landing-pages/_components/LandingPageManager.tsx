@@ -2,11 +2,14 @@
 
 import { useUser } from '@clerk/nextjs';
 import { useEffect, useState } from 'react';
-// import { getUserOrganizationData } from '@/lib/supabase/user-org';
+import { getUserOrganizationData } from '@/lib/supabase/user-org';
+import { detectUserType } from '@/lib/user-type-detection';
+import { hasPermission } from '@/lib/permissions';
 
 const LandingPageManager = () => {
   const { user, isLoaded } = useUser();
-  // const [orgData, setOrgData] = useState<Record<string, unknown> | null>(null);
+  const [orgData, setOrgData] = useState<Record<string, unknown> | null>(null);
+  const [userType, setUserType] = useState<any>(null);
   const [landingPages, setLandingPages] = useState<Record<string, unknown>[]>(
     []
   );
@@ -21,8 +24,14 @@ const LandingPageManager = () => {
   const fetchData = async () => {
     try {
       setLoading(true);
-      // const data = await getUserOrganizationData(user!.id);
-      // setOrgData(data);
+      const data = await getUserOrganizationData(user!.id);
+      setOrgData(data);
+      
+      if (data) {
+        // Detect user type and permissions
+        const userTypeInfo = detectUserType(data);
+        setUserType(userTypeInfo);
+      }
 
       // Fetch landing pages from API
       const response = await fetch('/api/landing-pages');
@@ -41,31 +50,13 @@ const LandingPageManager = () => {
         setLandingPages(formattedPages);
       } else {
         console.error('Failed to fetch landing pages');
-        // Fallback to mock data
-        setLandingPages([
-          {
-            id: '1',
-            name: 'Party Time Texas Main',
-            url: `${window.location.origin}/landing/party-time-texas`,
-            status: 'published',
-            scans: 0,
-            created_at: new Date().toISOString(),
-          },
-        ]);
+        // Show empty state instead of mock data
+        setLandingPages([]);
       }
     } catch (error) {
       console.error('Error fetching data:', error);
-      // Fallback to mock data
-      setLandingPages([
-        {
-          id: '1',
-          name: 'Party Time Texas Main',
-          url: `${window.location.origin}/landing/party-time-texas`,
-          status: 'published',
-          scans: 0,
-          created_at: new Date().toISOString(),
-        },
-      ]);
+      // Show empty state instead of mock data
+      setLandingPages([]);
     } finally {
       setLoading(false);
     }

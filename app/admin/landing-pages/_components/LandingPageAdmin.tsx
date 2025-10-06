@@ -2,7 +2,8 @@
 
 import { useUser } from '@clerk/nextjs';
 import { useEffect, useState } from 'react';
-// import { getUserOrganizationData } from '@/lib/supabase/user-org';
+import { getUserOrganizationData } from '@/lib/supabase/user-org';
+import { isSuperAdmin } from '@/lib/admin-permissions';
 import { supabase } from '@/lib/supabase/client';
 
 interface LandingPage {
@@ -50,56 +51,48 @@ const LandingPageAdmin = () => {
 
   useEffect(() => {
     if (user && isLoaded) {
-      fetchLandingPages();
+      checkAdminAccess();
     }
   }, [user, isLoaded]);
+
+  const checkAdminAccess = async () => {
+    try {
+      const adminStatus = await isSuperAdmin(user!.id);
+      setIsAdmin(adminStatus);
+      
+      if (adminStatus) {
+        fetchLandingPages();
+      } else {
+        setError('Access denied. Super admin privileges required.');
+        setLoading(false);
+      }
+    } catch (error) {
+      console.error('Error checking admin access:', error);
+      setError('Failed to verify admin access.');
+      setLoading(false);
+    }
+  };
 
   const fetchLandingPages = async () => {
     try {
       setLoading(true);
+      setError(null);
 
-      console.log('=== ADMIN FETCH DEBUG ===');
-      console.log('Fetching landing pages from admin...');
-
-      // Check if landing_pages table exists, if not show empty state
-      const { data: landingPages, error: pagesError } = await supabase
-        .from('landing_pages')
-        .select('*')
-        .order('created_at', { ascending: false });
-
-      console.log('Admin query result:', { landingPages, pagesError });
-
-      if (pagesError) {
-        console.log('Landing pages table error:', pagesError);
-        setLandingPages([]);
+      // Use the admin API endpoint
+      const response = await fetch('/api/admin/landing-pages');
+      
+      if (!response.ok) {
+        if (response.status === 403) {
+          setError('Access denied. Super admin privileges required.');
+        } else {
+          setError('Failed to fetch landing pages.');
+        }
+        setLoading(false);
         return;
       }
 
-      // Get organization and user data separately to avoid RLS issues
-      const organizationIds = [
-        ...new Set((landingPages || []).map(page => page.organization_id)),
-      ];
-
-      let organizations: Record<string, unknown>[] = [];
-      let users: Record<string, unknown>[] = [];
-
-      if (organizationIds.length > 0) {
-        const { data: orgData } = await supabase
-          .from('organizations')
-          .select('id, name')
-          .in('id', organizationIds);
-
-        const { data: userData } = await supabase
-          .from('users')
-          .select('id, email, organization_id')
-          .in('organization_id', organizationIds);
-
-        organizations = orgData || [];
-        users = userData || [];
-
-        console.log('Organizations:', organizations);
-        console.log('Users:', users);
-      }
+      const result = await response.json();
+      const pages = result.pages || [];
 
       // Transform the data to match our interface
       const transformedPages: LandingPage[] = (landingPages || []).map(page => {

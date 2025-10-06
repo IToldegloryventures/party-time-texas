@@ -2,27 +2,29 @@
 
 import { useUser } from '@clerk/nextjs';
 import { useEffect, useState } from 'react';
-// import { getUserOrganizationData } from '@/lib/supabase/user-org';
+import { getUserOrganizationData } from '@/lib/supabase/user-org';
+import { detectUserType } from '@/lib/user-type-detection';
+import { hasPermission } from '@/lib/permissions';
 
 const LandingPageBuilder = () => {
   const { user, isLoaded } = useUser();
-  // const [orgData, setOrgData] = useState<Record<string, unknown> | null>(null);
+  const [orgData, setOrgData] = useState<Record<string, unknown> | null>(null);
+  const [userType, setUserType] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [pageData, setPageData] = useState({
-    name: 'Party Time Texas Landing Page',
-    title: 'Welcome to Party Time Texas!',
-    subtitle: 'Your premier event planning and corporate entertainment company',
-    description:
-      'We specialize in creating unforgettable experiences for corporate events, private parties, and special occasions throughout Texas.',
+    name: '',
+    title: '',
+    subtitle: '',
+    description: '',
     contact: {
-      email: 'ashton@partytimetexas.com',
-      phone: '(555) 123-4567',
-      website: 'https://partytimetexas.com',
+      email: '',
+      phone: '',
+      website: '',
     },
     social: {
-      facebook: 'https://facebook.com/partytimetexas',
-      instagram: 'https://instagram.com/partytimetexas',
-      linkedin: 'https://linkedin.com/company/partytimetexas',
+      facebook: '',
+      instagram: '',
+      linkedin: '',
     },
     branding: {
       primaryColor: '#FF1E56',
@@ -40,8 +42,43 @@ const LandingPageBuilder = () => {
   const fetchData = async () => {
     try {
       setLoading(true);
-      // const data = await getUserOrganizationData(user!.id);
-      // setOrgData(data);
+      const data = await getUserOrganizationData(user!.id);
+      setOrgData(data);
+      
+      if (data) {
+        // Detect user type and permissions
+        const userTypeInfo = detectUserType(data);
+        setUserType(userTypeInfo);
+        
+        // Check if user has permission to access builder
+        if (!userTypeInfo.canAccessBuilder) {
+          console.error('User does not have permission to access landing page builder');
+          return;
+        }
+        
+        // Initialize page data with organization-specific information
+        setPageData({
+          name: `${data.organization.name} Landing Page`,
+          title: `Welcome to ${data.organization.name}!`,
+          subtitle: data.organization.settings?.tagline || 'Your trusted partner for success',
+          description: data.organization.settings?.description || 'We provide exceptional services to help you achieve your goals.',
+          contact: {
+            email: data.user.email,
+            phone: data.organization.settings?.phone || '',
+            website: data.organization.settings?.website || '',
+          },
+          social: {
+            facebook: data.organization.settings?.social?.facebook || '',
+            instagram: data.organization.settings?.social?.instagram || '',
+            linkedin: data.organization.settings?.social?.linkedin || '',
+          },
+          branding: {
+            primaryColor: data.organization.settings?.branding?.primaryColor || '#FF1E56',
+            secondaryColor: data.organization.settings?.branding?.secondaryColor || '#FF00FF',
+            accentColor: data.organization.settings?.branding?.accentColor || '#00FFFF',
+          },
+        });
+      }
     } catch (error) {
       console.error('Error fetching data:', error);
     } finally {
@@ -129,17 +166,47 @@ const LandingPageBuilder = () => {
     );
   }
 
+  // Check if user has permission to access builder
+  if (userType && !userType.canAccessBuilder) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-black">
+        <div className="text-center">
+          <div className="mx-auto mb-4 h-16 w-16 rounded-full bg-red-500/20 flex items-center justify-center">
+            <svg className="h-8 w-8 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+            </svg>
+          </div>
+          <h2 className="mb-2 text-2xl font-bold text-white">Access Denied</h2>
+          <p className="text-white/70">You don't have permission to access the landing page builder.</p>
+          <p className="mt-2 text-sm text-white/50">Contact your administrator for access.</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-black">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="mb-4 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-4xl font-bold text-transparent">
-            Landing Page Builder
-          </h1>
-          <p className="text-xl text-white/70">
-            Create custom landing pages for your NFC devices
-          </p>
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="mb-4 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-4xl font-bold text-transparent">
+                Landing Page Builder
+              </h1>
+              <p className="text-xl text-white/70">
+                Create custom landing pages for your NFC devices
+              </p>
+            </div>
+            {userType && (
+              <div className="text-right">
+                <div className="inline-flex items-center rounded-full bg-purple-500/20 px-3 py-1 text-sm text-purple-300">
+                  <span className="mr-2 h-2 w-2 rounded-full bg-purple-400"></span>
+                  {userType.displayName}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
@@ -424,18 +491,22 @@ const LandingPageBuilder = () => {
 
             {/* Action Buttons */}
             <div className="flex gap-4">
-              <button
-                onClick={handleSave}
-                className="rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 font-semibold text-white transition-all duration-300 hover:from-purple-700 hover:to-blue-700"
-              >
-                Save Draft
-              </button>
-              <button
-                onClick={handlePublish}
-                className="rounded-lg bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-3 font-semibold text-white transition-all duration-300 hover:from-green-700 hover:to-emerald-700"
-              >
-                Publish Page
-              </button>
+              {userType && hasPermission(userType.role, 'canEditLandingPages') && (
+                <button
+                  onClick={handleSave}
+                  className="rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 font-semibold text-white transition-all duration-300 hover:from-purple-700 hover:to-blue-700"
+                >
+                  Save Draft
+                </button>
+              )}
+              {userType && hasPermission(userType.role, 'canPublishLandingPages') && (
+                <button
+                  onClick={handlePublish}
+                  className="rounded-lg bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-3 font-semibold text-white transition-all duration-300 hover:from-green-700 hover:to-emerald-700"
+                >
+                  Publish Page
+                </button>
+              )}
               <button
                 onClick={handlePreview}
                 className="rounded-lg bg-gray-600 px-6 py-3 font-semibold text-white transition-colors duration-300 hover:bg-gray-700"
