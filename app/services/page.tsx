@@ -3,14 +3,39 @@
 import { SignedIn, SignedOut } from '@clerk/nextjs';
 import Link from 'next/link';
 
-export default function PricingPage() {
+export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-black">
+      {/* Header */}
+      <div className="border-b border-gray-800">
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between">
+            <Link href="/" className="text-2xl font-bold text-white">
+              Cosmic Portals
+            </Link>
+            <div className="flex items-center space-x-6">
+              <Link href="/" className="text-white/70 hover:text-white">
+                Home
+              </Link>
+              <Link href="/services" className="text-white font-semibold">
+                Services
+              </Link>
+              <Link href="/products" className="text-white/70 hover:text-white">
+                Products
+              </Link>
+              <Link href="/sign-in" className="text-white/70 hover:text-white">
+                Sign In
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-16 text-center">
           <h1 className="mb-6 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
-            Choose Your Platform
+            Choose Your Service
           </h1>
           <p className="mx-auto max-w-2xl text-xl text-white/70">
             Select the platform that best fits your needs. Each platform is designed for specific use cases and includes tailored features.
@@ -24,7 +49,7 @@ export default function PricingPage() {
             <div className="text-center">
               <h3 className="mb-2 text-2xl font-bold text-white">Business</h3>
               <div className="mb-4 text-4xl font-bold text-white">
-                $29<span className="text-lg text-white/70">/month</span>
+                $99<span className="text-lg text-white/70">/month</span>
               </div>
               <p className="mb-8 text-white/70">For companies and teams</p>
             </div>
@@ -131,7 +156,7 @@ export default function PricingPage() {
             <div className="text-center">
               <h3 className="mb-2 text-2xl font-bold text-white">Events</h3>
               <div className="mb-4 text-4xl font-bold text-white">
-                $29<span className="text-lg text-white/70">/month</span>
+                $99<span className="text-lg text-white/70">/month</span>
               </div>
               <p className="mb-8 text-white/70">For event planners and organizers</p>
             </div>
