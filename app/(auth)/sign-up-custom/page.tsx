@@ -1,11 +1,12 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { SignupFlowService } from '@/lib/signup-flow';
 
 export default function CustomSignUpPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<string[]>([]);
@@ -18,6 +19,24 @@ export default function CustomSignUpPage() {
     planType: 'business' as 'business' | 'event',
     userType: 'business_admin' as 'business_admin' | 'event_admin',
   });
+
+  // Set plan type from URL parameter
+  useEffect(() => {
+    const plan = searchParams.get('plan');
+    if (plan === 'event') {
+      setSignupData(prev => ({
+        ...prev,
+        planType: 'event',
+        userType: 'event_admin'
+      }));
+    } else if (plan === 'business') {
+      setSignupData(prev => ({
+        ...prev,
+        planType: 'business',
+        userType: 'business_admin'
+      }));
+    }
+  }, [searchParams]);
 
   const handleInputChange = (field: string, value: string) => {
     setSignupData(prev => {
@@ -140,38 +159,54 @@ export default function CustomSignUpPage() {
               <label className="mb-2 block text-sm font-medium text-white/70">
                 Plan Type
               </label>
-              <div className="grid grid-cols-2 gap-4">
-                <button
-                  type="button"
-                  onClick={() => {
-                    handleInputChange('planType', 'business');
-                    handleInputChange('userType', 'business_admin');
-                  }}
-                  className={`rounded-lg border p-4 text-center transition-colors ${
-                    signupData.planType === 'business'
-                      ? 'border-purple-400 bg-purple-400/20 text-purple-300'
-                      : 'border-gray-600 bg-gray-800 text-white/70 hover:border-gray-500'
-                  }`}
-                >
-                  <div className="font-semibold">Business</div>
-                  <div className="text-sm">For companies and teams</div>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    handleInputChange('planType', 'event');
-                    handleInputChange('userType', 'event_admin');
-                  }}
-                  className={`rounded-lg border p-4 text-center transition-colors ${
-                    signupData.planType === 'event'
-                      ? 'border-purple-400 bg-purple-400/20 text-purple-300'
-                      : 'border-gray-600 bg-gray-800 text-white/70 hover:border-gray-500'
-                  }`}
-                >
-                  <div className="font-semibold">Event</div>
-                  <div className="text-sm">For event planners</div>
-                </button>
-              </div>
+              {searchParams.get('plan') ? (
+                // Show selected plan (read-only when coming from products page)
+                <div className="rounded-lg border border-purple-400 bg-purple-400/20 p-4 text-center">
+                  <div className="font-semibold text-purple-300">
+                    {signupData.planType === 'business' ? 'Business' : 'Event'} Platform
+                  </div>
+                  <div className="text-sm text-purple-200">
+                    {signupData.planType === 'business' 
+                      ? 'For companies and teams' 
+                      : 'For event planners'
+                    }
+                  </div>
+                </div>
+              ) : (
+                // Allow plan selection if no plan parameter
+                <div className="grid grid-cols-2 gap-4">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      handleInputChange('planType', 'business');
+                      handleInputChange('userType', 'business_admin');
+                    }}
+                    className={`rounded-lg border p-4 text-center transition-colors ${
+                      signupData.planType === 'business'
+                        ? 'border-purple-400 bg-purple-400/20 text-purple-300'
+                        : 'border-gray-600 bg-gray-800 text-white/70 hover:border-gray-500'
+                    }`}
+                  >
+                    <div className="font-semibold">Business</div>
+                    <div className="text-sm">For companies and teams</div>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      handleInputChange('planType', 'event');
+                      handleInputChange('userType', 'event_admin');
+                    }}
+                    className={`rounded-lg border p-4 text-center transition-colors ${
+                      signupData.planType === 'event'
+                        ? 'border-purple-400 bg-purple-400/20 text-purple-300'
+                        : 'border-gray-600 bg-gray-800 text-white/70 hover:border-gray-500'
+                    }`}
+                  >
+                    <div className="font-semibold">Event</div>
+                    <div className="text-sm">For event planners</div>
+                  </button>
+                </div>
+              )}
             </div>
 
             {errors.length > 0 && (

@@ -50,7 +50,7 @@ const Hero = () => {
         <div className="flex justify-center">
           <SignedOut>
             <Link
-              href="/sign-up"
+              href="/products"
               className="group relative inline-flex items-center gap-2 rounded-full bg-black px-8 py-4 text-lg font-semibold text-white transition-all hover:bg-white/5"
             >
               <span className="absolute inset-0 rounded-full bg-gradient-to-r from-[#FF1E56] via-[#FF00FF] to-[#00FFFF] opacity-70 blur-sm transition-all group-hover:opacity-100" />
