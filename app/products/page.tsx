@@ -122,14 +122,14 @@ export default function ProductsPage() {
 
               {/* CTA */}
               <SignedIn>
-                <button className="w-full rounded-lg bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-3 font-semibold text-white transition-all duration-300 hover:from-blue-700 hover:to-cyan-700">
+                <button className="w-full rounded-lg metallic-deep-blue px-6 py-3 font-semibold text-white transition-all duration-300 hover:scale-105">
                   Browse Hardware
                 </button>
               </SignedIn>
               <SignedOut>
                 <Link
                   href="/services"
-                  className="block w-full rounded-lg bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-3 text-center font-semibold text-white transition-all duration-300 hover:from-blue-700 hover:to-cyan-700"
+                  className="block w-full rounded-lg metallic-deep-blue px-6 py-3 text-center font-semibold text-white transition-all duration-300 hover:scale-105"
                 >
                   Subscribe to Access
                 </Link>
@@ -236,14 +236,14 @@ export default function ProductsPage() {
 
               {/* CTA */}
               <SignedIn>
-                <button className="w-full rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-3 font-semibold text-white transition-all duration-300 hover:from-purple-700 hover:to-pink-700">
+                <button className="w-full rounded-lg metallic-rose-gold px-6 py-3 font-semibold text-white transition-all duration-300 hover:scale-105">
                   Browse Content Packs
                 </button>
               </SignedIn>
               <SignedOut>
                 <Link
                   href="/services"
-                  className="block w-full rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-3 text-center font-semibold text-white transition-all duration-300 hover:from-purple-700 hover:to-pink-700"
+                  className="block w-full rounded-lg metallic-rose-gold px-6 py-3 text-center font-semibold text-white transition-all duration-300 hover:scale-105"
                 >
                   Subscribe to Access
                 </Link>
@@ -350,14 +350,14 @@ export default function ProductsPage() {
 
               {/* CTA */}
               <SignedIn>
-                <button className="w-full rounded-lg bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-3 font-semibold text-white transition-all duration-300 hover:from-green-700 hover:to-emerald-700">
+                <button className="w-full rounded-lg metallic-deep-green px-6 py-3 font-semibold text-white transition-all duration-300 hover:scale-105">
                   Request Quote
                 </button>
               </SignedIn>
               <SignedOut>
                 <Link
                   href="/services"
-                  className="block w-full rounded-lg bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-3 text-center font-semibold text-white transition-all duration-300 hover:from-green-700 hover:to-emerald-700"
+                  className="block w-full rounded-lg metallic-deep-green px-6 py-3 text-center font-semibold text-white transition-all duration-300 hover:scale-105"
                 >
                   Subscribe to Access
                 </Link>

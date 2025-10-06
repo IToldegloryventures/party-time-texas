@@ -7,7 +7,6 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-black">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="mb-16 text-center">
           <h1 className="mb-6 text-gold text-4xl font-bold sm:text-5xl">
             Choose Your Service
@@ -106,7 +105,7 @@ export default function ServicesPage() {
             <SignedOut>
               <Link
                 href="/sign-up-custom?plan=business"
-                className="block w-full rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 text-center font-medium text-white transition-all duration-200 hover:from-blue-700 hover:to-purple-700"
+                className="block w-full rounded-lg metallic-gold px-6 py-3 text-center font-medium text-white transition-all duration-200 hover:scale-105"
               >
                 Get Started as Business Admin
               </Link>
@@ -114,7 +113,7 @@ export default function ServicesPage() {
             <SignedIn>
               <Link
                 href="/dashboard"
-                className="block w-full rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 text-center font-medium text-white transition-all duration-200 hover:from-blue-700 hover:to-purple-700"
+                className="block w-full rounded-lg metallic-gold px-6 py-3 text-center font-medium text-white transition-all duration-200 hover:scale-105"
               >
                 Current Plan
               </Link>
@@ -215,13 +214,13 @@ export default function ServicesPage() {
             <SignedOut>
               <Link
                 href="/sign-up-custom?plan=event"
-                className="block w-full rounded-lg bg-gradient-to-r from-pink-600 to-red-600 px-6 py-3 text-center font-medium text-white transition-all duration-200 hover:from-pink-700 hover:to-red-700"
+                className="block w-full rounded-lg metallic-silver px-6 py-3 text-center font-medium text-white transition-all duration-200 hover:scale-105"
               >
                 Get Started as Event Admin
               </Link>
             </SignedOut>
             <SignedIn>
-              <button className="w-full rounded-lg bg-gradient-to-r from-pink-600 to-red-600 px-6 py-3 font-medium text-white transition-all duration-200 hover:from-pink-700 hover:to-red-700">
+              <button className="w-full rounded-lg metallic-silver px-6 py-3 font-medium text-white transition-all duration-200 hover:scale-105">
                 Upgrade to Events
               </button>
             </SignedIn>
@@ -310,7 +309,7 @@ export default function ServicesPage() {
               </li>
             </ul>
 
-            <button className="w-full rounded-lg bg-blue-600 px-6 py-3 font-medium text-white transition-colors duration-200 hover:bg-blue-700">
+            <button className="w-full rounded-lg metallic-deep-blue px-6 py-3 font-medium text-white transition-all duration-200 hover:scale-105">
               Contact Sales
             </button>
           </div>
