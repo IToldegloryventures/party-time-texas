@@ -10,14 +10,30 @@ export default function CustomSignUpPage() {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<string[]>([]);
+  
+  // Initialize with URL parameter if present
+  const getInitialPlanType = () => {
+    const plan = searchParams.get('plan');
+    if (plan === 'event') return 'event';
+    if (plan === 'business') return 'business';
+    return 'business';
+  };
+  
+  const getInitialUserType = () => {
+    const plan = searchParams.get('plan');
+    if (plan === 'event') return 'event_admin';
+    if (plan === 'business') return 'business_admin';
+    return 'business_admin';
+  };
+  
   const [signupData, setSignupData] = useState({
     email: '',
     firstName: '',
     lastName: '',
     organizationName: '',
     organizationSlug: '',
-    planType: 'business' as 'business' | 'event',
-    userType: 'business_admin' as 'business_admin' | 'event_admin',
+    planType: getInitialPlanType() as 'business' | 'event',
+    userType: getInitialUserType() as 'business_admin' | 'event_admin',
   });
 
   // Set plan type from URL parameter
