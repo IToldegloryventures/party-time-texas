@@ -6,31 +6,6 @@ import Link from 'next/link';
 export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-black">
-      {/* Header */}
-      <div className="border-b border-gray-800">
-        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="text-2xl font-bold text-white">
-              Cosmic Portals
-            </Link>
-            <div className="flex items-center space-x-6">
-              <Link href="/" className="text-white/70 hover:text-white">
-                Home
-              </Link>
-              <Link href="/services" className="text-white font-semibold">
-                Services
-              </Link>
-              <Link href="/products" className="text-white/70 hover:text-white">
-                Products
-              </Link>
-              <Link href="/sign-in" className="text-white/70 hover:text-white">
-                Sign In
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-16 text-center">
