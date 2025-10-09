@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation';
 import { auth } from '@clerk/nextjs/server';
 import { getUserOrganizationData } from '@/lib/supabase/user-org';
-import OrganizationSettings from './_components/OrganizationSettings';
+import SettingsContent from './_components/SettingsContent';
 
 export default async function SettingsPage() {
   const { userId } = await auth();
@@ -15,19 +15,15 @@ export default async function SettingsPage() {
   const userData = await getUserOrganizationData(userId);
 
   if (!userData) {
-    // User exists but has no organization - redirect to setup
-    redirect('/setup-organization');
+    // User exists but has no organization - redirect to sign-up
+    redirect('/sign-up');
   }
 
-  // Check if user can manage organization settings
-  const canManageOrganization = userData.user.role === 'owner' || 
-                               userData.user.permissions?.can_manage_organization;
-
-  if (!canManageOrganization) {
-    // User doesn't have permission to manage organization settings
+  // Only owners can access settings
+  if (userData.user.role !== 'owner') {
     redirect('/dashboard');
   }
 
   // Pass user data to settings component
-  return <OrganizationSettings userData={userData} />;
+  return <SettingsContent userData={userData} />;
 }
