@@ -1,18 +1,25 @@
 import { redirect } from 'next/navigation';
 import { auth } from '@clerk/nextjs/server';
+import { verifyAdminAccess } from '@/lib/admin-verification';
 import AdminDashboard from './_components/AdminDashboard';
 
 export default async function AdminPage() {
   const { userId } = await auth();
 
-  // If user is not authenticated, redirect to pricing page
+  // If user is not authenticated, redirect to sign-in
   if (!userId) {
-    redirect('/pricing');
+    redirect('/sign-in');
   }
 
-  // TODO: Add admin role check here
-  // For now, allow access to any authenticated user
-  // In production, you'd check if user has admin role
+  // Verify admin access
+  const adminUser = await verifyAdminAccess(userId);
+  
+  if (!adminUser) {
+    // User is authenticated but not an admin
+    console.log('Unauthorized admin access attempt by user:', userId);
+    redirect('/dashboard');
+  }
 
-  return <AdminDashboard />;
+  // User is verified as admin, render admin dashboard
+  return <AdminDashboard adminUser={adminUser} />;
 }

@@ -1,9 +1,9 @@
 'use client';
 
-import { useUser } from '@clerk/nextjs';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { supabase } from '@/lib/supabase/client';
+import { AdminUser } from '@/lib/admin-verification';
 
 interface AdminStats {
   totalOrganizations: number;
@@ -25,17 +25,18 @@ interface RecentActivity {
   organization_name: string;
 }
 
-const AdminDashboard = () => {
-  const { user, isLoaded } = useUser();
+interface AdminDashboardProps {
+  adminUser: AdminUser;
+}
+
+const AdminDashboard = ({ adminUser }: AdminDashboardProps) => {
   const [stats, setStats] = useState<AdminStats | null>(null);
   const [recentActivity, setRecentActivity] = useState<RecentActivity[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (user && isLoaded) {
-      fetchAdminData();
-    }
-  }, [user, isLoaded]);
+    fetchAdminData();
+  }, []);
 
   const fetchAdminData = async () => {
     try {
@@ -158,6 +159,11 @@ const AdminDashboard = () => {
           <p className="text-xl text-white/70">
             Manage all organizations, landing pages, and user permissions
           </p>
+          <div className="mt-4 rounded-lg bg-green-900/20 border border-green-500/30 p-3">
+            <p className="text-sm text-green-300">
+              🔐 <strong>Admin Access Verified:</strong> {adminUser.first_name} {adminUser.last_name} ({adminUser.email})
+            </p>
+          </div>
         </div>
 
         {/* Admin Navigation */}
