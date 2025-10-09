@@ -33,7 +33,9 @@ interface TeamManagementProps {
 const TeamManagement = ({ userData }: TeamManagementProps) => {
   const { user, isLoaded } = useUser();
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
-  const [pendingInvitations, setPendingInvitations] = useState<TeamInvitation[]>([]);
+  const [pendingInvitations, setPendingInvitations] = useState<
+    TeamInvitation[]
+  >([]);
   const [loading, setLoading] = useState(true);
   const [showInviteForm, setShowInviteForm] = useState(false);
   const [inviteEmail, setInviteEmail] = useState('');
@@ -172,7 +174,7 @@ const TeamManagement = ({ userData }: TeamManagementProps) => {
           <div className="mb-4 flex items-center gap-2">
             <Link
               href="/dashboard"
-              className="text-white/70 hover:text-white transition-colors"
+              className="text-white/70 transition-colors hover:text-white"
             >
               ← Back to Dashboard
             </Link>
@@ -181,7 +183,8 @@ const TeamManagement = ({ userData }: TeamManagementProps) => {
             Team Management - {userData.organization.name}
           </h1>
           <p className="text-xl text-white/70">
-            {userData.organization.plan_type === 'professional' || userData.organization.plan_type === 'enterprise'
+            {userData.organization.plan_type === 'professional' ||
+            userData.organization.plan_type === 'enterprise'
               ? 'Manage your team members, invite collaborators, and control access to your business account'
               : 'Manage your event staff, invite team members, and control access permissions'}
           </p>
@@ -268,12 +271,10 @@ const TeamManagement = ({ userData }: TeamManagementProps) => {
                               ? 'bg-red-600/20 text-red-300'
                               : member.role === 'admin'
                                 ? 'bg-purple-600/20 text-purple-300'
-                                : member.role === 'editor'
-                                  ? 'bg-blue-600/20 text-blue-300'
-                                  : 'bg-gray-600/20 text-gray-300'
+                                : 'bg-blue-600/20 text-blue-300'
                           }`}
                         >
-                          {member.role}
+                          {member.role.charAt(0).toUpperCase() + member.role.slice(1)}
                         </span>
                       </td>
                       <td className="px-6 py-4">
@@ -304,9 +305,8 @@ const TeamManagement = ({ userData }: TeamManagementProps) => {
                             className="rounded border border-gray-600 bg-gray-700 px-2 py-1 text-xs text-white"
                             disabled={member.role === 'owner'}
                           >
-                            <option value="member">Member</option>
-                            <option value="editor">Editor</option>
-                            <option value="admin">Admin</option>
+                            <option value="member">Member - Basic Access</option>
+                            <option value="admin">Admin - Full Management</option>
                           </select>
                           <button
                             onClick={() =>
@@ -426,10 +426,12 @@ const TeamManagement = ({ userData }: TeamManagementProps) => {
                     onChange={e => setInviteRole(e.target.value)}
                     className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white focus:border-purple-400 focus:outline-none"
                   >
-                    <option value="member">Member - View only</option>
-                    <option value="editor">Editor - Can edit content</option>
-                    <option value="admin">Admin - Full access</option>
+                    <option value="member">Member - Can manage devices & pages</option>
+                    <option value="admin">Admin - Can manage team & events</option>
                   </select>
+                  <p className="mt-2 text-xs text-white/50">
+                    Members can manage NFC devices and landing pages. Admins can also manage team members and events.
+                  </p>
                 </div>
               </div>
 

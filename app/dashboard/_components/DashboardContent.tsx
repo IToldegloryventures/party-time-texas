@@ -157,19 +157,53 @@ const DashboardContent = ({ userData }: DashboardContentProps) => {
               ? 'Your corporate engagement platform is ready. Manage multiple landing pages, NFC tracking, analytics, and business events.'
               : 'Your NFC-powered engagement platform is ready. Manage events, track analytics, and create memorable experiences.'}
           </p>
-          <div className="mt-4 flex items-center gap-4">
+          <div className="mt-4 flex flex-wrap items-center gap-4">
             <span className="rounded-full bg-purple-600/20 px-3 py-1 text-sm text-purple-300">
               {userData.organization.plan_type} Plan
             </span>
-            <span className="rounded-full bg-blue-600/20 px-3 py-1 text-sm text-blue-300">
-              Role: {userData.user.role}
+            <span className={`rounded-full px-3 py-1 text-sm ${
+              userData.user.role === 'owner' 
+                ? 'bg-red-600/20 text-red-300'
+                : userData.user.role === 'admin'
+                  ? 'bg-purple-600/20 text-purple-300'
+                  : 'bg-blue-600/20 text-blue-300'
+            }`}>
+              Role: {userData.user.role.charAt(0).toUpperCase() + userData.user.role.slice(1)}
             </span>
             {isAdmin() && (
-              <span className="rounded-full bg-red-600/20 px-3 py-1 text-sm text-red-300">
-                🔐 Admin Access
+              <span className="rounded-full bg-orange-600/20 px-3 py-1 text-sm text-orange-300">
+                🔐 Platform Admin
               </span>
             )}
           </div>
+
+          {/* Role Explanation */}
+          {userData.user.role === 'member' && (
+            <div className="mt-4 rounded-lg border border-blue-400/30 bg-blue-900/10 p-4">
+              <p className="text-sm text-blue-200">
+                <strong>Your Access:</strong> As a Member, you can manage NFC devices and landing pages. 
+                {!canManageEvents() && !canManageTeam() && (
+                  <span> Team management and event creation are restricted to Admins and Owners.</span>
+                )}
+              </p>
+            </div>
+          )}
+          {userData.user.role === 'admin' && (
+            <div className="mt-4 rounded-lg border border-purple-400/30 bg-purple-900/10 p-4">
+              <p className="text-sm text-purple-200">
+                <strong>Your Access:</strong> As an Admin, you have full management access including team management, 
+                events, NFC devices, and landing pages. Organization settings are restricted to the Owner.
+              </p>
+            </div>
+          )}
+          {userData.user.role === 'owner' && (
+            <div className="mt-4 rounded-lg border border-red-400/30 bg-red-900/10 p-4">
+              <p className="text-sm text-red-200">
+                <strong>Your Access:</strong> As the Owner, you have full control of everything including 
+                organization settings, billing, and all management features.
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Dashboard Stats/Features Grid */}

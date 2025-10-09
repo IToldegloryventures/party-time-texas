@@ -20,7 +20,7 @@ export default async function TeamPage() {
   }
 
   // Check if user can manage team (owners and admins only)
-  const canManageTeam = 
+  const canManageTeam =
     ['owner', 'admin'].includes(userData.user.role) ||
     userData.user.permissions?.can_manage_users;
 
