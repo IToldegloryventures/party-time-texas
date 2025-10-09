@@ -17,9 +17,8 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
-  const navLinks = [
+  const publicNavLinks = [
     { href: '/', label: 'Home' },
-    { href: '/dashboard', label: 'Dashboard' },
     { href: '/services', label: 'Services' },
     { href: '/products', label: 'Products' },
   ];
@@ -37,7 +36,7 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <div className="flex items-center space-x-4">
-          {navLinks.map(link => (
+          {publicNavLinks.map(link => (
             <Link
               key={link.href}
               href={link.href}
@@ -50,6 +49,12 @@ const Navbar = () => {
           {isMounted && (
             <>
               <SignedIn>
+                <Link
+                  href="/dashboard"
+                  className={`${buttonBase} text-white/70 hover:text-white`}
+                >
+                  Dashboard
+                </Link>
                 <div className="flex items-center gap-2">
                   {user?.firstName && (
                     <span className="font-semibold text-white">
@@ -89,7 +94,7 @@ const Navbar = () => {
       {/* Mobile Dropdown Menu */}
       {isOpen && (
         <div className="space-y-4 border-t border-purple-400/20 bg-black/90 px-4 pt-4 pb-6 md:hidden">
-          {navLinks.map(link => (
+          {publicNavLinks.map(link => (
             <Link
               key={link.href}
               href={link.href}
@@ -103,6 +108,13 @@ const Navbar = () => {
           {isMounted && (
             <>
               <SignedIn>
+                <Link
+                  href="/dashboard"
+                  onClick={closeMenu}
+                  className={`${buttonBase} block w-full text-left`}
+                >
+                  Dashboard
+                </Link>
                 <div className="flex items-center justify-between">
                   {user?.firstName && (
                     <span className="font-semibold text-white">
