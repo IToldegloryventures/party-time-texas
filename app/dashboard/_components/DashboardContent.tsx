@@ -95,6 +95,11 @@ const DashboardContent = ({ userData }: DashboardContentProps) => {
            userData.user.permissions?.can_manage_landing_pages;
   };
 
+  const canManageOrganization = () => {
+    return userData.user.role === 'owner' ||
+           userData.user.permissions?.can_manage_organization;
+  };
+
   const isAdmin = () => {
     return userData.user.permissions?.master_admin === true;
   };
@@ -296,6 +301,14 @@ const DashboardContent = ({ userData }: DashboardContentProps) => {
               <button className="rounded-lg border border-orange-400/30 bg-orange-600/20 px-4 py-3 font-medium text-orange-200 transition-colors duration-200 hover:bg-orange-600/30">
                 Customize Branding
               </button>
+            )}
+            {canManageOrganization() && (
+              <Link
+                href="/dashboard/settings"
+                className="block rounded-lg border border-purple-400/30 bg-purple-600/20 px-4 py-3 text-center font-medium text-purple-200 transition-colors duration-200 hover:bg-purple-600/30"
+              >
+                Organization Settings
+              </Link>
             )}
           </div>
         </div>
