@@ -2,28 +2,42 @@
 
 import { useUser } from '@clerk/nextjs';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import {
   TeamManagementService,
   TeamMember,
   TeamInvitation,
 } from '@/lib/team-management';
-import { supabase } from '@/lib/supabase/client';
 
-// interface TeamManagementProps {
-//   // Add props as needed
-// }
+interface UserData {
+  user: {
+    id: string;
+    email: string;
+    first_name?: string;
+    last_name?: string;
+    role: string;
+    permissions: any;
+  };
+  organization: {
+    id: string;
+    name: string;
+    slug: string;
+    plan_type: string;
+  };
+}
 
-const TeamManagement = () => {
+interface TeamManagementProps {
+  userData: UserData;
+}
+
+const TeamManagement = ({ userData }: TeamManagementProps) => {
   const { user, isLoaded } = useUser();
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
-  const [pendingInvitations, setPendingInvitations] = useState<
-    TeamInvitation[]
-  >([]);
+  const [pendingInvitations, setPendingInvitations] = useState<TeamInvitation[]>([]);
   const [loading, setLoading] = useState(true);
   const [showInviteForm, setShowInviteForm] = useState(false);
   const [inviteEmail, setInviteEmail] = useState('');
   const [inviteRole, setInviteRole] = useState('member');
-  const [organizationId, setOrganizationId] = useState<string | null>(null);
 
   useEffect(() => {
     if (user && isLoaded) {
@@ -35,30 +49,10 @@ const TeamManagement = () => {
     try {
       setLoading(true);
 
-      // Get user's organization
-      const { data: userData, error: userError } = await supabase
-        .from('users')
-        .select('organization_id, role')
-        .eq('clerk_id', user?.id)
-        .single();
-
-      if (userError || !userData) {
-        console.error('Error fetching user data:', userError);
-        return;
-      }
-
-      setOrganizationId(userData.organization_id);
-
-      // Check if user has admin permissions
-      if (!['admin', 'owner'].includes(userData.role)) {
-        console.log('User does not have admin permissions');
-        return;
-      }
-
-      // Fetch team members and invitations
+      // Fetch team members and invitations using organization ID from userData
       const [members, invitations] = await Promise.all([
-        TeamManagementService.getTeamMembers(userData.organization_id),
-        TeamManagementService.getPendingInvitations(userData.organization_id),
+        TeamManagementService.getTeamMembers(userData.organization.id),
+        TeamManagementService.getPendingInvitations(userData.organization.id),
       ]);
 
       setTeamMembers(members);
@@ -71,11 +65,11 @@ const TeamManagement = () => {
   };
 
   const handleInviteMember = async () => {
-    if (!inviteEmail || !organizationId || !user?.id) return;
+    if (!inviteEmail || !user?.id) return;
 
     try {
       const result = await TeamManagementService.inviteTeamMember(
-        organizationId,
+        userData.organization.id,
         inviteEmail,
         inviteRole,
         user.id
@@ -175,13 +169,30 @@ const TeamManagement = () => {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
+          <div className="mb-4 flex items-center gap-2">
+            <Link
+              href="/dashboard"
+              className="text-white/70 hover:text-white transition-colors"
+            >
+              ← Back to Dashboard
+            </Link>
+          </div>
           <h1 className="mb-4 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-4xl font-bold text-transparent">
-            Team Management
+            Team Management - {userData.organization.name}
           </h1>
           <p className="text-xl text-white/70">
-            Manage your team members, invite new users, and control access
-            permissions
+            {userData.organization.plan_type === 'professional' || userData.organization.plan_type === 'enterprise'
+              ? 'Manage your team members, invite collaborators, and control access to your business account'
+              : 'Manage your event staff, invite team members, and control access permissions'}
           </p>
+          <div className="mt-4 flex items-center gap-4">
+            <span className="rounded-full bg-purple-600/20 px-3 py-1 text-sm text-purple-300">
+              {userData.organization.plan_type} Plan
+            </span>
+            <span className="rounded-full bg-blue-600/20 px-3 py-1 text-sm text-blue-300">
+              Your Role: {userData.user.role}
+            </span>
+          </div>
         </div>
 
         {/* Action Buttons */}
