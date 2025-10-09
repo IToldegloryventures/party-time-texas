@@ -79,11 +79,13 @@ Your system has **3 main roles** (not 4):
 **Who is this?** Regular staff who need to do specific tasks
 
 **What can they do?**
+- ✅ **View & Work on Events** - Can see events they're assigned to and update details
 - ✅ **Manage NFC Devices** - Can add/edit devices for events
 - ✅ **Manage Landing Pages** - Can create/edit content
-- ✅ **View Analytics** - See basic stats for their work
+- ✅ **View Analytics** - See stats for their assigned work
+- ❌ **Create New Events** - Can't create events (owner/admin only)
+- ❌ **Delete Events** - Can't delete events (owner/admin only)
 - ❌ **Manage Team** - Can't invite or remove anyone
-- ❌ **Manage Events** - Can't create or edit events (owner/admin only)
 - ❌ **Organization Settings** - No access
 
 **Permissions:**
@@ -91,7 +93,9 @@ Your system has **3 main roles** (not 4):
 {
   "can_manage_organization": false,
   "can_manage_users": false,
-  "can_manage_events": false,
+  "can_create_events": false,
+  "can_view_events": true,
+  "can_update_assigned_events": true,
   "can_manage_nfc_devices": true,
   "can_manage_landing_pages": true,
   "can_invite_team_members": false
@@ -99,8 +103,8 @@ Your system has **3 main roles** (not 4):
 ```
 
 **Use Case:**
+- Event staff who updates event details and checks in attendees
 - Business employee who manages NFC cards
-- Event staff who handles check-ins
 - Content creator who builds landing pages
 - Multiple members allowed per organization
 
@@ -159,19 +163,19 @@ This is **separate** from the Owner/Admin/Member hierarchy.
 
 ## 📋 **COMPARISON TABLE:**
 
-| Feature | Owner | Admin | Member | Editor* |
-|---------|-------|-------|--------|---------|
-| Organization Settings | ✅ | ❌ | ❌ | ❌ |
-| Manage Team | ✅ | ✅ | ❌ | ❌ |
-| Invite Users | ✅ | ✅ | ❌ | ❌ |
-| Manage Events | ✅ | ✅ | ❌ | ❌ |
-| Manage NFC Devices | ✅ | ✅ | ✅ | N/A |
-| Manage Landing Pages | ✅ | ✅ | ✅ | N/A |
-| View Analytics | ✅ | ✅ | ✅ | N/A |
-| Billing/Subscription | ✅ | ❌ | ❌ | ❌ |
-| Can be removed | ❌ | ✅ | ✅ | ✅ |
-
-\* Editor role doesn't exist in your system
+| Feature | Owner | Admin | Member |
+|---------|-------|-------|--------|
+| Organization Settings | ✅ | ❌ | ❌ |
+| Manage Team | ✅ | ✅ | ❌ |
+| Invite Users | ✅ | ✅ | ❌ |
+| **Create Events** | ✅ | ✅ | ❌ |
+| **View & Update Events** | ✅ | ✅ | ✅ (assigned only) |
+| **Delete Events** | ✅ | ✅ | ❌ |
+| Manage NFC Devices | ✅ | ✅ | ✅ |
+| Manage Landing Pages | ✅ | ✅ | ✅ |
+| View Analytics | ✅ | ✅ | ✅ |
+| Billing/Subscription | ✅ | ❌ | ❌ |
+| Can be removed | ❌ | ✅ | ✅ |
 
 ---
 
@@ -244,13 +248,13 @@ In `app/dashboard/team/_components/TeamManagement.tsx`, change:
 **"So wtf is the difference between admin, members, and editors lol"**
 
 **Short Answer:**
-- **Admin** = Manager (can do almost everything, invite people, manage events)
-- **Member** = Worker (can do their job, manage devices/pages, can't manage people)
-- **Editor** = DOESN'T EXIST (it's a UI bug - remove it!)
+- **Admin** = Manager (can create events, invite people, full control)
+- **Member** = Worker (can work on assigned events, manage devices/pages, can't create new events or manage team)
+- **Editor** = DOESN'T EXIST (it was a UI bug - now removed!)
 
 **Even Shorter Answer:**
-- **Admin** = Boss
-- **Member** = Employee
+- **Admin** = Boss (creates events, manages team)
+- **Member** = Employee (works on events they're assigned to)
 - **Editor** = Ghost 👻 (not real)
 
 ---

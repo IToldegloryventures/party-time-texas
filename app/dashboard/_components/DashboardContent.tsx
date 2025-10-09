@@ -85,7 +85,19 @@ const DashboardContent = ({ userData }: DashboardContentProps) => {
            userData.user.permissions?.can_manage_nfc_devices;
   };
 
+  const canViewEvents = () => {
+    // All users can view events - members can see events they're assigned to
+    return true;
+  };
+
+  const canCreateEvents = () => {
+    // Only owners and admins can create new events
+    return ['owner', 'admin'].includes(userData.user.role) ||
+           userData.user.permissions?.can_create_events;
+  };
+
   const canManageEvents = () => {
+    // Manage means edit/delete - owners and admins have full control
     return ['owner', 'admin'].includes(userData.user.role) ||
            userData.user.permissions?.can_manage_events;
   };
@@ -181,10 +193,9 @@ const DashboardContent = ({ userData }: DashboardContentProps) => {
           {userData.user.role === 'member' && (
             <div className="mt-4 rounded-lg border border-blue-400/30 bg-blue-900/10 p-4">
               <p className="text-sm text-blue-200">
-                <strong>Your Access:</strong> As a Member, you can manage NFC devices and landing pages. 
-                {!canManageEvents() && !canManageTeam() && (
-                  <span> Team management and event creation are restricted to Admins and Owners.</span>
-                )}
+                <strong>Your Access:</strong> As a Member, you can view and work on events you're assigned to, 
+                manage NFC devices, and create landing pages. Creating new events and managing the team are 
+                restricted to Admins and Owners.
               </p>
             </div>
           )}
@@ -242,8 +253,8 @@ const DashboardContent = ({ userData }: DashboardContentProps) => {
             </div>
           )}
 
-          {/* Events Management Card - Only show if user can manage events */}
-          {canManageEvents() && (
+          {/* Events Card - Show to all users */}
+          {canViewEvents() && (
             <div className="rounded-xl border border-blue-400/20 bg-gradient-to-br from-blue-900/20 to-blue-800/10 p-6 transition-colors duration-300 hover:border-blue-400/40">
               <div className="mb-4 flex items-center">
                 <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/30">
@@ -268,7 +279,9 @@ const DashboardContent = ({ userData }: DashboardContentProps) => {
                 attendees
               </p>
               <button className="w-full rounded-lg bg-blue-600 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-blue-700">
-                Manage Events ({(stats?.events as number) || 0})
+                {canManageEvents() 
+                  ? `Manage Events (${(stats?.events as number) || 0})`
+                  : `View My Events (${(stats?.events as number) || 0})`}
               </button>
             </div>
           )}
@@ -307,7 +320,7 @@ const DashboardContent = ({ userData }: DashboardContentProps) => {
         <div className="rounded-xl border border-purple-400/20 bg-gradient-to-r from-purple-900/10 to-blue-900/10 p-8">
           <h2 className="mb-6 text-2xl font-bold text-white">Quick Actions</h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {canManageEvents() && (
+            {canCreateEvents() && (
               <button className="rounded-lg border border-purple-400/30 bg-purple-600/20 px-4 py-3 font-medium text-purple-200 transition-colors duration-200 hover:bg-purple-600/30">
                 Create Event
               </button>
