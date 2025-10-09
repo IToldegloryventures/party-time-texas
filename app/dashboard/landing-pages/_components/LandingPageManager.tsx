@@ -6,34 +6,43 @@ import { getUserOrganizationData } from '@/lib/supabase/user-org';
 import { detectUserType } from '@/lib/user-type-detection';
 import { hasPermission } from '@/lib/permissions';
 
-const LandingPageManager = () => {
+interface UserData {
+  user: {
+    id: string;
+    email: string;
+    first_name?: string;
+    last_name?: string;
+    role: string;
+    permissions: any;
+  };
+  organization: {
+    id: string;
+    name: string;
+    slug: string;
+    plan_type: string;
+  };
+}
+
+interface LandingPageManagerProps {
+  userData: UserData;
+}
+
+const LandingPageManager = ({ userData }: LandingPageManagerProps) => {
   const { user, isLoaded } = useUser();
-  const [orgData, setOrgData] = useState<Record<string, unknown> | null>(null);
-  const [userType, setUserType] = useState<any>(null);
-  const [landingPages, setLandingPages] = useState<Record<string, unknown>[]>(
-    []
-  );
+  const [landingPages, setLandingPages] = useState<Record<string, unknown>[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (user && isLoaded) {
-      fetchData();
+      fetchLandingPages();
     }
   }, [user, isLoaded]);
 
-  const fetchData = async () => {
+  const fetchLandingPages = async () => {
     try {
       setLoading(true);
-      const data = await getUserOrganizationData(user!.id);
-      setOrgData(data);
-      
-      if (data) {
-        // Detect user type and permissions
-        const userTypeInfo = detectUserType(data);
-        setUserType(userTypeInfo);
-      }
 
-      // Fetch landing pages from API
+      // Fetch landing pages from API (organization-scoped)
       const response = await fetch('/api/landing-pages');
       if (response.ok) {
         const result = await response.json();
@@ -50,12 +59,10 @@ const LandingPageManager = () => {
         setLandingPages(formattedPages);
       } else {
         console.error('Failed to fetch landing pages');
-        // Show empty state instead of mock data
         setLandingPages([]);
       }
     } catch (error) {
       console.error('Error fetching data:', error);
-      // Show empty state instead of mock data
       setLandingPages([]);
     } finally {
       setLoading(false);
@@ -76,8 +83,7 @@ const LandingPageManager = () => {
           content: {
             title: 'Welcome to New Landing Page',
             subtitle: 'Your new landing page',
-            description:
-              'This is a new landing page created for your business.',
+            description: 'This is a new landing page created for your business.',
             contact: {
               email: '',
               phone: '',
@@ -168,18 +174,18 @@ const LandingPageManager = () => {
 
           {landingPages.map(page => (
             <div
-              key={page.id}
+              key={page.id as string}
               className="rounded-xl border border-gray-600/30 bg-gray-900/50 p-6"
             >
               <div className="mb-4 flex items-center justify-between">
                 <div>
                   <h3 className="text-lg font-semibold text-white">
-                    {page.name}
+                    {page.name as string}
                   </h3>
                   <p className="text-white/70">
                     Status:{' '}
                     <span className="text-green-400 capitalize">
-                      {page.status}
+                      {page.status as string}
                     </span>
                   </p>
                 </div>
@@ -187,24 +193,24 @@ const LandingPageManager = () => {
                   <p className="text-white/70">
                     Scans:{' '}
                     <span className="font-semibold text-purple-400">
-                      {page.scans}
+                      {page.scans as number}
                     </span>
                   </p>
                   <p className="text-sm text-white/70">
-                    Created: {new Date(page.created_at).toLocaleDateString()}
+                    Created: {new Date(page.created_at as string).toLocaleDateString()}
                   </p>
                 </div>
               </div>
 
               <div className="mb-4 rounded-lg bg-black/50 p-4">
                 <p className="font-mono text-sm break-all text-green-400">
-                  {page.url}
+                  {page.url as string}
                 </p>
               </div>
 
               <div className="flex gap-3">
                 <a
-                  href={page.url}
+                  href={page.url as string}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="rounded-lg bg-blue-600 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-blue-700"

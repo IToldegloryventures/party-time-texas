@@ -582,26 +582,53 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
   const savePage = async () => {
     try {
       setLoading(true);
+      
+      // Get page name from user or use default
+      const pageName = prompt('Enter page name:', 'New Landing Page') || 'New Landing Page';
+      const pageTitle = prompt('Enter page title:', 'Welcome to Our Page') || 'Welcome to Our Page';
+      
+      // Generate unique slug
+      const slug = pageName
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .trim() + `-${Date.now()}`;
+
       const pageContent = {
-        ...(initialPage?.content || {}),
+        title: pageTitle,
         components: components,
+        created_with_builder: true,
+        builder_version: '1.0'
       };
 
-      const response = await fetch(`/api/landing-pages/${initialPage?.id}`, {
-        method: 'PUT',
+      // Create new landing page
+      const response = await fetch('/api/landing-pages', {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          name: pageName,
+          title: pageTitle,
+          slug: slug,
           content: pageContent,
-          name: pageContent.name || 'Updated Landing Page',
+          status: 'draft',
         }),
       });
 
       if (response.ok) {
-        alert('Page saved successfully!');
+        const result = await response.json();
+        const pageUrl = `${window.location.origin}/landing/${result.page.slug}`;
+        alert(`Page saved successfully!\n\nPage URL: ${pageUrl}\n\nYou can now link this URL to your NFC devices.`);
+        
+        // Optionally redirect to the page manager
+        if (confirm('Would you like to go to the page manager to see your new page?')) {
+          window.location.href = '/dashboard/landing-pages';
+        }
       } else {
-        alert('Failed to save page');
+        const error = await response.json();
+        alert(`Failed to save page: ${error.error || 'Unknown error'}`);
       }
     } catch (error) {
       console.error('Error saving page:', error);
