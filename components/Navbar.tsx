@@ -30,7 +30,10 @@ const Navbar = () => {
     <nav className="border-b border-purple-500/30 bg-black text-white shadow-lg shadow-purple-500/10">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-2xl font-bold text-transparent">
+        <Link
+          href="/"
+          className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-2xl font-bold text-transparent"
+        >
           Cosmic Portals
         </Link>
 

@@ -1,8 +1,8 @@
-# 🚀 **COSMIC PORTALS - COMPLETE USER SYSTEM**
+# 🚀 **COSMIC PORTALS - USER SYSTEM ARCHITECTURE**
 
-## **✅ Comprehensive User Types, Permissions & Flows**
+## **📋 User Types, Permissions & Flows (Backend Defined)**
 
-This document outlines the complete user system with corrected user types, permission customization, and technical implementation.
+This document outlines the user system architecture with user types, permission templates, and technical implementation. **Note: UI enforcement of permissions is not yet implemented.**
 
 ---
 
