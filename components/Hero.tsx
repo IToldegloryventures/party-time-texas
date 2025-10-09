@@ -36,12 +36,12 @@ const Hero = () => {
       {/* Hero Content */}
       <div className="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
         {/* Title */}
-        <h1 className="mb-6 text-gold text-4xl font-bold sm:text-5xl lg:text-6xl">
+        <h1 className="mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl lg:text-6xl">
           Cosmic Portals
         </h1>
 
         {/* Subtitle */}
-        <p className="mx-auto mb-8 max-w-2xl text-lg text-silver sm:text-xl">
+        <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-300 sm:text-xl">
           Transform every scan, tap, and click into measurable insights.
           NFC-powered engagement for businesses, events, and communities.
         </p>
@@ -51,18 +51,18 @@ const Hero = () => {
           <SignedOut>
             <Link
               href="/products"
-              className="group relative inline-flex items-center gap-2 rounded-full metallic-gold px-8 py-4 text-lg font-semibold transition-all hover:scale-105"
+              className="group relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 text-lg font-semibold shadow-lg transition-all hover:scale-105 hover:shadow-purple-500/50"
             >
-              <span className="relative font-bold">Get Started</span>
+              <span className="relative font-bold text-white">Get Started</span>
             </Link>
           </SignedOut>
 
           <SignedIn>
             <Link
               href="/dashboard"
-              className="group relative inline-flex items-center gap-2 rounded-full metallic-silver px-8 py-4 text-lg font-semibold transition-all hover:scale-105"
+              className="group relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 px-8 py-4 text-lg font-semibold shadow-lg transition-all hover:scale-105 hover:shadow-blue-500/50"
             >
-              <span className="relative font-bold">Go to Dashboard</span>
+              <span className="relative font-bold text-white">Go to Dashboard</span>
             </Link>
           </SignedIn>
         </div>

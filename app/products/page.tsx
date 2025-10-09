@@ -12,10 +12,10 @@ export default function ProductsPage() {
       {/* Hero Section */}
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h1 className="mb-6 text-gold text-4xl font-bold sm:text-5xl lg:text-6xl">
+          <h1 className="mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl lg:text-6xl">
             Products & Add-ons
           </h1>
-          <p className="mx-auto mb-12 max-w-2xl text-lg text-silver sm:text-xl">
+          <p className="mx-auto mb-12 max-w-2xl text-lg text-gray-300 sm:text-xl">
             Enhance your Cosmic Portals experience with our premium products and
             services. Available to all subscribers.
           </p>
@@ -122,14 +122,14 @@ export default function ProductsPage() {
 
               {/* CTA */}
               <SignedIn>
-                <button className="w-full rounded-lg metallic-deep-blue px-6 py-3 font-semibold text-white transition-all duration-300 hover:scale-105">
+                <button className="w-full rounded-lg bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-blue-500/50">
                   Browse Hardware
                 </button>
               </SignedIn>
               <SignedOut>
                 <Link
                   href="/services"
-                  className="block w-full rounded-lg metallic-deep-blue px-6 py-3 text-center font-semibold text-white transition-all duration-300 hover:scale-105"
+                  className="block w-full rounded-lg bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-3 text-center font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-blue-500/50"
                 >
                   Subscribe to Access
                 </Link>
@@ -236,14 +236,14 @@ export default function ProductsPage() {
 
               {/* CTA */}
               <SignedIn>
-                <button className="w-full rounded-lg metallic-rose-gold px-6 py-3 font-semibold text-white transition-all duration-300 hover:scale-105">
+                <button className="w-full rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-purple-500/50">
                   Browse Content Packs
                 </button>
               </SignedIn>
               <SignedOut>
                 <Link
                   href="/services"
-                  className="block w-full rounded-lg metallic-rose-gold px-6 py-3 text-center font-semibold text-white transition-all duration-300 hover:scale-105"
+                  className="block w-full rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-3 text-center font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-purple-500/50"
                 >
                   Subscribe to Access
                 </Link>
@@ -350,14 +350,14 @@ export default function ProductsPage() {
 
               {/* CTA */}
               <SignedIn>
-                <button className="w-full rounded-lg metallic-deep-green px-6 py-3 font-semibold text-white transition-all duration-300 hover:scale-105">
+                <button className="w-full rounded-lg bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-green-500/50">
                   Request Quote
                 </button>
               </SignedIn>
               <SignedOut>
                 <Link
                   href="/services"
-                  className="block w-full rounded-lg metallic-deep-green px-6 py-3 text-center font-semibold text-white transition-all duration-300 hover:scale-105"
+                  className="block w-full rounded-lg bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-3 text-center font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-green-500/50"
                 >
                   Subscribe to Access
                 </Link>

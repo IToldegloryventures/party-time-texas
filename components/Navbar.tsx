@@ -25,13 +25,13 @@ const Navbar = () => {
   ];
 
   const buttonBase =
-    'px-4 py-2 text-silver font-semibold transition-all duration-300 hover:text-gold hover:shadow-[0_2px_8px_0] hover:shadow-gold/40 hover:rounded-md';
+    'px-4 py-2 text-gray-300 font-semibold transition-all duration-300 hover:text-purple-400 hover:shadow-[0_2px_8px_0] hover:shadow-purple-400/40 hover:rounded-md';
 
   return (
-    <nav className="border-gold border-b bg-black text-white shadow-[0_4px_20px_-10px]">
+    <nav className="border-b border-purple-500/30 bg-black text-white shadow-lg shadow-purple-500/10">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="text-gold text-2xl font-bold">
+        <Link href="/" className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-2xl font-bold text-transparent">
           Cosmic Portals
         </Link>
 
@@ -65,7 +65,7 @@ const Navbar = () => {
               <SignedOut>
                 <Link
                   href="/sign-in"
-                  className="metallic-gold rounded-full px-4 py-2 font-semibold transition-all hover:scale-105"
+                  className="rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-4 py-2 font-semibold shadow-lg transition-all hover:scale-105 hover:shadow-purple-500/50"
                 >
                   Sign In
                 </Link>
@@ -119,7 +119,7 @@ const Navbar = () => {
                 <Link
                   href="/sign-in"
                   onClick={closeMenu}
-                  className="metallic-gold rounded-full px-4 py-2 font-semibold transition-all hover:scale-105"
+                  className="rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-4 py-2 font-semibold shadow-lg transition-all hover:scale-105 hover:shadow-purple-500/50"
                 >
                   Sign In
                 </Link>

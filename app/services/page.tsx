@@ -8,10 +8,10 @@ export default function ServicesPage() {
     <div className="min-h-screen bg-black">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="mb-16 text-center">
-          <h1 className="mb-6 text-gold text-4xl font-bold sm:text-5xl">
+          <h1 className="mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
             Choose Your Service
           </h1>
-          <p className="mx-auto max-w-2xl text-xl text-silver">
+          <p className="mx-auto max-w-2xl text-xl text-gray-300">
             Select the platform that best fits your needs. Each platform is
             designed for specific use cases and includes tailored features.
           </p>
@@ -105,7 +105,7 @@ export default function ServicesPage() {
             <SignedOut>
               <Link
                 href="/sign-up-custom?plan=business"
-                className="block w-full rounded-lg metallic-gold px-6 py-3 text-center font-medium text-white transition-all duration-200 hover:scale-105"
+                className="block w-full rounded-lg bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-3 text-center font-medium text-white shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-blue-500/50"
               >
                 Get Started as Business Admin
               </Link>
@@ -113,7 +113,7 @@ export default function ServicesPage() {
             <SignedIn>
               <Link
                 href="/dashboard"
-                className="block w-full rounded-lg metallic-gold px-6 py-3 text-center font-medium text-white transition-all duration-200 hover:scale-105"
+                className="block w-full rounded-lg bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-3 text-center font-medium text-white shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-blue-500/50"
               >
                 Current Plan
               </Link>
@@ -214,13 +214,13 @@ export default function ServicesPage() {
             <SignedOut>
               <Link
                 href="/sign-up-custom?plan=event"
-                className="block w-full rounded-lg metallic-silver px-6 py-3 text-center font-medium text-white transition-all duration-200 hover:scale-105"
+                className="block w-full rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-3 text-center font-medium text-white shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-purple-500/50"
               >
                 Get Started as Event Admin
               </Link>
             </SignedOut>
             <SignedIn>
-              <button className="w-full rounded-lg metallic-silver px-6 py-3 font-medium text-white transition-all duration-200 hover:scale-105">
+              <button className="w-full rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-3 font-medium text-white shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-purple-500/50">
                 Upgrade to Events
               </button>
             </SignedIn>
@@ -309,7 +309,7 @@ export default function ServicesPage() {
               </li>
             </ul>
 
-            <button className="w-full rounded-lg metallic-deep-blue px-6 py-3 font-medium text-white transition-all duration-200 hover:scale-105">
+            <button className="w-full rounded-lg bg-gradient-to-r from-red-600 to-orange-600 px-6 py-3 font-medium text-white shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-red-500/50">
               Contact Sales
             </button>
           </div>
