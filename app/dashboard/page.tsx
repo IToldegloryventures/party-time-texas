@@ -1,15 +1,24 @@
 import { redirect } from 'next/navigation';
 import { auth } from '@clerk/nextjs/server';
+import { getUserOrganizationData } from '@/lib/supabase/user-org';
 import DashboardContent from './_components/DashboardContent';
 
 export default async function DashboardPage() {
   const { userId } = await auth();
 
-  // If user is not authenticated, redirect to pricing page
+  // If user is not authenticated, redirect to sign-in
   if (!userId) {
-    redirect('/pricing');
+    redirect('/sign-in');
   }
 
-  // If user is authenticated, show dashboard
-  return <DashboardContent />;
+  // Get user's organization data and role
+  const userData = await getUserOrganizationData(userId);
+  
+  if (!userData) {
+    // User exists but has no organization - redirect to sign-up
+    redirect('/sign-up');
+  }
+
+  // Pass user data to dashboard component
+  return <DashboardContent userData={userData} />;
 }

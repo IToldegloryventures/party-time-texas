@@ -5,17 +5,34 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import PaymentSuccess from '@/components/PaymentSuccess';
-import {
-  getUserOrganizationData,
-  getOrganizationStats,
-} from '@/lib/supabase/user-org';
+import { getOrganizationStats } from '@/lib/supabase/user-org';
 
-const DashboardContent = () => {
+interface UserData {
+  user: {
+    id: string;
+    email: string;
+    first_name?: string;
+    last_name?: string;
+    role: string;
+    permissions: any;
+  };
+  organization: {
+    id: string;
+    name: string;
+    slug: string;
+    plan_type: string;
+  };
+}
+
+interface DashboardContentProps {
+  userData: UserData;
+}
+
+const DashboardContent = ({ userData }: DashboardContentProps) => {
   const { user, isLoaded } = useUser();
   const searchParams = useSearchParams();
   const router = useRouter();
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [orgData, setOrgData] = useState<Record<string, unknown> | null>(null);
   const [stats, setStats] = useState<Record<string, unknown> | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -38,28 +55,49 @@ const DashboardContent = () => {
     }
   }, [searchParams, router]);
 
-  // Fetch organization data when user is loaded
+  // Fetch organization stats when user data is available
   useEffect(() => {
-    if (user && isLoaded) {
-      const fetchOrgData = async () => {
+    if (userData) {
+      const fetchStats = async () => {
         try {
           setLoading(true);
-          const data = await getUserOrganizationData(user.id);
-          if (data) {
-            setOrgData(data as unknown as Record<string, unknown>);
-            const orgStats = await getOrganizationStats(data.organization.id);
-            setStats(orgStats);
-          }
+          const orgStats = await getOrganizationStats(userData.organization.id);
+          setStats(orgStats);
         } catch (error) {
-          console.error('Error fetching organization data:', error);
+          console.error('Error fetching organization stats:', error);
         } finally {
           setLoading(false);
         }
       };
 
-      fetchOrgData();
+      fetchStats();
     }
-  }, [user, isLoaded]);
+  }, [userData]);
+
+  // Helper functions for role-based access
+  const canManageTeam = () => {
+    return ['owner', 'admin'].includes(userData.user.role) || 
+           userData.user.permissions?.can_manage_users;
+  };
+
+  const canManageDevices = () => {
+    return ['owner', 'admin', 'member'].includes(userData.user.role) ||
+           userData.user.permissions?.can_manage_nfc_devices;
+  };
+
+  const canManageEvents = () => {
+    return ['owner', 'admin'].includes(userData.user.role) ||
+           userData.user.permissions?.can_manage_events;
+  };
+
+  const canManageLandingPages = () => {
+    return ['owner', 'admin', 'member'].includes(userData.user.role) ||
+           userData.user.permissions?.can_manage_landing_pages;
+  };
+
+  const isAdmin = () => {
+    return userData.user.permissions?.master_admin === true;
+  };
 
   // Loading state
   if (!isLoaded || loading) {
@@ -107,97 +145,96 @@ const DashboardContent = () => {
         {/* Welcome Section */}
         <div className="mb-12">
           <h1 className="mb-4 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
-            Welcome to{' '}
-            {(orgData as Record<string, unknown>)?.organization?.name ||
-              'Cosmic Portals'}
-            , {user.firstName}!
+            Welcome to {userData.organization.name}, {userData.user.first_name || user.firstName}!
           </h1>
           <p className="max-w-2xl text-xl text-white/70">
-            {(orgData as Record<string, unknown>)?.organization?.name ===
-            'Party Time Texas'
+            {userData.organization.name === 'Party Time Texas'
               ? 'Your corporate engagement platform is ready. Manage multiple landing pages, NFC tracking, analytics, and business events.'
               : 'Your NFC-powered engagement platform is ready. Manage events, track analytics, and create memorable experiences.'}
           </p>
-          {(orgData as Record<string, unknown>)?.organization && (
-            <div className="mt-4 flex items-center gap-4">
-              <span className="rounded-full bg-purple-600/20 px-3 py-1 text-sm text-purple-300">
-                {(orgData as Record<string, unknown>).organization?.plan_type}{' '}
-                Plan
+          <div className="mt-4 flex items-center gap-4">
+            <span className="rounded-full bg-purple-600/20 px-3 py-1 text-sm text-purple-300">
+              {userData.organization.plan_type} Plan
+            </span>
+            <span className="rounded-full bg-blue-600/20 px-3 py-1 text-sm text-blue-300">
+              Role: {userData.user.role}
+            </span>
+            {isAdmin() && (
+              <span className="rounded-full bg-red-600/20 px-3 py-1 text-sm text-red-300">
+                🔐 Admin Access
               </span>
-              <span className="rounded-full bg-green-600/20 px-3 py-1 text-sm text-green-300">
-                {
-                  (orgData as Record<string, unknown>).organization
-                    ?.subscription_status
-                }
-              </span>
-            </div>
-          )}
+            )}
+          </div>
         </div>
 
         {/* Dashboard Stats/Features Grid */}
         <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {/* NFC Devices Card */}
-          <div className="rounded-xl border border-purple-400/20 bg-gradient-to-br from-purple-900/20 to-purple-800/10 p-6 transition-colors duration-300 hover:border-purple-400/40">
-            <div className="mb-4 flex items-center">
-              <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-lg bg-purple-600/30">
-                <svg
-                  className="h-5 w-5 text-purple-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
-                  />
-                </svg>
+          {/* NFC Devices Card - Only show if user can manage devices */}
+          {canManageDevices() && (
+            <div className="rounded-xl border border-purple-400/20 bg-gradient-to-br from-purple-900/20 to-purple-800/10 p-6 transition-colors duration-300 hover:border-purple-400/40">
+              <div className="mb-4 flex items-center">
+                <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-lg bg-purple-600/30">
+                  <svg
+                    className="h-5 w-5 text-purple-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold text-white">NFC Devices</h3>
               </div>
-              <h3 className="text-lg font-semibold text-white">NFC Devices</h3>
+              <p className="mb-4 text-sm text-white/70">
+                {(stats?.nfcDevices as number) || 0} active devices • Manage your NFC business
+                cards, signage, and event badges
+              </p>
+              <Link
+                href="/dashboard/devices"
+                className="block w-full rounded-lg bg-purple-600 px-4 py-2 text-center font-medium text-white transition-colors duration-200 hover:bg-purple-700"
+              >
+                Manage Devices ({(stats?.nfcDevices as number) || 0})
+              </Link>
             </div>
-            <p className="mb-4 text-sm text-white/70">
-              {stats?.nfcDevices || 0} active devices • Manage your NFC business
-              cards, signage, and event badges
-            </p>
-            <Link
-              href="/dashboard/devices"
-              className="block w-full rounded-lg bg-purple-600 px-4 py-2 text-center font-medium text-white transition-colors duration-200 hover:bg-purple-700"
-            >
-              Manage Devices ({stats?.nfcDevices || 0})
-            </Link>
-          </div>
+          )}
 
-          {/* Events Management Card */}
-          <div className="rounded-xl border border-blue-400/20 bg-gradient-to-br from-blue-900/20 to-blue-800/10 p-6 transition-colors duration-300 hover:border-blue-400/40">
-            <div className="mb-4 flex items-center">
-              <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/30">
-                <svg
-                  className="h-5 w-5 text-blue-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
-                </svg>
+          {/* Events Management Card - Only show if user can manage events */}
+          {canManageEvents() && (
+            <div className="rounded-xl border border-blue-400/20 bg-gradient-to-br from-blue-900/20 to-blue-800/10 p-6 transition-colors duration-300 hover:border-blue-400/40">
+              <div className="mb-4 flex items-center">
+                <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/30">
+                  <svg
+                    className="h-5 w-5 text-blue-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold text-white">Events</h3>
               </div>
-              <h3 className="text-lg font-semibold text-white">Events</h3>
+              <p className="mb-4 text-sm text-white/70">
+                {(stats?.events as number) || 0} events • {(stats?.attendees as number) || 0} total
+                attendees
+              </p>
+              <button className="w-full rounded-lg bg-blue-600 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-blue-700">
+                Manage Events ({(stats?.events as number) || 0})
+              </button>
             </div>
-            <p className="mb-4 text-sm text-white/70">
-              {stats?.events || 0} events • {stats?.attendees || 0} total
-              attendees
-            </p>
-            <button className="w-full rounded-lg bg-blue-600 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-blue-700">
-              Manage Events ({stats?.events || 0})
-            </button>
-          </div>
+          )}
 
-          {/* Analytics Dashboard Card */}
+          {/* Analytics Dashboard Card - Show to all users */}
           <div className="rounded-xl border border-green-400/20 bg-gradient-to-br from-green-900/20 to-green-800/10 p-6 transition-colors duration-300 hover:border-green-400/40">
             <div className="mb-4 flex items-center">
               <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-lg bg-green-600/30">
@@ -218,11 +255,11 @@ const DashboardContent = () => {
               <h3 className="text-lg font-semibold text-white">Analytics</h3>
             </div>
             <p className="mb-4 text-sm text-white/70">
-              {stats?.totalScans || 0} total scans • Track engagement,
+              {(stats?.totalScans as number) || 0} total scans • Track engagement,
               conversions, and ROI
             </p>
             <button className="w-full rounded-lg bg-green-600 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-green-700">
-              View Analytics ({stats?.totalScans || 0})
+              View Analytics ({(stats?.totalScans as number) || 0})
             </button>
           </div>
         </div>
@@ -231,33 +268,40 @@ const DashboardContent = () => {
         <div className="rounded-xl border border-purple-400/20 bg-gradient-to-r from-purple-900/10 to-blue-900/10 p-8">
           <h2 className="mb-6 text-2xl font-bold text-white">Quick Actions</h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            <button className="rounded-lg border border-purple-400/30 bg-purple-600/20 px-4 py-3 font-medium text-purple-200 transition-colors duration-200 hover:bg-purple-600/30">
-              Create Event
-            </button>
-            <Link
-              href="/dashboard/devices"
-              className="block rounded-lg border border-blue-400/30 bg-blue-600/20 px-4 py-3 text-center font-medium text-blue-200 transition-colors duration-200 hover:bg-blue-600/30"
-            >
-              Add NFC Device
-            </Link>
-            <a
-              href="/dashboard/team"
-              className="block rounded-lg border border-indigo-400/30 bg-indigo-600/20 px-4 py-3 text-center font-medium text-indigo-200 transition-colors duration-200 hover:bg-indigo-600/30"
-            >
-              Manage Team
-            </a>
+            {canManageEvents() && (
+              <button className="rounded-lg border border-purple-400/30 bg-purple-600/20 px-4 py-3 font-medium text-purple-200 transition-colors duration-200 hover:bg-purple-600/30">
+                Create Event
+              </button>
+            )}
+            {canManageDevices() && (
+              <Link
+                href="/dashboard/devices"
+                className="block rounded-lg border border-blue-400/30 bg-blue-600/20 px-4 py-3 text-center font-medium text-blue-200 transition-colors duration-200 hover:bg-blue-600/30"
+              >
+                Add NFC Device
+              </Link>
+            )}
+            {canManageTeam() && (
+              <Link
+                href="/dashboard/team"
+                className="block rounded-lg border border-indigo-400/30 bg-indigo-600/20 px-4 py-3 text-center font-medium text-indigo-200 transition-colors duration-200 hover:bg-indigo-600/30"
+              >
+                Manage Team
+              </Link>
+            )}
             <button className="rounded-lg border border-green-400/30 bg-green-600/20 px-4 py-3 font-medium text-green-200 transition-colors duration-200 hover:bg-green-600/30">
               View Reports
             </button>
-            <button className="rounded-lg border border-orange-400/30 bg-orange-600/20 px-4 py-3 font-medium text-orange-200 transition-colors duration-200 hover:bg-orange-600/30">
-              Customize Branding
-            </button>
+            {canManageLandingPages() && (
+              <button className="rounded-lg border border-orange-400/30 bg-orange-600/20 px-4 py-3 font-medium text-orange-200 transition-colors duration-200 hover:bg-orange-600/30">
+                Customize Branding
+              </button>
+            )}
           </div>
         </div>
 
         {/* Admin Section - Only for Cosmic Portals Super Admin */}
-        {user?.emailAddresses?.[0]?.emailAddress ===
-          'ashtonmedina22@gmail.com' && (
+        {isAdmin() && (
           <div className="mt-8 rounded-xl border border-red-400/20 bg-gradient-to-r from-red-900/10 to-orange-900/10 p-8">
             <h2 className="mb-4 flex items-center text-2xl font-bold text-white">
               <svg
