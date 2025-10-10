@@ -60,42 +60,93 @@ export async function getUserOrganizationData(
       return null;
     }
 
-    // Get organization data
-    const { data: organization, error: orgError } = await supabaseAdmin
-      .from('organizations')
-      .select('*')
-      .eq('id', user.organization_id)
-      .single();
+    // HYBRID APPROACH: Check if user is Super Admin
+    const isSuperAdmin = user.role === 'super_admin';
 
-    if (orgError || !organization) {
-      console.error('Organization not found:', orgError);
-      return null;
+    let organization;
+    let nfcDevices;
+    let events;
+    let attendees;
+
+    if (isSuperAdmin) {
+      // SUPER ADMIN: Can see ALL organizations and data
+      // For now, we'll still show their primary organization
+      // TODO: Create a Super Admin dashboard that shows all orgs
+      const { data: orgData, error: orgError } = await supabaseAdmin
+        .from('organizations')
+        .select('*')
+        .eq('id', user.organization_id)
+        .single();
+
+      if (orgError || !orgData) {
+        console.error('Organization not found:', orgError);
+        return null;
+      }
+
+      organization = orgData;
+
+      // Get data for their primary organization
+      const [nfcResult, eventsResult, attendeesResult] = await Promise.all([
+        supabaseAdmin
+          .from('nfc_devices')
+          .select('*')
+          .eq('organization_id', user.organization_id),
+        supabaseAdmin
+          .from('events')
+          .select('*')
+          .eq('organization_id', user.organization_id),
+        supabaseAdmin
+          .from('attendees')
+          .select('*')
+          .eq('organization_id', user.organization_id),
+      ]);
+
+      nfcDevices = nfcResult.data || [];
+      events = eventsResult.data || [];
+      attendees = attendeesResult.data || [];
+    } else {
+      // REGULAR USER: Use service role for server-side queries
+      // We do authorization checks in our application logic, not at database level
+      const { data: orgData, error: orgError } = await supabaseAdmin
+        .from('organizations')
+        .select('*')
+        .eq('id', user.organization_id)
+        .single();
+
+      if (orgError || !orgData) {
+        console.error('Organization not found:', orgError);
+        return null;
+      }
+
+      organization = orgData;
+
+      // Get data for their organization using service role (bypasses RLS)
+      const [nfcResult, eventsResult, attendeesResult] = await Promise.all([
+        supabaseAdmin
+          .from('nfc_devices')
+          .select('*')
+          .eq('organization_id', user.organization_id),
+        supabaseAdmin
+          .from('events')
+          .select('*')
+          .eq('organization_id', user.organization_id),
+        supabaseAdmin
+          .from('attendees')
+          .select('*')
+          .eq('organization_id', user.organization_id),
+      ]);
+
+      nfcDevices = nfcResult.data || [];
+      events = eventsResult.data || [];
+      attendees = attendeesResult.data || [];
     }
-
-    // Get NFC devices for this organization
-    const { data: nfcDevices, error: _devicesError } = await supabaseAdmin
-      .from('nfc_devices')
-      .select('*')
-      .eq('organization_id', user.organization_id);
-
-    // Get events for this organization
-    const { data: events, error: _eventsError } = await supabaseAdmin
-      .from('events')
-      .select('*')
-      .eq('organization_id', user.organization_id);
-
-    // Get attendees for this organization
-    const { data: attendees, error: _attendeesError } = await supabaseAdmin
-      .from('attendees')
-      .select('*')
-      .eq('organization_id', user.organization_id);
 
     return {
       user,
       organization,
-      nfcDevices: nfcDevices || [],
-      events: events || [],
-      attendees: attendees || [],
+      nfcDevices,
+      events,
+      attendees,
     };
   } catch (error) {
     console.error('Error fetching user organization data:', error);

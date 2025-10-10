@@ -14,6 +14,10 @@ interface PageComponent {
 
 interface DragDropBuilderProps {
   initialPage?: {
+    id?: string;
+    name?: string;
+    title?: string;
+    slug?: string;
     content?: {
       title?: string;
       subtitle?: string;
@@ -28,6 +32,7 @@ interface DragDropBuilderProps {
         instagram?: string;
         linkedin?: string;
       };
+      components?: PageComponent[];
     };
   };
   organizationId: string;
@@ -42,6 +47,19 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
   const [draggedComponent, setDraggedComponent] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [isPreviewMode, setIsPreviewMode] = useState(false);
+  const [pageData, setPageData] = useState({
+    id: initialPage?.id || '',
+    name: initialPage?.name || 'New Landing Page',
+    title: initialPage?.title || 'Welcome to Our Page',
+    slug: initialPage?.slug || '',
+  });
+
+  // Initialize components from initial page data
+  useEffect(() => {
+    if (initialPage?.content?.components) {
+      setComponents(initialPage.content.components);
+    }
+  }, [initialPage]);
 
   // Component templates
   const componentTemplates = [
@@ -160,7 +178,8 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
           type: 'text',
           position: 1,
           data: {
-            content: 'Don\'t miss out on this incredible opportunity to connect, learn, and have fun!',
+            content:
+              "Don't miss out on this incredible opportunity to connect, learn, and have fun!",
             fontSize: '18px',
             textAlign: 'center',
             textColor: '#374151',
@@ -228,7 +247,8 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
           type: 'text',
           position: 2,
           data: {
-            content: 'Experience the finest cuisine in town. Our chefs use only the freshest ingredients to create memorable dining experiences.',
+            content:
+              'Experience the finest cuisine in town. Our chefs use only the freshest ingredients to create memorable dining experiences.',
             fontSize: '16px',
             textAlign: 'center',
             textColor: '#374151',
@@ -274,7 +294,8 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
           type: 'text',
           position: 1,
           data: {
-            content: 'Welcome to my creative world. I specialize in bringing ideas to life through innovative design and thoughtful execution.',
+            content:
+              'Welcome to my creative world. I specialize in bringing ideas to life through innovative design and thoughtful execution.',
             fontSize: '18px',
             textAlign: 'center',
             textColor: '#374151',
@@ -342,7 +363,8 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
           type: 'text',
           position: 1,
           data: {
-            content: 'Ready to achieve your fitness goals? Let me help you build strength, endurance, and confidence through personalized training programs.',
+            content:
+              'Ready to achieve your fitness goals? Let me help you build strength, endurance, and confidence through personalized training programs.',
             fontSize: '18px',
             textAlign: 'center',
             textColor: '#374151',
@@ -442,14 +464,23 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
   const addComponent = (type: string) => {
     const newComponent: PageComponent = {
       id: `${type}-${Date.now()}`,
-      type: type as 'hero' | 'text' | 'contact' | 'social' | 'image' | 'button' | 'divider',
+      type: type as
+        | 'hero'
+        | 'text'
+        | 'contact'
+        | 'social'
+        | 'image'
+        | 'button'
+        | 'divider',
       position: components.length,
       data: getDefaultData(type),
     };
     setComponents([...components, newComponent]);
   };
 
-  const getDefaultData = (type: string): { [key: string]: string | number | boolean | undefined } => {
+  const getDefaultData = (
+    type: string
+  ): { [key: string]: string | number | boolean | undefined } => {
     switch (type) {
       case 'hero':
         return {
@@ -503,7 +534,10 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
     }
   };
 
-  const updateComponent = (id: string, data: { [key: string]: string | number | boolean | undefined }) => {
+  const updateComponent = (
+    id: string,
+    data: { [key: string]: string | number | boolean | undefined }
+  ) => {
     setComponents(
       components.map(comp =>
         comp.id === id ? { ...comp, data: { ...comp.data, ...data } } : comp
@@ -562,7 +596,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
     // For now, we'll use a simple base64 approach
     // In production, you'd want to upload to a cloud storage service
     const reader = new FileReader();
-    reader.onload = (event) => {
+    reader.onload = event => {
       const result = event.target?.result as string;
       if (selectedComponent) {
         updateComponent(selectedComponent, { src: result });
@@ -582,49 +616,71 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
   const savePage = async () => {
     try {
       setLoading(true);
-      
-      // Get page name from user or use default
-      const pageName = prompt('Enter page name:', 'New Landing Page') || 'New Landing Page';
-      const pageTitle = prompt('Enter page title:', 'Welcome to Our Page') || 'Welcome to Our Page';
-      
-      // Generate unique slug
-      const slug = pageName
-        .toLowerCase()
-        .replace(/[^a-z0-9\s-]/g, '')
-        .replace(/\s+/g, '-')
-        .replace(/-+/g, '-')
-        .trim() + `-${Date.now()}`;
 
       const pageContent = {
-        title: pageTitle,
+        title: pageData.title,
         components: components,
         created_with_builder: true,
-        builder_version: '1.0'
+        builder_version: '1.0',
       };
 
-      // Create new landing page
-      const response = await fetch('/api/landing-pages', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: pageName,
-          title: pageTitle,
-          slug: slug,
-          content: pageContent,
-          status: 'draft',
-        }),
-      });
+      let response;
+
+      if (pageData.id) {
+        // Update existing page
+        response = await fetch(`/api/landing-pages/${pageData.id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: pageData.name,
+            title: pageData.title,
+            content: pageContent,
+            status: 'draft',
+          }),
+        });
+      } else {
+        // Create new page
+        const pageName =
+          prompt('Enter page name:', pageData.name) || pageData.name;
+        const pageTitle =
+          prompt('Enter page title:', pageData.title) || pageData.title;
+
+        // Generate unique slug
+        const slug =
+          pageName
+            .toLowerCase()
+            .replace(/[^a-z0-9\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-')
+            .trim() + `-${Date.now()}`;
+
+        response = await fetch('/api/landing-pages', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: pageName,
+            title: pageTitle,
+            slug: slug,
+            content: pageContent,
+            status: 'draft',
+          }),
+        });
+      }
 
       if (response.ok) {
         const result = await response.json();
         const pageUrl = `${window.location.origin}/landing/${result.page.slug}`;
-        alert(`Page saved successfully!\n\nPage URL: ${pageUrl}\n\nYou can now link this URL to your NFC devices.`);
-        
-        // Optionally redirect to the page manager
-        if (confirm('Would you like to go to the page manager to see your new page?')) {
-          window.location.href = '/dashboard/landing-pages';
+        alert(
+          `Page saved successfully!\n\nPage URL: ${pageUrl}\n\nYou can now link this URL to your NFC devices.`
+        );
+
+        // If this was a new page, redirect to the builder with the new ID
+        if (!pageData.id && result.page.id) {
+          window.location.href = `/dashboard/landing-pages/builder/${result.page.id}`;
         }
       } else {
         const error = await response.json();
@@ -647,12 +703,12 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
           <div
             key={component.id}
             className={`relative text-center ${isSelected ? 'ring-2 ring-blue-500' : ''}`}
-              style={{
-                backgroundColor: component.data.backgroundImage
-                  ? 'transparent'
-                  : (component.data.backgroundColor as string) || '#1a1a1a',
-                padding: (component.data.padding as string) || '32px',
-              }}
+            style={{
+              backgroundColor: component.data.backgroundImage
+                ? 'transparent'
+                : (component.data.backgroundColor as string) || '#1a1a1a',
+              padding: (component.data.padding as string) || '32px',
+            }}
             onClick={() => setSelectedComponent(component.id)}
             draggable
             onDragStart={e => handleDragStart(e, component.id)}
@@ -670,13 +726,17 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
             <div className="relative z-10">
               <h1
                 className={`mb-4 font-bold text-${component.data.titleFontSize || '4xl'}`}
-                style={{ color: (component.data.textColor as string) || '#ffffff' }}
+                style={{
+                  color: (component.data.textColor as string) || '#ffffff',
+                }}
               >
                 {component.data.title}
               </h1>
               <p
                 className={`text-${component.data.subtitleFontSize || 'xl'}`}
-                style={{ color: (component.data.textColor as string) || '#ffffff' }}
+                style={{
+                  color: (component.data.textColor as string) || '#ffffff',
+                }}
               >
                 {component.data.subtitle}
               </p>
@@ -702,10 +762,11 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
           <div
             key={component.id}
             className={`${isSelected ? 'ring-2 ring-blue-500' : ''}`}
-              style={{
-                padding: (component.data.padding as string) || '16px',
-                backgroundColor: (component.data.backgroundColor as string) || 'transparent',
-              }}
+            style={{
+              padding: (component.data.padding as string) || '16px',
+              backgroundColor:
+                (component.data.backgroundColor as string) || 'transparent',
+            }}
             onClick={() => setSelectedComponent(component.id)}
             draggable
             onDragStart={e => handleDragStart(e, component.id)}
@@ -713,12 +774,12 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
             onDrop={e => handleDrop(e, component.position)}
           >
             <p
-                style={{
-                  fontSize: component.data.fontSize as string,
-                  textAlign: component.data.textAlign as any,
-                  color: (component.data.textColor as string) || '#000000',
-                  margin: 0,
-                }}
+              style={{
+                fontSize: component.data.fontSize as string,
+                textAlign: component.data.textAlign as any,
+                color: (component.data.textColor as string) || '#000000',
+                margin: 0,
+              }}
             >
               {component.data.content}
             </p>
@@ -890,16 +951,30 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
                   className="mx-auto rounded-lg"
                 />
                 {component.data.caption && (
-                  <p className="text-sm text-gray-600">{component.data.caption}</p>
+                  <p className="text-sm text-gray-600">
+                    {component.data.caption}
+                  </p>
                 )}
               </div>
             ) : (
               <div className="flex h-32 items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50">
                 <div className="text-center">
-                  <svg className="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
-                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+                  <svg
+                    className="mx-auto h-12 w-12 text-gray-400"
+                    stroke="currentColor"
+                    fill="none"
+                    viewBox="0 0 48 48"
+                  >
+                    <path
+                      d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                      strokeWidth={2}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
-                  <p className="mt-2 text-sm text-gray-500">Click to upload image</p>
+                  <p className="mt-2 text-sm text-gray-500">
+                    Click to upload image
+                  </p>
                 </div>
               </div>
             )}
@@ -932,8 +1007,8 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
           >
             <hr
               style={{
-                borderColor: component.data.color as string || '#cccccc',
-                borderWidth: component.data.thickness as string || '1px',
+                borderColor: (component.data.color as string) || '#cccccc',
+                borderWidth: (component.data.thickness as string) || '1px',
               }}
             />
             {isSelected && (
@@ -973,7 +1048,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
               <label className="mb-1 block text-sm text-white/70">Title</label>
               <input
                 type="text"
-                value={component.data.title as string || ''}
+                value={(component.data.title as string) || ''}
                 onChange={e =>
                   updateComponent(component.id, { title: e.target.value })
                 }
@@ -986,7 +1061,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
               </label>
               <input
                 type="text"
-                value={component.data.subtitle as string || ''}
+                value={(component.data.subtitle as string) || ''}
                 onChange={e =>
                   updateComponent(component.id, { subtitle: e.target.value })
                 }
@@ -999,9 +1074,11 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
               </label>
               <input
                 type="url"
-                value={component.data.backgroundImage as string || ''}
+                value={(component.data.backgroundImage as string) || ''}
                 onChange={e =>
-                  updateComponent(component.id, { backgroundImage: e.target.value })
+                  updateComponent(component.id, {
+                    backgroundImage: e.target.value,
+                  })
                 }
                 placeholder="https://example.com/image.jpg"
                 className="w-full rounded border border-gray-600 bg-gray-800 p-2 text-white"
@@ -1015,7 +1092,9 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
                 type="color"
                 value={(component.data.backgroundColor as string) || '#1a1a1a'}
                 onChange={e =>
-                  updateComponent(component.id, { backgroundColor: e.target.value })
+                  updateComponent(component.id, {
+                    backgroundColor: e.target.value,
+                  })
                 }
                 className="w-full rounded border border-gray-600 bg-gray-800 p-2 text-white"
               />
@@ -1040,7 +1119,9 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
               <select
                 value={(component.data.titleFontSize as string) || '4xl'}
                 onChange={e =>
-                  updateComponent(component.id, { titleFontSize: e.target.value })
+                  updateComponent(component.id, {
+                    titleFontSize: e.target.value,
+                  })
                 }
                 className="w-full rounded border border-gray-600 bg-gray-800 p-2 text-white"
               >
@@ -1058,7 +1139,9 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
               <select
                 value={(component.data.subtitleFontSize as string) || 'xl'}
                 onChange={e =>
-                  updateComponent(component.id, { subtitleFontSize: e.target.value })
+                  updateComponent(component.id, {
+                    subtitleFontSize: e.target.value,
+                  })
                 }
                 className="w-full rounded border border-gray-600 bg-gray-800 p-2 text-white"
               >
@@ -1098,7 +1181,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
                 Content
               </label>
               <textarea
-                value={component.data.content as string || ''}
+                value={(component.data.content as string) || ''}
                 onChange={e =>
                   updateComponent(component.id, { content: e.target.value })
                 }
@@ -1110,7 +1193,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
                 Font Size
               </label>
               <select
-                value={component.data.fontSize as string || '16px'}
+                value={(component.data.fontSize as string) || '16px'}
                 onChange={e =>
                   updateComponent(component.id, { fontSize: e.target.value })
                 }
@@ -1131,7 +1214,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
                 Text Alignment
               </label>
               <select
-                value={component.data.textAlign as string || 'left'}
+                value={(component.data.textAlign as string) || 'left'}
                 onChange={e =>
                   updateComponent(component.id, { textAlign: e.target.value })
                 }
@@ -1164,7 +1247,9 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
                 type="color"
                 value={(component.data.backgroundColor as string) || '#ffffff'}
                 onChange={e =>
-                  updateComponent(component.id, { backgroundColor: e.target.value })
+                  updateComponent(component.id, {
+                    backgroundColor: e.target.value,
+                  })
                 }
                 className="w-full rounded border border-gray-600 bg-gray-800 p-2 text-white"
               />
@@ -1196,7 +1281,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
               <label className="mb-1 block text-sm text-white/70">Email</label>
               <input
                 type="email"
-                value={component.data.email as string || ''}
+                value={(component.data.email as string) || ''}
                 onChange={e =>
                   updateComponent(component.id, { email: e.target.value })
                 }
@@ -1207,7 +1292,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
               <label className="mb-1 block text-sm text-white/70">Phone</label>
               <input
                 type="tel"
-                value={component.data.phone as string || ''}
+                value={(component.data.phone as string) || ''}
                 onChange={e =>
                   updateComponent(component.id, { phone: e.target.value })
                 }
@@ -1220,7 +1305,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
               </label>
               <input
                 type="url"
-                value={component.data.website as string || ''}
+                value={(component.data.website as string) || ''}
                 onChange={e =>
                   updateComponent(component.id, { website: e.target.value })
                 }
@@ -1238,7 +1323,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
               </label>
               <input
                 type="url"
-                value={component.data.facebook as string || ''}
+                value={(component.data.facebook as string) || ''}
                 onChange={e =>
                   updateComponent(component.id, { facebook: e.target.value })
                 }
@@ -1251,7 +1336,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
               </label>
               <input
                 type="url"
-                value={component.data.instagram as string || ''}
+                value={(component.data.instagram as string) || ''}
                 onChange={e =>
                   updateComponent(component.id, { instagram: e.target.value })
                 }
@@ -1264,7 +1349,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
               </label>
               <input
                 type="url"
-                value={component.data.linkedin as string || ''}
+                value={(component.data.linkedin as string) || ''}
                 onChange={e =>
                   updateComponent(component.id, { linkedin: e.target.value })
                 }
@@ -1282,7 +1367,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
               </label>
               <input
                 type="text"
-                value={component.data.text as string || ''}
+                value={(component.data.text as string) || ''}
                 onChange={e =>
                   updateComponent(component.id, { text: e.target.value })
                 }
@@ -1293,7 +1378,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
               <label className="mb-1 block text-sm text-white/70">URL</label>
               <input
                 type="url"
-                value={component.data.url as string || ''}
+                value={(component.data.url as string) || ''}
                 onChange={e =>
                   updateComponent(component.id, { url: e.target.value })
                 }
@@ -1303,7 +1388,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
             <div>
               <label className="mb-1 block text-sm text-white/70">Style</label>
               <select
-                value={component.data.style as string || 'primary'}
+                value={(component.data.style as string) || 'primary'}
                 onChange={e =>
                   updateComponent(component.id, { style: e.target.value })
                 }
@@ -1326,7 +1411,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
                 type="file"
                 accept="image/*"
                 onChange={handleImageUpload}
-                className="w-full rounded border border-gray-600 bg-gray-800 p-2 text-white file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-purple-600 file:text-white hover:file:bg-purple-700"
+                className="w-full rounded border border-gray-600 bg-gray-800 p-2 text-white file:mr-4 file:rounded file:border-0 file:bg-purple-600 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-purple-700"
               />
             </div>
             <div>
@@ -1335,7 +1420,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
               </label>
               <input
                 type="url"
-                value={component.data.src as string || ''}
+                value={(component.data.src as string) || ''}
                 onChange={e =>
                   updateComponent(component.id, { src: e.target.value })
                 }
@@ -1349,7 +1434,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
               </label>
               <input
                 type="text"
-                value={component.data.alt as string || ''}
+                value={(component.data.alt as string) || ''}
                 onChange={e =>
                   updateComponent(component.id, { alt: e.target.value })
                 }
@@ -1363,7 +1448,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
               </label>
               <input
                 type="text"
-                value={component.data.caption as string || ''}
+                value={(component.data.caption as string) || ''}
                 onChange={e =>
                   updateComponent(component.id, { caption: e.target.value })
                 }
@@ -1372,11 +1457,9 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
               />
             </div>
             <div>
-              <label className="mb-1 block text-sm text-white/70">
-                Width
-              </label>
+              <label className="mb-1 block text-sm text-white/70">Width</label>
               <select
-                value={component.data.width as string || '100%'}
+                value={(component.data.width as string) || '100%'}
                 onChange={e =>
                   updateComponent(component.id, { width: e.target.value })
                 }
@@ -1398,7 +1481,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
                 Divider Style
               </label>
               <select
-                value={component.data.style as string || 'line'}
+                value={(component.data.style as string) || 'line'}
                 onChange={e =>
                   updateComponent(component.id, { style: e.target.value })
                 }
@@ -1410,12 +1493,10 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
               </select>
             </div>
             <div>
-              <label className="mb-1 block text-sm text-white/70">
-                Color
-              </label>
+              <label className="mb-1 block text-sm text-white/70">Color</label>
               <input
                 type="color"
-                value={component.data.color as string || '#cccccc'}
+                value={(component.data.color as string) || '#cccccc'}
                 onChange={e =>
                   updateComponent(component.id, { color: e.target.value })
                 }
@@ -1427,7 +1508,7 @@ const DragDropBuilder = ({ initialPage }: DragDropBuilderProps) => {
                 Thickness
               </label>
               <select
-                value={component.data.thickness as string || '1px'}
+                value={(component.data.thickness as string) || '1px'}
                 onChange={e =>
                   updateComponent(component.id, { thickness: e.target.value })
                 }

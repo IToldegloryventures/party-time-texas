@@ -39,6 +39,8 @@ const TeamManagement = ({ userData }: TeamManagementProps) => {
   const [loading, setLoading] = useState(true);
   const [showInviteForm, setShowInviteForm] = useState(false);
   const [inviteEmail, setInviteEmail] = useState('');
+  const [inviteFirstName, setInviteFirstName] = useState('');
+  const [inviteLastName, setInviteLastName] = useState('');
   const [inviteRole, setInviteRole] = useState('member');
 
   useEffect(() => {
@@ -409,6 +411,33 @@ const TeamManagement = ({ userData }: TeamManagementProps) => {
               </h3>
 
               <div className="space-y-4">
+                {/* Inviter's Name */}
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-white/70">
+                    Your Name (Inviter)
+                  </label>
+                  <div className="grid grid-cols-2 gap-3">
+                    <input
+                      type="text"
+                      value={userData.user.first_name || ''}
+                      disabled
+                      className="w-full rounded-lg border border-gray-600 bg-gray-600 px-4 py-2 text-white/70 placeholder-gray-400"
+                      placeholder="First Name"
+                    />
+                    <input
+                      type="text"
+                      value={userData.user.last_name || ''}
+                      disabled
+                      className="w-full rounded-lg border border-gray-600 bg-gray-600 px-4 py-2 text-white/70 placeholder-gray-400"
+                      placeholder="Last Name"
+                    />
+                  </div>
+                  <p className="mt-1 text-xs text-white/50">
+                    This will be shown as who invited them
+                  </p>
+                </div>
+
+                {/* Invitee's Email */}
                 <div>
                   <label className="mb-2 block text-sm font-medium text-white/70">
                     Email Address
@@ -420,6 +449,32 @@ const TeamManagement = ({ userData }: TeamManagementProps) => {
                     className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
                     placeholder="colleague@company.com"
                   />
+                </div>
+
+                {/* Invitee's Name */}
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-white/70">
+                    Their Name (Optional)
+                  </label>
+                  <div className="grid grid-cols-2 gap-3">
+                    <input
+                      type="text"
+                      value={inviteFirstName}
+                      onChange={e => setInviteFirstName(e.target.value)}
+                      className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
+                      placeholder="First Name"
+                    />
+                    <input
+                      type="text"
+                      value={inviteLastName}
+                      onChange={e => setInviteLastName(e.target.value)}
+                      className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
+                      placeholder="Last Name"
+                    />
+                  </div>
+                  <p className="mt-1 text-xs text-white/50">
+                    They can add this during signup if not provided
+                  </p>
                 </div>
 
                 <div>

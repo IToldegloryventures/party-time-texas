@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
-import { supabase } from '@/lib/supabase/client';
-import { getUserOrganizationData } from '@/lib/supabase/user-org';
+import { supabaseAdminAdmin } from '@/lib/supabaseAdmin/client';
+import { getUserOrganizationData } from '@/lib/supabaseAdmin/user-org';
 
 export async function GET(
   request: NextRequest,
@@ -27,7 +27,7 @@ export async function GET(
     }
 
     // Verify page ownership
-    const { data: page, error: pageError } = await supabase
+    const { data: page, error: pageError } = await supabaseAdmin
       .from('landing_pages')
       .select('*')
       .eq('id', id)
@@ -63,7 +63,7 @@ export async function GET(
     }
 
     // Fetch landing page scans
-    const { data: scans, error: scansError } = await supabase
+    const { data: scans, error: scansError } = await supabaseAdmin
       .from('landing_page_scans')
       .select('*')
       .eq('page_id', id)

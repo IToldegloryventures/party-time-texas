@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase/client';
+import { supabaseAdminAdmin } from '@/lib/supabaseAdmin/client';
 
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const category = searchParams.get('category');
 
-    let query = supabase
+    let query = supabaseAdmin
       .from('page_templates')
       .select('*')
       .eq('is_public', true)

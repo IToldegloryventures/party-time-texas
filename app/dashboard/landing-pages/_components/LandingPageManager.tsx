@@ -20,6 +20,7 @@ interface UserData {
     name: string;
     slug: string;
     plan_type: string;
+    has_landing_page_builder?: boolean;
   };
 }
 
@@ -29,8 +30,16 @@ interface LandingPageManagerProps {
 
 const LandingPageManager = ({ userData }: LandingPageManagerProps) => {
   const { user, isLoaded } = useUser();
-  const [landingPages, setLandingPages] = useState<Record<string, unknown>[]>([]);
+  const [landingPages, setLandingPages] = useState<Record<string, unknown>[]>(
+    []
+  );
   const [loading, setLoading] = useState(true);
+
+  // Permission checks
+  const isSuperAdmin = userData.user.role === 'super_admin';
+  const hasBuilderAddon =
+    userData.organization.has_landing_page_builder || false;
+  const canCreateEdit = isSuperAdmin || hasBuilderAddon;
 
   useEffect(() => {
     if (user && isLoaded) {
@@ -83,7 +92,8 @@ const LandingPageManager = ({ userData }: LandingPageManagerProps) => {
           content: {
             title: 'Welcome to New Landing Page',
             subtitle: 'Your new landing page',
-            description: 'This is a new landing page created for your business.',
+            description:
+              'This is a new landing page created for your business.',
             contact: {
               email: '',
               phone: '',
@@ -149,22 +159,41 @@ const LandingPageManager = ({ userData }: LandingPageManagerProps) => {
           </p>
         </div>
 
-        {/* Create New Landing Page */}
-        <div className="mb-8 rounded-xl border border-purple-400/20 bg-gradient-to-br from-purple-900/20 to-purple-800/10 p-6">
-          <h3 className="mb-4 text-xl font-semibold text-white">
-            Create New Landing Page
-          </h3>
-          <p className="mb-4 text-white/70">
-            Build custom landing pages for your NFC devices. Each page can be
-            customized with your branding, content, and call-to-actions.
-          </p>
-          <button
-            onClick={createLandingPage}
-            className="rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 font-semibold text-white transition-all duration-300 hover:from-purple-700 hover:to-blue-700"
-          >
-            + Create Landing Page
-          </button>
-        </div>
+        {/* Create New Landing Page - Only show if user can create/edit */}
+        {canCreateEdit && (
+          <div className="mb-8 rounded-xl border border-purple-400/20 bg-gradient-to-br from-purple-900/20 to-purple-800/10 p-6">
+            <h3 className="mb-4 text-xl font-semibold text-white">
+              Create New Landing Page
+            </h3>
+            <p className="mb-4 text-white/70">
+              Build custom landing pages for your NFC devices. Each page can be
+              customized with your branding, content, and call-to-actions.
+            </p>
+            <button
+              onClick={createLandingPage}
+              className="rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 font-semibold text-white transition-all duration-300 hover:from-purple-700 hover:to-blue-700"
+            >
+              + Create Landing Page
+            </button>
+          </div>
+        )}
+
+        {/* View-only message for users without addon */}
+        {!canCreateEdit && (
+          <div className="mb-8 rounded-xl border border-orange-400/20 bg-gradient-to-br from-orange-900/20 to-orange-800/10 p-6">
+            <h3 className="mb-4 text-xl font-semibold text-white">
+              Landing Page Builder Add-on Required
+            </h3>
+            <p className="mb-4 text-white/70">
+              To create and edit landing pages, you need the Landing Page
+              Builder add-on. Contact your administrator or upgrade your
+              subscription to access this feature.
+            </p>
+            <p className="text-sm text-white/50">
+              You can still view your existing landing page URLs below.
+            </p>
+          </div>
+        )}
 
         {/* Landing Pages List */}
         <div className="space-y-6">
@@ -197,7 +226,8 @@ const LandingPageManager = ({ userData }: LandingPageManagerProps) => {
                     </span>
                   </p>
                   <p className="text-sm text-white/70">
-                    Created: {new Date(page.created_at as string).toLocaleDateString()}
+                    Created:{' '}
+                    {new Date(page.created_at as string).toLocaleDateString()}
                   </p>
                 </div>
               </div>
@@ -217,14 +247,16 @@ const LandingPageManager = ({ userData }: LandingPageManagerProps) => {
                 >
                   Preview
                 </a>
-                <button
-                  onClick={() => {
-                    window.location.href = `/dashboard/landing-pages/builder/${page.id}`;
-                  }}
-                  className="rounded-lg bg-purple-600 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-purple-700"
-                >
-                  Edit
-                </button>
+                {canCreateEdit && (
+                  <button
+                    onClick={() => {
+                      window.location.href = `/dashboard/landing-pages/builder/${page.id}`;
+                    }}
+                    className="rounded-lg bg-purple-600 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-purple-700"
+                  >
+                    Edit
+                  </button>
+                )}
                 <button
                   onClick={() => {
                     window.location.href = `/dashboard/landing-pages/analytics/${page.id}`;

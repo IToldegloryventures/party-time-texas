@@ -1,171 +1,199 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
-import { supabase } from '@/lib/supabase/client';
-import { getUserOrganizationData } from '@/lib/supabase/user-org';
+import { supabaseAdminAdmin } from '@/lib/supabaseAdmin/client';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
   try {
     const { userId } = await auth();
+    const { id } = params;
+
     if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const { id } = await params;
+    // Get user data from our users table
+    const { data: userData } = await supabaseAdmin
+      .from('users')
+      .select('id, organization_id, role')
+      .eq('clerk_id', userId)
+      .single();
 
-    // Get user's organization
-    const orgData = await getUserOrganizationData(userId);
-    if (!orgData) {
-      return NextResponse.json({ error: 'Organization not found' }, { status: 404 });
+    if (!userData) {
+      return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
-    // Fetch the landing page
-    const { data: page, error } = await supabase
-      .from('landing_pages')
-      .select('*')
-      .eq('id', id)
-      .eq('organization_id', orgData.organization.id)
-      .single();
+    // Get the landing page - Super Admin can access any, regular users only their org
+    let query = supabaseAdmin.from('landing_pages').select('*').eq('id', id);
+
+    if (userData.role !== 'super_admin') {
+      // Regular users can only access their organization's pages
+      query = query.eq('organization_id', userData.organization_id);
+    }
+
+    const { data: landingPage, error } = await query.single();
 
     if (error) {
       console.error('Error fetching landing page:', error);
-      return NextResponse.json({ error: 'Landing page not found' }, { status: 404 });
+      return NextResponse.json(
+        { error: 'Landing page not found' },
+        { status: 404 }
+      );
     }
 
-    return NextResponse.json({ page });
+    return NextResponse.json({ page: landingPage });
   } catch (error) {
-    console.error('Error in GET /api/landing-pages/[id]:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    console.error('Landing page API error:', error);
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
   try {
     const { userId } = await auth();
+    const { id } = params;
+
     if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const { id } = await params;
+    // Get user data from our users table
+    const { data: userData } = await supabaseAdmin
+      .from('users')
+      .select('id, organization_id, role')
+      .eq('clerk_id', userId)
+      .single();
 
-    // Get user's organization
-    const orgData = await getUserOrganizationData(userId);
-    if (!orgData) {
-      return NextResponse.json({ error: 'Organization not found' }, { status: 404 });
+    if (!userData) {
+      return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
+    // Parse request body
     const body = await request.json();
     const { name, title, slug, content, status, is_published } = body;
 
-    // Check if the page exists and user has permission
-    const { data: existingPage, error: fetchError } = await supabase
-      .from('landing_pages')
-      .select('*')
-      .eq('id', id)
-      .eq('organization_id', orgData.organization.id)
-      .single();
-
-    if (fetchError || !existingPage) {
-      return NextResponse.json({ error: 'Landing page not found' }, { status: 404 });
-    }
-
-    // Check if slug is being changed and if it conflicts
-    if (slug && slug !== existingPage.slug) {
-      const { data: slugConflict } = await supabase
+    // Check if slug is already taken by another page
+    if (slug) {
+      const { data: existingPage } = await supabaseAdmin
         .from('landing_pages')
         .select('id')
-        .eq('organization_id', orgData.organization.id)
         .eq('slug', slug)
         .neq('id', id)
         .single();
 
-      if (slugConflict) {
+      if (existingPage) {
         return NextResponse.json(
-          { error: 'A page with this slug already exists' },
-          { status: 409 }
+          { error: 'Slug already exists. Please choose a different one.' },
+          { status: 400 }
         );
       }
     }
 
     // Update the landing page
-    const updateData: Record<string, unknown> = {};
-    if (name !== undefined) updateData.name = name;
-    if (title !== undefined) updateData.title = title;
-    if (slug !== undefined) updateData.slug = slug;
-    if (content !== undefined) updateData.content = content;
-    if (status !== undefined) updateData.status = status;
-    if (is_published !== undefined) updateData.is_published = is_published;
+    const updateData: any = {
+      updated_at: new Date().toISOString(),
+    };
 
-    const { data: page, error } = await supabase
+    if (name) updateData.name = name;
+    if (title) updateData.title = title;
+    if (slug) updateData.slug = slug;
+    if (content) updateData.content = content;
+    if (status) updateData.status = status;
+    if (typeof is_published === 'boolean')
+      updateData.is_published = is_published;
+
+    // Super Admin can update any page, regular users only their org's pages
+    let updateQuery = supabaseAdmin
       .from('landing_pages')
       .update(updateData)
-      .eq('id', id)
-      .eq('organization_id', orgData.organization.id)
-      .select()
-      .single();
+      .eq('id', id);
+
+    if (userData.role !== 'super_admin') {
+      // Regular users can only update their organization's pages
+      updateQuery = updateQuery.eq('organization_id', userData.organization_id);
+    }
+
+    const { data: updatedPage, error } = await updateQuery.select().single();
 
     if (error) {
       console.error('Error updating landing page:', error);
-      return NextResponse.json({ error: 'Failed to update landing page' }, { status: 500 });
+      return NextResponse.json(
+        { error: 'Failed to update landing page' },
+        { status: 500 }
+      );
     }
 
-    return NextResponse.json({ page });
+    return NextResponse.json({
+      success: true,
+      page: updatedPage,
+    });
   } catch (error) {
-    console.error('Error in PUT /api/landing-pages/[id]:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    console.error('Update landing page API error:', error);
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
   try {
     const { userId } = await auth();
+    const { id } = params;
+
     if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const { id } = await params;
-
-    // Get user's organization
-    const orgData = await getUserOrganizationData(userId);
-    if (!orgData) {
-      return NextResponse.json({ error: 'Organization not found' }, { status: 404 });
-    }
-
-    // Check if the page exists and user has permission
-    const { data: existingPage, error: fetchError } = await supabase
-      .from('landing_pages')
-      .select('*')
-      .eq('id', id)
-      .eq('organization_id', orgData.organization.id)
+    // Get user data from our users table
+    const { data: userData } = await supabaseAdmin
+      .from('users')
+      .select('id, organization_id, role')
+      .eq('clerk_id', userId)
       .single();
 
-    if (fetchError || !existingPage) {
-      return NextResponse.json({ error: 'Landing page not found' }, { status: 404 });
+    if (!userData) {
+      return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
-    // Delete the landing page
-    const { error } = await supabase
-      .from('landing_pages')
-      .delete()
-      .eq('id', id)
-      .eq('organization_id', orgData.organization.id);
+    // Delete the landing page - Super Admin can delete any, regular users only their org's
+    let deleteQuery = supabaseAdmin.from('landing_pages').delete().eq('id', id);
+
+    if (userData.role !== 'super_admin') {
+      // Regular users can only delete their organization's pages
+      deleteQuery = deleteQuery.eq('organization_id', userData.organization_id);
+    }
+
+    const { error } = await deleteQuery;
 
     if (error) {
       console.error('Error deleting landing page:', error);
-      return NextResponse.json({ error: 'Failed to delete landing page' }, { status: 500 });
+      return NextResponse.json(
+        { error: 'Failed to delete landing page' },
+        { status: 500 }
+      );
     }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({
+      success: true,
+      message: 'Landing page deleted successfully',
+    });
   } catch (error) {
-    console.error('Error in DELETE /api/landing-pages/[id]:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    console.error('Delete landing page API error:', error);
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }

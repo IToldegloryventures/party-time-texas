@@ -42,10 +42,9 @@ export async function verifyAdminAccess(clerkId: string): Promise<AdminUser | nu
       return null;
     }
 
-    // Check if user has master_admin permission
-    const permissions = user.permissions as any;
-    if (!permissions || !permissions.master_admin) {
-      console.log('User does not have master_admin permission:', user.email);
+    // Check if user has super_admin role
+    if (user.role !== 'super_admin') {
+      console.log('User does not have super_admin role:', user.email, 'Current role:', user.role);
       return null;
     }
 
