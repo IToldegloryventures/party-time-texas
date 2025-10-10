@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { auth } from '@clerk/nextjs/server';
-import { supabase } from '@/lib/supabase/client';
+import { supabaseAdmin } from '@/lib/supabase/client';
 import { getUserOrganizationData } from '@/lib/supabase/user-org';
 import DragDropBuilder from '../_components/DragDropBuilder';
 
@@ -24,7 +24,7 @@ export default async function BuilderPage({ params }: BuilderPageProps) {
   }
 
   // Fetch the landing page
-  const { data: page, error } = await supabase
+  const { data: page, error } = await supabaseAdmin
     .from('landing_pages')
     .select('*')
     .eq('id', id)

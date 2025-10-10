@@ -113,15 +113,8 @@ const LandingPageManager = ({ userData }: LandingPageManagerProps) => {
 
       if (response.ok) {
         const result = await response.json();
-        const newPage = {
-          id: result.page.id,
-          name: result.page.name,
-          url: `${window.location.origin}/landing/${result.page.slug}`,
-          status: result.page.is_published ? 'published' : 'draft',
-          scans: result.page.scan_count || 0,
-          created_at: result.page.created_at,
-        };
-        setLandingPages([newPage, ...landingPages]);
+        // Navigate to the builder for the new page
+        window.location.href = `/dashboard/landing-pages/builder/${result.page.id}`;
       } else {
         console.error('Failed to create landing page');
         alert('Failed to create landing page. Please try again.');
