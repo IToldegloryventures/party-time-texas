@@ -1,10 +1,8 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 
-export default function NFCScanPage() {
-  const searchParams = useSearchParams();
+function NFCScanContent() {
   const [deviceInfo, setDeviceInfo] = useState<{
     device_id?: string;
     device_type?: string;
@@ -14,14 +12,17 @@ export default function NFCScanPage() {
   }>({});
 
   useEffect(() => {
-    setDeviceInfo({
-      device_id: searchParams.get('device_id') || undefined,
-      device_type: searchParams.get('device_type') || undefined,
-      utm_source: searchParams.get('utm_source') || undefined,
-      utm_medium: searchParams.get('utm_medium') || undefined,
-      utm_campaign: searchParams.get('utm_campaign') || undefined,
-    });
-  }, [searchParams]);
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      setDeviceInfo({
+        device_id: urlParams.get('device_id') || undefined,
+        device_type: urlParams.get('device_type') || undefined,
+        utm_source: urlParams.get('utm_source') || undefined,
+        utm_medium: urlParams.get('utm_medium') || undefined,
+        utm_campaign: urlParams.get('utm_campaign') || undefined,
+      });
+    }
+  }, []);
 
   const getDeviceTypeDisplay = (type?: string) => {
     if (!type) return 'NFC Device';
@@ -105,5 +106,17 @@ export default function NFCScanPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function NFCScanPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
+        <div className="text-white">Loading...</div>
+      </div>
+    }>
+      <NFCScanContent />
+    </Suspense>
   );
 }

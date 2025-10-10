@@ -9,7 +9,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
 }
 
-const Button = ({
+export const Button = ({
   children,
   variant = 'default',
   size = 'md',
