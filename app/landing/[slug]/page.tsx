@@ -16,10 +16,15 @@ export default async function LandingPage({ params }: LandingPageProps) {
 
   try {
     // Fetch the landing page from database
+    // Note: We need to handle the case where multiple organizations might have the same slug
+    // For now, we'll get the most recently published one
     const { data: page, error } = await supabaseAdmin
       .from('landing_pages')
       .select('*')
       .eq('slug', slug)
+      .eq('is_published', true)
+      .order('updated_at', { ascending: false })
+      .limit(1)
       .single();
 
     console.log('Page data:', page);
