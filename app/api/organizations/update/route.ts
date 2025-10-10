@@ -18,10 +18,10 @@ export async function PUT(request: NextRequest) {
       return NextResponse.json({ error: 'Organization not found' }, { status: 404 });
     }
 
-    // Only owners can update organization settings
-    if (userData.user.role !== 'owner') {
+    // Only super admins and owners can update organization settings
+    if (!['super_admin', 'owner'].includes(userData.user.role)) {
       return NextResponse.json(
-        { error: 'Only organization owners can update settings' },
+        { error: 'Only super admins and organization owners can update settings' },
         { status: 403 }
       );
     }

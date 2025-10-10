@@ -267,14 +267,18 @@ const TeamManagement = ({ userData }: TeamManagementProps) => {
                       <td className="px-6 py-4">
                         <span
                           className={`rounded-full px-2 py-1 text-xs font-medium ${
-                            member.role === 'owner'
+                            member.role === 'super_admin'
                               ? 'bg-red-600/20 text-red-300'
-                              : member.role === 'admin'
-                                ? 'bg-purple-600/20 text-purple-300'
-                                : 'bg-blue-600/20 text-blue-300'
+                              : member.role === 'owner'
+                                ? 'bg-orange-600/20 text-orange-300'
+                                : member.role === 'admin'
+                                  ? 'bg-purple-600/20 text-purple-300'
+                                  : member.role === 'member'
+                                    ? 'bg-blue-600/20 text-blue-300'
+                                    : 'bg-green-600/20 text-green-300'
                           }`}
                         >
-                          {member.role.charAt(0).toUpperCase() + member.role.slice(1)}
+                          {member.role === 'super_admin' ? 'Super Admin' : member.role.charAt(0).toUpperCase() + member.role.slice(1)}
                         </span>
                       </td>
                       <td className="px-6 py-4">
@@ -303,8 +307,9 @@ const TeamManagement = ({ userData }: TeamManagementProps) => {
                               handleUpdateRole(member.id, e.target.value)
                             }
                             className="rounded border border-gray-600 bg-gray-700 px-2 py-1 text-xs text-white"
-                            disabled={member.role === 'owner'}
+                            disabled={['super_admin', 'owner'].includes(member.role)}
                           >
+                            <option value="guest">Guest - Limited Access</option>
                             <option value="member">Member - Basic Access</option>
                             <option value="admin">Admin - Full Management</option>
                           </select>
@@ -312,7 +317,7 @@ const TeamManagement = ({ userData }: TeamManagementProps) => {
                             onClick={() =>
                               handleRemoveMember(member.id, member.email)
                             }
-                            disabled={member.role === 'owner'}
+                            disabled={['super_admin', 'owner'].includes(member.role)}
                             className="rounded bg-red-600/20 px-3 py-1 text-xs text-red-300 transition-colors hover:bg-red-600/30 disabled:cursor-not-allowed disabled:opacity-50"
                           >
                             Remove

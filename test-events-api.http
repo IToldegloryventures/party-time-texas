@@ -1,0 +1,57 @@
+### Test Events API - Event Assignment System
+### Make sure to replace YOUR_ORG_ID with your actual organization ID
+
+### 1. Test GET /api/events (should return empty array initially)
+GET http://localhost:3000/api/events
+Authorization: Bearer YOUR_CLERK_TOKEN
+
+### 2. Test GET /api/events?filter=my (should return empty array for assigned events)
+GET http://localhost:3000/api/events?filter=my
+Authorization: Bearer YOUR_CLERK_TOKEN
+
+### 3. Test POST /api/events (create a new event with assigned members)
+POST http://localhost:3000/api/events
+Content-Type: application/json
+Authorization: Bearer YOUR_CLERK_TOKEN
+
+{
+  "name": "Test Event - Team Meeting",
+  "description": "Weekly team sync meeting",
+  "event_type": "business",
+  "start_date": "2024-01-15T10:00:00Z",
+  "end_date": "2024-01-15T11:00:00Z",
+  "location": "Conference Room A",
+  "assigned_members": ["USER_ID_1", "USER_ID_2"]
+}
+
+### 4. Test GET /api/events/[id] (get specific event)
+GET http://localhost:3000/api/events/EVENT_ID_HERE
+Authorization: Bearer YOUR_CLERK_TOKEN
+
+### 5. Test POST /api/events/[id]/assign (assign members to event)
+POST http://localhost:3000/api/events/EVENT_ID_HERE/assign
+Content-Type: application/json
+Authorization: Bearer YOUR_CLERK_TOKEN
+
+{
+  "memberIds": ["USER_ID_3", "USER_ID_4"]
+}
+
+### 6. Test PUT /api/events/[id] (update event)
+PUT http://localhost:3000/api/events/EVENT_ID_HERE
+Content-Type: application/json
+Authorization: Bearer YOUR_CLERK_TOKEN
+
+{
+  "name": "Updated Event Name",
+  "description": "Updated description",
+  "assigned_members": ["USER_ID_1", "USER_ID_2", "USER_ID_3"]
+}
+
+### 7. Test GET /api/events?filter=my (should now return assigned events)
+GET http://localhost:3000/api/events?filter=my
+Authorization: Bearer YOUR_CLERK_TOKEN
+
+### 8. Test DELETE /api/events/[id] (delete event)
+DELETE http://localhost:3000/api/events/EVENT_ID_HERE
+Authorization: Bearer YOUR_CLERK_TOKEN

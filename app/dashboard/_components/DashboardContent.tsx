@@ -108,7 +108,7 @@ const DashboardContent = ({ userData }: DashboardContentProps) => {
   };
 
   const canManageOrganization = () => {
-    return userData.user.role === 'owner' ||
+    return ['super_admin', 'owner'].includes(userData.user.role) ||
            userData.user.permissions?.can_manage_organization;
   };
 
@@ -174,13 +174,17 @@ const DashboardContent = ({ userData }: DashboardContentProps) => {
               {userData.organization.plan_type} Plan
             </span>
             <span className={`rounded-full px-3 py-1 text-sm ${
-              userData.user.role === 'owner' 
+              userData.user.role === 'super_admin'
                 ? 'bg-red-600/20 text-red-300'
-                : userData.user.role === 'admin'
-                  ? 'bg-purple-600/20 text-purple-300'
-                  : 'bg-blue-600/20 text-blue-300'
+                : userData.user.role === 'owner' 
+                  ? 'bg-orange-600/20 text-orange-300'
+                  : userData.user.role === 'admin'
+                    ? 'bg-purple-600/20 text-purple-300'
+                    : userData.user.role === 'member'
+                      ? 'bg-blue-600/20 text-blue-300'
+                      : 'bg-green-600/20 text-green-300'
             }`}>
-              Role: {userData.user.role.charAt(0).toUpperCase() + userData.user.role.slice(1)}
+              Role: {userData.user.role === 'super_admin' ? 'Super Admin' : userData.user.role.charAt(0).toUpperCase() + userData.user.role.slice(1)}
             </span>
             {isAdmin() && (
               <span className="rounded-full bg-orange-600/20 px-3 py-1 text-sm text-orange-300">
@@ -190,12 +194,19 @@ const DashboardContent = ({ userData }: DashboardContentProps) => {
           </div>
 
           {/* Role Explanation */}
-          {userData.user.role === 'member' && (
-            <div className="mt-4 rounded-lg border border-blue-400/30 bg-blue-900/10 p-4">
-              <p className="text-sm text-blue-200">
-                <strong>Your Access:</strong> As a Member, you can view and work on events you're assigned to, 
-                manage NFC devices, and create landing pages. Creating new events and managing the team are 
-                restricted to Admins and Owners.
+          {userData.user.role === 'super_admin' && (
+            <div className="mt-4 rounded-lg border border-red-400/30 bg-red-900/10 p-4">
+              <p className="text-sm text-red-200">
+                <strong>Your Access:</strong> As a Super Admin, you have complete platform control including access to all organizations, 
+                all client data, billing management, and platform administration features.
+              </p>
+            </div>
+          )}
+          {userData.user.role === 'owner' && (
+            <div className="mt-4 rounded-lg border border-orange-400/30 bg-orange-900/10 p-4">
+              <p className="text-sm text-orange-200">
+                <strong>Your Access:</strong> As the Owner, you have full control of your organization including 
+                organization settings, billing, team management, and all features within your organization.
               </p>
             </div>
           )}
@@ -207,11 +218,20 @@ const DashboardContent = ({ userData }: DashboardContentProps) => {
               </p>
             </div>
           )}
-          {userData.user.role === 'owner' && (
-            <div className="mt-4 rounded-lg border border-red-400/30 bg-red-900/10 p-4">
-              <p className="text-sm text-red-200">
-                <strong>Your Access:</strong> As the Owner, you have full control of everything including 
-                organization settings, billing, and all management features.
+          {userData.user.role === 'member' && (
+            <div className="mt-4 rounded-lg border border-blue-400/30 bg-blue-900/10 p-4">
+              <p className="text-sm text-blue-200">
+                <strong>Your Access:</strong> As a Member, you can view and work on events you're assigned to, 
+                manage NFC devices, and create landing pages. Creating new events and managing the team are 
+                restricted to Admins and Owners.
+              </p>
+            </div>
+          )}
+          {userData.user.role === 'guest' && (
+            <div className="mt-4 rounded-lg border border-green-400/30 bg-green-900/10 p-4">
+              <p className="text-sm text-green-200">
+                <strong>Your Access:</strong> As a Guest, you have limited read-only access to events you're specifically invited to, 
+                including viewing event details, photo galleries, and RSVP functionality.
               </p>
             </div>
           )}

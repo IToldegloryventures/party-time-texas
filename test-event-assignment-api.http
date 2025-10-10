@@ -1,0 +1,98 @@
+### =====================================================
+### TEST EVENT ASSIGNMENT SYSTEM API
+### =====================================================
+### This file tests the Event Assignment System API endpoints
+### to verify that members only see their assigned events
+### =====================================================
+
+### 1. Test Events API - All Events (should work for super_admin, owner, admin)
+GET http://localhost:3000/api/events?filter=all
+Content-Type: application/json
+
+### 2. Test Events API - My Events (should work for all roles)
+GET http://localhost:3000/api/events?filter=my
+Content-Type: application/json
+
+### 3. Test Team Members API (needed for assignment)
+GET http://localhost:3000/api/team
+Content-Type: application/json
+
+### 4. Create Test Event (should work for super_admin, owner, admin)
+POST http://localhost:3000/api/events
+Content-Type: application/json
+
+{
+  "name": "Test Event - Assignment System",
+  "description": "Testing the event assignment system",
+  "event_type": "business",
+  "start_date": "2024-02-01T10:00:00Z",
+  "end_date": "2024-02-01T18:00:00Z",
+  "location": "Test Location",
+  "assigned_members": []
+}
+
+### 5. Get the created event ID and test assignment
+### (Replace {EVENT_ID} with actual event ID from step 4)
+POST http://localhost:3000/api/events/{EVENT_ID}/assign
+Content-Type: application/json
+
+{
+  "memberIds": ["user-id-1", "user-id-2"]
+}
+
+### 6. Test individual event access
+GET http://localhost:3000/api/events/{EVENT_ID}
+Content-Type: application/json
+
+### 7. Test event update (should work for super_admin, owner, admin)
+PUT http://localhost:3000/api/events/{EVENT_ID}
+Content-Type: application/json
+
+{
+  "name": "Updated Test Event",
+  "status": "active"
+}
+
+### 8. Test event deletion (should work for super_admin, owner, admin)
+DELETE http://localhost:3000/api/events/{EVENT_ID}
+Content-Type: application/json
+
+### =====================================================
+### EXPECTED RESULTS:
+### =====================================================
+### 
+### 1. GET /api/events?filter=all
+###    - Super Admin: Should see all events across all organizations
+###    - Owner/Admin: Should see all events in their organization
+###    - Member: Should see only events they're assigned to
+###    - Guest: Should see only events they're assigned to
+### 
+### 2. GET /api/events?filter=my
+###    - All roles: Should see only events they're assigned to
+### 
+### 3. GET /api/team
+###    - Should return list of team members in the organization
+###    - Should exclude the current user
+### 
+### 4. POST /api/events
+###    - Super Admin/Owner/Admin: Should create event successfully
+###    - Member/Guest: Should return 403 Forbidden
+### 
+### 5. POST /api/events/{id}/assign
+###    - Super Admin/Owner/Admin: Should assign members successfully
+###    - Member/Guest: Should return 403 Forbidden
+### 
+### 6. GET /api/events/{id}
+###    - Should return event details if user has access
+###    - Should return 404 if event doesn't exist
+###    - Should return 403 if user doesn't have access
+### 
+### 7. PUT /api/events/{id}
+###    - Super Admin/Owner/Admin: Should update successfully
+###    - Member/Guest: Should return 403 Forbidden
+### 
+### 8. DELETE /api/events/{id}
+###    - Super Admin/Owner/Admin: Should delete successfully
+###    - Member/Guest: Should return 403 Forbidden
+### 
+### =====================================================

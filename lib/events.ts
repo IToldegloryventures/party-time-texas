@@ -21,6 +21,7 @@ export interface Event {
   location?: string;
   status: 'draft' | 'published' | 'live' | 'completed' | 'cancelled';
   settings: Record<string, unknown>;
+  assigned_members: string[]; // Array of user IDs who can access this event
   created_at: string;
   updated_at: string;
 }
@@ -69,6 +70,7 @@ export class EventService {
     end_date?: string;
     location?: string;
     settings?: Record<string, unknown>;
+    assigned_members?: string[]; // Array of user IDs
   }): Promise<Event> {
     const { data: event, error } = await this.supabase
       .from('events')
@@ -82,6 +84,7 @@ export class EventService {
         location: data.location,
         status: 'draft',
         settings: data.settings || {},
+        assigned_members: data.assigned_members || [],
       })
       .select()
       .single();
@@ -98,10 +101,109 @@ export class EventService {
       .from('events')
       .select('*')
       .eq('organization_id', organizationId)
+      .order('created_at', { ascending: false});
+
+    if (error) throw error;
+    return data || [];
+  }
+
+  /**
+   * Get events assigned to a specific user (for Members)
+   */
+  async getUserAssignedEvents(userId: string): Promise<Event[]> {
+    const { data, error } = await this.supabase
+      .from('events')
+      .select('*')
+      .contains('assigned_members', [userId])
       .order('created_at', { ascending: false });
 
     if (error) throw error;
     return data || [];
+  }
+
+  /**
+   * Get all events a user can access (assigned + org events for admins/owners)
+   */
+  async getUserAccessibleEvents(
+    userId: string,
+    organizationId: string,
+    userRole: string
+  ): Promise<{ allEvents: Event[]; assignedEvents: Event[] }> {
+    // Owners and admins can see all org events
+    if (userRole === 'owner' || userRole === 'admin') {
+      const allEvents = await this.getOrganizationEvents(organizationId);
+      return { allEvents, assignedEvents: [] };
+    }
+
+    // Members only see assigned events
+    const assignedEvents = await this.getUserAssignedEvents(userId);
+    return { allEvents: assignedEvents, assignedEvents };
+  }
+
+  /**
+   * Check if a user can access an event
+   */
+  async canUserAccessEvent(
+    userId: string,
+    eventId: string,
+    userRole: string
+  ): Promise<boolean> {
+    const event = await this.getEvent(eventId);
+    if (!event) return false;
+
+    // Owners and admins can access all events in their org
+    if (userRole === 'owner' || userRole === 'admin') {
+      return true;
+    }
+
+    // Members can only access events they're assigned to
+    return event.assigned_members?.includes(userId) || false;
+  }
+
+  /**
+   * Assign members to an event
+   */
+  async assignMembersToEvent(
+    eventId: string,
+    memberIds: string[]
+  ): Promise<Event> {
+    const { data, error} = await this.supabase
+      .from('events')
+      .update({ assigned_members: memberIds })
+      .eq('id', eventId)
+      .select()
+      .single();
+
+    if (error) throw error;
+    return data;
+  }
+
+  /**
+   * Add a member to an event's assigned list
+   */
+  async addMemberToEvent(eventId: string, userId: string): Promise<Event> {
+    const event = await this.getEvent(eventId);
+    if (!event) throw new Error('Event not found');
+
+    const currentMembers = event.assigned_members || [];
+    if (!currentMembers.includes(userId)) {
+      currentMembers.push(userId);
+    }
+
+    return this.assignMembersToEvent(eventId, currentMembers);
+  }
+
+  /**
+   * Remove a member from an event's assigned list
+   */
+  async removeMemberFromEvent(eventId: string, userId: string): Promise<Event> {
+    const event = await this.getEvent(eventId);
+    if (!event) throw new Error('Event not found');
+
+    const currentMembers = event.assigned_members || [];
+    const updatedMembers = currentMembers.filter(id => id !== userId);
+
+    return this.assignMembersToEvent(eventId, updatedMembers);
   }
 
   /**

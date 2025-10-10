@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { getUserOrganizationData } from '@/lib/supabase/user-org';
 import { registerNFCDevice, getNFCDevices, deleteNFCDevice } from '@/lib/nfc';
+import LinkLandingPageModal from './LinkLandingPageModal';
 
 // interface NFCDevice {
 //   id: string;
@@ -22,6 +23,10 @@ const NFCDeviceManager = () => {
   const [devices, setDevices] = useState<Record<string, unknown>[]>([]);
   const [loading, setLoading] = useState(true);
   const [showAddForm, setShowAddForm] = useState(false);
+  const [linkModalDevice, setLinkModalDevice] = useState<Record<
+    string,
+    unknown
+  > | null>(null);
   const [newDevice, setNewDevice] = useState({
     device_type: 'business_card',
     name: '',
@@ -97,6 +102,10 @@ const NFCDeviceManager = () => {
         console.error('Error deleting device:', error);
       }
     }
+  };
+
+  const handleLinkSuccess = () => {
+    fetchDevices(); // Refresh the devices list to show updated linking status
   };
 
   if (!isLoaded || loading) {
@@ -329,6 +338,19 @@ const NFCDeviceManager = () => {
                       </span>
                       <span>Scans: {device.scan_count}</span>
                     </div>
+                    <div className="mt-2 flex items-center gap-4 text-sm">
+                      <span
+                        className={`rounded-full px-2 py-1 text-xs font-medium ${
+                          device.landing_page_id
+                            ? 'bg-green-600/20 text-green-300'
+                            : 'bg-gray-600/20 text-gray-300'
+                        }`}
+                      >
+                        {device.landing_page_id
+                          ? '🔗 Linked to Landing Page'
+                          : '🔗 No Landing Page'}
+                      </span>
+                    </div>
                     <div className="mt-2 flex items-center gap-4 text-sm text-white/50">
                       <span>
                         Contact: {device.metadata?.contact_email || 'No email'}
@@ -342,6 +364,14 @@ const NFCDeviceManager = () => {
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => setLinkModalDevice(device)}
+                      className="rounded-lg bg-purple-600 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-purple-700"
+                    >
+                      {device.landing_page_id
+                        ? 'Change Link'
+                        : 'Link Landing Page'}
+                    </button>
                     <button className="rounded-lg bg-blue-600 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-blue-700">
                       Edit
                     </button>
@@ -357,6 +387,15 @@ const NFCDeviceManager = () => {
             ))
           )}
         </div>
+
+        {/* Link Landing Page Modal */}
+        {linkModalDevice && (
+          <LinkLandingPageModal
+            device={linkModalDevice}
+            onClose={() => setLinkModalDevice(null)}
+            onLinkSuccess={handleLinkSuccess}
+          />
+        )}
       </div>
     </div>
   );

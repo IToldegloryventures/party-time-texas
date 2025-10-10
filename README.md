@@ -89,8 +89,10 @@
 
    ```bash
    # Run the database schema
-   psql -h your-supabase-host -U postgres -d postgres -f lib/database/cosmic-portals-schema.sql
+   psql -h your-supabase-host -U postgres -d postgres -f supabase-setup.sql
    ```
+   
+   Or copy and paste the contents of `supabase-setup.sql` into the Supabase SQL Editor.
 
 5. **Start the development server**
    ```bash
@@ -105,16 +107,30 @@ cosmic-portals-saas/
 │   ├── (auth)/            # Authentication pages
 │   ├── dashboard/         # Dashboard pages
 │   ├── api/               # API routes
-│   └── pricing/           # Pricing page
+│   └── admin/             # Admin panel
 ├── components/            # React components
 │   ├── ui/                # Reusable UI components
 │   └── ...                # Feature components
 ├── lib/                   # Utility functions
-│   ├── database/          # Database schemas
+│   ├── supabase/          # Database client
 │   ├── ai/                # AI integration
 │   └── ...                # Other utilities
-└── types/                 # TypeScript types
+├── docs/                  # 📚 All documentation
+│   ├── QUICK_REFERENCE.md # ⚡ Start here
+│   └── ...                # See docs/README.md
+├── scripts/               # Utility scripts
+└── supabase-setup.sql     # Master database schema
 ```
+
+## 📚 Documentation
+
+All documentation is now organized in the [`/docs`](docs/) folder.
+
+**Quick Links:**
+- 📖 [Documentation Index](docs/README.md) - All docs organized
+- ⚡ [Quick Reference](docs/QUICK_REFERENCE.md) - Start here (5 min read)
+- 📊 [Project Analysis](docs/PROJECT_STATE_ANALYSIS.md) - Complete state (30 min read)
+- ✅ [TODO Checklist](docs/REMAINING_TODO_CHECKLIST.md) - What to build next
 
 ## 🔧 Development
 
@@ -177,4 +193,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ---
 
 **Built with ❤️ for the future of engagement**
->>>>>>> 2225235 (Add complete landing page builder with drag-and-drop functionality, analytics dashboard, and UTM tracking)

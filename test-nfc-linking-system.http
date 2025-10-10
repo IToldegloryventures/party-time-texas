@@ -1,0 +1,100 @@
+### =====================================================
+### TEST NFC DEVICE-TO-LANDING PAGE LINKING SYSTEM
+### =====================================================
+### This file tests the complete NFC linking system
+### =====================================================
+
+### 1. Test Landing Pages API (needed for linking modal)
+GET http://localhost:3000/api/landing-pages
+Content-Type: application/json
+
+### 2. Test NFC Devices API (to get device ID for testing)
+GET http://localhost:3000/api/devices
+Content-Type: application/json
+
+### 3. Test Device Linking API (replace {DEVICE_ID} with actual device ID)
+POST http://localhost:3000/api/devices/{DEVICE_ID}/link-landing-page
+Content-Type: application/json
+
+{
+  "landing_page_id": "landing-page-id-here"
+}
+
+### 4. Test NFC Scan Redirect (replace {DEVICE_ID} with actual device ID)
+### This should redirect to the linked landing page
+GET http://localhost:3000/scan/{DEVICE_ID}
+Content-Type: application/json
+
+### 5. Test NFC Scan with UTM Parameters
+GET http://localhost:3000/scan/{DEVICE_ID}?utm_source=test&utm_medium=nfc&utm_campaign=testing
+Content-Type: application/json
+
+### 6. Test Unlinking Device (set landing_page_id to null)
+POST http://localhost:3000/api/devices/{DEVICE_ID}/link-landing-page
+Content-Type: application/json
+
+{
+  "landing_page_id": null
+}
+
+### 7. Test NFC Scan After Unlinking (should redirect to /nfc-scan page)
+GET http://localhost:3000/scan/{DEVICE_ID}
+Content-Type: application/json
+
+### 8. Test Invalid Device ID (should redirect to /device-not-found)
+GET http://localhost:3000/scan/invalid-device-id
+Content-Type: application/json
+
+### =====================================================
+### EXPECTED RESULTS:
+### =====================================================
+### 
+### 1. GET /api/landing-pages
+###    - Should return list of landing pages for the organization
+###    - Should include id, name, url, status, created_at
+### 
+### 2. GET /api/devices
+###    - Should return list of NFC devices for the organization
+###    - Should include device IDs for testing
+### 
+### 3. POST /api/devices/{id}/link-landing-page
+###    - Should successfully link device to landing page
+###    - Should return success message and updated device data
+### 
+### 4. GET /scan/{DEVICE_ID}
+###    - Should redirect to linked landing page URL
+###    - Should include UTM parameters for tracking
+###    - Should increment scan count in database
+### 
+### 5. GET /scan/{DEVICE_ID}?utm_source=test...
+###    - Should redirect with custom UTM parameters
+###    - Should track the scan with provided parameters
+### 
+### 6. POST /api/devices/{id}/link-landing-page (unlink)
+###    - Should successfully unlink device from landing page
+###    - Should set landing_page_id to null
+### 
+### 7. GET /scan/{DEVICE_ID} (after unlinking)
+###    - Should redirect to /nfc-scan page
+###    - Should show "not linked" message
+### 
+### 8. GET /scan/invalid-device-id
+###    - Should redirect to /device-not-found page
+###    - Should show error message
+### 
+### =====================================================
+### TESTING CHECKLIST:
+### =====================================================
+### 
+### ✅ Landing Pages API returns correct data
+### ✅ NFC Devices API returns device list
+### ✅ Device linking API works correctly
+### ✅ NFC scan redirects to linked landing page
+### ✅ UTM parameters are preserved in redirects
+### ✅ Device unlinking works correctly
+### ✅ Unlinked devices redirect to nfc-scan page
+### ✅ Invalid devices redirect to device-not-found page
+### ✅ Scan counts are incremented correctly
+### ✅ Database updates work properly
+### 
+### =====================================================

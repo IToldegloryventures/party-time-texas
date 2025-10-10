@@ -19,8 +19,8 @@ export default async function SettingsPage() {
     redirect('/sign-up');
   }
 
-  // Only owners can access settings
-  if (userData.user.role !== 'owner') {
+  // Only super admins and owners can access settings
+  if (!['super_admin', 'owner'].includes(userData.user.role)) {
     redirect('/dashboard');
   }
 

@@ -45,7 +45,7 @@ testConnection().then(success => {
     console.log('Next steps:');
     console.log('1. Go to Supabase Dashboard → SQL Editor');
     console.log(
-      '2. Copy and paste the schema from lib/database/cosmic-portals-schema.sql'
+      '2. Copy and paste the schema from supabase-setup.sql'
     );
     console.log('3. Run the SQL to create all tables');
   }

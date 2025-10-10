@@ -1,105 +1,51 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { auth } from '@clerk/nextjs/server';
-import { supabase } from '@/lib/supabase/client';
-import { getUserOrganizationData } from '@/lib/supabase/user-org';
+import { NextResponse } from 'next/server';
+import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 
 export async function GET() {
   try {
-    const { userId } = await auth();
-    if (!userId) {
+    const supabase = createRouteHandlerClient({ cookies });
+
+    // Get the current user
+    const {
+      data: { user: authUser },
+    } = await supabase.auth.getUser();
+    if (!authUser) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    // Get user's organization
-    const orgData = await getUserOrganizationData(userId);
-    if (!orgData) {
-      return NextResponse.json({ error: 'Organization not found' }, { status: 404 });
+    // Get user data from our users table
+    const { data: userData } = await supabase
+      .from('users')
+      .select('id, organization_id, role')
+      .eq('clerk_id', authUser.id)
+      .single();
+
+    if (!userData) {
+      return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
-    // Fetch landing pages for the organization
-    const { data: pages, error } = await supabase
+    // Get all landing pages for the user's organization
+    const { data: landingPages, error } = await supabase
       .from('landing_pages')
-      .select('*')
-      .eq('organization_id', orgData.organization.id)
+      .select('id, name, url, status, created_at')
+      .eq('organization_id', userData.organization_id)
       .order('created_at', { ascending: false });
 
     if (error) {
       console.error('Error fetching landing pages:', error);
-      return NextResponse.json({ error: 'Failed to fetch landing pages' }, { status: 500 });
-    }
-
-    return NextResponse.json({ pages });
-  } catch (error) {
-    console.error('Error in GET /api/landing-pages:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
-  }
-}
-
-export async function POST(request: NextRequest) {
-  try {
-    const { userId } = await auth();
-    if (!userId) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
-
-    // Get user's organization
-    const orgData = await getUserOrganizationData(userId);
-    if (!orgData) {
-      return NextResponse.json({ error: 'Organization not found' }, { status: 404 });
-    }
-
-    const body = await request.json();
-    const { name, title, slug, content, status = 'draft' } = body;
-
-    if (!name || !title || !slug || !content) {
       return NextResponse.json(
-        { error: 'Missing required fields: name, title, slug, content' },
-        { status: 400 }
+        { error: 'Failed to fetch landing pages' },
+        { status: 500 }
       );
     }
 
-    // Check if slug already exists for this organization
-    const { data: existingPage } = await supabase
-      .from('landing_pages')
-      .select('id')
-      .eq('organization_id', orgData.organization.id)
-      .eq('slug', slug)
-      .single();
-
-    if (existingPage) {
-      return NextResponse.json(
-        { error: 'A page with this slug already exists' },
-        { status: 409 }
-      );
-    }
-
-    // Create the landing page
-    const { data: page, error } = await supabase
-      .from('landing_pages')
-      .insert({
-        organization_id: orgData.organization.id,
-        name,
-        title,
-        slug,
-        content,
-        status,
-        permissions: {
-          owner_id: userId,
-          editors: [],
-          viewers: []
-        }
-      })
-      .select()
-      .single();
-
-    if (error) {
-      console.error('Error creating landing page:', error);
-      return NextResponse.json({ error: 'Failed to create landing page' }, { status: 500 });
-    }
-
-    return NextResponse.json({ page }, { status: 201 });
+    return NextResponse.json(landingPages || []);
   } catch (error) {
-    console.error('Error in POST /api/landing-pages:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    console.error('Landing pages API error:', error);
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }

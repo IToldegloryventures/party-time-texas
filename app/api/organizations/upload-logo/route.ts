@@ -18,10 +18,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Organization not found' }, { status: 404 });
     }
 
-    // Only owners can upload logos
-    if (userData.user.role !== 'owner') {
+    // Only super admins and owners can upload logos
+    if (!['super_admin', 'owner'].includes(userData.user.role)) {
       return NextResponse.json(
-        { error: 'Only organization owners can upload logos' },
+        { error: 'Only super admins and organization owners can upload logos' },
         { status: 403 }
       );
     }
