@@ -1,56 +1,44 @@
-import { NextResponse } from 'next/server';
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
-import { cookies } from 'next/headers';
+import { NextRequest, NextResponse } from 'next/server';
+import { auth } from '@clerk/nextjs/server';
+import { supabase } from '@/lib/supabase/client';
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    const supabase = createRouteHandlerClient({ cookies });
-
-    // Get the current user
-    const { data: { user: authUser } } = await supabase.auth.getUser();
-    if (!authUser) {
+    const { userId } = await auth();
+    if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    // Get user data from our users table
     const { data: userData } = await supabase
       .from('users')
-      .select('id, organization_id, role')
-      .eq('clerk_id', authUser.id)
+      .select('organization_id')
+      .eq('clerk_id', userId)
       .single();
 
-    if (!userData) {
-      return NextResponse.json({ error: 'User not found' }, { status: 404 });
+    if (!userData || !userData.organization_id) {
+      return NextResponse.json({ error: 'User or organization not found' }, { status: 404 });
     }
 
-    // Get all team members from the same organization
     const { data: teamMembers, error } = await supabase
       .from('users')
-      .select('id, name, email, role, status, created_at')
+      .select('id, email, first_name, last_name')
       .eq('organization_id', userData.organization_id)
-      .eq('status', 'active')
-      .order('created_at', { ascending: false });
+      .order('first_name', { ascending: true });
 
     if (error) {
       console.error('Error fetching team members:', error);
       return NextResponse.json({ error: 'Failed to fetch team members' }, { status: 500 });
     }
 
-    // Filter out the current user and format the response
-    const members = teamMembers
-      ?.filter(member => member.id !== userData.id)
-      .map(member => ({
-        id: member.id,
-        name: member.name || member.email.split('@')[0],
-        email: member.email,
-        role: member.role,
-        status: member.status,
-        created_at: member.created_at
-      })) || [];
+    const formattedMembers = teamMembers.map(member => ({
+      id: member.id,
+      name: `${member.first_name || ''} ${member.last_name || ''}`.trim() || member.email,
+      email: member.email,
+    }));
 
-    return NextResponse.json(members);
+    return NextResponse.json(formattedMembers);
   } catch (error) {
-    console.error('Team API error:', error);
+    console.error('API error fetching team members:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
