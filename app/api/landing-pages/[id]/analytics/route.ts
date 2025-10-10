@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
-import { supabaseAdminAdmin } from '@/lib/supabaseAdmin/client';
-import { getUserOrganizationData } from '@/lib/supabaseAdmin/user-org';
+import { supabaseAdmin } from '@/lib/supabase/client';
+// Removed getUserOrganizationData import - using direct database queries instead
 
 export async function GET(
   request: NextRequest,
@@ -17,9 +17,27 @@ export async function GET(
     const { searchParams } = new URL(request.url);
     const range = searchParams.get('range') || '7d';
 
-    // Get user's organization
-    const orgData = await getUserOrganizationData(userId);
-    if (!orgData) {
+    // Get user's organization data directly
+    const { data: userData, error: userError } = await supabaseAdmin
+      .from('users')
+      .select('id, organization_id, role')
+      .eq('clerk_id', userId)
+      .single();
+
+    if (userError || !userData) {
+      return NextResponse.json(
+        { error: 'User not found' },
+        { status: 404 }
+      );
+    }
+
+    const { data: organization, error: orgError } = await supabaseAdmin
+      .from('organizations')
+      .select('id')
+      .eq('id', userData.organization_id)
+      .single();
+
+    if (orgError || !organization) {
       return NextResponse.json(
         { error: 'Organization not found' },
         { status: 404 }
@@ -31,7 +49,7 @@ export async function GET(
       .from('landing_pages')
       .select('*')
       .eq('id', id)
-      .eq('organization_id', orgData.organization.id)
+      .eq('organization_id', userData.organization_id)
       .single();
 
     if (pageError || !page) {

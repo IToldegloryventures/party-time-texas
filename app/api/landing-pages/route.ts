@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
-import { supabaseAdminAdmin } from '@/lib/supabaseAdmin/client';
+import { supabaseAdmin } from '@/lib/supabase/client';
 
 export async function GET() {
   try {
