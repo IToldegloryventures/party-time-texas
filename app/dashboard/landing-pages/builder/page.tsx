@@ -20,7 +20,7 @@ export default async function LandingPageBuilderPage() {
   }
 
   // Check if user can manage landing pages
-  const canManageLandingPages = ['owner', 'admin', 'member'].includes(userData.user.role) ||
+  const canManageLandingPages = ['super_admin', 'owner', 'admin', 'member'].includes(userData.user.role) ||
                                userData.user.permissions?.can_manage_landing_pages;
 
   if (!canManageLandingPages) {

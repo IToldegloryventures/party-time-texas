@@ -206,7 +206,7 @@ const LandingPageManager = ({ userData }: LandingPageManagerProps) => {
               <div className="mb-4 flex items-center justify-between">
                 <div>
                   <h3 className="text-lg font-semibold text-white">
-                    {page.name as string}
+                    {(page.name as string) || 'Untitled Landing Page'}
                   </h3>
                   <p className="text-white/70">
                     Status:{' '}
