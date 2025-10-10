@@ -84,17 +84,29 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Check if slug is already taken
-    const { data: existingPage } = await supabaseAdmin
+    // Check if slug is already taken (globally unique)
+    const { data: existingPage, error: slugCheckError } = await supabaseAdmin
       .from('landing_pages')
-      .select('id')
+      .select('id, name, organization_id')
       .eq('slug', slug)
       .single();
 
     if (existingPage) {
       return NextResponse.json(
-        { error: 'Slug already exists. Please choose a different one.' },
+        { 
+          error: 'Slug already exists globally. Please choose a different one.',
+          details: `Slug '${slug}' is already used by another landing page.`
+        },
         { status: 400 }
+      );
+    }
+
+    // If slug check failed for other reasons, handle it
+    if (slugCheckError && slugCheckError.code !== 'PGRST116') {
+      console.error('Error checking slug uniqueness:', slugCheckError);
+      return NextResponse.json(
+        { error: 'Error validating slug uniqueness' },
+        { status: 500 }
       );
     }
 
@@ -122,6 +134,18 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       console.error('Error creating landing page:', error);
+      
+      // Handle unique constraint violation
+      if (error.code === '23505' && error.message.includes('landing_pages_slug_unique')) {
+        return NextResponse.json(
+          { 
+            error: 'Slug already exists globally. Please choose a different one.',
+            details: `The slug '${slug}' is already in use by another landing page.`
+          },
+          { status: 400 }
+        );
+      }
+      
       return NextResponse.json(
         { error: 'Failed to create landing page' },
         { status: 500 }
