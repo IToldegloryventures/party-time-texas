@@ -1,6 +1,5 @@
 'use client';
 
-import { useUser } from '@clerk/nextjs';
 import { useEffect, useState } from 'react';
 import { getUserOrganizationData } from '@/lib/supabase/user-org';
 import { detectUserType } from '@/lib/user-type-detection';
@@ -29,7 +28,6 @@ interface LandingPageManagerProps {
 }
 
 const LandingPageManager = ({ userData }: LandingPageManagerProps) => {
-  const { user, isLoaded } = useUser();
   const [landingPages, setLandingPages] = useState<Record<string, unknown>[]>(
     []
   );
@@ -42,10 +40,9 @@ const LandingPageManager = ({ userData }: LandingPageManagerProps) => {
   const canCreateEdit = isSuperAdmin || hasBuilderAddon;
 
   useEffect(() => {
-    if (user && isLoaded) {
-      fetchLandingPages();
-    }
-  }, [user, isLoaded]);
+    // Component has userData prop, no need to wait for useUser
+    fetchLandingPages();
+  }, []);
 
   const fetchLandingPages = async () => {
     try {
@@ -135,7 +132,7 @@ const LandingPageManager = ({ userData }: LandingPageManagerProps) => {
     }
   };
 
-  if (!isLoaded || loading) {
+  if (loading) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-black">
         <div className="text-center">
