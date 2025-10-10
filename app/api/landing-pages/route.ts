@@ -115,7 +115,7 @@ export async function POST(request: NextRequest) {
         content: content || {},
         is_published: status === 'published',
         status,
-        created_by: userData.id,
+        // created_by field doesn't exist in the schema
       })
       .select()
       .single();
