@@ -1,5 +1,5 @@
 // User and Organization utilities for Cosmic Portals
-import { supabase } from './client';
+import { supabase, createClient } from './client';
 
 export interface User {
   id: string;
@@ -36,8 +36,20 @@ export async function getUserOrganizationData(
   clerkUserId: string
 ): Promise<OrganizationData | null> {
   try {
+    // Use service role key for server-side queries to bypass RLS
+    const supabaseAdmin = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!,
+      {
+        auth: {
+          autoRefreshToken: false,
+          persistSession: false,
+        },
+      }
+    );
+
     // Get user data
-    const { data: user, error: userError } = await supabase
+    const { data: user, error: userError } = await supabaseAdmin
       .from('users')
       .select('*')
       .eq('clerk_id', clerkUserId)
@@ -49,7 +61,7 @@ export async function getUserOrganizationData(
     }
 
     // Get organization data
-    const { data: organization, error: orgError } = await supabase
+    const { data: organization, error: orgError } = await supabaseAdmin
       .from('organizations')
       .select('*')
       .eq('id', user.organization_id)
@@ -61,19 +73,19 @@ export async function getUserOrganizationData(
     }
 
     // Get NFC devices for this organization
-    const { data: nfcDevices, error: _devicesError } = await supabase
+    const { data: nfcDevices, error: _devicesError } = await supabaseAdmin
       .from('nfc_devices')
       .select('*')
       .eq('organization_id', user.organization_id);
 
     // Get events for this organization
-    const { data: events, error: _eventsError } = await supabase
+    const { data: events, error: _eventsError } = await supabaseAdmin
       .from('events')
       .select('*')
       .eq('organization_id', user.organization_id);
 
     // Get attendees for this organization
-    const { data: attendees, error: _attendeesError } = await supabase
+    const { data: attendees, error: _attendeesError } = await supabaseAdmin
       .from('attendees')
       .select('*')
       .eq('organization_id', user.organization_id);
