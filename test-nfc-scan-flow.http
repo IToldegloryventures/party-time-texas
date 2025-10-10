@@ -1,0 +1,34 @@
+### Test NFC Device Scan Flow
+
+# Test 1: Scan NFC device with UTM parameters (should redirect to landing page)
+GET http://localhost:3000/scan/d62b6988-2b3d-4c30-b3a3-bc804e8e1095?utm_source=test&utm_medium=nfc&utm_campaign=party-time
+
+###
+
+# Test 2: Scan NFC device without UTM parameters (should redirect to landing page)
+GET http://localhost:3000/scan/d62b6988-2b3d-4c30-b3a3-bc804e8e1095
+
+###
+
+# Test 3: Test landing page URL directly (should work)
+GET http://localhost:3000/landing/party-time-texas
+
+###
+
+# Test 4: Test non-existent device (should redirect to device-not-found)
+GET http://localhost:3000/scan/non-existent-device-id
+
+###
+
+# Test 5: Test NFC scan page (for unlinked devices)
+GET http://localhost:3000/nfc-scan?device_id=test-device&device_name=Test%20Device&device_type=nfc_tag
+
+###
+
+# Test 6: Test device-not-found page
+GET http://localhost:3000/device-not-found
+
+###
+
+# Test 7: Test scan-error page
+GET http://localhost:3000/scan-error

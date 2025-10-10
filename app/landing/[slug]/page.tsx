@@ -1,5 +1,5 @@
 // import { notFound } from 'next/navigation';
-import { supabase } from '@/lib/supabase/client';
+import { supabaseAdmin } from '@/lib/supabase/client';
 
 interface LandingPageProps {
   params: Promise<{
@@ -12,11 +12,11 @@ export default async function LandingPage({ params }: LandingPageProps) {
 
   console.log('=== DYNAMIC ROUTE DEBUG ===');
   console.log('Fetching landing page for slug:', slug);
-  console.log('Supabase client:', !!supabase);
+  console.log('Supabase client:', !!supabaseAdmin);
 
   try {
     // Fetch the landing page from database
-    const { data: page, error } = await supabase
+    const { data: page, error } = await supabaseAdmin
       .from('landing_pages')
       .select('*')
       .eq('slug', slug)
@@ -60,7 +60,7 @@ export default async function LandingPage({ params }: LandingPageProps) {
 
     // Update view count
     try {
-      await supabase
+      await supabaseAdmin
         .from('landing_pages')
         .update({
           view_count: (page.view_count || 0) + 1,
