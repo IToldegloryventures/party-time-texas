@@ -20,19 +20,19 @@ const ArchitectureDiagram: React.FC = () => {
       {/* Main Diagram */}
       <div className="mx-auto max-w-7xl px-4 py-8">
         {/* Main Architecture Row */}
-        <div className="mb-8 grid grid-cols-6 gap-6">
+        <div className="mb-8 grid grid-cols-3 gap-8">
           {/* 1. Entry Points & Authentication */}
           <div className="relative rounded-xl border-4 border-purple-500 bg-purple-100 p-4">
             <div className="absolute top-1/2 -right-3 -translate-y-1/2 transform">
               <div className="h-0 w-0 border-t-[10px] border-b-[10px] border-l-[15px] border-t-transparent border-b-transparent border-l-gray-600"></div>
-              <div className="absolute -top-6 -right-8 text-xs font-bold whitespace-nowrap text-gray-600">
+              <div className="absolute -top-6 -right-8 text-sm font-bold whitespace-nowrap text-gray-600">
                 API Requests
               </div>
             </div>
-            <h3 className="mb-3 text-center text-sm font-bold tracking-wide uppercase">
+            <h3 className="mb-4 text-center text-lg font-bold tracking-wide uppercase">
               Entry Points & Authentication
             </h3>
-            <div className="text-xs leading-relaxed">
+            <div className="text-sm leading-relaxed">
               <strong>
                 📱 Mobile App
                 <br />
@@ -67,14 +67,14 @@ const ArchitectureDiagram: React.FC = () => {
           <div className="relative rounded-xl border-4 border-orange-500 bg-orange-100 p-4">
             <div className="absolute top-1/2 -right-3 -translate-y-1/2 transform">
               <div className="h-0 w-0 border-t-[10px] border-b-[10px] border-l-[15px] border-t-transparent border-b-transparent border-l-gray-600"></div>
-              <div className="absolute -top-6 -right-8 text-xs font-bold whitespace-nowrap text-gray-600">
+              <div className="absolute -top-6 -right-8 text-sm font-bold whitespace-nowrap text-gray-600">
                 AI Triggers
               </div>
             </div>
-            <h3 className="mb-3 text-center text-sm font-bold tracking-wide uppercase">
+            <h3 className="mb-4 text-center text-lg font-bold tracking-wide uppercase">
               AI Agent Ecosystem
             </h3>
-            <div className="text-xs leading-relaxed">
+            <div className="text-sm leading-relaxed">
               <strong>🤖 AI Agent Gateway</strong>
               <br />
               • Landing Page Generator Agent
@@ -96,14 +96,14 @@ const ArchitectureDiagram: React.FC = () => {
           <div className="relative rounded-xl border-4 border-red-500 bg-red-100 p-4">
             <div className="absolute top-1/2 -right-3 -translate-y-1/2 transform">
               <div className="h-0 w-0 border-t-[10px] border-b-[10px] border-l-[15px] border-t-transparent border-b-transparent border-l-gray-600"></div>
-              <div className="absolute -top-6 -right-8 text-xs font-bold whitespace-nowrap text-gray-600">
+              <div className="absolute -top-6 -right-8 text-sm font-bold whitespace-nowrap text-gray-600">
                 DB R/W
               </div>
             </div>
-            <h3 className="mb-3 text-center text-sm font-bold tracking-wide uppercase">
+            <h3 className="mb-4 text-center text-lg font-bold tracking-wide uppercase">
               Core Dashboard Modules
             </h3>
-            <div className="text-xs leading-relaxed">
+            <div className="text-sm leading-relaxed">
               <strong>🧭 Central Dashboard</strong>
               <br />
               (Next.js 15 App Router)
@@ -128,19 +128,22 @@ const ArchitectureDiagram: React.FC = () => {
               🎨 White-Label Settings (Custom Domains + Branding)
             </div>
           </div>
+        </div>
 
+        {/* Second Row - Database, Analytics, Services */}
+        <div className="mb-8 grid grid-cols-3 gap-8">
           {/* 4. Database Architecture */}
-          <div className="relative rounded-xl border-4 border-green-500 bg-green-100 p-4">
+          <div className="relative rounded-xl border-4 border-green-500 bg-green-100 p-6">
             <div className="absolute top-1/2 -right-3 -translate-y-1/2 transform">
               <div className="h-0 w-0 border-t-[10px] border-b-[10px] border-l-[15px] border-t-transparent border-b-transparent border-l-gray-600"></div>
-              <div className="absolute -top-6 -right-8 text-xs font-bold whitespace-nowrap text-gray-600">
+              <div className="absolute -top-6 -right-8 text-sm font-bold whitespace-nowrap text-gray-600">
                 Events
               </div>
             </div>
-            <h3 className="mb-3 text-center text-sm font-bold tracking-wide uppercase">
+            <h3 className="mb-4 text-center text-lg font-bold tracking-wide uppercase">
               Database Architecture
             </h3>
-            <div className="text-xs leading-relaxed">
+            <div className="text-sm leading-relaxed">
               <strong>Supabase PostgreSQL</strong>
               <br />
               (Multi-tenant RLS)
@@ -168,17 +171,17 @@ const ArchitectureDiagram: React.FC = () => {
           </div>
 
           {/* 5. Analytics Engine */}
-          <div className="relative rounded-xl border-4 border-blue-500 bg-blue-100 p-4">
+          <div className="relative rounded-xl border-4 border-blue-500 bg-blue-100 p-6">
             <div className="absolute top-1/2 -right-3 -translate-y-1/2 transform">
               <div className="h-0 w-0 border-t-[10px] border-b-[10px] border-l-[15px] border-t-transparent border-b-transparent border-l-gray-600"></div>
-              <div className="absolute -top-6 -right-8 text-xs font-bold whitespace-nowrap text-gray-600">
+              <div className="absolute -top-6 -right-8 text-sm font-bold whitespace-nowrap text-gray-600">
                 Insights
               </div>
             </div>
-            <h3 className="mb-3 text-center text-sm font-bold tracking-wide uppercase">
+            <h3 className="mb-4 text-center text-lg font-bold tracking-wide uppercase">
               Analytics Engine
             </h3>
-            <div className="text-xs leading-relaxed">
+            <div className="text-sm leading-relaxed">
               <strong>Session Tracking:</strong>
               <br />
               NFC scan events, landing page interactions,
@@ -195,11 +198,11 @@ const ArchitectureDiagram: React.FC = () => {
           </div>
 
           {/* 6. Integrated Services */}
-          <div className="rounded-xl border-4 border-yellow-500 bg-yellow-100 p-4">
-            <h3 className="mb-3 text-center text-sm font-bold tracking-wide uppercase">
+          <div className="rounded-xl border-4 border-yellow-500 bg-yellow-100 p-6">
+            <h3 className="mb-4 text-center text-lg font-bold tracking-wide uppercase">
               Integrated Services
             </h3>
-            <div className="text-xs leading-relaxed">
+            <div className="text-sm leading-relaxed">
               <strong>Multi-Channel Communication:</strong>
               <br />
               Push, Email, SMS, Webhooks
@@ -218,13 +221,13 @@ const ArchitectureDiagram: React.FC = () => {
         </div>
 
         {/* Security & Developer Row */}
-        <div className="mb-8 grid grid-cols-2 gap-6">
+        <div className="mb-8 grid grid-cols-2 gap-8">
           {/* 7. Security & Compliance */}
-          <div className="rounded-xl border-4 border-purple-700 bg-purple-200 p-4">
-            <h3 className="mb-3 text-center text-sm font-bold tracking-wide uppercase">
+          <div className="rounded-xl border-4 border-purple-700 bg-purple-200 p-6">
+            <h3 className="mb-4 text-center text-lg font-bold tracking-wide uppercase">
               Security & Compliance
             </h3>
-            <div className="text-xs leading-relaxed">
+            <div className="text-sm leading-relaxed">
               <strong>Multi-Layer Security:</strong>
               <br />
               Clerk Auth, Supabase RLS, API Rate Limiting,
@@ -234,11 +237,11 @@ const ArchitectureDiagram: React.FC = () => {
           </div>
 
           {/* 8. Developer Ecosystem */}
-          <div className="rounded-xl border-4 border-pink-500 bg-pink-100 p-4">
-            <h3 className="mb-3 text-center text-sm font-bold tracking-wide uppercase">
+          <div className="rounded-xl border-4 border-pink-500 bg-pink-100 p-6">
+            <h3 className="mb-4 text-center text-lg font-bold tracking-wide uppercase">
               Developer Ecosystem
             </h3>
-            <div className="text-xs leading-relaxed">
+            <div className="text-sm leading-relaxed">
               <strong>API & Integration:</strong>
               <br />
               RESTful API, Webhooks, SDK, Zapier,
@@ -249,13 +252,13 @@ const ArchitectureDiagram: React.FC = () => {
         </div>
 
         {/* Bottom Sections */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 gap-8">
           {/* Guest NFC Scan Flow */}
-          <div className="rounded-xl border-4 border-green-500 bg-green-100 p-4">
-            <h3 className="mb-3 text-center text-sm font-bold tracking-wide uppercase">
+          <div className="rounded-xl border-4 border-green-500 bg-green-100 p-6">
+            <h3 className="mb-4 text-center text-lg font-bold tracking-wide uppercase">
               🎯 Guest NFC Scan Flow Example
             </h3>
-            <div className="text-xs leading-relaxed">
+            <div className="text-sm leading-relaxed">
               <strong>1.</strong> Guest taps NFC device
               <br />
               <strong>2.</strong> Landing page loads instantly
@@ -277,13 +280,13 @@ const ArchitectureDiagram: React.FC = () => {
           </div>
 
           {/* Legends */}
-          <div className="rounded-xl border-4 border-gray-300 bg-white p-4">
-            <h3 className="mb-3 text-center text-sm font-bold tracking-wide uppercase">
+          <div className="rounded-xl border-4 border-gray-300 bg-white p-6">
+            <h3 className="mb-4 text-center text-lg font-bold tracking-wide uppercase">
               📋 System Architecture Legend
             </h3>
 
             {/* Color Legend */}
-            <div className="mb-4 grid grid-cols-2 gap-2 text-xs">
+            <div className="mb-6 grid grid-cols-2 gap-3 text-sm">
               <div className="flex items-center">
                 <div className="mr-2 h-3 w-3 border border-purple-500 bg-purple-200"></div>
                 Entry & Auth
@@ -319,9 +322,9 @@ const ArchitectureDiagram: React.FC = () => {
             </div>
 
             {/* Business Model */}
-            <div className="mb-3">
-              <h4 className="mb-1 text-xs font-bold">💰 Business Model</h4>
-              <ul className="list-none text-xs">
+            <div className="mb-4">
+              <h4 className="mb-2 text-sm font-bold">💰 Business Model</h4>
+              <ul className="list-none text-sm">
                 <li>• SaaS Subscriptions (Tiered Plans)</li>
                 <li>• Hardware Sales (NFC Devices)</li>
                 <li>• Design Services (Custom Branding)</li>
@@ -331,8 +334,8 @@ const ArchitectureDiagram: React.FC = () => {
 
             {/* Connector Legend */}
             <div>
-              <h4 className="mb-1 text-xs font-bold">🔗 Connector Legend</h4>
-              <ul className="list-none text-xs">
+              <h4 className="mb-2 text-sm font-bold">🔗 Connector Legend</h4>
+              <ul className="list-none text-sm">
                 <li>• Dashed Purple: API Requests</li>
                 <li>• Solid Green: Data R/W</li>
                 <li>• Solid Red: DB Events</li>
