@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
-import { supabase } from '@/lib/supabase/client';
+import { supabaseAdmin } from '@/lib/supabase/client';
 
 export async function GET(request: NextRequest) {
   try {
@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const { data: userData } = await supabase
+    const { data: userData } = await supabaseAdmin
       .from('users')
       .select('organization_id')
       .eq('clerk_id', userId)
@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'User or organization not found' }, { status: 404 });
     }
 
-    const { data: teamMembers, error } = await supabase
+    const { data: teamMembers, error } = await supabaseAdmin
       .from('users')
       .select('id, email, first_name, last_name')
       .eq('organization_id', userData.organization_id)
