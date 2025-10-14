@@ -20,12 +20,12 @@ const ArchitectureDiagram: React.FC = () => {
       {/* Main Diagram */}
       <div className="mx-auto max-w-7xl bg-black px-4 py-8">
         {/* Main Architecture Row */}
-        <div className="mb-8 grid grid-cols-3 gap-8">
+        <div className="mb-12 grid grid-cols-3 gap-16">
           {/* 1. Entry Points & Authentication */}
           <div className="relative rounded-xl border-4 border-purple-500 bg-purple-100 p-6">
             <div className="absolute top-1/2 -right-3 -translate-y-1/2 transform">
-              <div className="h-0 w-0 border-t-[10px] border-b-[10px] border-l-[15px] border-t-transparent border-b-transparent border-l-white"></div>
-              <div className="absolute -top-6 -right-8 text-sm font-bold whitespace-nowrap text-white">
+              <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
+              <div className="absolute -top-8 -right-20 rounded bg-black px-2 py-1 text-base font-bold whitespace-nowrap text-white">
                 API Requests
               </div>
             </div>
@@ -66,8 +66,8 @@ const ArchitectureDiagram: React.FC = () => {
           {/* 2. AI Agent Ecosystem */}
           <div className="relative rounded-xl border-4 border-orange-500 bg-orange-100 p-4">
             <div className="absolute top-1/2 -right-3 -translate-y-1/2 transform">
-              <div className="h-0 w-0 border-t-[10px] border-b-[10px] border-l-[15px] border-t-transparent border-b-transparent border-l-white"></div>
-              <div className="absolute -top-6 -right-8 text-sm font-bold whitespace-nowrap text-white">
+              <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
+              <div className="absolute -top-8 -right-20 rounded bg-black px-2 py-1 text-base font-bold whitespace-nowrap text-white">
                 AI Triggers
               </div>
             </div>
@@ -95,8 +95,8 @@ const ArchitectureDiagram: React.FC = () => {
           {/* 3. Core Dashboard Modules */}
           <div className="relative rounded-xl border-4 border-red-500 bg-red-100 p-4">
             <div className="absolute top-1/2 -right-3 -translate-y-1/2 transform">
-              <div className="h-0 w-0 border-t-[10px] border-b-[10px] border-l-[15px] border-t-transparent border-b-transparent border-l-white"></div>
-              <div className="absolute -top-6 -right-8 text-sm font-bold whitespace-nowrap text-white">
+              <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
+              <div className="absolute -top-8 -right-20 rounded bg-black px-2 py-1 text-base font-bold whitespace-nowrap text-white">
                 DB R/W
               </div>
             </div>
@@ -131,12 +131,12 @@ const ArchitectureDiagram: React.FC = () => {
         </div>
 
         {/* Second Row - Database, Analytics, Services */}
-        <div className="mb-8 grid grid-cols-3 gap-8">
+        <div className="mb-12 grid grid-cols-3 gap-16">
           {/* 4. Database Architecture */}
           <div className="relative rounded-xl border-4 border-green-500 bg-green-100 p-6">
             <div className="absolute top-1/2 -right-3 -translate-y-1/2 transform">
-              <div className="h-0 w-0 border-t-[10px] border-b-[10px] border-l-[15px] border-t-transparent border-b-transparent border-l-white"></div>
-              <div className="absolute -top-6 -right-8 text-sm font-bold whitespace-nowrap text-white">
+              <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
+              <div className="absolute -top-8 -right-20 rounded bg-black px-2 py-1 text-base font-bold whitespace-nowrap text-white">
                 Events
               </div>
             </div>
@@ -173,8 +173,8 @@ const ArchitectureDiagram: React.FC = () => {
           {/* 5. Analytics Engine */}
           <div className="relative rounded-xl border-4 border-blue-500 bg-blue-100 p-6">
             <div className="absolute top-1/2 -right-3 -translate-y-1/2 transform">
-              <div className="h-0 w-0 border-t-[10px] border-b-[10px] border-l-[15px] border-t-transparent border-b-transparent border-l-white"></div>
-              <div className="absolute -top-6 -right-8 text-sm font-bold whitespace-nowrap text-white">
+              <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
+              <div className="absolute -top-8 -right-20 rounded bg-black px-2 py-1 text-base font-bold whitespace-nowrap text-white">
                 Insights
               </div>
             </div>
@@ -221,7 +221,7 @@ const ArchitectureDiagram: React.FC = () => {
         </div>
 
         {/* Security & Developer Row */}
-        <div className="mb-8 grid grid-cols-2 gap-8">
+        <div className="mb-12 grid grid-cols-2 gap-16">
           {/* 7. Security & Compliance */}
           <div className="rounded-xl border-4 border-purple-700 bg-purple-200 p-6">
             <h3 className="mb-4 text-center text-lg font-bold tracking-wide text-black uppercase">
@@ -289,31 +289,31 @@ const ArchitectureDiagram: React.FC = () => {
             <div className="mb-6 grid grid-cols-2 gap-3 text-sm text-black">
               <div className="flex items-center">
                 <div className="mr-2 h-3 w-3 border border-purple-500 bg-purple-200"></div>
-                Entry & Auth
+                <span className="text-black">Entry & Auth</span>
               </div>
               <div className="flex items-center">
                 <div className="mr-2 h-3 w-3 border border-orange-500 bg-orange-100"></div>
-                AI Agents
+                <span className="text-black">AI Agents</span>
               </div>
               <div className="flex items-center">
                 <div className="mr-2 h-3 w-3 border border-red-500 bg-red-100"></div>
-                Dashboard
+                <span className="text-black">Dashboard</span>
               </div>
               <div className="flex items-center">
                 <div className="mr-2 h-3 w-3 border border-green-500 bg-green-100"></div>
-                Database
+                <span className="text-black">Database</span>
               </div>
               <div className="flex items-center">
                 <div className="mr-2 h-3 w-3 border border-blue-500 bg-blue-100"></div>
-                Analytics
+                <span className="text-black">Analytics</span>
               </div>
               <div className="flex items-center">
                 <div className="mr-2 h-3 w-3 border border-yellow-500 bg-yellow-100"></div>
-                Services
+                <span className="text-black">Services</span>
               </div>
               <div className="flex items-center">
                 <div className="mr-2 h-3 w-3 border border-purple-700 bg-purple-200"></div>
-                Security
+                <span className="text-black">Security</span>
               </div>
               <div className="flex items-center">
                 <div className="mr-2 h-3 w-3 border border-pink-500 bg-pink-100"></div>
@@ -323,7 +323,9 @@ const ArchitectureDiagram: React.FC = () => {
 
             {/* Business Model */}
             <div className="mb-4">
-              <h4 className="mb-2 text-sm font-bold text-black">💰 Business Model</h4>
+              <h4 className="mb-2 text-sm font-bold text-black">
+                💰 Business Model
+              </h4>
               <ul className="list-none text-sm text-black">
                 <li>• SaaS Subscriptions (Tiered Plans)</li>
                 <li>• Hardware Sales (NFC Devices)</li>
@@ -334,7 +336,9 @@ const ArchitectureDiagram: React.FC = () => {
 
             {/* Connector Legend */}
             <div>
-              <h4 className="mb-2 text-sm font-bold text-black">🔗 Connector Legend</h4>
+              <h4 className="mb-2 text-sm font-bold text-black">
+                🔗 Connector Legend
+              </h4>
               <ul className="list-none text-sm text-black">
                 <li>• Dashed Purple: API Requests</li>
                 <li>• Solid Green: Data R/W</li>
@@ -355,7 +359,7 @@ const ArchitectureDiagram: React.FC = () => {
             System Architecture
           </p>
           <p className="text-sm">
-            Built with React & Tailwind CSS | Investor-Ready Documentation
+            Built with React & Tailwind CSS | created by amemdina
           </p>
         </div>
       </div>
