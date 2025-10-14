@@ -18,17 +18,11 @@ const ArchitectureDiagram: React.FC = () => {
       </div>
 
       {/* Main Diagram */}
-      <div className="mx-auto max-w-7xl bg-black px-4 py-8">
+      <div className="mx-auto max-w-7xl bg-white px-4 py-8">
         {/* Main Architecture Row */}
-        <div className="mb-12 grid grid-cols-3 gap-16">
+        <div className="mb-12 grid grid-cols-3 gap-12">
           {/* 1. Entry Points & Authentication */}
           <div className="relative rounded-xl border-4 border-purple-500 bg-purple-100 p-6">
-            <div className="absolute top-1/2 -right-3 -translate-y-1/2 transform">
-              <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-white shadow-lg"></div>
-              <div className="absolute -top-8 -right-20 rounded-lg border-2 border-gray-300 bg-white px-3 py-2 text-base font-bold whitespace-nowrap text-black shadow-lg">
-                API Requests
-              </div>
-            </div>
             <h3 className="mb-4 text-center text-lg font-bold tracking-wide text-black uppercase">
               Entry Points & Authentication
             </h3>
@@ -61,16 +55,19 @@ const ArchitectureDiagram: React.FC = () => {
               <br />
               🟢 Guest (Event Only)
             </div>
+            {/* Arrow pointing right */}
+            <div className="absolute top-1/2 -right-6 -translate-y-1/2 transform">
+              <div className="flex flex-col items-center">
+                <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-blue-600"></div>
+                <div className="mt-2 rounded-lg bg-blue-600 px-3 py-1 text-sm font-bold whitespace-nowrap text-white">
+                  API Requests
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* 2. AI Agent Ecosystem */}
-          <div className="relative rounded-xl border-4 border-orange-500 bg-orange-100 p-4">
-            <div className="absolute top-1/2 -right-3 -translate-y-1/2 transform">
-              <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-white shadow-lg"></div>
-              <div className="absolute -top-8 -right-20 rounded-lg border-2 border-gray-300 bg-white px-3 py-2 text-base font-bold whitespace-nowrap text-black shadow-lg">
-                AI Triggers
-              </div>
-            </div>
+          <div className="relative rounded-xl border-4 border-orange-500 bg-orange-100 p-6">
             <h3 className="mb-4 text-center text-lg font-bold tracking-wide text-black uppercase">
               AI Agent Ecosystem
             </h3>
@@ -90,16 +87,19 @@ const ArchitectureDiagram: React.FC = () => {
               <br />
               <strong>Gemini + OpenAI API + Rate Limiting</strong>
             </div>
+            {/* Arrow pointing right */}
+            <div className="absolute top-1/2 -right-6 -translate-y-1/2 transform">
+              <div className="flex flex-col items-center">
+                <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-orange-600"></div>
+                <div className="mt-2 rounded-lg bg-orange-600 px-3 py-1 text-sm font-bold whitespace-nowrap text-white">
+                  AI Triggers
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* 3. Core Dashboard Modules */}
-          <div className="relative rounded-xl border-4 border-red-500 bg-red-100 p-4">
-            <div className="absolute top-1/2 -right-3 -translate-y-1/2 transform">
-              <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-white shadow-lg"></div>
-              <div className="absolute -top-8 -right-20 rounded-lg border-2 border-gray-300 bg-white px-3 py-2 text-base font-bold whitespace-nowrap text-black shadow-lg">
-                DB R/W
-              </div>
-            </div>
+          <div className="relative rounded-xl border-4 border-red-500 bg-red-100 p-6">
             <h3 className="mb-4 text-center text-lg font-bold tracking-wide text-black uppercase">
               Core Dashboard Modules
             </h3>
@@ -131,7 +131,7 @@ const ArchitectureDiagram: React.FC = () => {
         </div>
 
         {/* Second Row - Database, Analytics, Services */}
-        <div className="mb-12 grid grid-cols-3 gap-16">
+        <div className="mb-12 flex flex-wrap justify-center gap-8">
           {/* 4. Database Architecture */}
           <div className="relative rounded-xl border-4 border-green-500 bg-green-100 p-6">
             <div className="absolute top-1/2 -right-3 -translate-y-1/2 transform">
@@ -221,7 +221,7 @@ const ArchitectureDiagram: React.FC = () => {
         </div>
 
         {/* Security & Developer Row */}
-        <div className="mb-12 grid grid-cols-2 gap-16">
+        <div className="mb-12 flex flex-wrap justify-center gap-8">
           {/* 7. Security & Compliance */}
           <div className="rounded-xl border-4 border-purple-700 bg-purple-200 p-6">
             <h3 className="mb-4 text-center text-lg font-bold tracking-wide text-black uppercase">
