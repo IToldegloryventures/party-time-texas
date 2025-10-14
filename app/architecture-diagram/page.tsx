@@ -24,8 +24,8 @@ const ArchitectureDiagram: React.FC = () => {
           {/* 1. Entry Points & Authentication */}
           <div className="relative rounded-xl border-4 border-purple-500 bg-purple-100 p-6">
             <div className="absolute top-1/2 -right-3 -translate-y-1/2 transform">
-              <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
-              <div className="absolute -top-8 -right-20 rounded bg-black px-2 py-1 text-base font-bold whitespace-nowrap text-white">
+              <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-white shadow-lg"></div>
+              <div className="absolute -top-8 -right-20 rounded-lg border-2 border-gray-300 bg-white px-3 py-2 text-base font-bold whitespace-nowrap text-black shadow-lg">
                 API Requests
               </div>
             </div>
@@ -66,8 +66,8 @@ const ArchitectureDiagram: React.FC = () => {
           {/* 2. AI Agent Ecosystem */}
           <div className="relative rounded-xl border-4 border-orange-500 bg-orange-100 p-4">
             <div className="absolute top-1/2 -right-3 -translate-y-1/2 transform">
-              <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
-              <div className="absolute -top-8 -right-20 rounded bg-black px-2 py-1 text-base font-bold whitespace-nowrap text-white">
+              <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-white shadow-lg"></div>
+              <div className="absolute -top-8 -right-20 rounded-lg border-2 border-gray-300 bg-white px-3 py-2 text-base font-bold whitespace-nowrap text-black shadow-lg">
                 AI Triggers
               </div>
             </div>
@@ -95,8 +95,8 @@ const ArchitectureDiagram: React.FC = () => {
           {/* 3. Core Dashboard Modules */}
           <div className="relative rounded-xl border-4 border-red-500 bg-red-100 p-4">
             <div className="absolute top-1/2 -right-3 -translate-y-1/2 transform">
-              <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
-              <div className="absolute -top-8 -right-20 rounded bg-black px-2 py-1 text-base font-bold whitespace-nowrap text-white">
+              <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-white shadow-lg"></div>
+              <div className="absolute -top-8 -right-20 rounded-lg border-2 border-gray-300 bg-white px-3 py-2 text-base font-bold whitespace-nowrap text-black shadow-lg">
                 DB R/W
               </div>
             </div>
@@ -135,8 +135,8 @@ const ArchitectureDiagram: React.FC = () => {
           {/* 4. Database Architecture */}
           <div className="relative rounded-xl border-4 border-green-500 bg-green-100 p-6">
             <div className="absolute top-1/2 -right-3 -translate-y-1/2 transform">
-              <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
-              <div className="absolute -top-8 -right-20 rounded bg-black px-2 py-1 text-base font-bold whitespace-nowrap text-white">
+              <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-white shadow-lg"></div>
+              <div className="absolute -top-8 -right-20 rounded-lg border-2 border-gray-300 bg-white px-3 py-2 text-base font-bold whitespace-nowrap text-black shadow-lg">
                 Events
               </div>
             </div>
@@ -173,8 +173,8 @@ const ArchitectureDiagram: React.FC = () => {
           {/* 5. Analytics Engine */}
           <div className="relative rounded-xl border-4 border-blue-500 bg-blue-100 p-6">
             <div className="absolute top-1/2 -right-3 -translate-y-1/2 transform">
-              <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
-              <div className="absolute -top-8 -right-20 rounded bg-black px-2 py-1 text-base font-bold whitespace-nowrap text-white">
+              <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-white shadow-lg"></div>
+              <div className="absolute -top-8 -right-20 rounded-lg border-2 border-gray-300 bg-white px-3 py-2 text-base font-bold whitespace-nowrap text-black shadow-lg">
                 Insights
               </div>
             </div>
@@ -355,7 +355,7 @@ const ArchitectureDiagram: React.FC = () => {
       <div className="mt-8 border-t border-gray-200 bg-gray-50 py-4">
         <div className="mx-auto max-w-7xl px-4 text-center text-white">
           <p>
-            © 2024 Cosmic Portals - NFC-Powered SaaS Platform | Professional
+            © 2025 Cosmic Portals - NFC-Powered SaaS Platform | Professional
             System Architecture
           </p>
           <p className="text-sm">
