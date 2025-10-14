@@ -4,7 +4,7 @@ import React from 'react';
 
 const ArchitectureDiagram: React.FC = () => {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="bg-gradient-to-r from-indigo-500 to-purple-600 py-8 text-white">
         <div className="mx-auto max-w-7xl px-4 text-center">
@@ -17,335 +17,330 @@ const ArchitectureDiagram: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Diagram */}
-      <div className="mx-auto max-w-7xl bg-white px-4 py-8">
-        {/* Main Architecture Row */}
-        <div className="mb-12 grid grid-cols-3 gap-12">
-          {/* 1. Entry Points & Authentication */}
-          <div className="relative rounded-xl border-4 border-purple-500 bg-purple-100 p-6">
-            <h3 className="mb-4 text-center text-lg font-bold tracking-wide text-black uppercase">
-              Entry Points & Authentication
-            </h3>
-            <div className="text-sm leading-relaxed text-black">
-              <strong>
-                📱 Mobile App
-                <br />
-                🌐 Web App
-                <br />
-                🎨 White-Label Domains
-              </strong>
-              <br />
-              (Custom client domains like events.company.com)
-              <br />
-              <br />
-              <strong>Clerk Authentication</strong>
-              <br />
-              SSO, MFA, Session Management
-              <br />
-              <br />
-              <strong>Role-Based Access Control:</strong>
-              <br />
-              🔴 Super Admin (Platform-wide)
-              <br />
-              🟠 Org Owner (Billing + Full)
-              <br />
-              🟣 Org Admin (Team Management)
-              <br />
-              🔵 Team Member (Content)
-              <br />
-              🟢 Guest (Event Only)
+      {/* Main Architecture Diagram */}
+      <div className="mx-auto max-w-7xl px-8 py-12">
+        <div className="space-y-16">
+          {/* Layer 1: Frontend Applications */}
+          <div className="text-center">
+            <h2 className="mb-8 text-2xl font-bold text-gray-800">
+              Frontend Applications
+            </h2>
+            <div className="flex justify-center gap-8">
+              <div className="w-64 rounded-xl border-4 border-blue-500 bg-blue-100 p-6">
+                <h3 className="mb-3 text-lg font-bold text-black">
+                  📱 Mobile App
+                </h3>
+                <p className="text-sm text-black">React Native</p>
+              </div>
+              <div className="w-64 rounded-xl border-4 border-blue-500 bg-blue-100 p-6">
+                <h3 className="mb-3 text-lg font-bold text-black">
+                  🌐 Web Dashboard
+                </h3>
+                <p className="text-sm text-black">Next.js 15</p>
+              </div>
+              <div className="w-64 rounded-xl border-4 border-blue-500 bg-blue-100 p-6">
+                <h3 className="mb-3 text-lg font-bold text-black">
+                  🎨 White-Label
+                </h3>
+                <p className="text-sm text-black">Custom Domains</p>
+              </div>
             </div>
-            {/* Arrow pointing right */}
-            <div className="absolute top-1/2 -right-6 -translate-y-1/2 transform">
+
+            {/* Arrow down */}
+            <div className="mt-8 flex justify-center">
               <div className="flex flex-col items-center">
-                <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-blue-600"></div>
-                <div className="mt-2 rounded-lg bg-blue-600 px-3 py-1 text-sm font-bold whitespace-nowrap text-white">
-                  API Requests
+                <div className="h-0 w-0 border-t-[20px] border-r-[15px] border-l-[15px] border-t-green-600 border-r-transparent border-l-transparent"></div>
+                <div className="mt-2 rounded-lg bg-green-600 px-4 py-2 text-sm font-bold text-white">
+                  HTTPS API Calls
                 </div>
               </div>
             </div>
           </div>
 
-          {/* 2. AI Agent Ecosystem */}
-          <div className="relative rounded-xl border-4 border-orange-500 bg-orange-100 p-6">
-            <h3 className="mb-4 text-center text-lg font-bold tracking-wide text-black uppercase">
-              AI Agent Ecosystem
-            </h3>
-            <div className="text-sm leading-relaxed text-black">
-              <strong>🤖 AI Agent Gateway</strong>
-              <br />
-              • Landing Page Generator Agent
-              <br />
-              • Geo-Marketing Intelligence Agent
-              <br />
-              • Lead Behavior Analysis Agent
-              <br />
-              • Content Creation Agent
-              <br />
-              • Analytics Insights Agent
-              <br />
-              <br />
-              <strong>Gemini + OpenAI API + Rate Limiting</strong>
+          {/* Layer 2: API Gateway & Authentication */}
+          <div className="grid grid-cols-2 gap-16">
+            <div className="rounded-xl border-4 border-green-500 bg-green-100 p-8">
+              <h3 className="mb-4 text-center text-xl font-bold text-black">
+                🔐 API Gateway & Auth
+              </h3>
+              <div className="space-y-3 text-sm text-black">
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-green-600"></span>
+                  Clerk Authentication (SSO, MFA)
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-green-600"></span>
+                  Role-Based Access Control
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-green-600"></span>
+                  API Rate Limiting
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-green-600"></span>
+                  Request Validation
+                </div>
+              </div>
             </div>
-            {/* Arrow pointing right */}
-            <div className="absolute top-1/2 -right-6 -translate-y-1/2 transform">
-              <div className="flex flex-col items-center">
-                <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-orange-600"></div>
-                <div className="mt-2 rounded-lg bg-orange-600 px-3 py-1 text-sm font-bold whitespace-nowrap text-white">
-                  AI Triggers
+
+            <div className="rounded-xl border-4 border-orange-500 bg-orange-100 p-8">
+              <h3 className="mb-4 text-center text-xl font-bold text-black">
+                🤖 AI Services
+              </h3>
+              <div className="space-y-3 text-sm text-black">
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-orange-600"></span>
+                  Landing Page Generator
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-orange-600"></span>
+                  Geo-Marketing Intelligence
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-orange-600"></span>
+                  Lead Behavior Analysis
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-orange-600"></span>
+                  Content Creation & Analytics
                 </div>
               </div>
             </div>
           </div>
 
-          {/* 3. Core Dashboard Modules */}
-          <div className="relative rounded-xl border-4 border-red-500 bg-red-100 p-6">
-            <h3 className="mb-4 text-center text-lg font-bold tracking-wide text-black uppercase">
-              Core Dashboard Modules
-            </h3>
-            <div className="text-sm leading-relaxed text-black">
-              <strong>🧭 Central Dashboard</strong>
-              <br />
-              (Next.js 15 App Router)
-              <br />
-              <br />
-              🎯 Landing Page Builder (Drag & Drop + AI)
-              <br />
-              📅 Event Manager (Multi-event, Team Assignment)
-              <br />
-              📦 NFC Device Manager (Registration + Analytics)
-              <br />
-              🏪 Hardware Store (NFC Device Sales + Customization)
-              <br />
-              📈 Analytics Dashboard (Real-time + Extended Tracking)
-              <br />
-              🧑‍🤝‍🧑 Team Management (Invitations + Roles)
-              <br />
-              ✅ Task Manager (Assignment + Progress)
-              <br />
-              💰 Billing Dashboard (Stripe Integration)
-              <br />
-              🎨 White-Label Settings (Custom Domains + Branding)
-            </div>
-          </div>
-        </div>
-
-        {/* Second Row - Database, Analytics, Services */}
-        <div className="mb-12 flex flex-wrap justify-center gap-8">
-          {/* 4. Database Architecture */}
-          <div className="relative rounded-xl border-4 border-green-500 bg-green-100 p-6">
-            <div className="absolute top-1/2 -right-3 -translate-y-1/2 transform">
-              <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-white shadow-lg"></div>
-              <div className="absolute -top-8 -right-20 rounded-lg border-2 border-gray-300 bg-white px-3 py-2 text-base font-bold whitespace-nowrap text-black shadow-lg">
-                Events
+          {/* Arrows from Layer 2 to Layer 3 */}
+          <div className="flex justify-center gap-32">
+            <div className="flex flex-col items-center">
+              <div className="h-0 w-0 border-t-[20px] border-r-[15px] border-l-[15px] border-t-purple-600 border-r-transparent border-l-transparent"></div>
+              <div className="mt-2 rounded bg-purple-600 px-3 py-1 text-xs font-bold text-white">
+                API Requests
               </div>
             </div>
-            <h3 className="mb-4 text-center text-lg font-bold tracking-wide text-black uppercase">
-              Database Architecture
-            </h3>
-            <div className="text-sm leading-relaxed text-black">
-              <strong>Supabase PostgreSQL</strong>
-              <br />
-              (Multi-tenant RLS)
-              <br />
-              <br />
-              <strong>Core Tables:</strong>
-              <br />
-              users, organizations, roles, events,
-              <br />
-              attendees, landing_pages, nfc_devices,
-              <br />
-              nfc_scans, geo_sessions, tasks,
-              <br />
-              subscriptions, billing_history,
-              <br />
-              analytics_events, api_limits, webhook_logs
-              <br />
-              <br />
-              <strong>Extended Tracking:</strong>
-              <br />
-              90-365 day cookies, geo-patterns,
-              <br />
-              journey mapping
+            <div className="flex flex-col items-center">
+              <div className="h-0 w-0 border-t-[20px] border-r-[15px] border-l-[15px] border-t-red-600 border-r-transparent border-l-transparent"></div>
+              <div className="mt-2 rounded bg-red-600 px-3 py-1 text-xs font-bold text-white">
+                AI Triggers
+              </div>
             </div>
           </div>
 
-          {/* 5. Analytics Engine */}
-          <div className="relative rounded-xl border-4 border-blue-500 bg-blue-100 p-6">
-            <div className="absolute top-1/2 -right-3 -translate-y-1/2 transform">
-              <div className="h-0 w-0 border-t-[12px] border-b-[12px] border-l-[20px] border-t-transparent border-b-transparent border-l-white shadow-lg"></div>
-              <div className="absolute -top-8 -right-20 rounded-lg border-2 border-gray-300 bg-white px-3 py-2 text-base font-bold whitespace-nowrap text-black shadow-lg">
-                Insights
+          {/* Layer 3: Core Business Logic */}
+          <div className="grid grid-cols-3 gap-12">
+            <div className="rounded-xl border-4 border-purple-500 bg-purple-100 p-8">
+              <h3 className="mb-4 text-center text-xl font-bold text-black">
+                💼 Core Dashboard
+              </h3>
+              <div className="space-y-3 text-sm text-black">
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-purple-600"></span>
+                  Landing Page Builder
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-purple-600"></span>
+                  Event Management
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-purple-600"></span>
+                  NFC Device Manager
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-purple-600"></span>
+                  Team & Task Management
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-purple-600"></span>
+                  Hardware Store
+                </div>
               </div>
             </div>
-            <h3 className="mb-4 text-center text-lg font-bold tracking-wide text-black uppercase">
-              Analytics Engine
-            </h3>
-            <div className="text-sm leading-relaxed text-black">
-              <strong>Session Tracking:</strong>
-              <br />
-              NFC scan events, landing page interactions,
-              <br />
-              extended journey, geo-intelligence
-              <br />
-              <br />
-              <strong>AI-Powered Insights:</strong>
-              <br />
-              Conversion funnel, geo-heatmaps,
-              <br />
-              behavior prediction, ROI attribution
-            </div>
-          </div>
 
-          {/* 6. Integrated Services */}
-          <div className="rounded-xl border-4 border-yellow-500 bg-yellow-100 p-6">
-            <h3 className="mb-4 text-center text-lg font-bold tracking-wide text-black uppercase">
-              Integrated Services
-            </h3>
-            <div className="text-sm leading-relaxed text-black">
-              <strong>Multi-Channel Communication:</strong>
-              <br />
-              Push, Email, SMS, Webhooks
-              <br />
-              <br />
-              <strong>Payment & Billing:</strong>
-              <br />
-              Stripe, Subscriptions, Usage-based
-              <br />
-              <br />
-              <strong>Physical Products:</strong>
-              <br />
-              NFC Devices, Branding, Shipping
+            <div className="rounded-xl border-4 border-red-500 bg-red-100 p-8">
+              <h3 className="mb-4 text-center text-xl font-bold text-black">
+                📊 Analytics Engine
+              </h3>
+              <div className="space-y-3 text-sm text-black">
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-red-600"></span>
+                  Session Tracking
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-red-600"></span>
+                  NFC Scan Analytics
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-red-600"></span>
+                  Geo-Intelligence
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-red-600"></span>
+                  Conversion Funnels
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-red-600"></span>
+                  ROI Attribution
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        {/* Security & Developer Row */}
-        <div className="mb-12 flex flex-wrap justify-center gap-8">
-          {/* 7. Security & Compliance */}
-          <div className="rounded-xl border-4 border-purple-700 bg-purple-200 p-6">
-            <h3 className="mb-4 text-center text-lg font-bold tracking-wide text-black uppercase">
-              Security & Compliance
-            </h3>
-            <div className="text-sm leading-relaxed text-black">
-              <strong>Multi-Layer Security:</strong>
-              <br />
-              Clerk Auth, Supabase RLS, API Rate Limiting,
-              <br />
-              Session Encryption, GDPR/CCPA, SOC 2 Type II
-            </div>
-          </div>
-
-          {/* 8. Developer Ecosystem */}
-          <div className="rounded-xl border-4 border-pink-500 bg-pink-100 p-6">
-            <h3 className="mb-4 text-center text-lg font-bold tracking-wide text-black uppercase">
-              Developer Ecosystem
-            </h3>
-            <div className="text-sm leading-relaxed text-black">
-              <strong>API & Integration:</strong>
-              <br />
-              RESTful API, Webhooks, SDK, Zapier,
-              <br />
-              White-Label SDK, Custom Domains
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Sections */}
-        <div className="grid grid-cols-2 gap-8">
-          {/* Guest NFC Scan Flow */}
-          <div className="rounded-xl border-4 border-green-500 bg-green-100 p-6">
-            <h3 className="mb-4 text-center text-lg font-bold tracking-wide text-black uppercase">
-              🎯 Guest NFC Scan Flow Example
-            </h3>
-            <div className="text-sm leading-relaxed text-black">
-              <strong>1.</strong> Guest taps NFC device
-              <br />
-              <strong>2.</strong> Landing page loads instantly
-              <br />
-              <strong>3.</strong> Session tracker logs scan + geo-location
-              <br />
-              <strong>4.</strong> Extended tracking (90-365 days)
-              <br />
-              <br />
-              <strong>Real-time Analytics:</strong>
-              <br />
-              • Conversion tracking
-              <br />
-              • Geo-heatmaps
-              <br />
-              • Customer journey mapping
-              <br />• ROI attribution
+            <div className="rounded-xl border-4 border-yellow-500 bg-yellow-100 p-8">
+              <h3 className="mb-4 text-center text-xl font-bold text-black">
+                🔌 Integrations
+              </h3>
+              <div className="space-y-3 text-sm text-black">
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-yellow-600"></span>
+                  Stripe Payments
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-yellow-600"></span>
+                  Email/SMS/Push
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-yellow-600"></span>
+                  Webhook System
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-yellow-600"></span>
+                  Hardware Orders
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-yellow-600"></span>
+                  Third-party APIs
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Legends */}
-          <div className="rounded-xl border-4 border-gray-300 bg-white p-6">
-            <h3 className="mb-4 text-center text-lg font-bold tracking-wide text-black uppercase">
-              📋 System Architecture Legend
+          {/* Arrows from Layer 3 to Database */}
+          <div className="flex justify-center">
+            <div className="flex flex-col items-center">
+              <div className="h-0 w-0 border-t-[20px] border-r-[15px] border-l-[15px] border-t-green-600 border-r-transparent border-l-transparent"></div>
+              <div className="mt-2 rounded-lg bg-green-600 px-4 py-2 text-sm font-bold text-white">
+                Database Operations
+              </div>
+            </div>
+          </div>
+
+          {/* Layer 4: Data Layer */}
+          <div className="grid grid-cols-2 gap-16">
+            <div className="rounded-xl border-4 border-green-500 bg-green-100 p-8">
+              <h3 className="mb-4 text-center text-xl font-bold text-black">
+                🗄️ Database Layer
+              </h3>
+              <div className="space-y-3 text-sm text-black">
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-green-600"></span>
+                  Supabase PostgreSQL
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-green-600"></span>
+                  Multi-tenant RLS
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-green-600"></span>
+                  Real-time Subscriptions
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-green-600"></span>
+                  Automated Backups
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-xl border-4 border-gray-500 bg-gray-100 p-8">
+              <h3 className="mb-4 text-center text-xl font-bold text-black">
+                🔒 Security & Compliance
+              </h3>
+              <div className="space-y-3 text-sm text-black">
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-gray-600"></span>
+                  GDPR/CCPA Compliance
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-gray-600"></span>
+                  SOC 2 Type II
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-gray-600"></span>
+                  Data Encryption
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-3 h-3 w-3 rounded-full bg-gray-600"></span>
+                  Audit Logging
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* NFC Flow Example */}
+          <div className="rounded-xl border-4 border-blue-500 bg-blue-50 p-8">
+            <h3 className="mb-6 text-center text-xl font-bold text-black">
+              🎯 NFC Scan Flow Example
             </h3>
-
-            {/* Color Legend */}
-            <div className="mb-6 grid grid-cols-2 gap-3 text-sm text-black">
-              <div className="flex items-center">
-                <div className="mr-2 h-3 w-3 border border-purple-500 bg-purple-200"></div>
-                <span className="text-black">Entry & Auth</span>
+            <div className="grid grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500">
+                  <span className="text-2xl text-white">1</span>
+                </div>
+                <h4 className="mb-2 font-bold text-black">Guest Taps NFC</h4>
+                <p className="text-sm text-black">Device scan detected</p>
               </div>
-              <div className="flex items-center">
-                <div className="mr-2 h-3 w-3 border border-orange-500 bg-orange-100"></div>
-                <span className="text-black">AI Agents</span>
+              <div className="text-center">
+                <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-green-500">
+                  <span className="text-2xl text-white">2</span>
+                </div>
+                <h4 className="mb-2 font-bold text-black">
+                  Landing Page Loads
+                </h4>
+                <p className="text-sm text-black">Dynamic content served</p>
               </div>
-              <div className="flex items-center">
-                <div className="mr-2 h-3 w-3 border border-red-500 bg-red-100"></div>
-                <span className="text-black">Dashboard</span>
+              <div className="text-center">
+                <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-orange-500">
+                  <span className="text-2xl text-white">3</span>
+                </div>
+                <h4 className="mb-2 font-bold text-black">
+                  Analytics Tracking
+                </h4>
+                <p className="text-sm text-black">Session & geo data</p>
               </div>
-              <div className="flex items-center">
-                <div className="mr-2 h-3 w-3 border border-green-500 bg-green-100"></div>
-                <span className="text-black">Database</span>
-              </div>
-              <div className="flex items-center">
-                <div className="mr-2 h-3 w-3 border border-blue-500 bg-blue-100"></div>
-                <span className="text-black">Analytics</span>
-              </div>
-              <div className="flex items-center">
-                <div className="mr-2 h-3 w-3 border border-yellow-500 bg-yellow-100"></div>
-                <span className="text-black">Services</span>
-              </div>
-              <div className="flex items-center">
-                <div className="mr-2 h-3 w-3 border border-purple-700 bg-purple-200"></div>
-                <span className="text-black">Security</span>
-              </div>
-              <div className="flex items-center">
-                <div className="mr-2 h-3 w-3 border border-pink-500 bg-pink-100"></div>
-                Developer
+              <div className="text-center">
+                <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-purple-500">
+                  <span className="text-2xl text-white">4</span>
+                </div>
+                <h4 className="mb-2 font-bold text-black">Extended Tracking</h4>
+                <p className="text-sm text-black">90-365 day journey</p>
               </div>
             </div>
+          </div>
 
-            {/* Business Model */}
-            <div className="mb-4">
-              <h4 className="mb-2 text-sm font-bold text-black">
-                💰 Business Model
-              </h4>
-              <ul className="list-none text-sm text-black">
-                <li>• SaaS Subscriptions (Tiered Plans)</li>
-                <li>• Hardware Sales (NFC Devices)</li>
-                <li>• Design Services (Custom Branding)</li>
-                <li>• Analytics Services (Premium Insights)</li>
-              </ul>
-            </div>
-
-            {/* Connector Legend */}
-            <div>
-              <h4 className="mb-2 text-sm font-bold text-black">
-                🔗 Connector Legend
-              </h4>
-              <ul className="list-none text-sm text-black">
-                <li>• Dashed Purple: API Requests</li>
-                <li>• Solid Green: Data R/W</li>
-                <li>• Solid Red: DB Events</li>
-                <li>• Solid Blue: Insights</li>
-                <li>• Orange Dotted: AI Triggers</li>
-              </ul>
+          {/* Business Model & Revenue Streams */}
+          <div className="rounded-xl border-4 border-gray-300 bg-gray-50 p-8">
+            <h3 className="mb-6 text-center text-xl font-bold text-black">
+              💰 Business Model & Revenue Streams
+            </h3>
+            <div className="grid grid-cols-4 gap-6">
+              <div className="text-center">
+                <h4 className="mb-2 font-bold text-black">
+                  💼 SaaS Subscriptions
+                </h4>
+                <p className="text-sm text-black">Tiered monthly plans</p>
+              </div>
+              <div className="text-center">
+                <h4 className="mb-2 font-bold text-black">📦 Hardware Sales</h4>
+                <p className="text-sm text-black">NFC devices & accessories</p>
+              </div>
+              <div className="text-center">
+                <h4 className="mb-2 font-bold text-black">
+                  🎨 Design Services
+                </h4>
+                <p className="text-sm text-black">Custom branding & setup</p>
+              </div>
+              <div className="text-center">
+                <h4 className="mb-2 font-bold text-black">
+                  📊 Analytics Services
+                </h4>
+                <p className="text-sm text-black">Premium insights & reports</p>
+              </div>
             </div>
           </div>
         </div>
@@ -353,7 +348,7 @@ const ArchitectureDiagram: React.FC = () => {
 
       {/* Footer */}
       <div className="mt-8 border-t border-gray-200 bg-gray-50 py-4">
-        <div className="mx-auto max-w-7xl px-4 text-center text-white">
+        <div className="mx-auto max-w-7xl px-4 text-center text-gray-600">
           <p>
             © 2025 Cosmic Portals - NFC-Powered SaaS Platform | Professional
             System Architecture
