@@ -2,6 +2,9 @@
 
 import React from 'react';
 
+// Ensure this route bypasses any static caching and always serves the latest build
+export const dynamic = 'force-dynamic';
+
 const ArchitectureDiagram: React.FC = () => {
   return (
     <div className="min-h-screen bg-neutral-950">
@@ -14,6 +17,10 @@ const ArchitectureDiagram: React.FC = () => {
           <p className="text-xl opacity-90">
             Professional System Architecture | Investor-Ready Presentation
           </p>
+          <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1 text-sm">
+            <span className="h-2 w-2 rounded-full bg-emerald-400"></span>
+            <span>Investor View v2</span>
+          </div>
         </div>
       </div>
 
