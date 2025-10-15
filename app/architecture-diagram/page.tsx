@@ -137,7 +137,7 @@ export default function ArchitectureDiagram() {
                   <br />• users, organizations, events, attendees
                   <br />• landing_pages, nfc_devices, nfc_scans
                   <br />• geo_sessions, tasks, subscriptions
-                  <br />• billing_history, analytics, events
+                  <br />• billing_history, analytics_events
                 </div>
                 <div className="rounded bg-white/10 px-3 py-2">
                   <strong>Extended Tracking:</strong>
