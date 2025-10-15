@@ -16,6 +16,7 @@ export default function ArchitectureDiagram() {
           <h2 className="mb-12 text-center text-5xl font-bold text-gray-900">
             System Architecture Overview
           </h2>
+          {/* Updated: Business Model section now has 6 items in proper 2x3 grid */}
 
           {/* Main Architecture Flow */}
           <div className="space-y-12">
