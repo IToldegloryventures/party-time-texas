@@ -1,6 +1,5 @@
 'use client';
 
-import { SignedIn, SignedOut } from '@clerk/nextjs';
 import Link from 'next/link';
 
 const Hero = () => {
@@ -48,23 +47,12 @@ const Hero = () => {
 
         {/* CTA Button - Updated for Products Page */}
         <div className="flex justify-center">
-          <SignedOut>
-            <Link
-              href="/products"
-              className="group relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 text-lg font-semibold shadow-lg transition-all hover:scale-105 hover:shadow-purple-500/50"
-            >
-              <span className="relative font-bold text-white">Get Started</span>
-            </Link>
-          </SignedOut>
-
-          <SignedIn>
-            <Link
-              href="/dashboard"
-              className="group relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 px-8 py-4 text-lg font-semibold shadow-lg transition-all hover:scale-105 hover:shadow-blue-500/50"
-            >
-              <span className="relative font-bold text-white">Go to Dashboard</span>
-            </Link>
-          </SignedIn>
+          <Link
+            href="/products"
+            className="group relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 text-lg font-semibold shadow-lg transition-all hover:scale-105 hover:shadow-purple-500/50"
+          >
+            <span className="relative font-bold text-white">Get Started</span>
+          </Link>
         </div>
       </div>
     </div>
