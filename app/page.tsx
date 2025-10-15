@@ -13,14 +13,24 @@ export default function Home() {
             <br />
             NFC-powered engagement for businesses, events, and communities.
           </p>
-          <Link
-            href="/architecture-diagram"
-            className="group relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 text-lg font-semibold shadow-lg transition-all hover:scale-105 hover:shadow-purple-500/50"
-          >
-            <span className="relative font-bold text-white">
-              View Architecture
-            </span>
-          </Link>
+          <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <Link
+              href="/demo"
+              className="group relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 text-lg font-semibold shadow-lg transition-all hover:scale-105 hover:shadow-purple-500/50"
+            >
+              <span className="relative font-bold text-white">
+                View Demo
+              </span>
+            </Link>
+            <Link
+              href="/architecture-diagram"
+              className="group relative inline-flex items-center gap-2 rounded-full border-2 border-purple-600 px-8 py-4 text-lg font-semibold shadow-lg transition-all hover:scale-105 hover:bg-purple-600/10"
+            >
+              <span className="relative font-bold text-white">
+                View Architecture
+              </span>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
