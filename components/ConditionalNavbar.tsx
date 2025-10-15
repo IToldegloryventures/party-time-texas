@@ -11,11 +11,8 @@ const HIDE_ON_PATHS = new Set<string>([
 export default function ConditionalNavbar(): React.JSX.Element | null {
   const pathname = usePathname();
 
-  if (pathname && (pathname === '/architecture-diagram' || pathname.startsWith('/architecture-diagram/'))) {
-    return null;
-  }
-
-  return <DefaultNavbar />;
+  // Temporarily disable navbar for all pages to avoid Clerk issues
+  return null;
 }
 
 
