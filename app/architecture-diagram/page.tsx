@@ -7,13 +7,11 @@ export const dynamic = 'force-dynamic';
 export default function ArchitectureDiagram() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black">
-      <ClientDiagram />
-
       {/* Main Architecture Diagram */}
       <div className="mx-auto max-w-7xl px-6 py-8">
         {/* System Architecture Overview */}
         <div className="mb-16">
-          <h2 className="mb-12 text-center text-5xl font-bold text-gray-900">
+          <h2 className="mb-12 text-center text-5xl font-bold text-white">
             System Architecture Overview
           </h2>
           {/* Updated: Business Model section now has 6 items in proper 2x3 grid */}
@@ -21,7 +19,7 @@ export default function ArchitectureDiagram() {
           {/* Main Architecture Flow */}
           <div className="space-y-8">
             {/* 1. Access Points & Authentication */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
+            <div className="rounded-2xl border-2 border-gray-300 bg-white p-6 shadow-2xl">
               <div className="mb-6 text-center">
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 shadow-lg">
                   <svg
@@ -47,7 +45,7 @@ export default function ArchitectureDiagram() {
               </div>
 
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                <div className="rounded-xl border border-gray-100 bg-gradient-to-br from-blue-50 to-blue-100 p-4">
+                <div className="rounded-xl border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-blue-100 p-4 shadow-lg">
                   <h4 className="mb-4 text-center text-xl font-bold text-gray-800">
                     User Interfaces
                   </h4>
@@ -90,7 +88,7 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* 2. Core Application */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
+            <div className="rounded-2xl border-2 border-gray-300 bg-white p-6 shadow-2xl">
               <div className="mb-6 text-center">
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-red-500 to-red-600 shadow-lg">
                   <svg
@@ -174,7 +172,7 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* 3. Data Architecture & Storage */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
+            <div className="rounded-2xl border-2 border-gray-300 bg-white p-6 shadow-2xl">
               <div className="mb-6 text-center">
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-green-500 to-green-600 shadow-lg">
                   <svg
@@ -250,7 +248,7 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* 4. Analytics & Intelligence */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
+            <div className="rounded-2xl border-2 border-gray-300 bg-white p-6 shadow-2xl">
               <div className="mb-6 text-center">
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-indigo-600 shadow-lg">
                   <svg
@@ -318,7 +316,7 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* 5. Connected Services & Commerce */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
+            <div className="rounded-2xl border-2 border-gray-300 bg-white p-6 shadow-2xl">
               <div className="mb-6 text-center">
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-yellow-500 to-yellow-600 shadow-lg">
                   <svg
@@ -400,7 +398,7 @@ export default function ArchitectureDiagram() {
           {/* Supporting Services */}
           <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
             {/* AI Services Gateway */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
+            <div className="rounded-2xl border-2 border-gray-300 bg-white p-6 shadow-2xl">
               <div className="mb-6 text-center">
                 <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 shadow-lg">
                   <svg
@@ -444,7 +442,7 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* Security & Compliance */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
+            <div className="rounded-2xl border-2 border-gray-300 bg-white p-6 shadow-2xl">
               <div className="mb-6 text-center">
                 <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 shadow-lg">
                   <svg
@@ -482,7 +480,7 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* Developer Tools */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
+            <div className="rounded-2xl border-2 border-gray-300 bg-white p-6 shadow-2xl">
               <div className="mb-6 text-center">
                 <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-pink-500 to-pink-600 shadow-lg">
                   <svg
@@ -858,7 +856,7 @@ export default function ArchitectureDiagram() {
           {/* Row 1: Event Organizer Journey & Event Guest Journey */}
           <div className="mb-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
             {/* Event Organizer Journey */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
+            <div className="rounded-2xl border-2 border-gray-300 bg-white p-6 shadow-2xl">
               <h3 className="mb-8 text-center text-2xl font-bold text-gray-900">
                 Event Organizer Journey
               </h3>
@@ -909,7 +907,7 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* Event Guest Journey */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
+            <div className="rounded-2xl border-2 border-gray-300 bg-white p-6 shadow-2xl">
               <h3 className="mb-8 text-center text-2xl font-bold text-gray-900">
                 Event Guest Journey
               </h3>
@@ -962,7 +960,7 @@ export default function ArchitectureDiagram() {
           {/* Row 2: Business Owner Journey & Business User Journey */}
           <div className="mb-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
             {/* Business Owner Journey */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
+            <div className="rounded-2xl border-2 border-gray-300 bg-white p-6 shadow-2xl">
               <h3 className="mb-8 text-center text-2xl font-bold text-gray-900">
                 Business Owner Journey
               </h3>
@@ -1013,7 +1011,7 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* Business User Journey */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
+            <div className="rounded-2xl border-2 border-gray-300 bg-white p-6 shadow-2xl">
               <h3 className="mb-8 text-center text-2xl font-bold text-gray-900">
                 Business User Journey
               </h3>
@@ -1066,7 +1064,7 @@ export default function ArchitectureDiagram() {
           {/* Row 3: Marketing Agency Journey & Viewer NFC Scan Flow */}
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             {/* Marketing Agency Journey */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
+            <div className="rounded-2xl border-2 border-gray-300 bg-white p-6 shadow-2xl">
               <h3 className="mb-8 text-center text-2xl font-bold text-gray-900">
                 Marketing Agency Journey
               </h3>
@@ -1117,7 +1115,7 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* Viewer NFC Scan Flow */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
+            <div className="rounded-2xl border-2 border-gray-300 bg-white p-6 shadow-2xl">
               <h3 className="mb-8 text-center text-2xl font-bold text-gray-900">
                 Viewer NFC Scan Flow
               </h3>
