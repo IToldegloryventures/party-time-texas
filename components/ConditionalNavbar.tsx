@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { usePathname } from 'next/navigation';
-import DefaultNavbar from '@/components/Navbar';
 
 const HIDE_ON_PATHS = new Set<string>([
   '/architecture-diagram',
@@ -15,7 +14,9 @@ export default function ConditionalNavbar(): React.JSX.Element | null {
     return null;
   }
 
-  return <DefaultNavbar />;
+  // For now, return null to avoid Clerk issues during build
+  // TODO: Re-enable DefaultNavbar when Clerk is properly configured
+  return null;
 }
 
 
