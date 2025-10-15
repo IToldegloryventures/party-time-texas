@@ -357,6 +357,136 @@ export default function ArchitectureDiagram() {
           </div>
         </div>
 
+        {/* Technical Stack Details */}
+        <div className="mb-12">
+          <h2 className="mb-8 text-center text-3xl font-bold text-gray-900">
+            Technical Stack Details
+          </h2>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-lg border-2 border-gray-200 bg-white p-6 shadow-lg">
+              <div className="mb-4 flex items-center justify-center">
+                <div className="rounded-full bg-blue-100 p-3">
+                  <svg className="h-8 w-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                  </svg>
+                </div>
+              </div>
+              <h3 className="mb-3 text-center text-lg font-bold text-gray-900">Frontend</h3>
+              <div className="text-sm text-gray-600">
+                <div className="mb-2">• Next.js 15 App Router</div>
+                <div className="mb-2">• React 18</div>
+                <div className="mb-2">• TypeScript</div>
+                <div>• Tailwind CSS</div>
+              </div>
+            </div>
+            <div className="rounded-lg border-2 border-gray-200 bg-white p-6 shadow-lg">
+              <div className="mb-4 flex items-center justify-center">
+                <div className="rounded-full bg-green-100 p-3">
+                  <svg className="h-8 w-8 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                  </svg>
+                </div>
+              </div>
+              <h3 className="mb-3 text-center text-lg font-bold text-gray-900">Backend</h3>
+              <div className="text-sm text-gray-600">
+                <div className="mb-2">• Supabase PostgreSQL</div>
+                <div className="mb-2">• Next.js API Routes</div>
+                <div className="mb-2">• Server Actions</div>
+                <div>• Edge Functions</div>
+              </div>
+            </div>
+            <div className="rounded-lg border-2 border-gray-200 bg-white p-6 shadow-lg">
+              <div className="mb-4 flex items-center justify-center">
+                <div className="rounded-full bg-purple-100 p-3">
+                  <svg className="h-8 w-8 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                  </svg>
+                </div>
+              </div>
+              <h3 className="mb-3 text-center text-lg font-bold text-gray-900">Authentication</h3>
+              <div className="text-sm text-gray-600">
+                <div className="mb-2">• Clerk Identity</div>
+                <div className="mb-2">• 5-Tier RBAC</div>
+                <div className="mb-2">• Session Management</div>
+                <div>• Multi-Factor Auth</div>
+              </div>
+            </div>
+            <div className="rounded-lg border-2 border-gray-200 bg-white p-6 shadow-lg">
+              <div className="mb-4 flex items-center justify-center">
+                <div className="rounded-full bg-orange-100 p-3">
+                  <svg className="h-8 w-8 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                  </svg>
+                </div>
+              </div>
+              <h3 className="mb-3 text-center text-lg font-bold text-gray-900">AI & Analytics</h3>
+              <div className="text-sm text-gray-600">
+                <div className="mb-2">• OpenAI GPT-4</div>
+                <div className="mb-2">• Google Gemini</div>
+                <div className="mb-2">• Real-time Analytics</div>
+                <div>• Predictive Models</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Deployment & Infrastructure */}
+        <div className="mb-12">
+          <h2 className="mb-8 text-center text-3xl font-bold text-gray-900">
+            Deployment & Infrastructure
+          </h2>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            <div className="rounded-lg border-2 border-gray-200 bg-white p-6 shadow-lg">
+              <div className="mb-4 flex items-center justify-center">
+                <div className="rounded-full bg-blue-100 p-3">
+                  <svg className="h-8 w-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                  </svg>
+                </div>
+              </div>
+              <h3 className="mb-3 text-center text-lg font-bold text-gray-900">Hosting</h3>
+              <div className="text-sm text-gray-600">
+                <div className="mb-2">• Vercel Edge Network</div>
+                <div className="mb-2">• Global CDN</div>
+                <div className="mb-2">• Auto-scaling</div>
+                <div>• Zero-downtime deployments</div>
+              </div>
+            </div>
+            <div className="rounded-lg border-2 border-gray-200 bg-white p-6 shadow-lg">
+              <div className="mb-4 flex items-center justify-center">
+                <div className="rounded-full bg-green-100 p-3">
+                  <svg className="h-8 w-8 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                  </svg>
+                </div>
+              </div>
+              <h3 className="mb-3 text-center text-lg font-bold text-gray-900">Database</h3>
+              <div className="text-sm text-gray-600">
+                <div className="mb-2">• Supabase Cloud</div>
+                <div className="mb-2">• PostgreSQL 15</div>
+                <div className="mb-2">• Real-time subscriptions</div>
+                <div>• Automated backups</div>
+              </div>
+            </div>
+            <div className="rounded-lg border-2 border-gray-200 bg-white p-6 shadow-lg">
+              <div className="mb-4 flex items-center justify-center">
+                <div className="rounded-full bg-purple-100 p-3">
+                  <svg className="h-8 w-8 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                  </svg>
+                </div>
+              </div>
+              <h3 className="mb-3 text-center text-lg font-bold text-gray-900">Monitoring</h3>
+              <div className="text-sm text-gray-600">
+                <div className="mb-2">• Vercel Analytics</div>
+                <div className="mb-2">• Error tracking</div>
+                <div className="mb-2">• Performance monitoring</div>
+                <div>• Uptime monitoring</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Business Model */}
         <div className="mb-12">
           <h2 className="mb-8 text-center text-3xl font-bold text-gray-900">
@@ -408,6 +538,169 @@ export default function ArchitectureDiagram() {
               <p className="text-gray-600">
                 White-label and custom implementations
               </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Key Service Offerings & Revenue Streams */}
+        <div className="mb-12">
+          <h2 className="mb-8 text-center text-3xl font-bold text-gray-900">
+            Key Service Offerings & Revenue Streams
+          </h2>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 p-6 text-white shadow-lg">
+              <h3 className="mb-4 text-xl font-bold">SaaS Platform</h3>
+              <ul className="space-y-2 text-sm">
+                <li>• Multi-tenant dashboard</li>
+                <li>• Team collaboration tools</li>
+                <li>• White-label customization</li>
+                <li>• API access & webhooks</li>
+              </ul>
+            </div>
+            <div className="rounded-lg bg-gradient-to-br from-green-500 to-green-600 p-6 text-white shadow-lg">
+              <h3 className="mb-4 text-xl font-bold">NFC Hardware</h3>
+              <ul className="space-y-2 text-sm">
+                <li>• Custom NFC tags & stickers</li>
+                <li>• NFC-enabled merchandise</li>
+                <li>• Event wristbands & badges</li>
+                <li>• Business cards & marketing materials</li>
+              </ul>
+            </div>
+            <div className="rounded-lg bg-gradient-to-br from-purple-500 to-purple-600 p-6 text-white shadow-lg">
+              <h3 className="mb-4 text-xl font-bold">AI Services</h3>
+              <ul className="space-y-2 text-sm">
+                <li>• AI landing page generation</li>
+                <li>• Geo-marketing intelligence</li>
+                <li>• Content automation</li>
+                <li>• Predictive analytics</li>
+              </ul>
+            </div>
+            <div className="rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 p-6 text-white shadow-lg">
+              <h3 className="mb-4 text-xl font-bold">Creative Services</h3>
+              <ul className="space-y-2 text-sm">
+                <li>• Custom branding & design</li>
+                <li>• Landing page development</li>
+                <li>• Event marketing materials</li>
+                <li>• Photo galleries & content</li>
+              </ul>
+            </div>
+            <div className="rounded-lg bg-gradient-to-br from-red-500 to-red-600 p-6 text-white shadow-lg">
+              <h3 className="mb-4 text-xl font-bold">Analytics & Insights</h3>
+              <ul className="space-y-2 text-sm">
+                <li>• Advanced attribution modeling</li>
+                <li>• Geo-heatmap analysis</li>
+                <li>• Conversion funnel optimization</li>
+                <li>• ROI reporting & insights</li>
+              </ul>
+            </div>
+            <div className="rounded-lg bg-gradient-to-br from-pink-500 to-pink-600 p-6 text-white shadow-lg">
+              <h3 className="mb-4 text-xl font-bold">Enterprise Solutions</h3>
+              <ul className="space-y-2 text-sm">
+                <li>• White-label implementations</li>
+                <li>• Custom integrations</li>
+                <li>• Dedicated support</li>
+                <li>• Enterprise security</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* User Journey Examples */}
+        <div className="mb-12">
+          <h2 className="mb-8 text-center text-3xl font-bold text-gray-900">
+            User Journey Examples
+          </h2>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {/* Marketing Agency Journey */}
+            <div className="rounded-lg border-2 border-gray-200 bg-white p-6 shadow-lg">
+              <h3 className="mb-4 text-xl font-bold text-gray-900">Marketing Agency Journey</h3>
+              <div className="space-y-3">
+                <div className="rounded bg-blue-50 p-3">
+                  <strong className="text-blue-800">Client Onboarding:</strong>
+                  <div className="text-sm text-blue-700">Setup white-label domain, customize branding, configure team access</div>
+                </div>
+                <div className="rounded bg-green-50 p-3">
+                  <strong className="text-green-800">Campaign Creation:</strong>
+                  <div className="text-sm text-green-700">Create NFC-enabled materials, design landing pages, setup tracking</div>
+                </div>
+                <div className="rounded bg-purple-50 p-3">
+                  <strong className="text-purple-800">Key Features Used:</strong>
+                  <div className="text-sm text-purple-700">AI Insights & Analytics, Geo Marketing, Cross Marketing Paid Ads, Custom Branding</div>
+                </div>
+                <div className="rounded bg-orange-50 p-3">
+                  <strong className="text-orange-800">Results & Reporting:</strong>
+                  <div className="text-sm text-orange-700">Real-time analytics, conversion tracking, ROI attribution, client reporting</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Business Owner Journey */}
+            <div className="rounded-lg border-2 border-gray-200 bg-white p-6 shadow-lg">
+              <h3 className="mb-4 text-xl font-bold text-gray-900">Business Owner Journey</h3>
+              <div className="space-y-3">
+                <div className="rounded bg-blue-50 p-3">
+                  <strong className="text-blue-800">Platform Setup:</strong>
+                  <div className="text-sm text-blue-700">Create organization, setup team, configure billing, customize settings</div>
+                </div>
+                <div className="rounded bg-green-50 p-3">
+                  <strong className="text-green-800">NFC Implementation:</strong>
+                  <div className="text-sm text-green-700">Order NFC devices, create landing pages, setup event tracking</div>
+                </div>
+                <div className="rounded bg-purple-50 p-3">
+                  <strong className="text-purple-800">Key Features Used:</strong>
+                  <div className="text-sm text-purple-700">Analytics Reporting, GEO Marketing Capabilities, Cross Marketing Paid Ads Addon, Event Management</div>
+                </div>
+                <div className="rounded bg-orange-50 p-3">
+                  <strong className="text-orange-800">Growth & Optimization:</strong>
+                  <div className="text-sm text-orange-700">Performance monitoring, team expansion, feature upgrades, ROI optimization</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Viewer NFC Scan Flow */}
+            <div className="rounded-lg border-2 border-gray-200 bg-white p-6 shadow-lg">
+              <h3 className="mb-4 text-xl font-bold text-gray-900">Viewer NFC Scan Flow</h3>
+              <div className="space-y-3">
+                <div className="rounded bg-blue-50 p-3">
+                  <strong className="text-blue-800">NFC Interaction:</strong>
+                  <div className="text-sm text-blue-700">User taps NFC device, automatic redirect to landing page</div>
+                </div>
+                <div className="rounded bg-green-50 p-3">
+                  <strong className="text-green-800">Landing Page Experience:</strong>
+                  <div className="text-sm text-green-700">Personalized content, event details, photo galleries, social sharing</div>
+                </div>
+                <div className="rounded bg-purple-50 p-3">
+                  <strong className="text-purple-800">Engagement Tracking:</strong>
+                  <div className="text-sm text-purple-700">Session recording, interaction analytics, geo-location tracking</div>
+                </div>
+                <div className="rounded bg-orange-50 p-3">
+                  <strong className="text-orange-800">Follow-up Actions:</strong>
+                  <div className="text-sm text-orange-700">Email capture, social media connections, future event notifications</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Developer Integration Journey */}
+            <div className="rounded-lg border-2 border-gray-200 bg-white p-6 shadow-lg">
+              <h3 className="mb-4 text-xl font-bold text-gray-900">Developer Integration Journey</h3>
+              <div className="space-y-3">
+                <div className="rounded bg-blue-50 p-3">
+                  <strong className="text-blue-800">API Access:</strong>
+                  <div className="text-sm text-blue-700">Get API keys, review documentation, setup webhooks</div>
+                </div>
+                <div className="rounded bg-green-50 p-3">
+                  <strong className="text-green-800">Integration Development:</strong>
+                  <div className="text-sm text-green-700">Build custom integrations, test API endpoints, implement webhooks</div>
+                </div>
+                <div className="rounded bg-purple-50 p-3">
+                  <strong className="text-purple-800">Key Features Used:</strong>
+                  <div className="text-sm text-purple-700">RESTful API, Webhooks, OpenAI Agents Integration, Custom Solutions</div>
+                </div>
+                <div className="rounded bg-orange-50 p-3">
+                  <strong className="text-orange-800">Deployment & Support:</strong>
+                  <div className="text-sm text-orange-700">Production deployment, monitoring, ongoing support, feature updates</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
