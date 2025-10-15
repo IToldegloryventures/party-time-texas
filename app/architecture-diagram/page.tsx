@@ -300,8 +300,8 @@ export default function ArchitectureDiagram() {
             Deployment & Infrastructure
           </h3>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            <div className="text-center">
-              <div className="mb-4 flex justify-center">
+            <div className="flex flex-col items-center justify-center text-center">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center">
                 <svg
                   className="h-8 w-8 text-cyan-400"
                   fill="none"
@@ -323,8 +323,8 @@ export default function ArchitectureDiagram() {
                 Global CDN & Edge Functions
               </p>
             </div>
-            <div className="text-center">
-              <div className="mb-4 flex justify-center">
+            <div className="flex flex-col items-center justify-center text-center">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center">
                 <svg
                   className="h-8 w-8 text-yellow-400"
                   fill="none"
@@ -344,8 +344,8 @@ export default function ArchitectureDiagram() {
               </h4>
               <p className="text-sm text-gray-400">End-to-End Encryption</p>
             </div>
-            <div className="text-center">
-              <div className="mb-4 flex justify-center">
+            <div className="flex flex-col items-center justify-center text-center">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center">
                 <svg
                   className="h-8 w-8 text-emerald-400"
                   fill="none"
@@ -371,7 +371,7 @@ export default function ArchitectureDiagram() {
         </div>
 
         {/* User Journey Examples */}
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
           {/* Event Organizer Journey */}
           <div className="rounded-xl border border-blue-400/40 bg-gradient-to-br from-blue-900/60 to-blue-800/60 p-8 backdrop-blur-sm">
             <h3 className="mb-6 text-xl font-bold text-blue-100">
