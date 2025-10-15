@@ -31,7 +31,7 @@ export default function EventsPage() {
         console.error('Failed to fetch user role:', error);
       }
     };
-    
+
     if (user) {
       fetchUserRole();
     }
@@ -48,16 +48,15 @@ export default function EventsPage() {
     try {
       setLoading(true);
       setError(null);
-      
+
       const response = await fetch(`/api/events?filter=${filter}`);
-      
+
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
-      
+
       const data = await response.json();
       setEvents(data);
-      
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to fetch events');
     } finally {
@@ -65,7 +64,9 @@ export default function EventsPage() {
     }
   };
 
-  const handleCreateEvent = async (eventData: Omit<Event, 'id' | 'created_at' | 'updated_at'>) => {
+  const handleCreateEvent = async (
+    eventData: Omit<Event, 'id' | 'created_at' | 'updated_at'>
+  ) => {
     try {
       const response = await fetch('/api/events', {
         method: 'POST',
@@ -82,13 +83,15 @@ export default function EventsPage() {
       const newEvent = await response.json();
       setEvents(prev => [newEvent, ...prev]);
       setShowCreateModal(false);
-      
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to create event');
     }
   };
 
-  const handleUpdateEvent = async (eventId: string, eventData: Partial<Event>) => {
+  const handleUpdateEvent = async (
+    eventId: string,
+    eventData: Partial<Event>
+  ) => {
     try {
       const response = await fetch(`/api/events/${eventId}`, {
         method: 'PUT',
@@ -103,10 +106,9 @@ export default function EventsPage() {
       }
 
       const updatedEvent = await response.json();
-      setEvents(prev => prev.map(event => 
-        event.id === eventId ? updatedEvent : event
-      ));
-      
+      setEvents(prev =>
+        prev.map(event => (event.id === eventId ? updatedEvent : event))
+      );
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to update event');
     }
@@ -123,7 +125,6 @@ export default function EventsPage() {
       }
 
       setEvents(prev => prev.filter(event => event.id !== eventId));
-      
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to delete event');
     }
@@ -144,10 +145,9 @@ export default function EventsPage() {
       }
 
       const updatedEvent = await response.json();
-      setEvents(prev => prev.map(event => 
-        event.id === eventId ? updatedEvent : event
-      ));
-      
+      setEvents(prev =>
+        prev.map(event => (event.id === eventId ? updatedEvent : event))
+      );
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to assign members');
     }
@@ -155,18 +155,20 @@ export default function EventsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
-          <div className="flex justify-between items-center">
+          <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Events Management</h1>
+              <h1 className="text-3xl font-bold text-gray-900">
+                Events Management
+              </h1>
               <p className="mt-2 text-gray-600">
                 Manage your organization's events and assign team members
               </p>
             </div>
             {canCreateEvents && (
-              <Button 
+              <Button
                 onClick={() => setShowCreateModal(true)}
                 className="bg-blue-600 hover:bg-blue-700"
               >
@@ -179,10 +181,10 @@ export default function EventsPage() {
         {/* Filter Toggle - Only show for users who can see all events */}
         {canCreateEvents && (
           <div className="mb-6">
-            <div className="flex space-x-1 bg-gray-100 p-1 rounded-lg w-fit">
+            <div className="flex w-fit space-x-1 rounded-lg bg-gray-100 p-1">
               <button
                 onClick={() => setFilter('all')}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${
                   filter === 'all'
                     ? 'bg-white text-gray-900 shadow-sm'
                     : 'text-gray-600 hover:text-gray-900'
@@ -192,7 +194,7 @@ export default function EventsPage() {
               </button>
               <button
                 onClick={() => setFilter('my')}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${
                   filter === 'my'
                     ? 'bg-white text-gray-900 shadow-sm'
                     : 'text-gray-600 hover:text-gray-900'
@@ -206,11 +208,19 @@ export default function EventsPage() {
 
         {/* Error Display */}
         {error && (
-          <div className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4">
+          <div className="mb-6 rounded-lg border border-red-200 bg-red-50 p-4">
             <div className="flex">
               <div className="flex-shrink-0">
-                <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                <svg
+                  className="h-5 w-5 text-red-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                    clipRule="evenodd"
+                  />
                 </svg>
               </div>
               <div className="ml-3">

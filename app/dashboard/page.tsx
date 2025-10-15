@@ -15,7 +15,7 @@ export default async function DashboardPage() {
 
   // Get user's organization data and role
   const userData = await getUserOrganizationData(userId);
-  
+
   if (!userData) {
     // User exists but has no organization - redirect to sign-up
     redirect('/sign-up');

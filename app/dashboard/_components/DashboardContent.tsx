@@ -86,8 +86,9 @@ const DashboardContent = ({ userData }: DashboardContentProps) => {
 
   const canManageDevices = () => {
     return (
-      ['super_admin', 'owner', 'admin', 'member'].includes(userData.user.role) ||
-      userData.user.permissions?.can_manage_nfc_devices
+      ['super_admin', 'owner', 'admin', 'member'].includes(
+        userData.user.role
+      ) || userData.user.permissions?.can_manage_nfc_devices
     );
   };
 
