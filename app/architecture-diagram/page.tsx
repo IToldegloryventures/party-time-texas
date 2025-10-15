@@ -11,7 +11,8 @@ export default function ArchitectureDiagram() {
           Architecture Diagram
         </h1>
         <p className="text-gray-300">
-          This page is working! The architecture diagram will be loaded here. (Updated)
+          This page is working! The architecture diagram will be loaded here.
+          (Updated)
         </p>
       </div>
     </div>

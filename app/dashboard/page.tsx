@@ -1,5 +1,7 @@
 import { redirect } from 'next/navigation';
 import { auth } from '@clerk/nextjs/server';
+
+export const dynamic = 'force-dynamic';
 import { getUserOrganizationData } from '@/lib/supabase/user-org';
 import DashboardContent from './_components/DashboardContent';
 

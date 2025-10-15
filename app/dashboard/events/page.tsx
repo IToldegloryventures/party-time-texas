@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+
+export const dynamic = 'force-dynamic';
 import { Event } from '@/lib/events';
 import EventsList from './_components/EventsList';
 import CreateEventModal from './_components/CreateEventModal';
