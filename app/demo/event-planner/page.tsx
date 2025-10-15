@@ -8,7 +8,7 @@ export default function EventPlannerDemo() {
             Event Planner Dashboard
           </h1>
           <p className="text-lg text-gray-300">
-            Guest management, check-in tracking, and real-time attendance analytics
+            NFC check-in, guest management, and real-time attendance analytics
           </p>
         </div>
       </div>
@@ -376,11 +376,10 @@ export default function EventPlannerDemo() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-6 shadow-lg">
               <div className="mb-2 text-lg font-bold text-white">
-                ✓ NFC Check-In System
+                ✓ NFC Check-In
               </div>
               <p className="text-sm text-gray-300">
-                Enable guests to check in with a single NFC tap at the event
-                entrance
+                One-tap NFC check-in and sign-in for attendees at event entrance
               </p>
             </div>
 
@@ -389,44 +388,43 @@ export default function EventPlannerDemo() {
                 ✓ Guest Management
               </div>
               <p className="text-sm text-gray-300">
-                Manage RSVPs, plus-ones, dietary preferences, and meal choices
+                RSVP tracking, plus-ones, meal choices, and dietary preferences
               </p>
             </div>
 
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-6 shadow-lg">
               <div className="mb-2 text-lg font-bold text-white">
-                ✓ Photo Gallery
+                ✓ Photo Galleries
               </div>
               <p className="text-sm text-gray-300">
-                Collect and showcase guest photos in a live gallery throughout
-                the event
+                Collect and organize guest-uploaded photos with auto-gallery creation
               </p>
             </div>
 
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-6 shadow-lg">
               <div className="mb-2 text-lg font-bold text-white">
-                ✓ Real-Time Analytics
+                ✓ Attendance Analytics
               </div>
               <p className="text-sm text-gray-300">
-                Monitor attendance, check-in times, and guest flow in real time
+                Real-time check-in tracking, arrival patterns, and attendance metrics
               </p>
             </div>
 
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-6 shadow-lg">
               <div className="mb-2 text-lg font-bold text-white">
-                ✓ Communications
+                ��� Pre-Event Communications
               </div>
               <p className="text-sm text-gray-300">
-                Send pre-event emails, reminders, and schedule updates to guests
+                Email invites, reminders, event schedules, and pre-event information
               </p>
             </div>
 
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-6 shadow-lg">
               <div className="mb-2 text-lg font-bold text-white">
-                ✓ Post-Event Recap
+                ✓ Event Schedules
               </div>
               <p className="text-sm text-gray-300">
-                Generate attendance reports with photos and engagement metrics
+                Share event programs, session times, and location details with guests
               </p>
             </div>
           </div>
