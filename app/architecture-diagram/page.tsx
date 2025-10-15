@@ -41,9 +41,9 @@ export default function ArchitectureDiagram() {
                 </h3>
                 <p className="text-sm text-blue-200">Web & Mobile Apps</p>
                 <div className="mt-3 text-xs text-blue-300">
-                  <div>📱 Mobile App</div>
-                  <div>🌐 Web App</div>
-                  <div>🎨 White-Label Domains</div>
+                  <div>Mobile App</div>
+                  <div>Web App</div>
+                  <div>White-Label Domains</div>
                 </div>
               </div>
               {/* Connector Arrow */}
@@ -87,9 +87,9 @@ export default function ArchitectureDiagram() {
                 </h3>
                 <p className="text-sm text-green-200">REST & GraphQL</p>
                 <div className="mt-3 text-xs text-green-300">
-                  <div>🤖 AI Agent Gateway</div>
-                  <div>🔐 Clerk Authentication</div>
-                  <div>⚡ Rate Limiting</div>
+                  <div>AI Agent Gateway</div>
+                  <div>Clerk Authentication</div>
+                  <div>Rate Limiting</div>
                 </div>
               </div>
               {/* Connector Arrow */}
@@ -133,10 +133,9 @@ export default function ArchitectureDiagram() {
                 </h3>
                 <p className="text-sm text-purple-200">Business Logic</p>
                 <div className="mt-3 text-xs text-purple-300">
-                  <div>🧭 Central Dashboard</div>
-                  <div>🎯 Landing Page Builder</div>
-                  <div>📅 Event Manager</div>
-                  <div>📦 NFC Device Manager</div>
+                  <div>Central Dashboard</div>
+                  <div>Landing Page Builder</div>
+                  <div>Event Manager</div>
                 </div>
               </div>
               {/* Connector Arrow */}
@@ -180,9 +179,9 @@ export default function ArchitectureDiagram() {
                 </h3>
                 <p className="text-sm text-orange-200">Auth & Security</p>
                 <div className="mt-3 text-xs text-orange-300">
-                  <div>🔐 Multi-Layer Security</div>
-                  <div>🛡️ GDPR/CCPA Compliance</div>
-                  <div>🔒 SOC 2 Type II</div>
+                  <div>Multi-Layer Security</div>
+                  <div>GDPR/CCPA Compliance</div>
+                  <div>SOC 2 Type II</div>
                 </div>
               </div>
               {/* Connector Arrow */}
@@ -226,9 +225,9 @@ export default function ArchitectureDiagram() {
                 </h3>
                 <p className="text-sm text-red-200">PostgreSQL & Redis</p>
                 <div className="mt-3 text-xs text-red-300">
-                  <div>🗄️ Supabase PostgreSQL</div>
-                  <div>📊 Analytics Events</div>
-                  <div>🔄 90-365 Day Tracking</div>
+                  <div>Supabase PostgreSQL</div>
+                  <div>Analytics Events</div>
+                  <div>90-365 Day Tracking</div>
                 </div>
               </div>
             </div>
