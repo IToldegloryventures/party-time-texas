@@ -6,20 +6,177 @@ export const runtime = 'nodejs';
 
 export default function ArchitectureDiagram() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Main Architecture Diagram */}
       <div className="mx-auto max-w-7xl px-6 py-12">
-        {/* Business Model */}
+        {/* System Architecture Overview */}
         <div className="mb-16">
-          <h2 className="mb-8 text-2xl font-bold text-slate-900">
-            Business Model
-          </h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-              <div className="flex items-center space-x-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100">
+          <h1 className="mb-8 text-center text-4xl font-bold text-slate-900">
+            System Architecture Overview
+          </h1>
+
+          {/* Main Architecture Blocks */}
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+            {/* Entry Points & Authentication */}
+            <div className="rounded-xl border-2 border-purple-200 bg-gradient-to-br from-purple-50 to-purple-100 p-8 shadow-xl">
+              <div className="mb-6 flex items-center space-x-4">
+                <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-purple-200">
                   <svg
-                    className="h-5 w-5 text-slate-600"
+                    className="h-8 w-8 text-purple-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-purple-900">
+                    Entry Points & Authentication
+                  </h3>
+                  <p className="text-purple-700">User Interfaces & RBAC</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="rounded-lg bg-white p-4 shadow-sm">
+                  <h4 className="mb-2 font-semibold text-purple-900">
+                    User Interfaces
+                  </h4>
+                  <ul className="space-y-1 text-sm text-purple-800">
+                    <li>• Mobile App</li>
+                    <li>• Web App</li>
+                    <li>• White-Label Domains</li>
+                  </ul>
+                </div>
+                <div className="rounded-lg bg-white p-4 shadow-sm">
+                  <h4 className="mb-2 font-semibold text-purple-900">
+                    Authentication
+                  </h4>
+                  <ul className="space-y-1 text-sm text-purple-800">
+                    <li>• Clerk Identity Management</li>
+                    <li>• 5-Tier RBAC System</li>
+                    <li>• Role-based Access Control</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Core Application */}
+            <div className="rounded-xl border-2 border-red-200 bg-gradient-to-br from-red-50 to-red-100 p-8 shadow-xl">
+              <div className="mb-6 flex items-center space-x-4">
+                <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-red-200">
+                  <svg
+                    className="h-8 w-8 text-red-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-red-900">
+                    Core Application
+                  </h3>
+                  <p className="text-red-700">Next.js 15 App Router Platform</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="rounded-lg bg-white p-4 shadow-sm">
+                  <h4 className="mb-2 font-semibold text-red-900">
+                    Primary Components
+                  </h4>
+                  <ul className="space-y-1 text-sm text-red-800">
+                    <li>• Central Dashboard</li>
+                    <li>• Landing Page Builder</li>
+                    <li>• Event Manager</li>
+                    <li>• NFC Device Manager</li>
+                  </ul>
+                </div>
+                <div className="rounded-lg bg-white p-4 shadow-sm">
+                  <h4 className="mb-2 font-semibold text-red-900">
+                    Management & Analytics
+                  </h4>
+                  <ul className="space-y-1 text-sm text-red-800">
+                    <li>• Performance Dashboard</li>
+                    <li>• Team Management</li>
+                    <li>• Task Manager</li>
+                    <li>• Billing Dashboard</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Data Architecture */}
+            <div className="rounded-xl border-2 border-green-200 bg-gradient-to-br from-green-50 to-green-100 p-8 shadow-xl">
+              <div className="mb-6 flex items-center space-x-4">
+                <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-green-200">
+                  <svg
+                    className="h-8 w-8 text-green-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-green-900">
+                    Data Architecture
+                  </h3>
+                  <p className="text-green-700">
+                    Supabase PostgreSQL Multi-tenant
+                  </p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="rounded-lg bg-white p-4 shadow-sm">
+                  <h4 className="mb-2 font-semibold text-green-900">
+                    Core Tables
+                  </h4>
+                  <ul className="space-y-1 text-sm text-green-800">
+                    <li>• users, organizations, events</li>
+                    <li>• landing_pages, nfc_devices</li>
+                    <li>• geo_sessions, analytics_events</li>
+                  </ul>
+                </div>
+                <div className="rounded-lg bg-white p-4 shadow-sm">
+                  <h4 className="mb-2 font-semibold text-green-900">
+                    Extended Tracking
+                  </h4>
+                  <ul className="space-y-1 text-sm text-green-800">
+                    <li>• Persistent cookies (90-365 days)</li>
+                    <li>• Geo-pattern recognition</li>
+                    <li>• Row-Level Security (RLS)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Second Row */}
+          <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+            {/* Analytics & Intelligence */}
+            <div className="rounded-xl border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-blue-100 p-8 shadow-xl">
+              <div className="mb-6 flex items-center space-x-4">
+                <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-blue-200">
+                  <svg
+                    className="h-8 w-8 text-blue-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -32,16 +189,125 @@ export default function ArchitectureDiagram() {
                     />
                   </svg>
                 </div>
-                <span className="font-semibold text-slate-900">
+                <div>
+                  <h3 className="text-2xl font-bold text-blue-900">
+                    Analytics & Intelligence
+                  </h3>
+                  <p className="text-blue-700">
+                    AI-Driven Insights & Real-time Processing
+                  </p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="rounded-lg bg-white p-4 shadow-sm">
+                  <h4 className="mb-2 font-semibold text-blue-900">
+                    Session Tracking
+                  </h4>
+                  <ul className="space-y-1 text-sm text-blue-800">
+                    <li>• NFC scans & interactions</li>
+                    <li>• Extended engagement tracking</li>
+                    <li>• Real-time event aggregation</li>
+                  </ul>
+                </div>
+                <div className="rounded-lg bg-white p-4 shadow-sm">
+                  <h4 className="mb-2 font-semibold text-blue-900">
+                    AI-Driven Insights
+                  </h4>
+                  <ul className="space-y-1 text-sm text-blue-800">
+                    <li>• Conversion funnels & heatmaps</li>
+                    <li>• Behavioral prediction models</li>
+                    <li>• ROI attribution & effectiveness</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Connected Services */}
+            <div className="rounded-xl border-2 border-yellow-200 bg-gradient-to-br from-yellow-50 to-yellow-100 p-8 shadow-xl">
+              <div className="mb-6 flex items-center space-x-4">
+                <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-yellow-200">
+                  <svg
+                    className="h-8 w-8 text-yellow-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-yellow-900">
+                    Connected Services
+                  </h3>
+                  <p className="text-yellow-700">
+                    Multi-Channel Communication & Fulfillment
+                  </p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="rounded-lg bg-white p-4 shadow-sm">
+                  <h4 className="mb-2 font-semibold text-yellow-900">
+                    Communication
+                  </h4>
+                  <ul className="space-y-1 text-sm text-yellow-800">
+                    <li>• Push Notifications</li>
+                    <li>• Email & SMS</li>
+                    <li>• Webhooks</li>
+                  </ul>
+                </div>
+                <div className="rounded-lg bg-white p-4 shadow-sm">
+                  <h4 className="mb-2 font-semibold text-yellow-900">
+                    Commerce & Billing
+                  </h4>
+                  <ul className="space-y-1 text-sm text-yellow-800">
+                    <li>• Stripe Billing</li>
+                    <li>• Usage-based pricing</li>
+                    <li>• Physical fulfillment</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Business Model */}
+        <div className="mb-16">
+          <h2 className="mb-8 text-center text-3xl font-bold text-slate-900">
+            Business Model
+          </h2>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="rounded-xl border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-blue-100 p-6 shadow-xl">
+              <div className="flex items-center space-x-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-200">
+                  <svg
+                    className="h-6 w-6 text-blue-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                    />
+                  </svg>
+                </div>
+                <span className="text-lg font-bold text-blue-900">
                   Recurring SaaS Subscriptions
                 </span>
               </div>
             </div>
-            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="rounded-xl border-2 border-green-200 bg-gradient-to-br from-green-50 to-green-100 p-6 shadow-xl">
               <div className="flex items-center space-x-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-200">
                   <svg
-                    className="h-5 w-5 text-slate-600"
+                    className="h-6 w-6 text-green-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -54,16 +320,16 @@ export default function ArchitectureDiagram() {
                     />
                   </svg>
                 </div>
-                <span className="font-semibold text-slate-900">
+                <span className="text-lg font-bold text-green-900">
                   Physical Hardware Sales
                 </span>
               </div>
             </div>
-            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="rounded-xl border-2 border-purple-200 bg-gradient-to-br from-purple-50 to-purple-100 p-6 shadow-xl">
               <div className="flex items-center space-x-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-200">
                   <svg
-                    className="h-5 w-5 text-slate-600"
+                    className="h-6 w-6 text-purple-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -76,16 +342,16 @@ export default function ArchitectureDiagram() {
                     />
                   </svg>
                 </div>
-                <span className="font-semibold text-slate-900">
-                  Branded Design Services
+                <span className="text-lg font-bold text-purple-900">
+                  Branded Design and Creative Services
                 </span>
               </div>
             </div>
-            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="rounded-xl border-2 border-orange-200 bg-gradient-to-br from-orange-50 to-orange-100 p-6 shadow-xl">
               <div className="flex items-center space-x-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-200">
                   <svg
-                    className="h-5 w-5 text-slate-600"
+                    className="h-6 w-6 text-orange-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -104,16 +370,16 @@ export default function ArchitectureDiagram() {
                     />
                   </svg>
                 </div>
-                <span className="font-semibold text-slate-900">
-                  Geo Marketing & Insights
+                <span className="text-lg font-bold text-orange-900">
+                  B2B & B2C Geo Marketing paid ads and insights
                 </span>
               </div>
             </div>
-            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="rounded-xl border-2 border-yellow-200 bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 shadow-xl">
               <div className="flex items-center space-x-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-yellow-200">
                   <svg
-                    className="h-5 w-5 text-slate-600"
+                    className="h-6 w-6 text-yellow-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -126,16 +392,16 @@ export default function ArchitectureDiagram() {
                     />
                   </svg>
                 </div>
-                <span className="font-semibold text-slate-900">
-                  Advanced Analytics
+                <span className="text-lg font-bold text-yellow-900">
+                  Advanced Analytics and Attribution Solutions
                 </span>
               </div>
             </div>
-            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="rounded-xl border-2 border-indigo-200 bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 shadow-xl">
               <div className="flex items-center space-x-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-200">
                   <svg
-                    className="h-5 w-5 text-slate-600"
+                    className="h-6 w-6 text-indigo-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -144,183 +410,29 @@ export default function ArchitectureDiagram() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
+                      d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
                     />
                   </svg>
                 </div>
-                <span className="font-semibold text-slate-900">
-                  Enterprise Solutions
+                <span className="text-lg font-bold text-indigo-900">
+                  Enterprise White-Label Solutions
                 </span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Core Architecture */}
+        {/* Key Service Offerings & Revenue Streams */}
         <div className="mb-16">
-          <h2 className="mb-8 text-2xl font-bold text-slate-900">
-            Core Architecture
+          <h2 className="mb-8 text-center text-3xl font-bold text-slate-900">
+            Key Service Offerings & Revenue Streams
           </h2>
-          <div className="space-y-8">
-            {/* Access Points & Authentication */}
-            <div className="rounded-lg border border-slate-200 bg-white p-8 shadow-sm">
-              <div className="mb-6 flex items-center space-x-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-slate-100">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="rounded-xl border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-blue-100 p-6 shadow-xl">
+              <div className="flex items-center space-x-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-200">
                   <svg
-                    className="h-6 w-6 text-slate-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-slate-900">
-                    Access Points & Authentication
-                  </h3>
-                  <p className="text-slate-600">User Interfaces & RBAC</p>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                <div className="rounded-lg border border-slate-100 bg-slate-50 p-4">
-                  <h4 className="mb-3 font-semibold text-slate-900">
-                    User Interfaces
-                  </h4>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li>• Mobile App</li>
-                    <li>• Web App</li>
-                    <li>• White-Label Domains</li>
-                  </ul>
-                </div>
-                <div className="rounded-lg border border-slate-100 bg-slate-50 p-4">
-                  <h4 className="mb-3 font-semibold text-slate-900">
-                    Authentication
-                  </h4>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li>• Clerk Identity Management</li>
-                    <li>• 5-Tier RBAC System</li>
-                    <li>• Role-based Access Control</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Core Application */}
-            <div className="rounded-lg border border-slate-200 bg-white p-8 shadow-sm">
-              <div className="mb-6 flex items-center space-x-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-slate-100">
-                  <svg
-                    className="h-6 w-6 text-slate-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-slate-900">
-                    Core Application
-                  </h3>
-                  <p className="text-slate-600">
-                    Next.js 15 App Router Platform
-                  </p>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                <div className="rounded-lg border border-slate-100 bg-slate-50 p-4">
-                  <h4 className="mb-3 font-semibold text-slate-900">
-                    Primary Components
-                  </h4>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li>• Central Dashboard</li>
-                    <li>• Landing Page Builder</li>
-                    <li>• Event Manager</li>
-                    <li>• NFC Device Manager</li>
-                  </ul>
-                </div>
-                <div className="rounded-lg border border-slate-100 bg-slate-50 p-4">
-                  <h4 className="mb-3 font-semibold text-slate-900">
-                    Management & Analytics
-                  </h4>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li>• Performance Dashboard</li>
-                    <li>• Team Management</li>
-                    <li>• Task Manager</li>
-                    <li>• Billing Dashboard</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Data Architecture */}
-            <div className="rounded-lg border border-slate-200 bg-white p-8 shadow-sm">
-              <div className="mb-6 flex items-center space-x-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-slate-100">
-                  <svg
-                    className="h-6 w-6 text-slate-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-slate-900">
-                    Data Architecture & Storage
-                  </h3>
-                  <p className="text-slate-600">
-                    Supabase PostgreSQL Multi-tenant
-                  </p>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                <div className="rounded-lg border border-slate-100 bg-slate-50 p-4">
-                  <h4 className="mb-3 font-semibold text-slate-900">
-                    Core Tables
-                  </h4>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li>• users, organizations, events</li>
-                    <li>• landing_pages, nfc_devices</li>
-                    <li>• geo_sessions, analytics_events</li>
-                  </ul>
-                </div>
-                <div className="rounded-lg border border-slate-100 bg-slate-50 p-4">
-                  <h4 className="mb-3 font-semibold text-slate-900">
-                    Extended Tracking
-                  </h4>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li>• Persistent cookies (90-365 days)</li>
-                    <li>• Geo-pattern recognition</li>
-                    <li>• Row-Level Security (RLS)</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Analytics & Intelligence */}
-            <div className="rounded-lg border border-slate-200 bg-white p-8 shadow-sm">
-              <div className="mb-6 flex items-center space-x-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-slate-100">
-                  <svg
-                    className="h-6 w-6 text-slate-600"
+                    className="h-6 w-6 text-blue-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -333,45 +445,16 @@ export default function ArchitectureDiagram() {
                     />
                   </svg>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-slate-900">
-                    Analytics & Intelligence
-                  </h3>
-                  <p className="text-slate-600">
-                    AI-Driven Insights & Real-time Processing
-                  </p>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                <div className="rounded-lg border border-slate-100 bg-slate-50 p-4">
-                  <h4 className="mb-3 font-semibold text-slate-900">
-                    Session Tracking
-                  </h4>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li>• NFC scans & interactions</li>
-                    <li>• Extended engagement tracking</li>
-                    <li>• Real-time event aggregation</li>
-                  </ul>
-                </div>
-                <div className="rounded-lg border border-slate-100 bg-slate-50 p-4">
-                  <h4 className="mb-3 font-semibold text-slate-900">
-                    AI-Driven Insights
-                  </h4>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li>• Conversion funnels & heatmaps</li>
-                    <li>• Behavioral prediction models</li>
-                    <li>• ROI attribution & effectiveness</li>
-                  </ul>
-                </div>
+                <span className="text-lg font-bold text-blue-900">
+                  SaaS Subscriptions
+                </span>
               </div>
             </div>
-
-            {/* Connected Services */}
-            <div className="rounded-lg border border-slate-200 bg-white p-8 shadow-sm">
-              <div className="mb-6 flex items-center space-x-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-slate-100">
+            <div className="rounded-xl border-2 border-green-200 bg-gradient-to-br from-green-50 to-green-100 p-6 shadow-xl">
+              <div className="flex items-center space-x-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-200">
                   <svg
-                    className="h-6 w-6 text-slate-600"
+                    className="h-6 w-6 text-green-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -380,65 +463,20 @@ export default function ArchitectureDiagram() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"
+                      d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
                     />
                   </svg>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-slate-900">
-                    Connected Services & Commerce
-                  </h3>
-                  <p className="text-slate-600">
-                    Multi-Channel Communication & Fulfillment
-                  </p>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-                <div className="rounded-lg border border-slate-100 bg-slate-50 p-4">
-                  <h4 className="mb-3 font-semibold text-slate-900">
-                    Communication
-                  </h4>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li>• Push Notifications</li>
-                    <li>• Email & SMS</li>
-                    <li>• Webhooks</li>
-                  </ul>
-                </div>
-                <div className="rounded-lg border border-slate-100 bg-slate-50 p-4">
-                  <h4 className="mb-3 font-semibold text-slate-900">
-                    Commerce & Billing
-                  </h4>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li>• Stripe Billing</li>
-                    <li>• Usage-based pricing</li>
-                  </ul>
-                </div>
-                <div className="rounded-lg border border-slate-100 bg-slate-50 p-4">
-                  <h4 className="mb-3 font-semibold text-slate-900">
-                    Physical Fulfillment
-                  </h4>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li>• NFC devices & packaging</li>
-                    <li>• Logistics & shipping</li>
-                  </ul>
-                </div>
+                <span className="text-lg font-bold text-green-900">
+                  NFC Hardware Sales
+                </span>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Supporting Services */}
-        <div className="mb-16">
-          <h2 className="mb-8 text-2xl font-bold text-slate-900">
-            Supporting Services
-          </h2>
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-            {/* AI Services */}
-            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-              <div className="mb-4 flex items-center space-x-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100">
+            <div className="rounded-xl border-2 border-purple-200 bg-gradient-to-br from-purple-50 to-purple-100 p-6 shadow-xl">
+              <div className="flex items-center space-x-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-200">
                   <svg
-                    className="h-5 w-5 text-slate-600"
+                    className="h-6 w-6 text-purple-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -447,28 +485,20 @@ export default function ArchitectureDiagram() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                      d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"
                     />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900">
-                  AI Services Gateway
-                </h3>
+                <span className="text-lg font-bold text-purple-900">
+                  Design Services
+                </span>
               </div>
-              <ul className="space-y-2 text-sm text-slate-600">
-                <li>• Landing Page Generator</li>
-                <li>• Geo-Marketing Intelligence</li>
-                <li>• Lead Behavior Analysis</li>
-                <li>• Content Automation</li>
-              </ul>
             </div>
-
-            {/* Security */}
-            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-              <div className="mb-4 flex items-center space-x-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100">
+            <div className="rounded-xl border-2 border-orange-200 bg-gradient-to-br from-orange-50 to-orange-100 p-6 shadow-xl">
+              <div className="flex items-center space-x-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-200">
                   <svg
-                    className="h-5 w-5 text-slate-600"
+                    className="h-6 w-6 text-orange-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -477,28 +507,26 @@ export default function ArchitectureDiagram() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                     />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900">
-                  Security & Compliance
-                </h3>
+                <span className="text-lg font-bold text-orange-900">
+                  Geo-Marketing
+                </span>
               </div>
-              <ul className="space-y-2 text-sm text-slate-600">
-                <li>• Clerk Authentication</li>
-                <li>• Supabase RLS Enforcement</li>
-                <li>• API Rate Limiting</li>
-                <li>• GDPR / CCPA Compliance</li>
-              </ul>
             </div>
-
-            {/* Developer Tools */}
-            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-              <div className="mb-4 flex items-center space-x-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100">
+            <div className="rounded-xl border-2 border-yellow-200 bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 shadow-xl">
+              <div className="flex items-center space-x-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-yellow-200">
                   <svg
-                    className="h-5 w-5 text-slate-600"
+                    className="h-6 w-6 text-yellow-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -507,38 +535,54 @@ export default function ArchitectureDiagram() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
                     />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900">
-                  Developer Tools
-                </h3>
+                <span className="text-lg font-bold text-yellow-900">
+                  Analytics Services
+                </span>
               </div>
-              <ul className="space-y-2 text-sm text-slate-600">
-                <li>• RESTful API</li>
-                <li>• SDKs & Webhooks</li>
-                <li>• OpenAI Agents Integration</li>
-                <li>• White-Label SDK</li>
-              </ul>
+            </div>
+            <div className="rounded-xl border-2 border-indigo-200 bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 shadow-xl">
+              <div className="flex items-center space-x-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-200">
+                  <svg
+                    className="h-6 w-6 text-indigo-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                    />
+                  </svg>
+                </div>
+                <span className="text-lg font-bold text-indigo-900">
+                  White-Label Solutions
+                </span>
+              </div>
             </div>
           </div>
         </div>
 
         {/* User Journey Examples */}
         <div className="mb-16">
-          <h2 className="mb-8 text-2xl font-bold text-slate-900">
+          <h2 className="mb-8 text-center text-3xl font-bold text-slate-900">
             User Journey Examples
           </h2>
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
             {/* Event Organizer Journey */}
-            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold text-slate-900">
+            <div className="rounded-xl border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-blue-100 p-6 shadow-xl">
+              <h3 className="mb-4 text-xl font-bold text-blue-900">
                 Event Organizer Journey
               </h3>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-sm font-bold text-slate-600">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100 text-sm font-bold text-blue-600">
                     1
                   </div>
                   <span className="text-slate-700">
@@ -546,7 +590,7 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-sm font-bold text-slate-600">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100 text-sm font-bold text-blue-600">
                     2
                   </div>
                   <span className="text-slate-700">
@@ -554,7 +598,7 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-sm font-bold text-slate-600">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100 text-sm font-bold text-blue-600">
                     3
                   </div>
                   <span className="text-slate-700">
@@ -562,7 +606,7 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-sm font-bold text-slate-600">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100 text-sm font-bold text-blue-600">
                     4
                   </div>
                   <span className="text-slate-700">
@@ -572,20 +616,59 @@ export default function ArchitectureDiagram() {
               </div>
             </div>
 
+            {/* Event Guest Journey */}
+            <div className="rounded-xl border-2 border-green-200 bg-gradient-to-br from-green-50 to-green-100 p-6 shadow-xl">
+              <h3 className="mb-4 text-xl font-bold text-green-900">
+                Event Guest Journey
+              </h3>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-100 text-sm font-bold text-green-600">
+                    1
+                  </div>
+                  <span className="text-slate-700">Tap NFC at Event</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-100 text-sm font-bold text-green-600">
+                    2
+                  </div>
+                  <span className="text-slate-700">
+                    Access Landing Page & Content
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-100 text-sm font-bold text-green-600">
+                    3
+                  </div>
+                  <span className="text-slate-700">
+                    View Photo Galleries & Updates
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-100 text-sm font-bold text-green-600">
+                    4
+                  </div>
+                  <span className="text-slate-700">
+                    Receive Follow-up Communications
+                  </span>
+                </div>
+              </div>
+            </div>
+
             {/* Business Owner Journey */}
-            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold text-slate-900">
+            <div className="rounded-xl border-2 border-purple-200 bg-gradient-to-br from-purple-50 to-purple-100 p-6 shadow-xl">
+              <h3 className="mb-4 text-xl font-bold text-purple-900">
                 Business Owner Journey
               </h3>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-sm font-bold text-slate-600">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-100 text-sm font-bold text-purple-600">
                     1
                   </div>
                   <span className="text-slate-700">Subscribe to SaaS Plan</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-sm font-bold text-slate-600">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-100 text-sm font-bold text-purple-600">
                     2
                   </div>
                   <span className="text-slate-700">
@@ -593,7 +676,7 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-sm font-bold text-slate-600">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-100 text-sm font-bold text-purple-600">
                     3
                   </div>
                   <span className="text-slate-700">
@@ -601,12 +684,270 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-sm font-bold text-slate-600">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-100 text-sm font-bold text-purple-600">
                     4
                   </div>
                   <span className="text-slate-700">
-                    Generate Analytics Reports & Optimize ROI
+                    Analytics Reporting, Geo-Marketing Capabilities,
+                    Cross-Marketing Paid Ads
                   </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Business User Journey */}
+            <div className="rounded-xl border-2 border-orange-200 bg-gradient-to-br from-orange-50 to-orange-100 p-6 shadow-xl">
+              <h3 className="mb-4 text-xl font-bold text-orange-900">
+                Business User Journey
+              </h3>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-100 text-sm font-bold text-orange-600">
+                    1
+                  </div>
+                  <span className="text-slate-700">Access Dashboard</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-100 text-sm font-bold text-orange-600">
+                    2
+                  </div>
+                  <span className="text-slate-700">
+                    Create Content & Campaigns
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-100 text-sm font-bold text-orange-600">
+                    3
+                  </div>
+                  <span className="text-slate-700">
+                    Monitor Performance & Analytics
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-100 text-sm font-bold text-orange-600">
+                    4
+                  </div>
+                  <span className="text-slate-700">
+                    Optimize Based on Insights
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Marketing Agency Journey */}
+            <div className="rounded-xl border-2 border-yellow-200 bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 shadow-xl">
+              <h3 className="mb-4 text-xl font-bold text-yellow-900">
+                Marketing Agency Journey
+              </h3>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-yellow-100 text-sm font-bold text-yellow-600">
+                    1
+                  </div>
+                  <span className="text-slate-700">
+                    Onboard Client & Set up Account
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-yellow-100 text-sm font-bold text-yellow-600">
+                    2
+                  </div>
+                  <span className="text-slate-700">
+                    Design Branded NFC Campaigns
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-yellow-100 text-sm font-bold text-yellow-600">
+                    3
+                  </div>
+                  <span className="text-slate-700">
+                    Deploy & Track Client Campaigns
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-yellow-100 text-sm font-bold text-yellow-600">
+                    4
+                  </div>
+                  <span className="text-slate-700">
+                    AI Insights & Analytics for Client Reports
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Developer Integration Journey */}
+            <div className="rounded-xl border-2 border-pink-200 bg-gradient-to-br from-pink-50 to-pink-100 p-6 shadow-xl">
+              <h3 className="mb-4 text-xl font-bold text-pink-900">
+                Developer Integration Journey
+              </h3>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-pink-100 text-sm font-bold text-pink-600">
+                    1
+                  </div>
+                  <span className="text-slate-700">
+                    Access API Documentation
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-pink-100 text-sm font-bold text-pink-600">
+                    2
+                  </div>
+                  <span className="text-slate-700">
+                    Integrate SDK & Webhooks
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-pink-100 text-sm font-bold text-pink-600">
+                    3
+                  </div>
+                  <span className="text-slate-700">
+                    OpenAI Agents Integration
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-pink-100 text-sm font-bold text-pink-600">
+                    4
+                  </div>
+                  <span className="text-slate-700">
+                    Deploy Custom Solutions
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Viewer NFC Scan Flow */}
+        <div className="mb-16">
+          <h2 className="mb-8 text-center text-3xl font-bold text-slate-900">
+            Viewer NFC Scan Flow
+          </h2>
+          <div className="rounded-xl border-2 border-indigo-200 bg-gradient-to-br from-indigo-50 to-indigo-100 p-8 shadow-xl">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
+              <div className="text-center">
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
+                  <svg
+                    className="h-8 w-8 text-blue-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+                <h3 className="mb-2 font-semibold text-slate-900">
+                  1. NFC Tap
+                </h3>
+                <p className="text-sm text-slate-600">Viewer taps NFC device</p>
+              </div>
+              <div className="text-center">
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
+                  <svg
+                    className="h-8 w-8 text-green-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"
+                    />
+                  </svg>
+                </div>
+                <h3 className="mb-2 font-semibold text-slate-900">
+                  2. Landing Page
+                </h3>
+                <p className="text-sm text-slate-600">Access branded content</p>
+              </div>
+              <div className="text-center">
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-purple-100">
+                  <svg
+                    className="h-8 w-8 text-purple-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                </div>
+                <h3 className="mb-2 font-semibold text-slate-900">
+                  3. Store Scan + Geo
+                </h3>
+                <p className="text-sm text-slate-600">
+                  Track location & behavior
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-orange-100">
+                  <svg
+                    className="h-8 w-8 text-orange-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                    />
+                  </svg>
+                </div>
+                <h3 className="mb-2 font-semibold text-slate-900">
+                  4. Track 90-365 Days
+                </h3>
+                <p className="text-sm text-slate-600">
+                  Extended engagement tracking
+                </p>
+              </div>
+            </div>
+            <div className="mt-8 rounded-lg bg-slate-50 p-6">
+              <h4 className="mb-4 font-semibold text-slate-900">
+                Real-time Analytics
+              </h4>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-blue-600">
+                    Conversion
+                  </div>
+                  <div className="text-sm text-slate-600">Tracking</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-green-600">
+                    Geo-heatmaps
+                  </div>
+                  <div className="text-sm text-slate-600">
+                    Location Insights
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-purple-600">
+                    Customer
+                  </div>
+                  <div className="text-sm text-slate-600">Journey</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-orange-600">ROI</div>
+                  <div className="text-sm text-slate-600">Attribution</div>
                 </div>
               </div>
             </div>
