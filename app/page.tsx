@@ -17,7 +17,9 @@ export default function Home() {
             href="/architecture-diagram"
             className="group relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 text-lg font-semibold shadow-lg transition-all hover:scale-105 hover:shadow-purple-500/50"
           >
-            <span className="relative font-bold text-white">View Architecture</span>
+            <span className="relative font-bold text-white">
+              View Architecture
+            </span>
           </Link>
         </div>
       </div>
