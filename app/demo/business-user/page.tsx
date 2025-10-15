@@ -8,7 +8,7 @@ export default function BusinessUserDemo() {
             Business User Dashboard
           </h1>
           <p className="text-lg text-gray-300">
-            NFC business cards, ROI tracking, and conversion analytics
+            NFC-enabled business cards, conversion funnel analysis, and per-user behavioral profiles
           </p>
         </div>
       </div>
@@ -68,10 +68,10 @@ export default function BusinessUserDemo() {
             <div className="overflow-hidden rounded-lg bg-white shadow-lg">
               <div className="h-40 bg-gradient-to-br from-indigo-400 to-purple-600 p-6">
                 <div className="text-sm font-semibold text-white">
-                  NFC Business Card
+                  Main Card
                 </div>
                 <div className="mt-2 text-2xl font-bold text-white">
-                  Primary Card
+                  Standard NFC Card
                 </div>
               </div>
               <div className="p-6">
@@ -96,10 +96,10 @@ export default function BusinessUserDemo() {
             <div className="overflow-hidden rounded-lg bg-white shadow-lg">
               <div className="h-40 bg-gradient-to-br from-pink-400 to-rose-600 p-6">
                 <div className="text-sm font-semibold text-white">
-                  Trade Show Card
+                  Event Card
                 </div>
                 <div className="mt-2 text-2xl font-bold text-white">
-                  Event Variant
+                  Signage Variant
                 </div>
               </div>
               <div className="p-6">
@@ -124,10 +124,10 @@ export default function BusinessUserDemo() {
             <div className="overflow-hidden rounded-lg bg-white shadow-lg">
               <div className="h-40 bg-gradient-to-br from-cyan-400 to-blue-600 p-6">
                 <div className="text-sm font-semibold text-white">
-                  LinkedIn Card
+                  Partner Card
                 </div>
                 <div className="mt-2 text-2xl font-bold text-white">
-                  Social Variant
+                  Co-Marketing Variant
                 </div>
               </div>
               <div className="p-6">
