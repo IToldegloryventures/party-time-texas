@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic';
 
 export default function ArchitectureDiagram() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black">
       <ClientDiagram />
 
       {/* Main Architecture Diagram */}
@@ -19,13 +19,13 @@ export default function ArchitectureDiagram() {
           {/* Updated: Business Model section now has 6 items in proper 2x3 grid */}
 
           {/* Main Architecture Flow */}
-          <div className="space-y-12">
+          <div className="space-y-8">
             {/* 1. Access Points & Authentication */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-lg">
-              <div className="mb-8 text-center">
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
+              <div className="mb-6 text-center">
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 shadow-lg">
                   <svg
-                    className="h-8 w-8 text-white"
+                    className="h-8 w-8 text-gray-900"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -46,8 +46,8 @@ export default function ArchitectureDiagram() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                <div className="rounded-xl border border-gray-100 bg-gradient-to-br from-blue-50 to-blue-100 p-6">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div className="rounded-xl border border-gray-100 bg-gradient-to-br from-blue-50 to-blue-100 p-4">
                   <h4 className="mb-4 text-center text-xl font-bold text-gray-800">
                     User Interfaces
                   </h4>
@@ -90,11 +90,11 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* 2. Core Application */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-lg">
-              <div className="mb-8 text-center">
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
+              <div className="mb-6 text-center">
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-red-500 to-red-600 shadow-lg">
                   <svg
-                    className="h-8 w-8 text-white"
+                    className="h-8 w-8 text-gray-900"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -115,7 +115,7 @@ export default function ArchitectureDiagram() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div className="rounded-xl border border-gray-100 bg-gradient-to-br from-red-50 to-red-100 p-6">
                   <h4 className="mb-4 text-center text-xl font-bold text-gray-800">
                     Primary Components
@@ -174,11 +174,11 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* 3. Data Architecture & Storage */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-lg">
-              <div className="mb-8 text-center">
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
+              <div className="mb-6 text-center">
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-green-500 to-green-600 shadow-lg">
                   <svg
-                    className="h-8 w-8 text-white"
+                    className="h-8 w-8 text-gray-900"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -199,7 +199,7 @@ export default function ArchitectureDiagram() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div className="rounded-xl border border-gray-100 bg-gradient-to-br from-green-50 to-green-100 p-6">
                   <h4 className="mb-4 text-center text-xl font-bold text-gray-800">
                     Core Tables (12+)
@@ -250,11 +250,11 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* 4. Analytics & Intelligence */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-lg">
-              <div className="mb-8 text-center">
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
+              <div className="mb-6 text-center">
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-indigo-600 shadow-lg">
                   <svg
-                    className="h-8 w-8 text-white"
+                    className="h-8 w-8 text-gray-900"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -275,7 +275,7 @@ export default function ArchitectureDiagram() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div className="rounded-xl border border-gray-100 bg-gradient-to-br from-indigo-50 to-indigo-100 p-6">
                   <h4 className="mb-4 text-center text-xl font-bold text-gray-800">
                     Session Tracking
@@ -318,11 +318,11 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* 5. Connected Services & Commerce */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-lg">
-              <div className="mb-8 text-center">
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
+              <div className="mb-6 text-center">
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-yellow-500 to-yellow-600 shadow-lg">
                   <svg
-                    className="h-8 w-8 text-white"
+                    className="h-8 w-8 text-gray-900"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -404,7 +404,7 @@ export default function ArchitectureDiagram() {
               <div className="mb-6 text-center">
                 <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 shadow-lg">
                   <svg
-                    className="h-6 w-6 text-white"
+                    className="h-6 w-6 text-gray-900"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -448,7 +448,7 @@ export default function ArchitectureDiagram() {
               <div className="mb-6 text-center">
                 <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 shadow-lg">
                   <svg
-                    className="h-6 w-6 text-white"
+                    className="h-6 w-6 text-gray-900"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -486,7 +486,7 @@ export default function ArchitectureDiagram() {
               <div className="mb-6 text-center">
                 <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-pink-500 to-pink-600 shadow-lg">
                   <svg
-                    className="h-6 w-6 text-white"
+                    className="h-6 w-6 text-gray-900"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -599,7 +599,7 @@ export default function ArchitectureDiagram() {
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-cyan-600 shadow-lg">
                 <svg
-                  className="h-8 w-8 text-white"
+                  className="h-8 w-8 text-gray-900"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -622,7 +622,7 @@ export default function ArchitectureDiagram() {
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-yellow-500 to-yellow-600 shadow-lg">
                 <svg
-                  className="h-8 w-8 text-white"
+                  className="h-8 w-8 text-gray-900"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -643,7 +643,7 @@ export default function ArchitectureDiagram() {
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 shadow-lg">
                 <svg
-                  className="h-8 w-8 text-white"
+                  className="h-8 w-8 text-gray-900"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -675,7 +675,7 @@ export default function ArchitectureDiagram() {
             <div className="text-center">
               <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-blue-600">
                 <svg
-                  className="h-6 w-6 text-white"
+                  className="h-6 w-6 text-gray-900"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -695,7 +695,7 @@ export default function ArchitectureDiagram() {
             <div className="text-center">
               <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-green-500 to-green-600">
                 <svg
-                  className="h-6 w-6 text-white"
+                  className="h-6 w-6 text-gray-900"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -715,7 +715,7 @@ export default function ArchitectureDiagram() {
             <div className="text-center">
               <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-purple-600">
                 <svg
-                  className="h-6 w-6 text-white"
+                  className="h-6 w-6 text-gray-900"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -735,7 +735,7 @@ export default function ArchitectureDiagram() {
             <div className="text-center">
               <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-orange-600">
                 <svg
-                  className="h-6 w-6 text-white"
+                  className="h-6 w-6 text-gray-900"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -761,7 +761,7 @@ export default function ArchitectureDiagram() {
             <div className="text-center">
               <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-yellow-500 to-yellow-600">
                 <svg
-                  className="h-6 w-6 text-white"
+                  className="h-6 w-6 text-gray-900"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -781,7 +781,7 @@ export default function ArchitectureDiagram() {
             <div className="text-center">
               <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600">
                 <svg
-                  className="h-6 w-6 text-white"
+                  className="h-6 w-6 text-gray-900"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -858,13 +858,13 @@ export default function ArchitectureDiagram() {
           {/* Row 1: Event Organizer Journey & Event Guest Journey */}
           <div className="mb-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
             {/* Event Organizer Journey */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-lg">
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
               <h3 className="mb-8 text-center text-2xl font-bold text-gray-900">
                 Event Organizer Journey
               </h3>
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-lg font-bold text-gray-900 shadow-lg">
                     1
                   </div>
                   <span className="text-lg text-gray-700">
@@ -872,7 +872,7 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-lg font-bold text-gray-900 shadow-lg">
                     2
                   </div>
                   <span className="text-lg text-gray-700">
@@ -880,7 +880,7 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-lg font-bold text-gray-900 shadow-lg">
                     3
                   </div>
                   <span className="text-lg text-gray-700">
@@ -888,7 +888,7 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-lg font-bold text-gray-900 shadow-lg">
                     4
                   </div>
                   <span className="text-lg text-gray-700">
@@ -909,13 +909,13 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* Event Guest Journey */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-lg">
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
               <h3 className="mb-8 text-center text-2xl font-bold text-gray-900">
                 Event Guest Journey
               </h3>
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-pink-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-pink-600 text-lg font-bold text-gray-900 shadow-lg">
                     1
                   </div>
                   <span className="text-lg text-gray-700">
@@ -923,7 +923,7 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-pink-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-pink-600 text-lg font-bold text-gray-900 shadow-lg">
                     2
                   </div>
                   <span className="text-lg text-gray-700">
@@ -931,7 +931,7 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-pink-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-pink-600 text-lg font-bold text-gray-900 shadow-lg">
                     3
                   </div>
                   <span className="text-lg text-gray-700">
@@ -939,7 +939,7 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-pink-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-pink-600 text-lg font-bold text-gray-900 shadow-lg">
                     4
                   </div>
                   <span className="text-lg text-gray-700">
@@ -962,13 +962,13 @@ export default function ArchitectureDiagram() {
           {/* Row 2: Business Owner Journey & Business User Journey */}
           <div className="mb-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
             {/* Business Owner Journey */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-lg">
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
               <h3 className="mb-8 text-center text-2xl font-bold text-gray-900">
                 Business Owner Journey
               </h3>
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-green-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-green-600 text-lg font-bold text-gray-900 shadow-lg">
                     1
                   </div>
                   <span className="text-lg text-gray-700">
@@ -976,7 +976,7 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-green-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-green-600 text-lg font-bold text-gray-900 shadow-lg">
                     2
                   </div>
                   <span className="text-lg text-gray-700">
@@ -984,7 +984,7 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-green-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-green-600 text-lg font-bold text-gray-900 shadow-lg">
                     3
                   </div>
                   <span className="text-lg text-gray-700">
@@ -992,7 +992,7 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-green-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-green-600 text-lg font-bold text-gray-900 shadow-lg">
                     4
                   </div>
                   <span className="text-lg text-gray-700">
@@ -1013,13 +1013,13 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* Business User Journey */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-lg">
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
               <h3 className="mb-8 text-center text-2xl font-bold text-gray-900">
                 Business User Journey
               </h3>
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-cyan-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-cyan-600 text-lg font-bold text-gray-900 shadow-lg">
                     1
                   </div>
                   <span className="text-lg text-gray-700">
@@ -1027,7 +1027,7 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-cyan-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-cyan-600 text-lg font-bold text-gray-900 shadow-lg">
                     2
                   </div>
                   <span className="text-lg text-gray-700">
@@ -1035,7 +1035,7 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-cyan-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-cyan-600 text-lg font-bold text-gray-900 shadow-lg">
                     3
                   </div>
                   <span className="text-lg text-gray-700">
@@ -1043,7 +1043,7 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-cyan-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-cyan-600 text-lg font-bold text-gray-900 shadow-lg">
                     4
                   </div>
                   <span className="text-lg text-gray-700">
@@ -1066,13 +1066,13 @@ export default function ArchitectureDiagram() {
           {/* Row 3: Marketing Agency Journey & Viewer NFC Scan Flow */}
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             {/* Marketing Agency Journey */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-lg">
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
               <h3 className="mb-8 text-center text-2xl font-bold text-gray-900">
                 Marketing Agency Journey
               </h3>
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-orange-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-orange-600 text-lg font-bold text-gray-900 shadow-lg">
                     1
                   </div>
                   <span className="text-lg text-gray-700">
@@ -1080,7 +1080,7 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-orange-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-orange-600 text-lg font-bold text-gray-900 shadow-lg">
                     2
                   </div>
                   <span className="text-lg text-gray-700">
@@ -1088,7 +1088,7 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-orange-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-orange-600 text-lg font-bold text-gray-900 shadow-lg">
                     3
                   </div>
                   <span className="text-lg text-gray-700">
@@ -1096,7 +1096,7 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-orange-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-orange-600 text-lg font-bold text-gray-900 shadow-lg">
                     4
                   </div>
                   <span className="text-lg text-gray-700">
@@ -1117,13 +1117,13 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* Viewer NFC Scan Flow */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-lg">
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
               <h3 className="mb-8 text-center text-2xl font-bold text-gray-900">
                 Viewer NFC Scan Flow
               </h3>
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-green-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-green-600 text-lg font-bold text-gray-900 shadow-lg">
                     1
                   </div>
                   <span className="text-lg text-gray-700">
@@ -1131,7 +1131,7 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-green-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-green-600 text-lg font-bold text-gray-900 shadow-lg">
                     2
                   </div>
                   <span className="text-lg text-gray-700">
@@ -1139,7 +1139,7 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-green-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-green-600 text-lg font-bold text-gray-900 shadow-lg">
                     3
                   </div>
                   <span className="text-lg text-gray-700">
@@ -1147,7 +1147,7 @@ export default function ArchitectureDiagram() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-green-600 text-lg font-bold text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-green-600 text-lg font-bold text-gray-900 shadow-lg">
                     4
                   </div>
                   <span className="text-lg text-gray-700">
