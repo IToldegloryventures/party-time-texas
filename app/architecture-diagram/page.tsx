@@ -6,12 +6,12 @@ export const runtime = 'nodejs';
 
 export default function ArchitectureDiagram() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black">
       {/* Main Architecture Diagram */}
       <div className="mx-auto max-w-7xl px-6 py-12">
         {/* System Architecture Overview */}
         <div className="mb-16">
-          <h1 className="mb-8 text-center text-4xl font-bold text-slate-900">
+          <h1 className="mb-8 text-center text-4xl font-bold text-white">
             System Architecture Overview
           </h1>
 
@@ -279,7 +279,7 @@ export default function ArchitectureDiagram() {
 
         {/* Business Model */}
         <div className="mb-16">
-          <h2 className="mb-8 text-center text-3xl font-bold text-slate-900">
+          <h2 className="mb-8 text-center text-3xl font-bold text-white">
             Business Model
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -426,7 +426,7 @@ export default function ArchitectureDiagram() {
 
         {/* Key Service Offerings & Revenue Streams */}
         <div className="mb-16">
-          <h2 className="mb-8 text-center text-3xl font-bold text-slate-900">
+          <h2 className="mb-8 text-center text-3xl font-bold text-white">
             Key Service Offerings & Revenue Streams
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -573,7 +573,7 @@ export default function ArchitectureDiagram() {
 
         {/* User Journey Examples */}
         <div className="mb-16">
-          <h2 className="mb-8 text-center text-3xl font-bold text-slate-900">
+          <h2 className="mb-8 text-center text-3xl font-bold text-white">
             User Journey Examples
           </h2>
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
