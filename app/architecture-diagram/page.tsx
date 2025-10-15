@@ -7,7 +7,7 @@ export default function ArchitectureDiagram() {
   return (
     <div className="min-h-screen bg-red-500">
       <div className="p-8 text-center text-white">
-        <h1 className="text-4xl font-bold">TEST PAGE - COMMIT 6195de0</h1>
+        <h1 className="text-4xl font-bold">TEST PAGE - SYMLINK FIXED</h1>
         <p className="text-xl">
           If you see this, the server component is working
         </p>
