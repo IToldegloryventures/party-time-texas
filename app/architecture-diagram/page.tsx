@@ -7,9 +7,6 @@ export default function ArchitectureDiagram() {
           <h1 className="mb-4 text-4xl font-bold text-white">
             Cosmic Portals SaaS Architecture
           </h1>
-          <p className="text-xl text-gray-300">
-            Professional System Architecture | Investor-Ready Presentation
-          </p>
         </div>
       </div>
 
@@ -366,9 +363,28 @@ export default function ArchitectureDiagram() {
             <div className="rounded-lg border border-gray-600 bg-white p-6 shadow-lg">
               <div className="mb-4 flex items-center justify-center">
                 <div className="rounded-full bg-blue-100 p-3">
-                  <svg className="h-8 w-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M8 21l4-7 4 7" stroke="currentColor" strokeWidth="2" fill="none"/>
+                  <svg
+                    className="h-8 w-8 text-blue-600"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <rect
+                      x="2"
+                      y="3"
+                      width="20"
+                      height="14"
+                      rx="2"
+                      ry="2"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M8 21l4-7 4 7"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
                   </svg>
                 </div>
               </div>
@@ -385,10 +401,44 @@ export default function ArchitectureDiagram() {
             <div className="rounded-lg border border-gray-600 bg-white p-6 shadow-lg">
               <div className="mb-4 flex items-center justify-center">
                 <div className="rounded-full bg-green-100 p-3">
-                  <svg className="h-8 w-8 text-green-600" fill="currentColor" viewBox="0 0 24 24">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <rect x="4" y="5" width="16" height="10" rx="1" ry="1" stroke="currentColor" strokeWidth="1" fill="none"/>
-                    <rect x="6" y="7" width="12" height="6" rx="0.5" ry="0.5" stroke="currentColor" strokeWidth="1" fill="none"/>
+                  <svg
+                    className="h-8 w-8 text-green-600"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <rect
+                      x="2"
+                      y="3"
+                      width="20"
+                      height="14"
+                      rx="2"
+                      ry="2"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <rect
+                      x="4"
+                      y="5"
+                      width="16"
+                      height="10"
+                      rx="1"
+                      ry="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
+                    <rect
+                      x="6"
+                      y="7"
+                      width="12"
+                      height="6"
+                      rx="0.5"
+                      ry="0.5"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
                   </svg>
                 </div>
               </div>
@@ -405,10 +455,36 @@ export default function ArchitectureDiagram() {
             <div className="rounded-lg border border-gray-600 bg-white p-6 shadow-lg">
               <div className="mb-4 flex items-center justify-center">
                 <div className="rounded-full bg-purple-100 p-3">
-                  <svg className="h-8 w-8 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <circle cx="8" cy="10" r="2" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M12 10l4 4" stroke="currentColor" strokeWidth="2" fill="none"/>
+                  <svg
+                    className="h-8 w-8 text-purple-600"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <rect
+                      x="2"
+                      y="3"
+                      width="20"
+                      height="14"
+                      rx="2"
+                      ry="2"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <circle
+                      cx="8"
+                      cy="10"
+                      r="2"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M12 10l4 4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
                   </svg>
                 </div>
               </div>
@@ -425,10 +501,34 @@ export default function ArchitectureDiagram() {
             <div className="rounded-lg border border-gray-600 bg-white p-6 shadow-lg">
               <div className="mb-4 flex items-center justify-center">
                 <div className="rounded-full bg-orange-100 p-3">
-                  <svg className="h-8 w-8 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M8 7l4 4 4-4" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M8 13l4 4 4-4" stroke="currentColor" strokeWidth="2" fill="none"/>
+                  <svg
+                    className="h-8 w-8 text-orange-600"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <rect
+                      x="2"
+                      y="3"
+                      width="20"
+                      height="14"
+                      rx="2"
+                      ry="2"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M8 7l4 4 4-4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M8 13l4 4 4-4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
                   </svg>
                 </div>
               </div>
@@ -454,16 +554,65 @@ export default function ArchitectureDiagram() {
             <div className="rounded-lg border border-gray-600 bg-white p-6 shadow-lg">
               <div className="mb-4 flex items-center justify-center">
                 <div className="rounded-full bg-blue-100 p-3">
-                  <svg className="h-8 w-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M12 2v4" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M12 18v4" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M4.93 4.93l2.83 2.83" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M16.24 16.24l2.83 2.83" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M2 12h4" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M18 12h4" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M4.93 19.07l2.83-2.83" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M16.24 7.76l2.83-2.83" stroke="currentColor" strokeWidth="2" fill="none"/>
+                  <svg
+                    className="h-8 w-8 text-blue-600"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M12 2v4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M12 18v4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M4.93 4.93l2.83 2.83"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M16.24 16.24l2.83 2.83"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M2 12h4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M18 12h4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M4.93 19.07l2.83-2.83"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M16.24 7.76l2.83-2.83"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
                   </svg>
                 </div>
               </div>
@@ -480,13 +629,68 @@ export default function ArchitectureDiagram() {
             <div className="rounded-lg border border-gray-600 bg-white p-6 shadow-lg">
               <div className="mb-4 flex items-center justify-center">
                 <div className="rounded-full bg-green-100 p-3">
-                  <svg className="h-8 w-8 text-green-600" fill="currentColor" viewBox="0 0 24 24">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <rect x="4" y="5" width="16" height="10" rx="1" ry="1" stroke="currentColor" strokeWidth="1" fill="none"/>
-                    <rect x="6" y="7" width="12" height="6" rx="0.5" ry="0.5" stroke="currentColor" strokeWidth="1" fill="none"/>
-                    <circle cx="8" cy="10" r="1" stroke="currentColor" strokeWidth="1" fill="none"/>
-                    <circle cx="12" cy="10" r="1" stroke="currentColor" strokeWidth="1" fill="none"/>
-                    <circle cx="16" cy="10" r="1" stroke="currentColor" strokeWidth="1" fill="none"/>
+                  <svg
+                    className="h-8 w-8 text-green-600"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <rect
+                      x="2"
+                      y="3"
+                      width="20"
+                      height="14"
+                      rx="2"
+                      ry="2"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <rect
+                      x="4"
+                      y="5"
+                      width="16"
+                      height="10"
+                      rx="1"
+                      ry="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
+                    <rect
+                      x="6"
+                      y="7"
+                      width="12"
+                      height="6"
+                      rx="0.5"
+                      ry="0.5"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
+                    <circle
+                      cx="8"
+                      cy="10"
+                      r="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
+                    <circle
+                      cx="12"
+                      cy="10"
+                      r="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
+                    <circle
+                      cx="16"
+                      cy="10"
+                      r="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
                   </svg>
                 </div>
               </div>
@@ -503,13 +707,58 @@ export default function ArchitectureDiagram() {
             <div className="rounded-lg border border-gray-600 bg-white p-6 shadow-lg">
               <div className="mb-4 flex items-center justify-center">
                 <div className="rounded-full bg-purple-100 p-3">
-                  <svg className="h-8 w-8 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M8 7l4 4 4-4" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M8 13l4 4 4-4" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <circle cx="8" cy="10" r="1" stroke="currentColor" strokeWidth="1" fill="none"/>
-                    <circle cx="12" cy="10" r="1" stroke="currentColor" strokeWidth="1" fill="none"/>
-                    <circle cx="16" cy="10" r="1" stroke="currentColor" strokeWidth="1" fill="none"/>
+                  <svg
+                    className="h-8 w-8 text-purple-600"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <rect
+                      x="2"
+                      y="3"
+                      width="20"
+                      height="14"
+                      rx="2"
+                      ry="2"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M8 7l4 4 4-4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M8 13l4 4 4-4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <circle
+                      cx="8"
+                      cy="10"
+                      r="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
+                    <circle
+                      cx="12"
+                      cy="10"
+                      r="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
+                    <circle
+                      cx="16"
+                      cy="10"
+                      r="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
                   </svg>
                 </div>
               </div>
@@ -590,10 +839,34 @@ export default function ArchitectureDiagram() {
             <div className="rounded-lg border border-gray-600 bg-white p-6 shadow-lg">
               <div className="mb-4 flex items-center">
                 <div className="mr-4 rounded-full bg-blue-100 p-3">
-                  <svg className="h-8 w-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M8 7l4 4 4-4" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M8 13l4 4 4-4" stroke="currentColor" strokeWidth="2" fill="none"/>
+                  <svg
+                    className="h-8 w-8 text-blue-600"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <rect
+                      x="2"
+                      y="3"
+                      width="20"
+                      height="14"
+                      rx="2"
+                      ry="2"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M8 7l4 4 4-4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M8 13l4 4 4-4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900">
@@ -610,12 +883,57 @@ export default function ArchitectureDiagram() {
             <div className="rounded-lg border border-gray-600 bg-white p-6 shadow-lg">
               <div className="mb-4 flex items-center">
                 <div className="mr-4 rounded-full bg-green-100 p-3">
-                  <svg className="h-8 w-8 text-green-600" fill="currentColor" viewBox="0 0 24 24">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <rect x="4" y="5" width="16" height="10" rx="1" ry="1" stroke="currentColor" strokeWidth="1" fill="none"/>
-                    <circle cx="8" cy="10" r="1" stroke="currentColor" strokeWidth="1" fill="none"/>
-                    <circle cx="12" cy="10" r="1" stroke="currentColor" strokeWidth="1" fill="none"/>
-                    <circle cx="16" cy="10" r="1" stroke="currentColor" strokeWidth="1" fill="none"/>
+                  <svg
+                    className="h-8 w-8 text-green-600"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <rect
+                      x="2"
+                      y="3"
+                      width="20"
+                      height="14"
+                      rx="2"
+                      ry="2"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <rect
+                      x="4"
+                      y="5"
+                      width="16"
+                      height="10"
+                      rx="1"
+                      ry="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
+                    <circle
+                      cx="8"
+                      cy="10"
+                      r="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
+                    <circle
+                      cx="12"
+                      cy="10"
+                      r="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
+                    <circle
+                      cx="16"
+                      cy="10"
+                      r="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900">
@@ -632,18 +950,61 @@ export default function ArchitectureDiagram() {
             <div className="rounded-lg border border-gray-600 bg-white p-6 shadow-lg">
               <div className="mb-4 flex items-center">
                 <div className="mr-4 rounded-full bg-purple-100 p-3">
-                  <svg className="h-8 w-8 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M8 7l4 4 4-4" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M8 13l4 4 4-4" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <circle cx="8" cy="10" r="1" stroke="currentColor" strokeWidth="1" fill="none"/>
-                    <circle cx="12" cy="10" r="1" stroke="currentColor" strokeWidth="1" fill="none"/>
-                    <circle cx="16" cy="10" r="1" stroke="currentColor" strokeWidth="1" fill="none"/>
+                  <svg
+                    className="h-8 w-8 text-purple-600"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <rect
+                      x="2"
+                      y="3"
+                      width="20"
+                      height="14"
+                      rx="2"
+                      ry="2"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M8 7l4 4 4-4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M8 13l4 4 4-4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <circle
+                      cx="8"
+                      cy="10"
+                      r="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
+                    <circle
+                      cx="12"
+                      cy="10"
+                      r="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
+                    <circle
+                      cx="16"
+                      cy="10"
+                      r="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">
-                  AI Services
-                </h3>
+                <h3 className="text-xl font-bold text-gray-900">AI Services</h3>
               </div>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li>• AI landing page generation</li>
@@ -655,13 +1016,58 @@ export default function ArchitectureDiagram() {
             <div className="rounded-lg border border-gray-600 bg-white p-6 shadow-lg">
               <div className="mb-4 flex items-center">
                 <div className="mr-4 rounded-full bg-orange-100 p-3">
-                  <svg className="h-8 w-8 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M8 7l4 4 4-4" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M8 13l4 4 4-4" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <circle cx="8" cy="10" r="1" stroke="currentColor" strokeWidth="1" fill="none"/>
-                    <circle cx="12" cy="10" r="1" stroke="currentColor" strokeWidth="1" fill="none"/>
-                    <circle cx="16" cy="10" r="1" stroke="currentColor" strokeWidth="1" fill="none"/>
+                  <svg
+                    className="h-8 w-8 text-orange-600"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <rect
+                      x="2"
+                      y="3"
+                      width="20"
+                      height="14"
+                      rx="2"
+                      ry="2"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M8 7l4 4 4-4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M8 13l4 4 4-4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <circle
+                      cx="8"
+                      cy="10"
+                      r="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
+                    <circle
+                      cx="12"
+                      cy="10"
+                      r="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
+                    <circle
+                      cx="16"
+                      cy="10"
+                      r="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900">
@@ -678,13 +1084,58 @@ export default function ArchitectureDiagram() {
             <div className="rounded-lg border border-gray-600 bg-white p-6 shadow-lg">
               <div className="mb-4 flex items-center">
                 <div className="mr-4 rounded-full bg-red-100 p-3">
-                  <svg className="h-8 w-8 text-red-600" fill="currentColor" viewBox="0 0 24 24">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M8 7l4 4 4-4" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M8 13l4 4 4-4" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <circle cx="8" cy="10" r="1" stroke="currentColor" strokeWidth="1" fill="none"/>
-                    <circle cx="12" cy="10" r="1" stroke="currentColor" strokeWidth="1" fill="none"/>
-                    <circle cx="16" cy="10" r="1" stroke="currentColor" strokeWidth="1" fill="none"/>
+                  <svg
+                    className="h-8 w-8 text-red-600"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <rect
+                      x="2"
+                      y="3"
+                      width="20"
+                      height="14"
+                      rx="2"
+                      ry="2"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M8 7l4 4 4-4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M8 13l4 4 4-4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <circle
+                      cx="8"
+                      cy="10"
+                      r="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
+                    <circle
+                      cx="12"
+                      cy="10"
+                      r="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
+                    <circle
+                      cx="16"
+                      cy="10"
+                      r="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900">
@@ -701,13 +1152,58 @@ export default function ArchitectureDiagram() {
             <div className="rounded-lg border border-gray-600 bg-white p-6 shadow-lg">
               <div className="mb-4 flex items-center">
                 <div className="mr-4 rounded-full bg-pink-100 p-3">
-                  <svg className="h-8 w-8 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M8 7l4 4 4-4" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M8 13l4 4 4-4" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <circle cx="8" cy="10" r="1" stroke="currentColor" strokeWidth="1" fill="none"/>
-                    <circle cx="12" cy="10" r="1" stroke="currentColor" strokeWidth="1" fill="none"/>
-                    <circle cx="16" cy="10" r="1" stroke="currentColor" strokeWidth="1" fill="none"/>
+                  <svg
+                    className="h-8 w-8 text-pink-600"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <rect
+                      x="2"
+                      y="3"
+                      width="20"
+                      height="14"
+                      rx="2"
+                      ry="2"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M8 7l4 4 4-4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M8 13l4 4 4-4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <circle
+                      cx="8"
+                      cy="10"
+                      r="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
+                    <circle
+                      cx="12"
+                      cy="10"
+                      r="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
+                    <circle
+                      cx="16"
+                      cy="10"
+                      r="1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900">
