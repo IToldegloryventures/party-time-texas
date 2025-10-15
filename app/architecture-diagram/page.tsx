@@ -18,10 +18,10 @@ export default function ArchitectureDiagram() {
           </h2>
 
           {/* Main Architecture Flow */}
-          <div className="space-y-6">
+          <div className="space-y-8">
             {/* 1. Access Points & Authentication */}
             <div className="rounded-lg border-2 border-gray-300 bg-gray-50 p-6">
-              <div className="mb-4 flex items-center">
+              <div className="mb-6 flex items-center">
                 <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
                   <svg
                     className="h-6 w-6 text-blue-600"
@@ -46,10 +46,11 @@ export default function ArchitectureDiagram() {
                   </p>
                 </div>
               </div>
+
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                <div>
+                <div className="rounded-lg border border-gray-200 bg-white p-4">
                   <h4 className="mb-3 text-lg font-semibold text-gray-800">
-                    User Interfaces:
+                    User Interfaces
                   </h4>
                   <ul className="space-y-2 text-base text-gray-700">
                     <li>• Mobile App</li>
@@ -57,9 +58,9 @@ export default function ArchitectureDiagram() {
                     <li>• White-Label Domains (e.g., events.company.com)</li>
                   </ul>
                 </div>
-                <div>
+                <div className="rounded-lg border border-gray-200 bg-white p-4">
                   <h4 className="mb-3 text-lg font-semibold text-gray-800">
-                    Authentication:
+                    Authentication
                   </h4>
                   <ul className="space-y-2 text-base text-gray-700">
                     <li>• Clerk – Identity & Session Management</li>
@@ -75,7 +76,7 @@ export default function ArchitectureDiagram() {
 
             {/* 2. Core Application */}
             <div className="rounded-lg border-2 border-gray-300 bg-gray-50 p-6">
-              <div className="mb-4 flex items-center">
+              <div className="mb-6 flex items-center">
                 <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-lg bg-red-100">
                   <svg
                     className="h-6 w-6 text-red-600"
@@ -100,10 +101,11 @@ export default function ArchitectureDiagram() {
                   </p>
                 </div>
               </div>
+
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                <div>
+                <div className="rounded-lg border border-gray-200 bg-white p-4">
                   <h4 className="mb-3 text-lg font-semibold text-gray-800">
-                    Primary Components:
+                    Primary Components
                   </h4>
                   <ul className="space-y-2 text-base text-gray-700">
                     <li>• Central Dashboard</li>
@@ -113,9 +115,9 @@ export default function ArchitectureDiagram() {
                     <li>• Hardware Storefront</li>
                   </ul>
                 </div>
-                <div>
+                <div className="rounded-lg border border-gray-200 bg-white p-4">
                   <h4 className="mb-3 text-lg font-semibold text-gray-800">
-                    Management & Analytics:
+                    Management & Analytics
                   </h4>
                   <ul className="space-y-2 text-base text-gray-700">
                     <li>• Performance & Analytics Dashboard</li>
@@ -130,7 +132,7 @@ export default function ArchitectureDiagram() {
 
             {/* 3. Data Architecture & Storage */}
             <div className="rounded-lg border-2 border-gray-300 bg-gray-50 p-6">
-              <div className="mb-4 flex items-center">
+              <div className="mb-6 flex items-center">
                 <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-lg bg-green-100">
                   <svg
                     className="h-6 w-6 text-green-600"
@@ -155,10 +157,11 @@ export default function ArchitectureDiagram() {
                   </p>
                 </div>
               </div>
+
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                <div>
+                <div className="rounded-lg border border-gray-200 bg-white p-4">
                   <h4 className="mb-3 text-lg font-semibold text-gray-800">
-                    Core Tables (12+):
+                    Core Tables (12+)
                   </h4>
                   <ul className="space-y-2 text-base text-gray-700">
                     <li>• users, organizations, events, attendees</li>
@@ -167,9 +170,9 @@ export default function ArchitectureDiagram() {
                     <li>• billing_history, analytics_events</li>
                   </ul>
                 </div>
-                <div>
+                <div className="rounded-lg border border-gray-200 bg-white p-4">
                   <h4 className="mb-3 text-lg font-semibold text-gray-800">
-                    Extended Tracking:
+                    Extended Tracking
                   </h4>
                   <ul className="space-y-2 text-base text-gray-700">
                     <li>• Persistent cookies (90–365 days)</li>
@@ -183,7 +186,7 @@ export default function ArchitectureDiagram() {
 
             {/* 4. Analytics & Intelligence */}
             <div className="rounded-lg border-2 border-gray-300 bg-gray-50 p-6">
-              <div className="mb-4 flex items-center">
+              <div className="mb-6 flex items-center">
                 <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
                   <svg
                     className="h-6 w-6 text-blue-600"
@@ -208,10 +211,11 @@ export default function ArchitectureDiagram() {
                   </p>
                 </div>
               </div>
+
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                <div>
+                <div className="rounded-lg border border-gray-200 bg-white p-4">
                   <h4 className="mb-3 text-lg font-semibold text-gray-800">
-                    Session Tracking:
+                    Session Tracking
                   </h4>
                   <ul className="space-y-2 text-base text-gray-700">
                     <li>• NFC scans & landing-page interactions</li>
@@ -219,9 +223,9 @@ export default function ArchitectureDiagram() {
                     <li>• Real-time event aggregation</li>
                   </ul>
                 </div>
-                <div>
+                <div className="rounded-lg border border-gray-200 bg-white p-4">
                   <h4 className="mb-3 text-lg font-semibold text-gray-800">
-                    AI-Driven Insights:
+                    AI-Driven Insights
                   </h4>
                   <ul className="space-y-2 text-base text-gray-700">
                     <li>• Conversion funnels & geo-heatmaps</li>
@@ -234,7 +238,7 @@ export default function ArchitectureDiagram() {
 
             {/* 5. Connected Services & Commerce */}
             <div className="rounded-lg border-2 border-gray-300 bg-gray-50 p-6">
-              <div className="mb-4 flex items-center">
+              <div className="mb-6 flex items-center">
                 <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-lg bg-yellow-100">
                   <svg
                     className="h-6 w-6 text-yellow-600"
@@ -259,10 +263,11 @@ export default function ArchitectureDiagram() {
                   </p>
                 </div>
               </div>
+
               <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-                <div>
+                <div className="rounded-lg border border-gray-200 bg-white p-4">
                   <h4 className="mb-3 text-lg font-semibold text-gray-800">
-                    Communication:
+                    Communication
                   </h4>
                   <ul className="space-y-2 text-base text-gray-700">
                     <li>• Push Notifications</li>
@@ -270,18 +275,18 @@ export default function ArchitectureDiagram() {
                     <li>• Webhooks</li>
                   </ul>
                 </div>
-                <div>
+                <div className="rounded-lg border border-gray-200 bg-white p-4">
                   <h4 className="mb-3 text-lg font-semibold text-gray-800">
-                    Commerce & Billing:
+                    Commerce & Billing
                   </h4>
                   <ul className="space-y-2 text-base text-gray-700">
                     <li>• Stripe Billing & Subscriptions</li>
                     <li>• Usage-based pricing models</li>
                   </ul>
                 </div>
-                <div>
+                <div className="rounded-lg border border-gray-200 bg-white p-4">
                   <h4 className="mb-3 text-lg font-semibold text-gray-800">
-                    Physical Fulfillment:
+                    Physical Fulfillment
                   </h4>
                   <ul className="space-y-2 text-base text-gray-700">
                     <li>• NFC devices & branded packaging</li>
@@ -569,58 +574,31 @@ export default function ArchitectureDiagram() {
           </div>
         </div>
 
-        {/* Viewer NFC Scan Flow */}
+        {/* Business Model - MOVED TO TOP */}
         <div className="mb-12 rounded-lg border-2 border-gray-300 bg-gray-50 p-6">
           <h3 className="mb-6 text-xl font-bold text-gray-900">
-            Viewer NFC Scan Flow
+            Business Model
           </h3>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
-            <div className="flex items-center space-x-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
-                1
-              </div>
-              <span className="text-base text-gray-700">
-                Guest taps NFC tag
-              </span>
+          <div className="space-y-3">
+            <div className="text-base text-gray-700">
+              • Recurring SaaS Subscriptions
             </div>
-            <div className="flex items-center space-x-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
-                2
-              </div>
-              <span className="text-base text-gray-700">
-                Dynamic landing page loads
-              </span>
+            <div className="text-base text-gray-700">
+              • Physical Hardware Sales
             </div>
-            <div className="flex items-center space-x-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
-                3
-              </div>
-              <span className="text-base text-gray-700">
-                Scan data and geolocation captured
-              </span>
+            <div className="text-base text-gray-700">
+              • Branded Design and Creative Services
             </div>
-            <div className="flex items-center space-x-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
-                4
-              </div>
-              <span className="text-base text-gray-700">
-                Persistent tracking (90–365 days)
-              </span>
+            <div className="text-base text-gray-700">
+              • B2B & B2C Geo Marketing paid ads and insights
             </div>
-          </div>
-          <div className="mt-6 rounded bg-green-100 p-4">
-            <div className="text-base font-semibold text-green-800">
-              Real-Time Analytics:
-            </div>
-            <div className="mt-2 text-sm text-green-700">
-              Engagement and conversion tracking, Geo-intelligence
-              visualization, Customer journey mapping, ROI attribution and
-              campaign effectiveness
+            <div className="text-base text-gray-700">
+              • Advanced Analytics and Attribution Solutions
             </div>
           </div>
         </div>
 
-        {/* Key Service Offerings */}
+        {/* Key Service Offerings - MOVED ABOVE USER JOURNEYS */}
         <div className="mb-12 rounded-lg border-2 border-gray-300 bg-gray-50 p-6">
           <h3 className="mb-6 text-xl font-bold text-gray-900">
             Key Service Offerings & Revenue Streams
@@ -668,346 +646,322 @@ export default function ArchitectureDiagram() {
           </div>
         </div>
 
-        {/* User Journey Examples */}
-        <div className="mb-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
-          {/* Event Organizer Journey */}
-          <div className="rounded-lg border-2 border-gray-300 bg-gray-50 p-6">
-            <h3 className="mb-6 text-xl font-bold text-gray-900">
-              Event Organizer Journey
-            </h3>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
-                  1
+        {/* User Journey Examples - 2 blocks per row, correct order */}
+        <div className="mb-12">
+          <h2 className="mb-8 text-center text-4xl font-semibold text-gray-900">
+            User Journey Examples
+          </h2>
+
+          {/* Row 1: Event Organizer Journey & Event Guest Journey */}
+          <div className="mb-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+            {/* Event Organizer Journey */}
+            <div className="rounded-lg border-2 border-gray-300 bg-gray-50 p-6">
+              <h3 className="mb-6 text-xl font-bold text-gray-900">
+                Event Organizer Journey
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+                    1
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Sign up & Create Organization
+                  </span>
                 </div>
-                <span className="text-base text-gray-700">
-                  Sign up & Create Organization
-                </span>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+                    2
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Design Landing Pages with AI Builder
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+                    3
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Order Custom NFC Merch & Branding
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+                    4
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Deploy at Event & Track Real-time Analytics
+                  </span>
+                </div>
+                <div className="mt-6 rounded bg-blue-100 p-4">
+                  <div className="text-base font-semibold text-blue-800">
+                    Key Features Used:
+                  </div>
+                  <div className="mt-2 text-sm text-blue-700">
+                    AI Landing Page Builder, Custom NFC Merchandise,
+                    Geo-Marketing Intelligence, Real-time Analytics Dashboard,
+                    White-label Branding
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center space-x-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
-                  2
+            </div>
+
+            {/* Event Guest Journey */}
+            <div className="rounded-lg border-2 border-gray-300 bg-gray-50 p-6">
+              <h3 className="mb-6 text-xl font-bold text-gray-900">
+                Event Guest Journey
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-pink-600 text-sm font-bold text-white">
+                    1
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Receive Event Invitation
+                  </span>
                 </div>
-                <span className="text-base text-gray-700">
-                  Design Landing Pages with AI Builder
-                </span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
-                  3
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-pink-600 text-sm font-bold text-white">
+                    2
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Tap NFC Tag at Event
+                  </span>
                 </div>
-                <span className="text-base text-gray-700">
-                  Order Custom NFC Merch & Branding
-                </span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
-                  4
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-pink-600 text-sm font-bold text-white">
+                    3
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Access Photo Galleries & Content
+                  </span>
                 </div>
-                <span className="text-base text-gray-700">
-                  Deploy at Event & Track Real-time Analytics
-                </span>
-              </div>
-              <div className="mt-6 rounded bg-blue-100 p-4">
-                <div className="text-base font-semibold text-blue-800">
-                  Key Features Used:
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-pink-600 text-sm font-bold text-white">
+                    4
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Share & Connect with Others
+                  </span>
                 </div>
-                <div className="mt-2 text-sm text-blue-700">
-                  AI Landing Page Builder, Custom NFC Merchandise, Geo-Marketing
-                  Intelligence, Real-time Analytics Dashboard, White-label
-                  Branding
+                <div className="mt-6 rounded bg-pink-100 p-4">
+                  <div className="text-base font-semibold text-pink-800">
+                    Key Features Used:
+                  </div>
+                  <div className="mt-2 text-sm text-pink-700">
+                    NFC Tag Interaction, Photo Gallery Access, Social Sharing,
+                    Event Content, Guest Networking
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Business Owner Journey */}
-          <div className="rounded-lg border-2 border-gray-300 bg-gray-50 p-6">
-            <h3 className="mb-6 text-xl font-bold text-gray-900">
-              Business Owner Journey
-            </h3>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
-                  1
+          {/* Row 2: Business Owner Journey & Business User Journey */}
+          <div className="mb-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+            {/* Business Owner Journey */}
+            <div className="rounded-lg border-2 border-gray-300 bg-gray-50 p-6">
+              <h3 className="mb-6 text-xl font-bold text-gray-900">
+                Business Owner Journey
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
+                    1
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Subscribe to SaaS Plan
+                  </span>
                 </div>
-                <span className="text-base text-gray-700">
-                  Subscribe to SaaS Plan
-                </span>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
+                    2
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Set up Team & Multi-location Tracking
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
+                    3
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Create Geo-Marketing Campaigns & Cross-Marketing Paid Ads
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
+                    4
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Generate Analytics Reports & Optimize ROI
+                  </span>
+                </div>
+                <div className="mt-6 rounded bg-green-100 p-4">
+                  <div className="text-base font-semibold text-green-800">
+                    Key Features Used:
+                  </div>
+                  <div className="mt-2 text-sm text-green-700">
+                    Multi-location Tracking, Geo-Marketing Intelligence,
+                    Analytics Reporting, Cross-Marketing Paid Ads, Customer
+                    Journey Insights, ROI Attribution, Automated Follow-ups
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center space-x-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
-                  2
+            </div>
+
+            {/* Business User Journey */}
+            <div className="rounded-lg border-2 border-gray-300 bg-gray-50 p-6">
+              <h3 className="mb-6 text-xl font-bold text-gray-900">
+                Business User Journey
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan-600 text-sm font-bold text-white">
+                    1
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Access Business Dashboard
+                  </span>
                 </div>
-                <span className="text-base text-gray-700">
-                  Set up Team & Multi-location Tracking
-                </span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
-                  3
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan-600 text-sm font-bold text-white">
+                    2
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Create & Manage Content
+                  </span>
                 </div>
-                <span className="text-base text-gray-700">
-                  Create Geo-Marketing Campaigns & Cross-Marketing Paid Ads
-                </span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
-                  4
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan-600 text-sm font-bold text-white">
+                    3
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Track Performance & Analytics
+                  </span>
                 </div>
-                <span className="text-base text-gray-700">
-                  Generate Analytics Reports & Optimize ROI
-                </span>
-              </div>
-              <div className="mt-6 rounded bg-green-100 p-4">
-                <div className="text-base font-semibold text-green-800">
-                  Key Features Used:
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan-600 text-sm font-bold text-white">
+                    4
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Optimize Campaigns & ROI
+                  </span>
                 </div>
-                <div className="mt-2 text-sm text-green-700">
-                  Multi-location Tracking, Geo-Marketing Intelligence, Analytics
-                  Reporting, Cross-Marketing Paid Ads, Customer Journey
-                  Insights, ROI Attribution, Automated Follow-ups
+                <div className="mt-6 rounded bg-cyan-100 p-4">
+                  <div className="text-base font-semibold text-cyan-800">
+                    Key Features Used:
+                  </div>
+                  <div className="mt-2 text-sm text-cyan-700">
+                    Content Management, Performance Analytics, Campaign
+                    Optimization, ROI Tracking, Team Collaboration
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Marketing Agency Journey */}
-        <div className="mb-8 rounded-lg border-2 border-gray-300 bg-gray-50 p-6">
-          <h3 className="mb-6 text-xl font-bold text-gray-900">
-            Marketing Agency Journey
-          </h3>
-          <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-600 text-sm font-bold text-white">
-                1
+          {/* Row 3: Marketing Agency Journey & Viewer NFC Scan Flow */}
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+            {/* Marketing Agency Journey */}
+            <div className="rounded-lg border-2 border-gray-300 bg-gray-50 p-6">
+              <h3 className="mb-6 text-xl font-bold text-gray-900">
+                Marketing Agency Journey
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-600 text-sm font-bold text-white">
+                    1
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Access White-Label Platform
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-600 text-sm font-bold text-white">
+                    2
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Create Client Campaigns with AI
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-600 text-sm font-bold text-white">
+                    3
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Order Custom NFC Merch for Clients
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-600 text-sm font-bold text-white">
+                    4
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Deliver Comprehensive Analytics Reports
+                  </span>
+                </div>
+                <div className="mt-6 rounded bg-orange-100 p-4">
+                  <div className="text-base font-semibold text-orange-800">
+                    Key Features Used:
+                  </div>
+                  <div className="mt-2 text-sm text-orange-700">
+                    White-Label Custom Domains, AI Insights & Analytics, Custom
+                    NFC Merchandise, Advanced Analytics, Client Reporting
+                    Dashboard
+                  </div>
+                </div>
               </div>
-              <span className="text-base text-gray-700">
-                Access White-Label Platform
-              </span>
             </div>
-            <div className="flex items-center space-x-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-600 text-sm font-bold text-white">
-                2
-              </div>
-              <span className="text-base text-gray-700">
-                Create Client Campaigns with AI
-              </span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-600 text-sm font-bold text-white">
-                3
-              </div>
-              <span className="text-base text-gray-700">
-                Order Custom NFC Merch for Clients
-              </span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-600 text-sm font-bold text-white">
-                4
-              </div>
-              <span className="text-base text-gray-700">
-                Deliver Comprehensive Analytics Reports
-              </span>
-            </div>
-            <div className="mt-6 rounded bg-orange-100 p-4">
-              <div className="text-base font-semibold text-orange-800">
-                Key Features Used:
-              </div>
-              <div className="mt-2 text-sm text-orange-700">
-                White-Label Custom Domains, AI Insights & Analytics, Custom NFC
-                Merchandise, Advanced Analytics, Client Reporting Dashboard
-              </div>
-            </div>
-          </div>
-        </div>
 
-        {/* Developer Integration Journey */}
-        <div className="mb-8 rounded-lg border-2 border-gray-300 bg-gray-50 p-6">
-          <h3 className="mb-6 text-xl font-bold text-gray-900">
-            Developer Integration Journey
-          </h3>
-          <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-600 text-sm font-bold text-white">
-                1
+            {/* Viewer NFC Scan Flow */}
+            <div className="rounded-lg border-2 border-gray-300 bg-gray-50 p-6">
+              <h3 className="mb-6 text-xl font-bold text-gray-900">
+                Viewer NFC Scan Flow
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
+                    1
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Guest taps NFC tag
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
+                    2
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Dynamic landing page loads
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
+                    3
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Scan data and geolocation captured
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
+                    4
+                  </div>
+                  <span className="text-base text-gray-700">
+                    Persistent tracking (90–365 days)
+                  </span>
+                </div>
+                <div className="mt-6 rounded bg-green-100 p-4">
+                  <div className="text-base font-semibold text-green-800">
+                    Real-Time Analytics:
+                  </div>
+                  <div className="mt-2 text-sm text-green-700">
+                    Engagement and conversion tracking, Geo-intelligence
+                    visualization, Customer journey mapping, ROI attribution and
+                    campaign effectiveness
+                  </div>
+                </div>
               </div>
-              <span className="text-base text-gray-700">
-                Access API Documentation
-              </span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-600 text-sm font-bold text-white">
-                2
-              </div>
-              <span className="text-base text-gray-700">
-                Integrate SDK & Webhooks
-              </span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-600 text-sm font-bold text-white">
-                3
-              </div>
-              <span className="text-base text-gray-700">
-                Custom White-Label Setup
-              </span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-600 text-sm font-bold text-white">
-                4
-              </div>
-              <span className="text-base text-gray-700">
-                Deploy & Monitor Analytics
-              </span>
-            </div>
-            <div className="mt-6 rounded bg-purple-100 p-4">
-              <div className="text-base font-semibold text-purple-800">
-                Key Features Used:
-              </div>
-              <div className="mt-2 text-sm text-purple-700">
-                RESTful API, Real-time Webhooks, White-Label SDK, Custom Domain
-                Management, OpenAI Agents Integration, Comprehensive Analytics
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Business User Journey */}
-        <div className="mb-8 rounded-lg border-2 border-gray-300 bg-gray-50 p-6">
-          <h3 className="mb-6 text-xl font-bold text-gray-900">
-            Business User Journey
-          </h3>
-          <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan-600 text-sm font-bold text-white">
-                1
-              </div>
-              <span className="text-base text-gray-700">
-                Access Business Dashboard
-              </span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan-600 text-sm font-bold text-white">
-                2
-              </div>
-              <span className="text-base text-gray-700">
-                Create & Manage Content
-              </span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan-600 text-sm font-bold text-white">
-                3
-              </div>
-              <span className="text-base text-gray-700">
-                Track Performance & Analytics
-              </span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan-600 text-sm font-bold text-white">
-                4
-              </div>
-              <span className="text-base text-gray-700">
-                Optimize Campaigns & ROI
-              </span>
-            </div>
-            <div className="mt-6 rounded bg-cyan-100 p-4">
-              <div className="text-base font-semibold text-cyan-800">
-                Key Features Used:
-              </div>
-              <div className="mt-2 text-sm text-cyan-700">
-                Content Management, Performance Analytics, Campaign
-                Optimization, ROI Tracking, Team Collaboration
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Event Guest Journey */}
-        <div className="mb-8 rounded-lg border-2 border-gray-300 bg-gray-50 p-6">
-          <h3 className="mb-6 text-xl font-bold text-gray-900">
-            Event Guest Journey
-          </h3>
-          <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-pink-600 text-sm font-bold text-white">
-                1
-              </div>
-              <span className="text-base text-gray-700">
-                Receive Event Invitation
-              </span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-pink-600 text-sm font-bold text-white">
-                2
-              </div>
-              <span className="text-base text-gray-700">
-                Tap NFC Tag at Event
-              </span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-pink-600 text-sm font-bold text-white">
-                3
-              </div>
-              <span className="text-base text-gray-700">
-                Access Photo Galleries & Content
-              </span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-pink-600 text-sm font-bold text-white">
-                4
-              </div>
-              <span className="text-base text-gray-700">
-                Share & Connect with Others
-              </span>
-            </div>
-            <div className="mt-6 rounded bg-pink-100 p-4">
-              <div className="text-base font-semibold text-pink-800">
-                Key Features Used:
-              </div>
-              <div className="mt-2 text-sm text-pink-700">
-                NFC Tag Interaction, Photo Gallery Access, Social Sharing, Event
-                Content, Guest Networking
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Business Model */}
-        <div className="rounded-lg border-2 border-gray-300 bg-gray-50 p-6">
-          <h3 className="mb-6 text-xl font-bold text-gray-900">
-            Business Model
-          </h3>
-          <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="h-3 w-3 rounded-full bg-blue-500"></div>
-              <span className="text-base text-gray-700">
-                Recurring SaaS Subscriptions
-              </span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <div className="h-3 w-3 rounded-full bg-green-500"></div>
-              <span className="text-base text-gray-700">
-                Physical Hardware Sales
-              </span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <div className="h-3 w-3 rounded-full bg-purple-500"></div>
-              <span className="text-base text-gray-700">
-                Branded Design and Creative Services
-              </span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <div className="h-3 w-3 rounded-full bg-orange-500"></div>
-              <span className="text-base text-gray-700">
-                B2B & B2C Geo Marketing paid ads and insights
-              </span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
-              <span className="text-base text-gray-700">
-                Advanced Analytics and Attribution Solutions
-              </span>
             </div>
           </div>
         </div>
