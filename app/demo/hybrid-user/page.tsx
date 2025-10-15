@@ -8,7 +8,7 @@ export default function HybridUserDemo() {
             Hybrid User Dashboard
           </h1>
           <p className="text-lg text-gray-300">
-            Unified analytics across business and event engagement activities
+            Unified dashboards for corporate, nonprofit, and community activities
           </p>
         </div>
       </div>
@@ -379,8 +379,7 @@ export default function HybridUserDemo() {
                 ✓ Unified Dashboard
               </div>
               <p className="text-sm text-gray-300">
-                Single platform for business cards, events, and all engagement
-                types
+                Single platform combining business cards, events, and all engagement types
               </p>
             </div>
 
@@ -389,7 +388,7 @@ export default function HybridUserDemo() {
                 ✓ Cross-Platform Tracking
               </div>
               <p className="text-sm text-gray-300">
-                Track individual customers across business and event activities
+                Track individuals across business development, events, and community initiatives
               </p>
             </div>
 
@@ -398,18 +397,16 @@ export default function HybridUserDemo() {
                 ✓ Data Correlation
               </div>
               <p className="text-sm text-gray-300">
-                Understand the complete journey and its impact on business
-                outcomes
+                Correlate engagement across multiple interaction types for complete journey view
               </p>
             </div>
 
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-6 shadow-lg">
               <div className="mb-2 text-lg font-bold text-white">
-                ✓ Automated Workflows
+                ✓ Event + Business Integration
               </div>
               <p className="text-sm text-gray-300">
-                Trigger actions across both platforms based on engagement
-                patterns
+                Blend corporate retreats, fundraisers, HOA meetings, and school events with business engagement
               </p>
             </div>
 
@@ -424,11 +421,10 @@ export default function HybridUserDemo() {
 
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-6 shadow-lg">
               <div className="mb-2 text-lg font-bold text-white">
-                ✓ Role-Based Management
+                ✓ Multi-Tenant RBAC
               </div>
               <p className="text-sm text-gray-300">
-                Manage multiple initiatives with team members, each with
-                specific permissions
+                Role-based access control for teams managing multiple initiatives or organizations
               </p>
             </div>
           </div>
