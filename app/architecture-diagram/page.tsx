@@ -9,6 +9,11 @@ const ArchitectureDiagram = async () => {
   return (
     <div className="min-h-screen bg-neutral-950">
       <ClientDiagram />
+      
+      {/* TEST: This should be visible */}
+      <div className="bg-red-500 text-white p-4 text-center">
+        TEST: Server content is rendering - commit 69bc210
+      </div>
 
       {/* Investor Visual: Layered System Overview (Dark) */}
       <div className="mx-auto max-w-7xl px-6 py-12">
