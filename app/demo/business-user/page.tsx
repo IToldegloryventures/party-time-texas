@@ -287,10 +287,10 @@ export default function BusinessUserDemo() {
             <div className="rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 p-6 shadow-lg">
               <div className="mb-4 h-32 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600"></div>
               <div className="mb-3 text-lg font-bold text-white">
-                Product Launch Page
+                Lead Capture Page
               </div>
               <div className="mb-4 text-sm text-gray-400">
-                UTM tracking enabled • Cookie tracking active
+                UTM + cookie tracking • Conversion optimized
               </div>
               <div className="flex justify-between text-sm">
                 <div>
@@ -311,10 +311,10 @@ export default function BusinessUserDemo() {
             <div className="rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 p-6 shadow-lg">
               <div className="mb-4 h-32 rounded-lg bg-gradient-to-r from-cyan-600 to-blue-600"></div>
               <div className="mb-3 text-lg font-bold text-white">
-                Case Study Hub
+                Demo Request Page
               </div>
               <div className="mb-4 text-sm text-gray-400">
-                UTM tracking enabled • Cookie tracking active
+                Form tracking • Lead qualification
               </div>
               <div className="flex justify-between text-sm">
                 <div>
@@ -345,8 +345,7 @@ export default function BusinessUserDemo() {
                 ✓ NFC Business Cards & Signage
               </div>
               <p className="text-sm text-gray-300">
-                Create and distribute custom NFC-enabled business cards with full
-                tracking integration
+                Custom-branded NFC-enabled business cards and signage with embedded tracking
               </p>
             </div>
 
@@ -355,8 +354,7 @@ export default function BusinessUserDemo() {
                 ✓ Custom Landing Pages
               </div>
               <p className="text-sm text-gray-300">
-                Build branded pages with UTM and cookie tracking for precise
-                attribution
+                Branded landing pages with UTM + cookie tracking for multi-touch attribution
               </p>
             </div>
 
@@ -365,37 +363,34 @@ export default function BusinessUserDemo() {
                 ✓ Conversion Funnel Analysis
               </div>
               <p className="text-sm text-gray-300">
-                Visualize the entire customer journey from scan to conversion
+                Track engagement from NFC tap to conversion with detailed funnel visualization
               </p>
             </div>
 
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-6 shadow-lg">
               <div className="mb-2 text-lg font-bold text-white">
-                ✓ Per-User Behavioral Profiles
+                ✓ Behavioral Profiles
               </div>
               <p className="text-sm text-gray-300">
-                Track individual user behavior patterns tied to CRM logins and
-                records
+                Per-user profiles tied to logins showing engagement patterns and behaviors
               </p>
             </div>
 
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-6 shadow-lg">
               <div className="mb-2 text-lg font-bold text-white">
-                ✓ ROI Dashboard
+                ✓ ROI Dashboards
               </div>
               <p className="text-sm text-gray-300">
-                Measure campaign effectiveness and attribute revenue to NFC
-                engagement
+                Measure campaign effectiveness and tie NFC engagement to business outcomes
               </p>
             </div>
 
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-6 shadow-lg">
               <div className="mb-2 text-lg font-bold text-white">
-                ✓ Export & Reporting
+                ✓ Multi-Source Tracking
               </div>
               <p className="text-sm text-gray-300">
-                Generate CSV, PDF reports for stakeholder presentations and
-                audits
+                Unified tracking across NFC scans, UTM parameters, and persistent cookies
               </p>
             </div>
           </div>
