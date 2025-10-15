@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function ClientDiagram(): React.JSX.Element {
   return (
-    <div className="min-h-screen bg-neutral-950">
+    <>
       {/* Header */}
       <div className="bg-gradient-to-r from-indigo-700 to-purple-800 py-8 text-white">
         <div className="mx-auto max-w-7xl px-4 text-center">
@@ -16,9 +16,7 @@ export default function ClientDiagram(): React.JSX.Element {
           </div>
         </div>
       </div>
-
-      {/* The rest of the content is rendered by the server component via children */}
-    </div>
+    </>
   );
 }
 
