@@ -1,26 +1,18 @@
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
-const isProtectedRoute = createRouteMatcher([
-  '/dashboard(.*)',
-  '/admin(.*)',
-  '/api/analyze(.*)',
-]);
-
-const isPublicRoute = createRouteMatcher([
-  '/',
-  '/pricing',
-  '/sign-in(.*)',
-  '/sign-up(.*)',
-  '/landing(.*)',
-  '/architecture-diagram(.*)',
-  '/test-events(.*)',
-  '/api/webhooks(.*)',
-]);
-
-export default clerkMiddleware((auth, req) => {
-  if (isProtectedRoute(req)) auth().protect();
-});
+export function middleware(request: NextRequest) {
+  // Make architecture diagram completely public
+  if (request.nextUrl.pathname.startsWith('/architecture-diagram')) {
+    return NextResponse.next();
+  }
+  
+  // For all other routes, continue normally
+  return NextResponse.next();
+}
 
 export const config = {
-  matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
+  matcher: [
+    '/((?!_next/static|_next/image|favicon.ico).*)',
+  ],
 };
