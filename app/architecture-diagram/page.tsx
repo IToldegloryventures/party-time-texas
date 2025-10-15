@@ -370,201 +370,145 @@ export default function ArchitectureDiagram() {
           </div>
         </div>
 
-        {/* Bottom Sections */}
+        {/* User Journey Examples */}
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          {/* Guest NFC Scan Flow Example */}
+          {/* Event Organizer Journey */}
+          <div className="rounded-xl border border-blue-400/40 bg-gradient-to-br from-blue-900/60 to-blue-800/60 p-8 backdrop-blur-sm">
+            <h3 className="mb-6 text-xl font-bold text-blue-100">
+              Event Organizer Journey
+            </h3>
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+                  1
+                </div>
+                <span className="text-blue-200">
+                  Sign up & Create Organization
+                </span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+                  2
+                </div>
+                <span className="text-blue-200">
+                  Design Landing Pages with AI
+                </span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+                  3
+                </div>
+                <span className="text-blue-200">
+                  Order NFC Devices & Branding
+                </span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+                  4
+                </div>
+                <span className="text-blue-200">
+                  Deploy at Event & Track Analytics
+                </span>
+              </div>
+              <div className="mt-6 rounded bg-blue-800/50 p-4">
+                <div className="text-sm font-semibold text-blue-100">
+                  Key Benefits:
+                </div>
+                <div className="mt-2 text-xs text-blue-200">
+                  Real-time attendee engagement, Lead capture, ROI tracking,
+                  White-label branding
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Business Owner Journey */}
           <div className="rounded-xl border border-green-400/40 bg-gradient-to-br from-green-900/60 to-green-800/60 p-8 backdrop-blur-sm">
             <h3 className="mb-6 text-xl font-bold text-green-100">
-              Guest NFC Scan Flow Example
+              Business Owner Journey
             </h3>
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
                   1
                 </div>
-                <span className="text-green-200">Guest taps NFC</span>
+                <span className="text-green-200">Subscribe to SaaS Plan</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
                   2
                 </div>
-                <span className="text-green-200">Landing page</span>
+                <span className="text-green-200">
+                  Set up Team & Permissions
+                </span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
                   3
                 </div>
-                <span className="text-green-200">Store scan + geo</span>
+                <span className="text-green-200">Create NFC Campaigns</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
                   4
                 </div>
-                <span className="text-green-200">Track 90-365 days</span>
+                <span className="text-green-200">
+                  Analyze Performance & Optimize
+                </span>
               </div>
               <div className="mt-6 rounded bg-green-800/50 p-4">
                 <div className="text-sm font-semibold text-green-100">
-                  Real-time Analytics:
+                  Key Benefits:
                 </div>
                 <div className="mt-2 text-xs text-green-200">
-                  Conversion tracking, Geo-heatmaps, Customer journey, ROI
-                  attribution
+                  Multi-location tracking, Customer journey insights, Automated
+                  follow-ups, Revenue attribution
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Legends */}
-          <div className="rounded-xl border border-gray-700/50 bg-gray-800/50 p-8 backdrop-blur-sm">
-            <h3 className="mb-6 text-xl font-bold text-white">Legends</h3>
-
-            {/* Color Legend */}
-            <div className="mb-6">
-              <h4 className="mb-3 text-lg font-semibold text-gray-200">
-                Color Legend:
-              </h4>
-              <div className="grid grid-cols-2 gap-2 text-sm">
-                <div className="flex items-center space-x-2">
-                  <div className="h-4 w-4 rounded bg-purple-500"></div>
-                  <span className="text-gray-300">Purple: Entry & Auth</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="h-4 w-4 rounded bg-orange-500"></div>
-                  <span className="text-gray-300">Orange: AI Agents</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="h-4 w-4 rounded bg-red-500"></div>
-                  <span className="text-gray-300">Red: Dashboard</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="h-4 w-4 rounded bg-green-500"></div>
-                  <span className="text-gray-300">Green: Database</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="h-4 w-4 rounded bg-blue-500"></div>
-                  <span className="text-gray-300">Blue: Analytics</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="h-4 w-4 rounded bg-yellow-500"></div>
-                  <span className="text-gray-300">Yellow: Services</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="h-4 w-4 rounded bg-purple-700"></div>
-                  <span className="text-gray-300">Dark Purple: Security</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="h-4 w-4 rounded bg-pink-500"></div>
-                  <span className="text-gray-300">Pink: Developer</span>
-                </div>
+        {/* Developer Integration Journey */}
+        <div className="mt-8 rounded-xl border border-purple-400/40 bg-gradient-to-br from-purple-900/60 to-purple-800/60 p-8 backdrop-blur-sm">
+          <h3 className="mb-6 text-xl font-bold text-purple-100">
+            Developer Integration Journey
+          </h3>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
+            <div className="flex items-center space-x-3">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-600 text-sm font-bold text-white">
+                1
               </div>
+              <span className="text-purple-200">Access API Documentation</span>
             </div>
-
-            {/* Connector Legend */}
-            <div className="mb-6">
-              <h4 className="mb-3 text-lg font-semibold text-gray-200">
-                Connector Legend:
-              </h4>
-              <div className="space-y-2 text-sm">
-                <div className="flex items-center space-x-2">
-                  <svg
-                    className="h-4 w-4 text-purple-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    strokeDasharray="5,5"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                  <span className="text-gray-300">
-                    Dashed Purple: API Requests
-                  </span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <svg
-                    className="h-4 w-4 text-green-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                  <span className="text-gray-300">Solid Green: Data R/W</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <svg
-                    className="h-4 w-4 text-red-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                  <span className="text-gray-300">Solid Red: DB Events</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <svg
-                    className="h-4 w-4 text-blue-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                  <span className="text-gray-300">Solid Blue: Insights</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <svg
-                    className="h-4 w-4 text-orange-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    strokeDasharray="3,3"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                  <span className="text-gray-300">
-                    Orange Dotted: AI Triggers
-                  </span>
-                </div>
+            <div className="flex items-center space-x-3">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-600 text-sm font-bold text-white">
+                2
               </div>
+              <span className="text-purple-200">Integrate SDK & Webhooks</span>
             </div>
-
-            {/* Business Model */}
-            <div>
-              <h4 className="mb-3 text-lg font-semibold text-gray-200">
-                Business Model:
-              </h4>
-              <div className="space-y-1 text-sm text-gray-300">
-                <div>• SaaS Subscriptions</div>
-                <div>• Hardware Sales</div>
-                <div>• Design Services</div>
-                <div>• Analytics Services</div>
+            <div className="flex items-center space-x-3">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-600 text-sm font-bold text-white">
+                3
               </div>
+              <span className="text-purple-200">Custom White-Label Setup</span>
+            </div>
+            <div className="flex items-center space-x-3">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-600 text-sm font-bold text-white">
+                4
+              </div>
+              <span className="text-purple-200">
+                Deploy & Monitor Analytics
+              </span>
+            </div>
+          </div>
+          <div className="mt-6 rounded bg-purple-800/50 p-4">
+            <div className="text-sm font-semibold text-purple-100">
+              Developer Benefits:
+            </div>
+            <div className="mt-2 text-xs text-purple-200">
+              RESTful API, Real-time webhooks, Custom domains, Zapier
+              integration, Comprehensive analytics
             </div>
           </div>
         </div>
