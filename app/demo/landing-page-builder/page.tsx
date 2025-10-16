@@ -3,7 +3,6 @@ import Link from 'next/link';
 export default function LandingPageBuilderDemo() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-black">
-      {/* Header */}
       <div className="border-b border-gray-800 bg-gray-950 px-6 py-12">
         <div className="mx-auto max-w-7xl text-center">
           <h1 className="mb-2 text-4xl font-bold text-white">Landing Page Builder</h1>
@@ -12,142 +11,121 @@ export default function LandingPageBuilderDemo() {
       </div>
 
       <div className="mx-auto max-w-7xl px-6 py-16">
-        {/* Hero Section */}
+        {/* Hero */}
         <div className="mb-20 text-center">
           <h2 className="mb-4 text-3xl font-bold text-white">Drag-and-Drop Page Builder with NFC Integration</h2>
-          <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-300">Create stunning landing pages without coding. Connect to NFC devices for instant engagement.</p>
-          <button className="rounded-lg bg-gradient-to-r from-blue-600 to-cyan-600 px-8 py-3 font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
-            Start Building Free
-          </button>
+          <p className="text-gray-300">Create stunning landing pages without coding</p>
         </div>
 
-        {/* Feature Showcase */}
-        <div className="mb-20">
-          <h3 className="mb-12 text-center text-2xl font-bold text-white">Key Features</h3>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {/* Visual Builder */}
-            <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-8">
-              <div className="mb-4 text-3xl">🎨</div>
-              <h4 className="mb-3 text-xl font-bold text-blue-300">Visual Builder Interface</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>✓ Drag-and-drop interface mockup</li>
-                <li>✓ Content blocks: Text, Images, Videos, Forms</li>
-                <li>✓ Mobile responsive preview</li>
-                <li>✓ Real-time design updates</li>
-              </ul>
+        {/* Builder Interface Mockup */}
+        <div className="mb-20 rounded-xl border border-blue-900/50 bg-gradient-to-br from-gray-900 to-gray-950 p-8">
+          <div className="mb-6 flex items-center justify-between border-b border-gray-700 pb-4">
+            <div className="flex gap-2">
+              <div className="rounded bg-blue-600/20 px-3 py-1 text-sm text-blue-300">File</div>
+              <div className="rounded px-3 py-1 text-sm text-gray-400">Edit</div>
+              <div className="rounded px-3 py-1 text-sm text-gray-400">View</div>
             </div>
-
-            {/* Template Library */}
-            <div className="rounded-xl border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-8">
-              <div className="mb-4 text-3xl">📚</div>
-              <h4 className="mb-3 text-xl font-bold text-purple-300">Template Library</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>✓ Event templates (Corporate, Wedding, Conference)</li>
-                <li>✓ Business templates (Restaurant, Retail, Services)</li>
-                <li>✓ Custom template creation</li>
-                <li>✓ 50+ pre-built templates</li>
-              </ul>
-            </div>
-
-            {/* Custom Branding */}
-            <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-8">
-              <div className="mb-4 text-3xl">🎯</div>
-              <h4 className="mb-3 text-xl font-bold text-pink-300">Custom Branding</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>✓ Logo upload and positioning</li>
-                <li>✓ Color scheme customization</li>
-                <li>✓ Font selection and typography</li>
-                <li>✓ Brand consistency tools</li>
-              </ul>
-            </div>
-
-            {/* NFC Integration */}
-            <div className="rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-8">
-              <div className="mb-4 text-3xl">📱</div>
-              <h4 className="mb-3 text-xl font-bold text-cyan-300">NFC Integration</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>✓ Device linking workflow</li>
-                <li>✓ Scan tracking setup</li>
-                <li>✓ Analytics integration</li>
-                <li>✓ Real-time engagement metrics</li>
-              </ul>
-            </div>
+            <button className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700">
+              Publish
+            </button>
           </div>
-        </div>
 
-        {/* Business Value */}
-        <div className="mb-20 rounded-xl bg-gradient-to-r from-blue-900/30 to-cyan-900/30 p-12 text-center">
-          <h3 className="mb-8 text-2xl font-bold text-white">Business Value</h3>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            <div>
-              <div className="mb-2 text-3xl font-bold text-blue-400">80%</div>
-              <p className="text-gray-300">Time savings on page creation</p>
-            </div>
-            <div>
-              <div className="mb-2 text-3xl font-bold text-cyan-400">Professional</div>
-              <p className="text-gray-300">Results without design skills</p>
-            </div>
-            <div>
-              <div className="mb-2 text-3xl font-bold text-purple-400">NFC-Powered</div>
-              <p className="text-gray-300">Engagement tracking</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Technical Details */}
-        <div className="mb-20">
-          <h3 className="mb-8 text-center text-2xl font-bold text-white">Technical Specifications</h3>
-          <div className="rounded-xl border border-gray-700 bg-gray-900/50 p-8">
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <div>
-                <h4 className="mb-3 font-bold text-blue-300">How It Works</h4>
-                <ul className="space-y-2 text-sm text-gray-300">
-                  <li>1. Select or create page template</li>
-                  <li>2. Drag blocks to customize layout</li>
-                  <li>3. Add branding and content</li>
-                  <li>4. Link NFC devices</li>
-                  <li>5. Publish instantly</li>
-                </ul>
+          <div className="grid grid-cols-4 gap-4">
+            {/* Left Sidebar */}
+            <div className="col-span-1 space-y-3 border-r border-gray-700 pr-4">
+              <div className="text-xs font-semibold text-gray-400">ELEMENTS</div>
+              <div className="space-y-2">
+                {['Heading', 'Text', 'Image', 'Button', 'Form', 'Video'].map((item) => (
+                  <div key={item} className="rounded bg-gray-800/50 px-3 py-2 text-sm text-gray-300 cursor-move hover:bg-gray-700/50">
+                    {item}
+                  </div>
+                ))}
               </div>
-              <div>
-                <h4 className="mb-3 font-bold text-cyan-300">Requirements</h4>
-                <ul className="space-y-2 text-sm text-gray-300">
-                  <li>✓ Subscription tier: Professional+</li>
-                  <li>✓ Browser-based editor</li>
-                  <li>✓ Mobile responsive</li>
-                  <li>✓ SSL/TLS encryption</li>
-                  <li>✓ Cloud storage included</li>
-                </ul>
+            </div>
+
+            {/* Canvas Area */}
+            <div className="col-span-2 rounded-lg border border-gray-700 bg-white/5 p-8">
+              <div className="space-y-4 text-center">
+                <div className="h-12 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-600 flex items-center justify-center text-white font-bold">
+                  Drag-Drop Title Here
+                </div>
+                <div className="h-24 rounded-lg bg-gray-800/50 flex items-center justify-center text-gray-400">
+                  [Image Placeholder]
+                </div>
+                <div className="h-10 rounded-lg bg-blue-600/30 flex items-center justify-center text-blue-300 font-semibold">
+                  Call-to-Action Button
+                </div>
+              </div>
+            </div>
+
+            {/* Right Properties Panel */}
+            <div className="col-span-1 space-y-4 border-l border-gray-700 pl-4">
+              <div className="text-xs font-semibold text-gray-400">PROPERTIES</div>
+              <div className="space-y-3">
+                <div>
+                  <label className="text-xs text-gray-400">Font Size</label>
+                  <input type="range" className="w-full mt-1" />
+                </div>
+                <div>
+                  <label className="text-xs text-gray-400">Color</label>
+                  <div className="flex gap-2 mt-1">
+                    {['#3B82F6', '#06B6D4', '#EC4899'].map((color) => (
+                      <div key={color} className="h-6 w-6 rounded" style={{ backgroundColor: color }}></div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Use Cases */}
-        <div className="mb-12">
-          <h3 className="mb-8 text-center text-2xl font-bold text-white">Real-World Use Cases</h3>
+        {/* Template Library */}
+        <div className="mb-20">
+          <h3 className="mb-6 text-xl font-bold text-white">Template Library</h3>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+            {['Event', 'Business', 'Restaurant', 'Retail'].map((template) => (
+              <div key={template} className="rounded-lg border border-gray-700 bg-gray-900/50 p-4 text-center hover:border-blue-600/50 cursor-pointer">
+                <div className="aspect-video rounded bg-gradient-to-br from-gray-800 to-gray-900 mb-3 flex items-center justify-center">
+                  <span className="text-gray-500">{template} Template</span>
+                </div>
+                <p className="text-sm font-medium text-gray-300">{template}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* NFC Integration */}
+        <div className="mb-20 rounded-xl border border-gray-700 bg-gray-900/50 p-8">
+          <h3 className="mb-4 text-xl font-bold text-white">NFC Integration</h3>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            <div className="rounded-lg border border-gray-600 bg-gray-800/50 p-6">
-              <h4 className="mb-2 font-bold text-white">Corporate Events</h4>
-              <p className="text-sm text-gray-300">Conference registration pages with NFC check-in and attendee tracking</p>
+            <div className="rounded-lg border border-gray-700 bg-gray-800/50 p-4">
+              <div className="mb-3 text-2xl">📱</div>
+              <p className="text-sm font-semibold text-gray-300 mb-2">Link Device</p>
+              <select className="w-full rounded bg-gray-700 text-sm text-gray-300 px-2 py-1 border border-gray-600">
+                <option>Select NFC Device</option>
+              </select>
             </div>
-            <div className="rounded-lg border border-gray-600 bg-gray-800/50 p-6">
-              <h4 className="mb-2 font-bold text-white">Restaurant Promotions</h4>
-              <p className="text-sm text-gray-300">Menu pages with NFC tap-to-order functionality and loyalty rewards</p>
+            <div className="rounded-lg border border-gray-700 bg-gray-800/50 p-4">
+              <div className="mb-3 text-2xl">📊</div>
+              <p className="text-sm font-semibold text-gray-300 mb-2">Track Scans</p>
+              <div className="text-2xl font-bold text-blue-400">2,451</div>
             </div>
-            <div className="rounded-lg border border-gray-600 bg-gray-800/50 p-6">
-              <h4 className="mb-2 font-bold text-white">Retail Campaigns</h4>
-              <p className="text-sm text-gray-300">Product showcase pages with NFC-enabled product demos</p>
+            <div className="rounded-lg border border-gray-700 bg-gray-800/50 p-4">
+              <div className="mb-3 text-2xl">⚙️</div>
+              <p className="text-sm font-semibold text-gray-300 mb-2">Analytics</p>
+              <button className="w-full rounded bg-blue-600/20 text-blue-300 text-sm px-2 py-1 hover:bg-blue-600/30">
+                Configure
+              </button>
             </div>
           </div>
         </div>
 
         {/* Navigation */}
         <div className="flex justify-between">
-          <Link href="/demo" className="rounded-lg bg-gradient-to-r from-gray-700 to-gray-600 px-6 py-2 text-sm font-semibold text-white transition-all hover:scale-105">
+          <Link href="/demo" className="rounded-lg bg-gradient-to-r from-gray-700 to-gray-600 px-6 py-2 text-sm font-semibold text-white hover:scale-105">
             ← Back to Demos
           </Link>
-          <Link href="/demo/geo-marketing" className="rounded-lg bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-2 text-sm font-semibold text-white transition-all hover:scale-105">
+          <Link href="/demo/geo-marketing" className="rounded-lg bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-2 text-sm font-semibold text-white hover:scale-105">
             Next Demo →
           </Link>
         </div>
