@@ -66,18 +66,31 @@ export default function WhiteLabelDemo() {
             <div className="rounded-lg border border-gray-700 bg-white/5 p-8">
               <p className="text-xs text-gray-400 mb-4">LIVE PREVIEW</p>
               <div className="space-y-4">
-                <div className="h-10 bg-indigo-600 rounded-lg flex items-center px-4">
-                  <span className="font-bold text-white">YourBrand.com</span>
+                <div className="h-10 bg-indigo-600 rounded-lg flex items-center px-4 justify-between">
+                  <span className="font-bold text-white">yourbrand.com</span>
+                  <span className="text-xs text-indigo-200">🔒</span>
                 </div>
                 <div className="rounded-lg border border-gray-700 bg-gray-900 p-6">
-                  <div className="space-y-3 text-center">
-                    <div className="w-16 h-16 rounded-full bg-indigo-600 mx-auto flex items-center justify-center">
-                      <span className="text-2xl font-bold text-white">YB</span>
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-4 pb-4 border-b border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-indigo-600 flex items-center justify-center">
+                        <span className="text-xl font-bold text-white">AB</span>
+                      </div>
+                      <div>
+                        <h2 className="text-sm font-bold text-white">Acme Business</h2>
+                        <p className="text-xs text-gray-400">Engagement Platform</p>
+                      </div>
                     </div>
-                    <h2 className="text-xl font-bold text-white">Welcome to Your Platform</h2>
-                    <button className="rounded-lg bg-indigo-600 text-white px-4 py-2 text-sm font-semibold hover:bg-indigo-700">
-                      Get Started
-                    </button>
+                    <h3 className="text-lg font-bold text-white">Transform Customer Engagement</h3>
+                    <p className="text-sm text-gray-300">Connect with your audience through NFC-powered experiences</p>
+                    <div className="flex gap-2">
+                      <button className="flex-1 rounded bg-indigo-600 text-white px-3 py-2 text-sm font-semibold hover:bg-indigo-700">
+                        Get Started
+                      </button>
+                      <button className="flex-1 rounded border border-indigo-600 text-indigo-400 px-3 py-2 text-sm font-semibold hover:bg-indigo-600/10">
+                        Learn More
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
