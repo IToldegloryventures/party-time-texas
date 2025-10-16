@@ -17,7 +17,7 @@ export default function DemoHub() {
 
       <div className="mx-auto max-w-7xl px-4 py-16">
         {/* Demo Cards */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Business User Demo */}
           <Link href="/demo/business-user">
             <div className="group overflow-hidden rounded-lg bg-gradient-to-br from-purple-600 to-purple-900 p-8 shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
@@ -168,8 +168,108 @@ export default function DemoHub() {
             </div>
           </Link>
 
+          {/* Super Admin Demo */}
+          <Link href="/demo/super-admin">
+            <div className="group overflow-hidden rounded-lg bg-gradient-to-br from-red-600 to-red-900 p-8 shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
+              <div className="mb-6 flex items-center justify-center">
+                <div className="rounded-full bg-white/20 p-4">
+                  <svg
+                    className="h-12 w-12 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <h2 className="mb-3 text-center text-2xl font-bold text-white">
+                Super Admin
+              </h2>
+              <p className="mb-6 text-center text-sm text-red-100">
+                Platform administration and controls
+              </p>
+              <div className="space-y-2 text-sm text-red-100">
+                <div className="flex items-center">
+                  <span className="mr-2">✓</span>
+                  <span>All Organizations</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-2">✓</span>
+                  <span>Revenue & Analytics</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-2">✓</span>
+                  <span>System Controls</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-2">✓</span>
+                  <span>User Management</span>
+                </div>
+              </div>
+              <div className="mt-6 inline-block rounded-full bg-white px-6 py-2 font-semibold text-red-600 transition-all group-hover:bg-red-100">
+                View Demo →
+              </div>
+            </div>
+          </Link>
+
           {/* Event Guest Demo */}
           <Link href="/demo/event-guest">
+            <div className="group overflow-hidden rounded-lg bg-gradient-to-br from-cyan-600 to-cyan-900 p-8 shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
+              <div className="mb-6 flex items-center justify-center">
+                <div className="rounded-full bg-white/20 p-4">
+                  <svg
+                    className="h-12 w-12 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2 1m2-1l-2-1m2 1v2.5"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <h2 className="mb-3 text-center text-2xl font-bold text-white">
+                Event Guest
+              </h2>
+              <p className="mb-6 text-center text-sm text-cyan-100">
+                Check-in, event experience, photo gallery, RSVP
+              </p>
+              <div className="space-y-2 text-sm text-cyan-100">
+                <div className="flex items-center">
+                  <span className="mr-2">✓</span>
+                  <span>NFC Check-In</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-2">✓</span>
+                  <span>Event Schedule</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-2">✓</span>
+                  <span>Photo Gallery</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-2">✓</span>
+                  <span>RSVP & Info</span>
+                </div>
+              </div>
+              <div className="mt-6 inline-block rounded-full bg-white px-6 py-2 font-semibold text-cyan-600 transition-all group-hover:bg-cyan-100">
+                View Demo →
+              </div>
+            </div>
+          </Link>
+
+          {/* Super Admin Demo */}
+          <Link href="/demo/super-admin">
             <div className="group overflow-hidden rounded-lg bg-gradient-to-br from-cyan-600 to-cyan-900 p-8 shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
               <div className="mb-6 flex items-center justify-center">
                 <div className="rounded-full bg-white/20 p-4">
@@ -260,7 +360,7 @@ export default function DemoHub() {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-4 shadow-lg">
               <div className="mb-2 font-bold text-white">
-                🏢 Business Users
+                ���� Business Users
               </div>
               <p className="text-xs text-gray-400">
                 Landing Page Builder, Event Manager, NFC Device Manager, Analytics
