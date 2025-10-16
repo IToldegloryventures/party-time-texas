@@ -3,7 +3,7 @@ export default function SystemArchitecture() {
     <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-black">
       {/* Header */}
       <div className="border-b border-gray-800 bg-gray-950 px-6 py-12">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-7xl text-center">
           <h1 className="mb-2 text-4xl font-bold text-white">System Architecture</h1>
           <p className="text-base text-gray-400">Cosmic Portals Multi-Tenant NFC Platform</p>
         </div>
