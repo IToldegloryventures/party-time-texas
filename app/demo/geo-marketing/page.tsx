@@ -41,77 +41,110 @@ export default function GeoMarketingDemo() {
             ))}
           </div>
 
-          {/* Heatmap */}
+          {/* Geographic Heatmap */}
           <div className="rounded-lg border border-gray-700 bg-gray-800/50 p-6 mb-8">
-            <p className="mb-4 text-sm font-semibold text-gray-300">Venue Heatmap</p>
+            <p className="mb-4 text-sm font-semibold text-gray-300">Geographic Coverage Heatmap</p>
             <div className="aspect-video rounded bg-gradient-to-br from-gray-950 to-gray-900 relative overflow-hidden">
               <svg className="w-full h-full" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
-                {/* Define gradients for heatmap */}
                 <defs>
-                  <radialGradient id="hotSpot1" cx="35%" cy="25%">
-                    <stop offset="0%" style={{ stopColor: '#ff3333', stopOpacity: 0.9 }} />
-                    <stop offset="50%" style={{ stopColor: '#ff8800', stopOpacity: 0.6 }} />
-                    <stop offset="100%" style={{ stopColor: '#ffcc00', stopOpacity: 0.2 }} />
+                  <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style={{ stopColor: '#1a4d2e', stopOpacity: 0.4 }} />
+                    <stop offset="100%" style={{ stopColor: '#0f2818', stopOpacity: 0.6 }} />
+                  </linearGradient>
+                  <radialGradient id="densityHot" cx="50%" cy="50%">
+                    <stop offset="0%" style={{ stopColor: '#ff1744', stopOpacity: 1 }} />
+                    <stop offset="70%" style={{ stopColor: '#ff9800', stopOpacity: 0.6 }} />
+                    <stop offset="100%" style={{ stopColor: '#ffeb3b', stopOpacity: 0.1 }} />
                   </radialGradient>
-                  <radialGradient id="hotSpot2" cx="70%" cy="40%">
-                    <stop offset="0%" style={{ stopColor: '#ff6666', stopOpacity: 0.8 }} />
-                    <stop offset="50%" style={{ stopColor: '#ff9900', stopOpacity: 0.5 }} />
-                    <stop offset="100%" style={{ stopColor: '#ffdd00', stopOpacity: 0.15 }} />
+                  <radialGradient id="densityMed" cx="50%" cy="50%">
+                    <stop offset="0%" style={{ stopColor: '#ff9800', stopOpacity: 0.9 }} />
+                    <stop offset="70%" style={{ stopColor: '#ffeb3b', stopOpacity: 0.5 }} />
+                    <stop offset="100%" style={{ stopColor: '#ffeb3b', stopOpacity: 0.05 }} />
                   </radialGradient>
-                  <radialGradient id="hotSpot3" cx="50%" cy="75%">
-                    <stop offset="0%" style={{ stopColor: '#ff4444', stopOpacity: 0.85 }} />
-                    <stop offset="50%" style={{ stopColor: '#ff7700', stopOpacity: 0.55 }} />
-                    <stop offset="100%" style={{ stopColor: '#ffbb00', stopOpacity: 0.18 }} />
-                  </radialGradient>
-                  <radialGradient id="coolSpot1" cx="20%" cy="60%">
-                    <stop offset="0%" style={{ stopColor: '#3366ff', stopOpacity: 0.5 }} />
-                    <stop offset="50%" style={{ stopColor: '#0088ff', stopOpacity: 0.3 }} />
-                    <stop offset="100%" style={{ stopColor: '#00ccff', stopOpacity: 0.1 }} />
-                  </radialGradient>
-                  <radialGradient id="warmSpot1" cx="85%" cy="70%">
-                    <stop offset="0%" style={{ stopColor: '#ff5555', stopOpacity: 0.75 }} />
-                    <stop offset="50%" style={{ stopColor: '#ff8811', stopOpacity: 0.45 }} />
-                    <stop offset="100%" style={{ stopColor: '#ffdd00', stopOpacity: 0.12 }} />
+                  <radialGradient id="densityCool" cx="50%" cy="50%">
+                    <stop offset="0%" style={{ stopColor: '#2196f3', stopOpacity: 0.8 }} />
+                    <stop offset="70%" style={{ stopColor: '#00bcd4', stopOpacity: 0.4 }} />
+                    <stop offset="100%" style={{ stopColor: '#4dd0e1', stopOpacity: 0.05 }} />
                   </radialGradient>
                 </defs>
 
-                {/* Background floor */}
-                <rect width="1000" height="600" fill="#111827" />
+                {/* Map background */}
+                <rect width="1000" height="600" fill="#0f2818" />
+                <rect width="1000" height="600" fill="url(#mapGradient)" />
 
-                {/* Floor sections */}
-                <rect x="20" y="20" width="460" height="280" fill="none" stroke="#374151" strokeWidth="2" />
-                <rect x="500" y="20" width="480" height="280" fill="none" stroke="#374151" strokeWidth="2" />
-                <rect x="20" y="320" width="460" height="260" fill="none" stroke="#374151" strokeWidth="2" />
-                <rect x="500" y="320" width="480" height="260" fill="none" stroke="#374151" strokeWidth="2" />
+                {/* Geographic grid overlay */}
+                <g stroke="#1a3a2a" strokeWidth="1" opacity="0.3">
+                  <line x1="0" y1="150" x2="1000" y2="150" />
+                  <line x1="0" y1="300" x2="1000" y2="300" />
+                  <line x1="0" y1="450" x2="1000" y2="450" />
+                  <line x1="250" y1="0" x2="250" y2="600" />
+                  <line x1="500" y1="0" x2="500" y2="600" />
+                  <line x1="750" y1="0" x2="750" y2="600" />
+                </g>
 
-                {/* Heat intensity overlays */}
-                <circle cx="250" cy="150" r="280" fill="url(#hotSpot1)" />
-                <circle cx="740" cy="180" r="260" fill="url(#hotSpot2)" />
-                <circle cx="500" cy="450" r="300" fill="url(#hotSpot3)" />
-                <circle cx="150" cy="420" r="180" fill="url(#coolSpot1)" />
-                <circle cx="880" cy="450" r="220" fill="url(#warmSpot1)" />
+                {/* Heat density zones - High concentration areas */}
+                <circle cx="250" cy="180" r="180" fill="url(#densityHot)" />
+                <circle cx="750" cy="150" r="160" fill="url(#densityHot)" />
+                <circle cx="500" cy="450" r="170" fill="url(#densityHot)" />
 
-                {/* Zone labels */}
-                <text x="100" y="100" fontSize="14" fill="#e5e7eb" fontWeight="bold" textAnchor="start">Main Entrance (95)</text>
-                <text x="540" y="100" fontSize="14" fill="#e5e7eb" fontWeight="bold" textAnchor="start">Conference Rm (85)</text>
-                <text x="100" y="380" fontSize="14" fill="#e5e7eb" fontWeight="bold" textAnchor="start">VIP Lounge (72)</text>
-                <text x="540" y="380" fontSize="14" fill="#e5e7eb" fontWeight="bold" textAnchor="start">Dining Area (78)</text>
-                <text x="420" y="520" fontSize="14" fill="#e5e7eb" fontWeight="bold" textAnchor="middle">Stage Area (88)</text>
+                {/* Medium concentration areas */}
+                <circle cx="150" cy="400" r="140" fill="url(#densityMed)" />
+                <circle cx="850" cy="380" r="130" fill="url(#densityMed)" />
+
+                {/* Low concentration areas */}
+                <circle cx="400" cy="300" r="100" fill="url(#densityCool)" />
+                <circle cx="650" cy="500" r="90" fill="url(#densityCool)" />
+
+                {/* Location markers - High engagement (Red) */}
+                <g>
+                  {/* Main Business Districts */}
+                  <circle cx="250" cy="180" r="12" fill="#ff1744" stroke="#fff" strokeWidth="2" />
+                  <circle cx="270" cy="160" r="10" fill="#ff5252" stroke="#fff" strokeWidth="1.5" />
+                  <circle cx="230" cy="200" r="9" fill="#ff5252" stroke="#fff" strokeWidth="1.5" />
+                  <circle cx="750" cy="150" r="12" fill="#ff1744" stroke="#fff" strokeWidth="2" />
+                  <circle cx="770" cy="130" r="10" fill="#ff5252" stroke="#fff" strokeWidth="1.5" />
+                  <circle cx="730" cy="170" r="9" fill="#ff5252" stroke="#fff" strokeWidth="1.5" />
+                  <circle cx="500" cy="450" r="12" fill="#ff1744" stroke="#fff" strokeWidth="2" />
+                  <circle cx="520" cy="435" r="10" fill="#ff5252" stroke="#fff" strokeWidth="1.5" />
+                  <circle cx="480" cy="465" r="9" fill="#ff5252" stroke="#fff" strokeWidth="1.5" />
+                </g>
+
+                {/* Medium engagement (Orange) */}
+                <g>
+                  <circle cx="150" cy="400" r="10" fill="#ff9800" stroke="#fff" strokeWidth="1.5" />
+                  <circle cx="135" cy="385" r="8" fill="#ffb74d" stroke="#fff" strokeWidth="1" />
+                  <circle cx="850" cy="380" r="10" fill="#ff9800" stroke="#fff" strokeWidth="1.5" />
+                  <circle cx="865" cy="395" r="8" fill="#ffb74d" stroke="#fff" strokeWidth="1" />
+                </g>
+
+                {/* Low engagement (Blue) */}
+                <g>
+                  <circle cx="400" cy="300" r="8" fill="#2196f3" stroke="#fff" strokeWidth="1.5" />
+                  <circle cx="415" cy="315" r="6" fill="#64b5f6" stroke="#fff" strokeWidth="1" />
+                  <circle cx="650" cy="500" r="8" fill="#2196f3" stroke="#fff" strokeWidth="1.5" />
+                  <circle cx="665" cy="515" r="6" fill="#64b5f6" stroke="#fff" strokeWidth="1" />
+                </g>
+
+                {/* Region labels */}
+                <text x="250" y="290" fontSize="12" fill="#e5e7eb" fontWeight="bold" textAnchor="middle" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>Downtown District</text>
+                <text x="750" y="260" fontSize="12" fill="#e5e7eb" fontWeight="bold" textAnchor="middle" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>Retail Zone</text>
+                <text x="500" y="560" fontSize="12" fill="#e5e7eb" fontWeight="bold" textAnchor="middle" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>Entertainment Hub</text>
               </svg>
 
               {/* Legend */}
-              <div className="absolute bottom-4 right-4 flex gap-3 bg-gray-900/95 px-4 py-3 rounded-lg border border-gray-700">
+              <div className="absolute bottom-4 right-4 flex flex-col gap-2 bg-gray-900/95 px-4 py-3 rounded-lg border border-gray-700">
+                <div className="text-xs font-semibold text-gray-300 mb-2">Customer Engagement</div>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#00ccff' }}></div>
-                  <span className="text-xs text-gray-400">Low (10-30)</span>
+                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#ff1744' }}></div>
+                  <span className="text-xs text-gray-400">High (80%+)</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#ffdd00' }}></div>
-                  <span className="text-xs text-gray-400">Med (40-60)</span>
+                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#ff9800' }}></div>
+                  <span className="text-xs text-gray-400">Medium (40-70%)</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#ff3333' }}></div>
-                  <span className="text-xs text-gray-400">High (80+)</span>
+                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#2196f3' }}></div>
+                  <span className="text-xs text-gray-400">Low (10-30%)</span>
                 </div>
               </div>
             </div>
