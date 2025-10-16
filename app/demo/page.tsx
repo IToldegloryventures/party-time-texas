@@ -324,13 +324,13 @@ export default function DemoHub() {
           <h2 className="mb-6 text-2xl font-bold text-white">
             Why These User Types Matter
           </h2>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div>
-              <div className="mb-3 text-lg font-bold text-purple-400">
+              <div className="mb-3 text-lg font-bold text-blue-400">
                 Business Users
               </div>
               <p className="text-sm text-gray-300">
-                Access the central dashboard with Landing Page Builder, Event Manager, NFC Device Manager, Analytics, Team & Roles management, and Task Manager. Full organization control with 5-tier RBAC.
+                Dashboard with NFC Devices, Events, Landing Pages, and Analytics modules. Quick actions, real-time metrics, and detailed device/event management.
               </p>
             </div>
 
@@ -339,7 +339,7 @@ export default function DemoHub() {
                 Event Planners
               </div>
               <p className="text-sm text-gray-300">
-                Manage events with NFC check-in stations, guest management, real-time attendance analytics, communications, and photo galleries. Track every attendee interaction from RSVP to post-event.
+                Comprehensive event management with NFC check-in stations, real-time attendee tracking, meal preferences, dietary restrictions, and check-in timelines.
               </p>
             </div>
 
@@ -348,7 +348,16 @@ export default function DemoHub() {
                 Event Guests
               </div>
               <p className="text-sm text-gray-300">
-                Check in with NFC tap, view event schedules, access venue maps, upload photos, connect with attendees, and receive real-time updates. Passive guest role with limited tracking.
+                Guest portal with event details, schedule, venue map, photo gallery for uploads/viewing, RSVP confirmation, meal selection, and attendee information.
+              </p>
+            </div>
+
+            <div>
+              <div className="mb-3 text-lg font-bold text-red-400">
+                Super Admins
+              </div>
+              <p className="text-sm text-gray-300">
+                Platform-wide administration with organization management, revenue analytics, portal breakdowns, and advanced system controls across all customers.
               </p>
             </div>
           </div>
@@ -360,45 +369,45 @@ export default function DemoHub() {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-4 shadow-lg">
               <div className="mb-2 font-bold text-white">
-                ���� Business Users
+                💼 Business Profiles
               </div>
               <p className="text-xs text-gray-400">
-                Landing Page Builder, Event Manager, NFC Device Manager, Analytics
+                NFC cards, landing pages, analytics, team management, quick actions
               </p>
             </div>
 
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-4 shadow-lg">
-              <div className="mb-2 font-bold text-white">📅 Event Planners</div>
+              <div className="mb-2 font-bold text-white">📋 Event Management</div>
               <p className="text-xs text-gray-400">
-                Event management, guest check-in, attendance analytics, communications
+                Check-in stations, attendee lists, meal tracking, real-time analytics
               </p>
             </div>
 
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-4 shadow-lg">
-              <div className="mb-2 font-bold text-white">👥 Event Guests</div>
+              <div className="mb-2 font-bold text-white">📸 Photo Galleries</div>
               <p className="text-xs text-gray-400">
-                Check-in experience, event schedule, photo gallery, networking
+                Guest uploads, event memories, shareable galleries, real-time feeds
               </p>
             </div>
 
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-4 shadow-lg">
-              <div className="mb-2 font-bold text-white">💒 Weddings & Life Events</div>
+              <div className="mb-2 font-bold text-white">🎫 RSVP & Check-In</div>
               <p className="text-xs text-gray-400">
-                Guest check-in, photo gallery, real-time attendance tracking
+                Guest confirmations, NFC taps, meal selections, preferences tracking
               </p>
             </div>
 
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-4 shadow-lg">
-              <div className="mb-2 font-bold text-white">🤝 Corporate Retreats</div>
+              <div className="mb-2 font-bold text-white">📊 Platform Analytics</div>
               <p className="text-xs text-gray-400">
-                Team engagement, attendance analytics, session tracking
+                Revenue metrics, organization stats, portal breakdowns, growth tracking
               </p>
             </div>
 
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-4 shadow-lg">
-              <div className="mb-2 font-bold text-white">🎓 School Events</div>
+              <div className="mb-2 font-bold text-white">🔐 Admin Controls</div>
               <p className="text-xs text-gray-400">
-                Alumni check-in, event management, engagement insights
+                User management, system settings, data export, advanced filtering
               </p>
             </div>
           </div>
