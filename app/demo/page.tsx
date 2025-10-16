@@ -43,7 +43,7 @@ export default function DemoHub() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Business User Demo */}
           <Link href="/demo/business-user">
-            <div className="group overflow-hidden rounded-lg bg-gradient-to-br from-purple-600 to-purple-900 p-8 shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
+            <div className="group overflow-hidden rounded-lg bg-gradient-to-br from-purple-600 to-purple-900 p-8 shadow-xl transition-all hover:scale-105 hover:shadow-2xl h-full flex flex-col">
               <div className="mb-6 flex items-center justify-center">
                 <div className="rounded-full bg-white/20 p-4">
                   <svg
