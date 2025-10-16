@@ -362,59 +362,6 @@ export default function SystemArchitecture() {
           </div>
         </div>
 
-        {/* Key Data Flows */}
-        <div className="mb-16">
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold text-white">Core Data Flows</h2>
-            <p className="mt-2 text-base text-gray-400">How data moves through the system</p>
-          </div>
-
-          <div className="space-y-4">
-            <div className="rounded-xl border border-gray-700/50 bg-gray-900/50 p-6">
-              <p className="mb-3 font-semibold text-white">NFC Scan Flow</p>
-              <div className="flex flex-wrap items-center gap-2 text-sm">
-                <span className="rounded-lg bg-gray-800 px-3 py-2 text-gray-300">Guest taps NFC</span>
-                <span className="text-gray-600">→</span>
-                <span className="rounded-lg bg-gray-800 px-3 py-2 text-gray-300">Mobile browser loads</span>
-                <span className="text-gray-600">→</span>
-                <span className="rounded-lg bg-gray-800 px-3 py-2 text-gray-300">API processes</span>
-                <span className="text-gray-600">→</span>
-                <span className="rounded-lg bg-gray-800 px-3 py-2 text-gray-300">Database records</span>
-                <span className="text-gray-600">→</span>
-                <span className="rounded-lg bg-gray-800 px-3 py-2 text-gray-300">Dashboard updates</span>
-              </div>
-            </div>
-
-            <div className="rounded-xl border border-gray-700/50 bg-gray-900/50 p-6">
-              <p className="mb-3 font-semibold text-white">Event Management Flow</p>
-              <div className="flex flex-wrap items-center gap-2 text-sm">
-                <span className="rounded-lg bg-gray-800 px-3 py-2 text-gray-300">Admin creates</span>
-                <span className="text-gray-600">→</span>
-                <span className="rounded-lg bg-gray-800 px-3 py-2 text-gray-300">Team assigned</span>
-                <span className="text-gray-600">���</span>
-                <span className="rounded-lg bg-gray-800 px-3 py-2 text-gray-300">NFC deployed</span>
-                <span className="text-gray-600">→</span>
-                <span className="rounded-lg bg-gray-800 px-3 py-2 text-gray-300">Guests check-in</span>
-                <span className="text-gray-600">→</span>
-                <span className="rounded-lg bg-gray-800 px-3 py-2 text-gray-300">Real-time tracking</span>
-              </div>
-            </div>
-
-            <div className="rounded-xl border border-gray-700/50 bg-gray-900/50 p-6">
-              <p className="mb-3 font-semibold text-white">Revenue Attribution Flow</p>
-              <div className="flex flex-wrap items-center gap-2 text-sm">
-                <span className="rounded-lg bg-gray-800 px-3 py-2 text-gray-300">NFC scans</span>
-                <span className="text-gray-600">→</span>
-                <span className="rounded-lg bg-gray-800 px-3 py-2 text-gray-300">Conversion tracking</span>
-                <span className="text-gray-600">→</span>
-                <span className="rounded-lg bg-gray-800 px-3 py-2 text-gray-300">ROI calculation</span>
-                <span className="text-gray-600">→</span>
-                <span className="rounded-lg bg-gray-800 px-3 py-2 text-gray-300">Business intelligence</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Footer Navigation */}
         <div className="border-t border-gray-800 pt-12 text-center">
           <a
