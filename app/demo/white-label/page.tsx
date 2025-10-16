@@ -121,9 +121,9 @@ export default function WhiteLabelDemo() {
         </div>
 
         {/* Navigation */}
-        <div className="flex justify-between">
-          <Link href="/demo/task-management" className="rounded-lg bg-gradient-to-r from-gray-700 to-gray-600 px-6 py-2 text-sm font-semibold text-white hover:scale-105">
-            ← Previous Demo
+        <div className="flex justify-between items-center gap-4">
+          <Link href="/demo" className="rounded-lg bg-gradient-to-r from-gray-700 to-gray-600 px-6 py-2 text-sm font-semibold text-white hover:scale-105">
+            ← Home
           </Link>
           <Link href="/demo/mobile-apps-admin" className="rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-2 text-sm font-semibold text-white hover:scale-105">
             Next Demo →

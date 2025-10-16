@@ -130,12 +130,12 @@ export default function MobileAppsCustomerDemo() {
         </div>
 
         {/* Navigation */}
-        <div className="flex justify-between">
-          <Link href="/demo/mobile-apps-admin" className="rounded-lg bg-gradient-to-r from-gray-700 to-gray-600 px-6 py-2 text-sm font-semibold text-white hover:scale-105">
-            ← Previous Demo
+        <div className="flex justify-between items-center gap-4">
+          <Link href="/demo" className="rounded-lg bg-gradient-to-r from-gray-700 to-gray-600 px-6 py-2 text-sm font-semibold text-white hover:scale-105">
+            ← Home
           </Link>
           <Link href="/demo" className="rounded-lg bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-2 text-sm font-semibold text-white hover:scale-105">
-            Back to All Demos →
+            All Demos →
           </Link>
         </div>
       </div>
