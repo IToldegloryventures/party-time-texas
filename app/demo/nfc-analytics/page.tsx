@@ -53,11 +53,22 @@ export default function NFCAnalyticsDemo() {
             <div className="rounded-lg border border-gray-700 bg-gray-800/30 p-6">
               <p className="mb-4 text-sm font-semibold text-gray-300">Scan Trend (Daily)</p>
               <div className="h-48 flex items-end justify-around gap-1">
-                {[45, 52, 48, 61, 55, 68, 72].map((val, idx) => (
-                  <div key={idx} className="flex-1 bg-gradient-to-t from-cyan-600 to-cyan-400 rounded-t" style={{ height: `${(val / 72) * 100}%` }}></div>
+                {[
+                  { val: 45, day: 'Mon' },
+                  { val: 52, day: 'Tue' },
+                  { val: 48, day: 'Wed' },
+                  { val: 61, day: 'Thu' },
+                  { val: 55, day: 'Fri' },
+                  { val: 68, day: 'Sat' },
+                  { val: 72, day: 'Sun' }
+                ].map((data, idx) => (
+                  <div key={idx} className="flex-1 flex flex-col items-center gap-1 group cursor-pointer">
+                    <div className="w-full bg-gradient-to-t from-cyan-600 to-cyan-400 rounded-t hover:opacity-80 transition-opacity" style={{ height: `${(data.val / 72) * 100}%` }}></div>
+                    <span className="text-xs text-gray-500 group-hover:text-gray-300">{data.day}</span>
+                    <span className="text-xs text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity">{data.val}k</span>
+                  </div>
                 ))}
               </div>
-              <div className="mt-4 text-xs text-gray-400 text-center">Mon - Sun</div>
             </div>
 
             {/* Device Performance */}
