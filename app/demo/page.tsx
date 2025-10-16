@@ -118,9 +118,9 @@ export default function DemoHub() {
             </div>
           </Link>
 
-          {/* Event Planner Demo */}
-          <Link href="/demo/event-planner">
-            <div className="group overflow-hidden rounded-lg bg-gradient-to-br from-pink-600 to-pink-900 p-8 shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
+          {/* Event Guest Demo */}
+          <Link href="/demo/event-guest">
+            <div className="group overflow-hidden rounded-lg bg-gradient-to-br from-cyan-600 to-cyan-900 p-8 shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
               <div className="mb-6 flex items-center justify-center">
                 <div className="rounded-full bg-white/20 p-4">
                   <svg
@@ -133,36 +133,36 @@ export default function DemoHub() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={1.5}
-                      d="M8 7V3m8 4V3m-9 8h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2 1m2-1l-2-1m2 1v2.5"
                     />
                   </svg>
                 </div>
               </div>
               <h2 className="mb-3 text-center text-2xl font-bold text-white">
-                Event Planner
+                Event Guest
               </h2>
-              <p className="mb-6 text-center text-sm text-pink-100">
-                Event management, guest check-in, and real-time analytics
+              <p className="mb-6 text-center text-sm text-cyan-100">
+                Check-in, event experience, photo gallery, RSVP
               </p>
-              <div className="space-y-2 text-sm text-pink-100">
+              <div className="space-y-2 text-sm text-cyan-100">
                 <div className="flex items-center">
                   <span className="mr-2">✓</span>
-                  <span>Event Manager</span>
+                  <span>NFC Check-In</span>
                 </div>
                 <div className="flex items-center">
                   <span className="mr-2">✓</span>
-                  <span>NFC Check-In Stations</span>
+                  <span>Event Schedule</span>
                 </div>
                 <div className="flex items-center">
                   <span className="mr-2">✓</span>
-                  <span>Guest Management</span>
+                  <span>Photo Gallery</span>
                 </div>
                 <div className="flex items-center">
                   <span className="mr-2">✓</span>
-                  <span>Attendance Analytics</span>
+                  <span>RSVP & Info</span>
                 </div>
               </div>
-              <div className="mt-6 inline-block rounded-full bg-white px-6 py-2 font-semibold text-pink-600 transition-all group-hover:bg-pink-100">
+              <div className="mt-6 inline-block rounded-full bg-white px-6 py-2 font-semibold text-cyan-600 transition-all group-hover:bg-cyan-100">
                 View Demo →
               </div>
             </div>
