@@ -6,171 +6,167 @@ export default function GeoMarketingDemo() {
       <div className="border-b border-gray-800 bg-gray-950 px-6 py-12">
         <div className="mx-auto max-w-7xl text-center">
           <h1 className="mb-2 text-4xl font-bold text-white">Geo-Marketing Intelligence</h1>
-          <p className="text-base text-gray-400">Location-Based Insights</p>
+          <p className="text-base text-gray-400">Regional Analytics & Performance Metrics</p>
         </div>
       </div>
 
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="mb-20 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-white">Turn Location Data into Marketing Gold</h2>
-          <p className="text-gray-300">Track customer movement patterns and optimize placement</p>
+          <h2 className="mb-4 text-3xl font-bold text-white">Track Performance Across Regions</h2>
+          <p className="text-gray-300">Analyze customer engagement, conversion rates, and ROI by geographic region to optimize marketing spend</p>
         </div>
 
-        {/* Analytics Dashboard Mockup */}
+        {/* Regional Performance Dashboard */}
         <div className="mb-20 rounded-xl border border-purple-900/50 bg-gray-900/50 p-8">
-          {/* Header */}
-          <div className="mb-6 flex items-center justify-between border-b border-gray-700 pb-4">
-            <h3 className="text-lg font-bold text-white">Venue Analytics</h3>
-            <select className="rounded bg-gray-800 text-sm text-gray-300 px-3 py-1 border border-gray-700">
-              <option>Last 7 Days</option>
+          {/* Header with Date Range */}
+          <div className="mb-8 flex items-center justify-between border-b border-gray-700 pb-6">
+            <div>
+              <h3 className="text-xl font-bold text-white">Regional Performance</h3>
+              <p className="text-sm text-gray-400">Q4 2024 Campaign Results</p>
+            </div>
+            <select className="rounded bg-gray-800 text-sm text-gray-300 px-4 py-2 border border-gray-700">
+              <option>Last 30 Days</option>
+              <option>Last 90 Days</option>
+              <option>Year to Date</option>
             </select>
           </div>
 
-          {/* KPI Cards */}
-          <div className="grid grid-cols-1 gap-4 mb-8 md:grid-cols-4">
-            {[
-              { label: 'Total Scans', value: '12,451', color: 'purple' },
-              { label: 'Avg Dwell Time', value: '8.2m', color: 'blue' },
-              { label: 'Engagement Rate', value: '42.3%', color: 'cyan' },
-              { label: 'Peak Time', value: '2-4 PM', color: 'pink' }
-            ].map((metric) => (
-              <div key={metric.label} className={`rounded-lg border border-gray-700 bg-gradient-to-br from-gray-800 to-gray-900 p-4`}>
-                <p className="text-xs text-gray-400 mb-1">{metric.label}</p>
-                <p className={`text-2xl font-bold text-${metric.color}-400`}>{metric.value}</p>
-              </div>
-            ))}
+          {/* Regional KPI Cards */}
+          <div className="grid grid-cols-1 gap-4 mb-8 md:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-lg border border-gray-700 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-6">
+              <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Total Regional Reach</p>
+              <p className="text-3xl font-bold text-blue-400 mb-2">2.4M</p>
+              <p className="text-xs text-gray-500">Customers across 47 regions</p>
+            </div>
+            <div className="rounded-lg border border-gray-700 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-6">
+              <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Avg Conversion Rate</p>
+              <p className="text-3xl font-bold text-purple-400 mb-2">12.8%</p>
+              <p className="text-xs text-green-400">↑ 2.3% vs last period</p>
+            </div>
+            <div className="rounded-lg border border-gray-700 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-6">
+              <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Regional ROI</p>
+              <p className="text-3xl font-bold text-pink-400 mb-2">340%</p>
+              <p className="text-xs text-gray-500">Average across all regions</p>
+            </div>
+            <div className="rounded-lg border border-gray-700 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-6">
+              <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Top Performing Region</p>
+              <p className="text-3xl font-bold text-cyan-400 mb-2">North America</p>
+              <p className="text-xs text-gray-500">18.4% conversion rate</p>
+            </div>
           </div>
 
-          {/* Geographic Heatmap */}
+          {/* Regional Heatmap */}
           <div className="rounded-lg border border-gray-700 bg-gray-800/50 p-6 mb-8">
-            <p className="mb-4 text-sm font-semibold text-gray-300">Geographic Coverage Heatmap</p>
-            <div className="aspect-video rounded bg-gradient-to-br from-gray-950 to-gray-900 relative overflow-hidden">
-              <svg className="w-full h-full" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                  <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style={{ stopColor: '#1a4d2e', stopOpacity: 0.4 }} />
-                    <stop offset="100%" style={{ stopColor: '#0f2818', stopOpacity: 0.6 }} />
-                  </linearGradient>
-                  <radialGradient id="densityHot" cx="50%" cy="50%">
-                    <stop offset="0%" style={{ stopColor: '#ff1744', stopOpacity: 1 }} />
-                    <stop offset="70%" style={{ stopColor: '#ff9800', stopOpacity: 0.6 }} />
-                    <stop offset="100%" style={{ stopColor: '#ffeb3b', stopOpacity: 0.1 }} />
-                  </radialGradient>
-                  <radialGradient id="densityMed" cx="50%" cy="50%">
-                    <stop offset="0%" style={{ stopColor: '#ff9800', stopOpacity: 0.9 }} />
-                    <stop offset="70%" style={{ stopColor: '#ffeb3b', stopOpacity: 0.5 }} />
-                    <stop offset="100%" style={{ stopColor: '#ffeb3b', stopOpacity: 0.05 }} />
-                  </radialGradient>
-                  <radialGradient id="densityCool" cx="50%" cy="50%">
-                    <stop offset="0%" style={{ stopColor: '#2196f3', stopOpacity: 0.8 }} />
-                    <stop offset="70%" style={{ stopColor: '#00bcd4', stopOpacity: 0.4 }} />
-                    <stop offset="100%" style={{ stopColor: '#4dd0e1', stopOpacity: 0.05 }} />
-                  </radialGradient>
-                </defs>
-
-                {/* Map background */}
-                <rect width="1000" height="600" fill="#0f2818" />
-                <rect width="1000" height="600" fill="url(#mapGradient)" />
-
-                {/* Geographic grid overlay */}
-                <g stroke="#1a3a2a" strokeWidth="1" opacity="0.3">
-                  <line x1="0" y1="150" x2="1000" y2="150" />
-                  <line x1="0" y1="300" x2="1000" y2="300" />
-                  <line x1="0" y1="450" x2="1000" y2="450" />
-                  <line x1="250" y1="0" x2="250" y2="600" />
-                  <line x1="500" y1="0" x2="500" y2="600" />
-                  <line x1="750" y1="0" x2="750" y2="600" />
-                </g>
-
-                {/* Heat density zones - High concentration areas */}
-                <circle cx="250" cy="180" r="180" fill="url(#densityHot)" />
-                <circle cx="750" cy="150" r="160" fill="url(#densityHot)" />
-                <circle cx="500" cy="450" r="170" fill="url(#densityHot)" />
-
-                {/* Medium concentration areas */}
-                <circle cx="150" cy="400" r="140" fill="url(#densityMed)" />
-                <circle cx="850" cy="380" r="130" fill="url(#densityMed)" />
-
-                {/* Low concentration areas */}
-                <circle cx="400" cy="300" r="100" fill="url(#densityCool)" />
-                <circle cx="650" cy="500" r="90" fill="url(#densityCool)" />
-
-                {/* Location markers - High engagement (Red) */}
-                <g>
-                  {/* Main Business Districts */}
-                  <circle cx="250" cy="180" r="12" fill="#ff1744" stroke="#fff" strokeWidth="2" />
-                  <circle cx="270" cy="160" r="10" fill="#ff5252" stroke="#fff" strokeWidth="1.5" />
-                  <circle cx="230" cy="200" r="9" fill="#ff5252" stroke="#fff" strokeWidth="1.5" />
-                  <circle cx="750" cy="150" r="12" fill="#ff1744" stroke="#fff" strokeWidth="2" />
-                  <circle cx="770" cy="130" r="10" fill="#ff5252" stroke="#fff" strokeWidth="1.5" />
-                  <circle cx="730" cy="170" r="9" fill="#ff5252" stroke="#fff" strokeWidth="1.5" />
-                  <circle cx="500" cy="450" r="12" fill="#ff1744" stroke="#fff" strokeWidth="2" />
-                  <circle cx="520" cy="435" r="10" fill="#ff5252" stroke="#fff" strokeWidth="1.5" />
-                  <circle cx="480" cy="465" r="9" fill="#ff5252" stroke="#fff" strokeWidth="1.5" />
-                </g>
-
-                {/* Medium engagement (Orange) */}
-                <g>
-                  <circle cx="150" cy="400" r="10" fill="#ff9800" stroke="#fff" strokeWidth="1.5" />
-                  <circle cx="135" cy="385" r="8" fill="#ffb74d" stroke="#fff" strokeWidth="1" />
-                  <circle cx="850" cy="380" r="10" fill="#ff9800" stroke="#fff" strokeWidth="1.5" />
-                  <circle cx="865" cy="395" r="8" fill="#ffb74d" stroke="#fff" strokeWidth="1" />
-                </g>
-
-                {/* Low engagement (Blue) */}
-                <g>
-                  <circle cx="400" cy="300" r="8" fill="#2196f3" stroke="#fff" strokeWidth="1.5" />
-                  <circle cx="415" cy="315" r="6" fill="#64b5f6" stroke="#fff" strokeWidth="1" />
-                  <circle cx="650" cy="500" r="8" fill="#2196f3" stroke="#fff" strokeWidth="1.5" />
-                  <circle cx="665" cy="515" r="6" fill="#64b5f6" stroke="#fff" strokeWidth="1" />
-                </g>
-
-                {/* Region labels */}
-                <text x="250" y="290" fontSize="12" fill="#e5e7eb" fontWeight="bold" textAnchor="middle" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>Downtown District</text>
-                <text x="750" y="260" fontSize="12" fill="#e5e7eb" fontWeight="bold" textAnchor="middle" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>Retail Zone</text>
-                <text x="500" y="560" fontSize="12" fill="#e5e7eb" fontWeight="bold" textAnchor="middle" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>Entertainment Hub</text>
-              </svg>
-
-              {/* Legend */}
-              <div className="absolute bottom-4 right-4 flex flex-col gap-2 bg-gray-900/95 px-4 py-3 rounded-lg border border-gray-700">
-                <div className="text-xs font-semibold text-gray-300 mb-2">Customer Engagement</div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#ff1744' }}></div>
-                  <span className="text-xs text-gray-400">High (80%+)</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#ff9800' }}></div>
-                  <span className="text-xs text-gray-400">Medium (40-70%)</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#2196f3' }}></div>
-                  <span className="text-xs text-gray-400">Low (10-30%)</span>
-                </div>
+            <div className="flex items-center justify-between mb-4">
+              <p className="text-sm font-semibold text-gray-300">Marketing Performance Heatmap by Region</p>
+              <div className="flex gap-2 text-xs">
+                <span className="text-gray-400">Conversion Rate: Low</span>
+                <div className="w-3 h-3 rounded" style={{ backgroundColor: '#3b82f6' }}></div>
+                <span className="text-gray-400">Med</span>
+                <div className="w-3 h-3 rounded" style={{ backgroundColor: '#f59e0b' }}></div>
+                <span className="text-gray-400">High</span>
+                <div className="w-3 h-3 rounded" style={{ backgroundColor: '#ef4444' }}></div>
+              </div>
+            </div>
+            <div className="aspect-video rounded bg-gray-900 overflow-auto">
+              <div className="grid grid-cols-4 gap-2 p-6 min-h-full">
+                {[
+                  { region: 'North America', conversion: 18.4, customers: 580000, status: 'hot' },
+                  { region: 'Europe', conversion: 14.2, customers: 420000, status: 'warm' },
+                  { region: 'Asia-Pacific', conversion: 16.8, customers: 650000, status: 'hot' },
+                  { region: 'Latin America', conversion: 9.3, customers: 290000, status: 'cool' },
+                  { region: 'Middle East', conversion: 11.5, customers: 180000, status: 'medium' },
+                  { region: 'Africa', conversion: 8.2, customers: 145000, status: 'cool' },
+                  { region: 'Central Asia', conversion: 10.7, customers: 95000, status: 'medium' },
+                  { region: 'Oceania', conversion: 13.9, customers: 135000, status: 'warm' }
+                ].map((region) => {
+                  let bgColor = '';
+                  let textColor = '';
+                  if (region.status === 'hot') {
+                    bgColor = 'bg-red-900/60 border-red-700';
+                    textColor = 'text-red-200';
+                  } else if (region.status === 'warm') {
+                    bgColor = 'bg-orange-900/60 border-orange-700';
+                    textColor = 'text-orange-200';
+                  } else if (region.status === 'medium') {
+                    bgColor = 'bg-yellow-900/60 border-yellow-700';
+                    textColor = 'text-yellow-200';
+                  } else {
+                    bgColor = 'bg-blue-900/60 border-blue-700';
+                    textColor = 'text-blue-200';
+                  }
+                  return (
+                    <div key={region.region} className={`rounded-lg border ${bgColor} p-4 flex flex-col justify-between cursor-pointer hover:shadow-lg hover:shadow-purple-500/20 transition-all`}>
+                      <div>
+                        <p className={`font-semibold text-sm mb-2 ${textColor}`}>{region.region}</p>
+                        <p className={`text-2xl font-bold ${textColor} mb-1`}>{region.conversion}%</p>
+                        <p className="text-xs text-gray-300">Conversion Rate</p>
+                      </div>
+                      <div className="border-t border-gray-600/30 pt-2 mt-2">
+                        <p className="text-xs text-gray-400">{(region.customers / 1000).toFixed(0)}K Customers</p>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
 
-          {/* Station Performance */}
+          {/* Campaign Performance by Region */}
           <div>
-            <p className="mb-4 text-sm font-semibold text-gray-300">Station Performance</p>
+            <p className="mb-4 text-sm font-semibold text-gray-300">Campaign Performance Breakdown</p>
             <div className="space-y-3">
               {[
-                { name: 'Main Entrance', scans: 4231, percentage: 85 },
-                { name: 'VIP Lounge', scans: 2156, percentage: 62 },
-                { name: 'Conference Room A', scans: 3812, percentage: 91 },
-                { name: 'Registration Desk', scans: 2252, percentage: 48 }
-              ].map((station) => (
-                <div key={station.name} className="rounded border border-gray-700 bg-gray-800/30 p-3">
-                  <div className="flex justify-between text-sm mb-2">
-                    <span className="text-gray-300">{station.name}</span>
-                    <span className="text-gray-400">{station.scans} scans</span>
+                { campaign: 'Email Campaign - Q4', regions: ['North America', 'Europe', 'Asia-Pacific'], engagement: 34, roi: 420 },
+                { campaign: 'Social Media Ads', regions: ['North America', 'Latin America'], engagement: 22, roi: 280 },
+                { campaign: 'Influencer Partnerships', regions: ['Europe', 'Asia-Pacific'], engagement: 28, roi: 350 },
+                { campaign: 'Regional Events', regions: ['All Regions'], engagement: 41, roi: 510 }
+              ].map((campaign) => (
+                <div key={campaign.campaign} className="rounded-lg border border-gray-700 bg-gray-800/30 p-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <div>
+                      <p className="font-semibold text-gray-200 text-sm">{campaign.campaign}</p>
+                      <p className="text-xs text-gray-400">{campaign.regions.join(', ')}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-lg font-bold text-purple-400">{campaign.roi}%</p>
+                      <p className="text-xs text-gray-400">ROI</p>
+                    </div>
                   </div>
-                  <div className="w-full bg-gray-700 rounded-full h-1">
-                    <div className="bg-gradient-to-r from-purple-600 to-pink-600 h-1 rounded-full" style={{ width: `${station.percentage}%` }}></div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-gray-400">Engagement</span>
+                    <div className="flex-grow bg-gray-700 rounded-full h-2">
+                      <div className="bg-gradient-to-r from-purple-600 to-pink-600 h-2 rounded-full" style={{ width: `${campaign.engagement}%` }}></div>
+                    </div>
+                    <span className="text-xs text-gray-300 font-semibold">{campaign.engagement}%</span>
                   </div>
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* Regional Insights Section */}
+        <div className="mb-20 grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="rounded-lg border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-6">
+            <div className="text-2xl mb-3">📍</div>
+            <h3 className="font-bold text-purple-300 mb-3">Top Performing Regions</h3>
+            <ul className="space-y-2 text-sm text-gray-300">
+              <li className="flex justify-between"><span>1. North America</span><span className="text-purple-400">18.4% Conv.</span></li>
+              <li className="flex justify-between"><span>2. Asia-Pacific</span><span className="text-purple-400">16.8% Conv.</span></li>
+              <li className="flex justify-between"><span>3. Europe</span><span className="text-purple-400">14.2% Conv.</span></li>
+              <li className="flex justify-between"><span>4. Oceania</span><span className="text-purple-400">13.9% Conv.</span></li>
+            </ul>
+          </div>
+
+          <div className="rounded-lg border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-6">
+            <div className="text-2xl mb-3">🎯</div>
+            <h3 className="font-bold text-cyan-300 mb-3">Optimization Opportunities</h3>
+            <ul className="space-y-2 text-sm text-gray-300">
+              <li className="flex items-start gap-2"><span className="text-cyan-400 mt-1">→</span><span>Africa region underperforming - increase budget allocation by 25%</span></li>
+              <li className="flex items-start gap-2"><span className="text-cyan-400 mt-1">→</span><span>Latin America shows growth potential - consider expansion</span></li>
+              <li className="flex items-start gap-2"><span className="text-cyan-400 mt-1">→</span><span>Scale successful campaigns from North America to Europe</span></li>
+            </ul>
           </div>
         </div>
 
