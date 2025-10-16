@@ -1,223 +1,150 @@
-export default function BusinessUserPortal() {
+export default function BusinessUserDashboard() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black">
-      {/* Header with User Context */}
-      <div className="border-b border-gray-700 bg-gradient-to-r from-slate-800 to-slate-700 px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-bold text-white">Central Dashboard</h1>
-            <p className="text-sm text-gray-400">Organization: Acme Corp • Role: Admin</p>
-          </div>
-          <div className="text-right">
-            <div className="text-sm text-gray-300">Active Sessions: 12</div>
-            <div className="text-xs text-gray-500">Last sync: 2 min ago</div>
+    <div className="min-h-screen bg-gray-950">
+      {/* Header */}
+      <div className="border-b border-gray-800 bg-gray-900 px-6 py-4">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-2xl font-bold text-white">Dashboard</h1>
+              <p className="text-sm text-gray-400">Welcome back, Sarah Chen • Admin</p>
+            </div>
+            <div className="flex gap-4">
+              <button className="rounded-lg border border-gray-700 bg-gray-800 px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
+                + Create
+              </button>
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600"></div>
+            </div>
           </div>
         </div>
       </div>
 
       <div className="mx-auto max-w-7xl px-6 py-8">
-        {/* Feature Modules Grid */}
-        <div className="mb-12">
-          <h2 className="mb-6 text-2xl font-bold text-white">Platform Features</h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {/* Landing Page Builder */}
-            <div className="overflow-hidden rounded-lg bg-gradient-to-br from-purple-600 to-purple-900 p-6 shadow-lg">
-              <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-lg font-bold text-white">Landing Page Builder</h3>
-                <div className="text-2xl">🎨</div>
+        {/* Module Cards Grid */}
+        <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {/* NFC Devices */}
+          <div className="rounded-lg border border-gray-800 bg-gray-900 p-4">
+            <div className="mb-4 flex items-start justify-between">
+              <div>
+                <p className="text-xs font-semibold text-gray-500 uppercase">NFC Devices</p>
+                <div className="mt-2 text-3xl font-bold text-white">24</div>
+                <p className="text-xs text-gray-500">3 inactive</p>
               </div>
-              <p className="mb-4 text-sm text-purple-100">
-                Create branded landing pages with UTM tracking and cookie monitoring
-              </p>
-              <div className="space-y-2 border-t border-purple-500 pt-3">
-                <div className="flex justify-between text-xs">
-                  <span className="text-purple-200">Active Pages:</span>
-                  <span className="font-bold text-white">7</span>
-                </div>
-                <div className="flex justify-between text-xs">
-                  <span className="text-purple-200">Total Visits:</span>
-                  <span className="font-bold text-white">12,847</span>
-                </div>
-                <div className="flex justify-between text-xs">
-                  <span className="text-purple-200">Conversion Rate:</span>
-                  <span className="font-bold text-green-300">34.2%</span>
-                </div>
-              </div>
+              <div className="text-2xl">📱</div>
             </div>
+            <button className="w-full rounded-lg bg-blue-600 py-2 text-xs font-semibold text-white hover:bg-blue-700">
+              Manage Devices (0)
+            </button>
+          </div>
 
-            {/* Event Manager */}
-            <div className="overflow-hidden rounded-lg bg-gradient-to-br from-pink-600 to-pink-900 p-6 shadow-lg">
-              <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-lg font-bold text-white">Event Manager</h3>
-                <div className="text-2xl">📅</div>
+          {/* Events */}
+          <div className="rounded-lg border border-gray-800 bg-gray-900 p-4">
+            <div className="mb-4 flex items-start justify-between">
+              <div>
+                <p className="text-xs font-semibold text-gray-500 uppercase">Events</p>
+                <div className="mt-2 text-3xl font-bold text-white">8</div>
+                <p className="text-xs text-gray-500">0 total attendees</p>
               </div>
-              <p className="mb-4 text-sm text-pink-100">
-                Manage events, RSVPs, attendees, and real-time check-ins
-              </p>
-              <div className="space-y-2 border-t border-pink-500 pt-3">
-                <div className="flex justify-between text-xs">
-                  <span className="text-pink-200">Upcoming Events:</span>
-                  <span className="font-bold text-white">3</span>
-                </div>
-                <div className="flex justify-between text-xs">
-                  <span className="text-pink-200">Total Registered:</span>
-                  <span className="font-bold text-white">2,143</span>
-                </div>
-                <div className="flex justify-between text-xs">
-                  <span className="text-pink-200">Checked In Today:</span>
-                  <span className="font-bold text-green-300">487</span>
-                </div>
-              </div>
+              <div className="text-2xl">📅</div>
             </div>
+            <button className="w-full rounded-lg bg-cyan-600 py-2 text-xs font-semibold text-white hover:bg-cyan-700">
+              Manage Events (0)
+            </button>
+          </div>
 
-            {/* NFC Device Manager */}
-            <div className="overflow-hidden rounded-lg bg-gradient-to-br from-cyan-600 to-cyan-900 p-6 shadow-lg">
-              <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-lg font-bold text-white">NFC Device Manager</h3>
-                <div className="text-2xl">📱</div>
+          {/* Landing Pages */}
+          <div className="rounded-lg border border-gray-800 bg-gray-900 p-4">
+            <div className="mb-4 flex items-start justify-between">
+              <div>
+                <p className="text-xs font-semibold text-gray-500 uppercase">Landing Pages</p>
+                <div className="mt-2 text-3xl font-bold text-white">12</div>
+                <p className="text-xs text-gray-500">All active</p>
               </div>
-              <p className="mb-4 text-sm text-cyan-100">
-                Configure, provision, and monitor NFC hardware across all touchpoints
-              </p>
-              <div className="space-y-2 border-t border-cyan-500 pt-3">
-                <div className="flex justify-between text-xs">
-                  <span className="text-cyan-200">Active Devices:</span>
-                  <span className="font-bold text-white">24</span>
-                </div>
-                <div className="flex justify-between text-xs">
-                  <span className="text-cyan-200">Scans (Today):</span>
-                  <span className="font-bold text-white">8,942</span>
-                </div>
-                <div className="flex justify-between text-xs">
-                  <span className="text-cyan-200">Health Status:</span>
-                  <span className="font-bold text-green-300">100%</span>
-                </div>
-              </div>
+              <div className="text-2xl">🌐</div>
             </div>
+            <button className="w-full rounded-lg bg-orange-600 py-2 text-xs font-semibold text-white hover:bg-orange-700">
+              Manage Landing Pages
+            </button>
+          </div>
 
-            {/* Analytics Dashboard */}
-            <div className="overflow-hidden rounded-lg bg-gradient-to-br from-green-600 to-green-900 p-6 shadow-lg">
-              <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-lg font-bold text-white">Analytics Dashboard</h3>
-                <div className="text-2xl">📊</div>
+          {/* Analytics */}
+          <div className="rounded-lg border border-gray-800 bg-gray-900 p-4">
+            <div className="mb-4 flex items-start justify-between">
+              <div>
+                <p className="text-xs font-semibold text-gray-500 uppercase">Analytics</p>
+                <div className="mt-2 text-3xl font-bold text-white">2,847</div>
+                <p className="text-xs text-gray-500">NFC scans total</p>
               </div>
-              <p className="mb-4 text-sm text-green-100">
-                Track scans, conversions, heatmaps, geo-clustering, and visitor profiling
-              </p>
-              <div className="space-y-2 border-t border-green-500 pt-3">
-                <div className="flex justify-between text-xs">
-                  <span className="text-green-200">Unique Visitors:</span>
-                  <span className="font-bold text-white">3,421</span>
-                </div>
-                <div className="flex justify-between text-xs">
-                  <span className="text-green-200">Avg. Time on Page:</span>
-                  <span className="font-bold text-white">3m 42s</span>
-                </div>
-                <div className="flex justify-between text-xs">
-                  <span className="text-green-200">Return Visitors:</span>
-                  <span className="font-bold text-blue-300">42%</span>
-                </div>
-              </div>
+              <div className="text-2xl">📊</div>
             </div>
-
-            {/* Team & Roles */}
-            <div className="overflow-hidden rounded-lg bg-gradient-to-br from-orange-600 to-orange-900 p-6 shadow-lg">
-              <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-lg font-bold text-white">Team & Roles</h3>
-                <div className="text-2xl">👥</div>
-              </div>
-              <p className="mb-4 text-sm text-orange-100">
-                Manage team members with 5-tier RBAC: Super Admin, Owner, Admin, Member, Guest
-              </p>
-              <div className="space-y-2 border-t border-orange-500 pt-3">
-                <div className="flex justify-between text-xs">
-                  <span className="text-orange-200">Team Members:</span>
-                  <span className="font-bold text-white">12</span>
-                </div>
-                <div className="flex justify-between text-xs">
-                  <span className="text-orange-200">Active Permissions:</span>
-                  <span className="font-bold text-white">48</span>
-                </div>
-                <div className="flex justify-between text-xs">
-                  <span className="text-orange-200">Audit Logs:</span>
-                  <span className="font-bold text-white">847</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Task Manager */}
-            <div className="overflow-hidden rounded-lg bg-gradient-to-br from-red-600 to-red-900 p-6 shadow-lg">
-              <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-lg font-bold text-white">Task Manager</h3>
-                <div className="text-2xl">✅</div>
-              </div>
-              <p className="mb-4 text-sm text-red-100">
-                Automated workflows and task tracking for campaigns and events
-              </p>
-              <div className="space-y-2 border-t border-red-500 pt-3">
-                <div className="flex justify-between text-xs">
-                  <span className="text-red-200">Active Tasks:</span>
-                  <span className="font-bold text-white">23</span>
-                </div>
-                <div className="flex justify-between text-xs">
-                  <span className="text-red-200">Completed:</span>
-                  <span className="font-bold text-green-300">156</span>
-                </div>
-                <div className="flex justify-between text-xs">
-                  <span className="text-red-200">Pending:</span>
-                  <span className="font-bold text-yellow-300">8</span>
-                </div>
-              </div>
-            </div>
+            <button className="w-full rounded-lg bg-green-600 py-2 text-xs font-semibold text-white hover:bg-green-700">
+              View Analytics (0)
+            </button>
           </div>
         </div>
 
-        {/* Key Metrics */}
-        <div className="mb-12">
-          <h2 className="mb-6 text-2xl font-bold text-white">Organization Metrics</h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-lg bg-gray-800 p-6 shadow-lg">
-              <div className="text-sm text-gray-400">Total NFC Scans</div>
-              <div className="mt-2 text-4xl font-bold text-purple-400">247,892</div>
-              <div className="mt-2 text-xs text-gray-500">↑ 12% from last month</div>
-            </div>
-            <div className="rounded-lg bg-gray-800 p-6 shadow-lg">
-              <div className="text-sm text-gray-400">Active Users</div>
-              <div className="mt-2 text-4xl font-bold text-cyan-400">1,247</div>
-              <div className="mt-2 text-xs text-gray-500">↑ 8% from last month</div>
-            </div>
-            <div className="rounded-lg bg-gray-800 p-6 shadow-lg">
-              <div className="text-sm text-gray-400">Events</div>
-              <div className="mt-2 text-4xl font-bold text-pink-400">12</div>
-              <div className="mt-2 text-xs text-gray-500">3 upcoming</div>
-            </div>
-            <div className="rounded-lg bg-gray-800 p-6 shadow-lg">
-              <div className="text-sm text-gray-400">Subscription Status</div>
-              <div className="mt-2 text-2xl font-bold text-green-400">Pro Plan</div>
-              <div className="mt-2 text-xs text-gray-500">Renews in 23 days</div>
-            </div>
+        {/* Quick Actions */}
+        <div className="mb-8 rounded-lg border border-gray-800 bg-gray-900 p-6">
+          <h2 className="mb-4 text-sm font-semibold text-white">Quick Actions</h2>
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
+            <button className="flex items-center gap-2 rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-xs font-medium text-gray-300 hover:bg-gray-700">
+              📱 Add NFC Device
+            </button>
+            <button className="flex items-center gap-2 rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-xs font-medium text-gray-300 hover:bg-gray-700">
+              👥 Manage Team
+            </button>
+            <button className="flex items-center gap-2 rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-xs font-medium text-gray-300 hover:bg-gray-700">
+              📊 View Reports
+            </button>
+            <button className="flex items-center gap-2 rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-xs font-medium text-gray-300 hover:bg-gray-700">
+              🎨 Customize
+            </button>
+            <button className="flex items-center gap-2 rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-xs font-medium text-gray-300 hover:bg-gray-700">
+              ⚙️ Settings
+            </button>
           </div>
         </div>
 
-        {/* Data Flow & Architecture Info */}
-        <div className="rounded-lg border border-gray-600 bg-gray-800 p-6 shadow-lg">
-          <h3 className="mb-4 text-lg font-bold text-white">Platform Architecture Overview</h3>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <div className="border-l-2 border-purple-500 pl-3">
-              <div className="text-xs font-semibold text-purple-300">Auth & Session</div>
-              <p className="mt-1 text-xs text-gray-300">Clerk + Session Fingerprinting</p>
+        {/* Recent Activity & Stats */}
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          {/* Recent NFC Devices */}
+          <div className="rounded-lg border border-gray-800 bg-gray-900 p-6 lg:col-span-2">
+            <h2 className="mb-4 text-sm font-semibold text-white">Recent Devices</h2>
+            <div className="space-y-3">
+              {[
+                { name: 'Business Card - Batch #12', status: 'Active', scans: 847 },
+                { name: 'Trade Show Badge', status: 'Active', scans: 542 },
+                { name: 'Event Signage', status: 'Inactive', scans: 234 },
+              ].map((device, idx) => (
+                <div key={idx} className="flex items-center justify-between border-b border-gray-800 pb-3">
+                  <div>
+                    <p className="text-sm font-medium text-white">{device.name}</p>
+                    <p className="text-xs text-gray-500">{device.scans} scans</p>
+                  </div>
+                  <span className={`text-xs font-semibold ${device.status === 'Active' ? 'text-green-400' : 'text-yellow-400'}`}>
+                    {device.status}
+                  </span>
+                </div>
+              ))}
             </div>
-            <div className="border-l-2 border-cyan-500 pl-3">
-              <div className="text-xs font-semibold text-cyan-300">Data Layer</div>
-              <p className="mt-1 text-xs text-gray-300">Supabase + RLS Policies</p>
+          </div>
+
+          {/* Key Metrics */}
+          <div className="space-y-3">
+            <div className="rounded-lg border border-gray-800 bg-gray-900 p-4">
+              <p className="text-xs text-gray-500">Monthly Scans</p>
+              <p className="mt-2 text-2xl font-bold text-white">12,487</p>
+              <p className="text-xs text-green-400">↑ 23% vs last month</p>
             </div>
-            <div className="border-l-2 border-green-500 pl-3">
-              <div className="text-xs font-semibold text-green-300">Tracking</div>
-              <p className="mt-1 text-xs text-gray-300">NFC + UTM + Cookies</p>
+            <div className="rounded-lg border border-gray-800 bg-gray-900 p-4">
+              <p className="text-xs text-gray-500">Conversion Rate</p>
+              <p className="mt-2 text-2xl font-bold text-white">34.2%</p>
+              <p className="text-xs text-green-400">↑ 5% vs last month</p>
             </div>
-            <div className="border-l-2 border-yellow-500 pl-3">
-              <div className="text-xs font-semibold text-yellow-300">AI Agents</div>
-              <p className="mt-1 text-xs text-gray-300">Gemini + Behavior Analysis</p>
+            <div className="rounded-lg border border-gray-800 bg-gray-900 p-4">
+              <p className="text-xs text-gray-500">Active Users</p>
+              <p className="mt-2 text-2xl font-bold text-white">1,247</p>
+              <p className="text-xs text-green-400">↑ 12% vs last month</p>
             </div>
           </div>
         </div>
