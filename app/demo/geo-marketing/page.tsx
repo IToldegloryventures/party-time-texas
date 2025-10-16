@@ -44,14 +44,50 @@ export default function GeoMarketingDemo() {
           {/* Heatmap */}
           <div className="rounded-lg border border-gray-700 bg-gray-800/50 p-6 mb-8">
             <p className="mb-4 text-sm font-semibold text-gray-300">Venue Heatmap</p>
-            <div className="aspect-video rounded bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-cyan-900/20 flex items-center justify-center relative">
-              <div className="absolute inset-0 rounded flex items-center justify-center text-gray-400">
-                [Venue Layout with Traffic Zones]
-              </div>
-              <div className="absolute bottom-4 right-4 flex gap-2">
-                {['Low', 'Med', 'High'].map((intensity) => (
-                  <div key={intensity} className="text-xs text-gray-400">{intensity}</div>
+            <div className="aspect-video rounded bg-gray-900 flex items-center justify-center relative overflow-hidden">
+              {/* Venue Grid */}
+              <div className="grid grid-cols-4 gap-2 p-8 w-full h-full">
+                {[
+                  { intensity: 95, label: 'Main Entrance' },
+                  { intensity: 45, label: 'Hallway A' },
+                  { intensity: 85, label: 'Conference Room' },
+                  { intensity: 35, label: 'Storage' },
+                  { intensity: 72, label: 'VIP Lounge' },
+                  { intensity: 88, label: 'Stage Area' },
+                  { intensity: 52, label: 'Hallway B' },
+                  { intensity: 92, label: 'Registration' },
+                  { intensity: 60, label: 'Restrooms' },
+                  { intensity: 78, label: 'Dining' },
+                  { intensity: 48, label: 'Break Room' },
+                  { intensity: 82, label: 'Exit A' }
+                ].map((zone, idx) => (
+                  <div key={idx} className="rounded relative group cursor-pointer flex items-center justify-center font-semibold text-xs text-white" style={{
+                    backgroundColor: `rgba(239, 68, 68, ${zone.intensity / 100})`,
+                    opacity: 0.7 + (zone.intensity / 500)
+                  }}>
+                    <div className="text-center">
+                      <div className="font-bold">{zone.intensity}</div>
+                      <div className="text-xs opacity-0 group-hover:opacity-100 transition-opacity bg-black/80 rounded px-2 py-1 absolute bottom-full mb-2 whitespace-nowrap">
+                        {zone.label}
+                      </div>
+                    </div>
+                  </div>
                 ))}
+              </div>
+              {/* Legend */}
+              <div className="absolute bottom-4 right-4 flex gap-3 bg-gray-900/90 px-4 py-2 rounded-lg">
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded" style={{ backgroundColor: 'rgba(59, 130, 246, 0.3)' }}></div>
+                  <span className="text-xs text-gray-400">Low</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded" style={{ backgroundColor: 'rgba(239, 68, 68, 0.6)' }}></div>
+                  <span className="text-xs text-gray-400">Med</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded" style={{ backgroundColor: 'rgba(239, 68, 68, 1)' }}></div>
+                  <span className="text-xs text-gray-400">High</span>
+                </div>
               </div>
             </div>
           </div>
