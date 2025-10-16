@@ -1,28 +1,62 @@
 import Link from 'next/link';
 
 export default function GeoMarketingDemo() {
+  const locations = [
+    { name: 'Downtown Dallas', lat: 32.7767, lng: -96.7970, conversion: 18.4, customers: 12400, status: 'hot' },
+    { name: 'Uptown Dallas', lat: 32.8097, lng: -96.8021, conversion: 16.2, customers: 9800, status: 'hot' },
+    { name: 'Arlington', lat: 32.7357, lng: -97.1081, conversion: 14.8, customers: 8600, status: 'warm' },
+    { name: 'Fort Worth', lat: 32.7555, lng: -97.3308, conversion: 15.3, customers: 7200, status: 'warm' },
+    { name: 'Plano', lat: 33.0198, lng: -96.6989, conversion: 17.1, customers: 11200, status: 'hot' },
+    { name: 'Frisco', lat: 33.1615, lng: -96.8234, conversion: 13.7, customers: 6800, status: 'warm' },
+    { name: 'Irving', lat: 32.8140, lng: -97.2037, conversion: 12.4, customers: 5400, status: 'medium' },
+    { name: 'Carrollton', lat: 32.9753, lng: -96.8364, conversion: 11.9, customers: 4200, status: 'medium' }
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-black">
       <div className="border-b border-gray-800 bg-gray-950 px-6 py-12">
         <div className="mx-auto max-w-7xl text-center">
           <h1 className="mb-2 text-4xl font-bold text-white">Geo-Marketing Intelligence</h1>
-          <p className="text-base text-gray-400">Regional Analytics & Performance Metrics</p>
+          <p className="text-base text-gray-400">North DFW Regional Analytics</p>
         </div>
       </div>
 
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="mb-20 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-white">Track Performance Across Regions</h2>
-          <p className="text-gray-300">Analyze customer engagement, conversion rates, and ROI by geographic region to optimize marketing spend</p>
+          <h2 className="mb-4 text-3xl font-bold text-white">Track Marketing Performance Across North DFW</h2>
+          <p className="text-gray-300">Visualize customer engagement and conversion metrics by location to optimize regional campaigns</p>
         </div>
 
-        {/* Regional Performance Dashboard */}
-        <div className="mb-20 rounded-xl border border-purple-900/50 bg-gray-900/50 p-8">
-          {/* Header with Date Range */}
-          <div className="mb-8 flex items-center justify-between border-b border-gray-700 pb-6">
+        {/* Regional KPI Cards */}
+        <div className="grid grid-cols-1 gap-4 mb-8 md:grid-cols-4">
+          <div className="rounded-lg border border-gray-700 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-6">
+            <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Total Locations</p>
+            <p className="text-3xl font-bold text-blue-400">8</p>
+            <p className="text-xs text-gray-500 mt-2">Active marketing zones</p>
+          </div>
+          <div className="rounded-lg border border-gray-700 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-6">
+            <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Avg Conversion</p>
+            <p className="text-3xl font-bold text-purple-400">14.9%</p>
+            <p className="text-xs text-green-400 mt-2">↑ 3.2% vs last month</p>
+          </div>
+          <div className="rounded-lg border border-gray-700 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-6">
+            <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Total Reach</p>
+            <p className="text-3xl font-bold text-pink-400">65.7K</p>
+            <p className="text-xs text-gray-500 mt-2">Customers engaged</p>
+          </div>
+          <div className="rounded-lg border border-gray-700 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-6">
+            <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Top Location</p>
+            <p className="text-3xl font-bold text-cyan-400">Downtown</p>
+            <p className="text-xs text-gray-500 mt-2">18.4% conversion rate</p>
+          </div>
+        </div>
+
+        {/* Interactive Map with Pins */}
+        <div className="mb-20 rounded-xl border border-purple-900/50 bg-gray-900/50 p-8 overflow-hidden">
+          <div className="mb-6 flex items-center justify-between">
             <div>
-              <h3 className="text-xl font-bold text-white">Regional Performance</h3>
-              <p className="text-sm text-gray-400">Q4 2024 Campaign Results</p>
+              <h3 className="text-xl font-bold text-white">North DFW Marketing Coverage Map</h3>
+              <p className="text-sm text-gray-400 mt-1">Click locations for detailed metrics</p>
             </div>
             <select className="rounded bg-gray-800 text-sm text-gray-300 px-4 py-2 border border-gray-700">
               <option>Last 30 Days</option>
@@ -31,141 +65,187 @@ export default function GeoMarketingDemo() {
             </select>
           </div>
 
-          {/* Regional KPI Cards */}
-          <div className="grid grid-cols-1 gap-4 mb-8 md:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-lg border border-gray-700 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-6">
-              <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Total Regional Reach</p>
-              <p className="text-3xl font-bold text-blue-400 mb-2">2.4M</p>
-              <p className="text-xs text-gray-500">Customers across 47 regions</p>
-            </div>
-            <div className="rounded-lg border border-gray-700 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-6">
-              <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Avg Conversion Rate</p>
-              <p className="text-3xl font-bold text-purple-400 mb-2">12.8%</p>
-              <p className="text-xs text-green-400">↑ 2.3% vs last period</p>
-            </div>
-            <div className="rounded-lg border border-gray-700 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-6">
-              <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Regional ROI</p>
-              <p className="text-3xl font-bold text-pink-400 mb-2">340%</p>
-              <p className="text-xs text-gray-500">Average across all regions</p>
-            </div>
-            <div className="rounded-lg border border-gray-700 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-6">
-              <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Top Performing Region</p>
-              <p className="text-3xl font-bold text-cyan-400 mb-2">North America</p>
-              <p className="text-xs text-gray-500">18.4% conversion rate</p>
-            </div>
-          </div>
+          <div className="relative rounded-lg overflow-hidden bg-gray-800 border border-gray-700">
+            <svg className="w-full" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid meet">
+              {/* Map background and grid */}
+              <defs>
+                <linearGradient id="mapBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{ stopColor: '#1a3a2a', stopOpacity: 1 }} />
+                  <stop offset="100%" style={{ stopColor: '#0f1f18', stopOpacity: 1 }} />
+                </linearGradient>
+              </defs>
 
-          {/* Regional Heatmap */}
-          <div className="rounded-lg border border-gray-700 bg-gray-800/50 p-6 mb-8">
-            <div className="flex items-center justify-between mb-4">
-              <p className="text-sm font-semibold text-gray-300">Marketing Performance Heatmap by Region</p>
-              <div className="flex gap-2 text-xs">
-                <span className="text-gray-400">Conversion Rate: Low</span>
-                <div className="w-3 h-3 rounded" style={{ backgroundColor: '#3b82f6' }}></div>
-                <span className="text-gray-400">Med</span>
-                <div className="w-3 h-3 rounded" style={{ backgroundColor: '#f59e0b' }}></div>
-                <span className="text-gray-400">High</span>
-                <div className="w-3 h-3 rounded" style={{ backgroundColor: '#ef4444' }}></div>
-              </div>
-            </div>
-            <div className="aspect-video rounded bg-gray-900 overflow-auto">
-              <div className="grid grid-cols-4 gap-2 p-6 min-h-full">
-                {[
-                  { region: 'North America', conversion: 18.4, customers: 580000, status: 'hot' },
-                  { region: 'Europe', conversion: 14.2, customers: 420000, status: 'warm' },
-                  { region: 'Asia-Pacific', conversion: 16.8, customers: 650000, status: 'hot' },
-                  { region: 'Latin America', conversion: 9.3, customers: 290000, status: 'cool' },
-                  { region: 'Middle East', conversion: 11.5, customers: 180000, status: 'medium' },
-                  { region: 'Africa', conversion: 8.2, customers: 145000, status: 'cool' },
-                  { region: 'Central Asia', conversion: 10.7, customers: 95000, status: 'medium' },
-                  { region: 'Oceania', conversion: 13.9, customers: 135000, status: 'warm' }
-                ].map((region) => {
-                  let bgColor = '';
-                  let textColor = '';
-                  if (region.status === 'hot') {
-                    bgColor = 'bg-red-900/60 border-red-700';
-                    textColor = 'text-red-200';
-                  } else if (region.status === 'warm') {
-                    bgColor = 'bg-orange-900/60 border-orange-700';
-                    textColor = 'text-orange-200';
-                  } else if (region.status === 'medium') {
-                    bgColor = 'bg-yellow-900/60 border-yellow-700';
-                    textColor = 'text-yellow-200';
-                  } else {
-                    bgColor = 'bg-blue-900/60 border-blue-700';
-                    textColor = 'text-blue-200';
-                  }
-                  return (
-                    <div key={region.region} className={`rounded-lg border ${bgColor} p-4 flex flex-col justify-between cursor-pointer hover:shadow-lg hover:shadow-purple-500/20 transition-all`}>
-                      <div>
-                        <p className={`font-semibold text-sm mb-2 ${textColor}`}>{region.region}</p>
-                        <p className={`text-2xl font-bold ${textColor} mb-1`}>{region.conversion}%</p>
-                        <p className="text-xs text-gray-300">Conversion Rate</p>
-                      </div>
-                      <div className="border-t border-gray-600/30 pt-2 mt-2">
-                        <p className="text-xs text-gray-400">{(region.customers / 1000).toFixed(0)}K Customers</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
+              <rect width="1000" height="700" fill="url(#mapBg)" />
 
-          {/* Campaign Performance by Region */}
-          <div>
-            <p className="mb-4 text-sm font-semibold text-gray-300">Campaign Performance Breakdown</p>
-            <div className="space-y-3">
-              {[
-                { campaign: 'Email Campaign - Q4', regions: ['North America', 'Europe', 'Asia-Pacific'], engagement: 34, roi: 420 },
-                { campaign: 'Social Media Ads', regions: ['North America', 'Latin America'], engagement: 22, roi: 280 },
-                { campaign: 'Influencer Partnerships', regions: ['Europe', 'Asia-Pacific'], engagement: 28, roi: 350 },
-                { campaign: 'Regional Events', regions: ['All Regions'], engagement: 41, roi: 510 }
-              ].map((campaign) => (
-                <div key={campaign.campaign} className="rounded-lg border border-gray-700 bg-gray-800/30 p-4">
-                  <div className="flex items-center justify-between mb-3">
-                    <div>
-                      <p className="font-semibold text-gray-200 text-sm">{campaign.campaign}</p>
-                      <p className="text-xs text-gray-400">{campaign.regions.join(', ')}</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-lg font-bold text-purple-400">{campaign.roi}%</p>
-                      <p className="text-xs text-gray-400">ROI</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs text-gray-400">Engagement</span>
-                    <div className="flex-grow bg-gray-700 rounded-full h-2">
-                      <div className="bg-gradient-to-r from-purple-600 to-pink-600 h-2 rounded-full" style={{ width: `${campaign.engagement}%` }}></div>
-                    </div>
-                    <span className="text-xs text-gray-300 font-semibold">{campaign.engagement}%</span>
-                  </div>
-                </div>
-              ))}
-            </div>
+              {/* Road/highway network - simplified North DFW structure */}
+              <g stroke="#2a5a3a" strokeWidth="3" opacity="0.6" fill="none">
+                {/* I-35E North-South */}
+                <line x1="200" y1="50" x2="200" y2="650" />
+                {/* I-30 East-West */}
+                <line x1="50" y1="350" x2="950" y2="350" />
+                {/* Dallas Tollway North-South */}
+                <line x1="450" y1="80" x2="430" y2="600" />
+                {/* I-75 */}
+                <line x1="650" y1="100" x2="600" y2="600" />
+              </g>
+
+              {/* City zones - light overlay */}
+              <g opacity="0.1">
+                <rect x="150" y="300" width="150" height="150" fill="#3b82f6" rx="10" />
+                <rect x="380" y="200" width="120" height="130" fill="#8b5cf6" rx="10" />
+                <rect x="250" y="480" width="140" height="140" fill="#ec4899" rx="10" />
+                <rect x="600" y="320" width="130" height="130" fill="#06b6d4" rx="10" />
+              </g>
+
+              {/* Location Pins */}
+              {locations.map((loc, idx) => {
+                const x = 150 + (loc.lng + 97.5) * 120;
+                const y = 350 - (loc.lat - 32.5) * 140;
+                let pinColor = '#ef4444';
+                let ringColor = '#fca5a5';
+                if (loc.status === 'warm') {
+                  pinColor = '#f59e0b';
+                  ringColor = '#fcd34d';
+                } else if (loc.status === 'medium') {
+                  pinColor = '#3b82f6';
+                  ringColor = '#93c5fd';
+                }
+
+                return (
+                  <g key={idx}>
+                    {/* Ripple effect */}
+                    <circle cx={x} cy={y} r="45" fill={ringColor} opacity="0.15" />
+                    <circle cx={x} cy={y} r="35" fill={ringColor} opacity="0.1" />
+
+                    {/* Pin circle */}
+                    <circle cx={x} cy={y} r="18" fill={pinColor} stroke="#fff" strokeWidth="2" />
+
+                    {/* Conversion rate text inside pin */}
+                    <text x={x} y={y} fontSize="10" fontWeight="bold" fill="#fff" textAnchor="middle" dy="0.3em">
+                      {loc.conversion}%
+                    </text>
+
+                    {/* Location label above */}
+                    <text x={x} y={y - 50} fontSize="11" fontWeight="600" fill="#e5e7eb" textAnchor="middle">
+                      {loc.name}
+                    </text>
+
+                    {/* Customer count below */}
+                    <text x={x} y={y + 50} fontSize="9" fill="#9ca3af" textAnchor="middle">
+                      {(loc.customers / 1000).toFixed(1)}K customers
+                    </text>
+                  </g>
+                );
+              })}
+
+              {/* Legend */}
+              <g>
+                <rect x="730" y="20" width="260" height="140" fill="#111827" opacity="0.9" rx="8" />
+                <rect x="735" y="25" width="250" height="130" fill="none" stroke="#374151" strokeWidth="1" rx="6" />
+
+                <text x="750" y="45" fontSize="12" fontWeight="bold" fill="#e5e7eb">Conversion Performance</text>
+
+                <circle cx="750" cy="70" r="6" fill="#ef4444" />
+                <text x="765" y="74" fontSize="10" fill="#d1d5db">High (15%+)</text>
+
+                <circle cx="750" cy="95" r="6" fill="#f59e0b" />
+                <text x="765" y="99" fontSize="10" fill="#d1d5db">Warm (12-15%)</text>
+
+                <circle cx="750" cy="120" r="6" fill="#3b82f6" />
+                <text x="765" y="124" fontSize="10" fill="#d1d5db">Medium (&lt;12%)</text>
+              </g>
+            </svg>
           </div>
         </div>
 
-        {/* Regional Insights Section */}
+        {/* Location Performance Table */}
+        <div className="mb-20 rounded-lg border border-gray-700 bg-gray-800/50 p-6">
+          <h3 className="text-lg font-bold text-white mb-6">Location Performance Details</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead>
+                <tr className="border-b border-gray-700">
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">Location</th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">Conversion Rate</th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">Customers Reached</th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">Performance</th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">Trend</th>
+                </tr>
+              </thead>
+              <tbody>
+                {locations.map((loc) => (
+                  <tr key={loc.name} className="border-b border-gray-700/50 hover:bg-gray-900/30 transition-colors">
+                    <td className="py-4 px-4 text-sm text-gray-200 font-medium">{loc.name}</td>
+                    <td className="py-4 px-4 text-sm text-gray-300">
+                      <span className={`font-bold ${loc.conversion >= 16 ? 'text-red-400' : loc.conversion >= 13 ? 'text-orange-400' : 'text-blue-400'}`}>
+                        {loc.conversion}%
+                      </span>
+                    </td>
+                    <td className="py-4 px-4 text-sm text-gray-300">{(loc.customers / 1000).toFixed(1)}K</td>
+                    <td className="py-4 px-4">
+                      <div className="flex items-center gap-2">
+                        <div className="w-24 bg-gray-700 rounded-full h-2">
+                          <div
+                            className={`h-2 rounded-full ${loc.status === 'hot' ? 'bg-red-500' : loc.status === 'warm' ? 'bg-orange-500' : 'bg-blue-500'}`}
+                            style={{ width: `${(loc.conversion / 20) * 100}%` }}
+                          />
+                        </div>
+                        <span className="text-xs text-gray-400">{loc.status.charAt(0).toUpperCase() + loc.status.slice(1)}</span>
+                      </div>
+                    </td>
+                    <td className="py-4 px-4 text-sm">
+                      {loc.status === 'hot' ? (
+                        <span className="text-green-400">↑ Strong</span>
+                      ) : loc.status === 'warm' ? (
+                        <span className="text-yellow-400">→ Stable</span>
+                      ) : (
+                        <span className="text-blue-400">↓ Monitor</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Insights and Recommendations */}
         <div className="mb-20 grid grid-cols-1 gap-6 md:grid-cols-2">
           <div className="rounded-lg border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-6">
-            <div className="text-2xl mb-3">📍</div>
-            <h3 className="font-bold text-purple-300 mb-3">Top Performing Regions</h3>
+            <div className="text-2xl mb-3">🎯</div>
+            <h3 className="font-bold text-purple-300 mb-3">Top Performing Zones</h3>
             <ul className="space-y-2 text-sm text-gray-300">
-              <li className="flex justify-between"><span>1. North America</span><span className="text-purple-400">18.4% Conv.</span></li>
-              <li className="flex justify-between"><span>2. Asia-Pacific</span><span className="text-purple-400">16.8% Conv.</span></li>
-              <li className="flex justify-between"><span>3. Europe</span><span className="text-purple-400">14.2% Conv.</span></li>
-              <li className="flex justify-between"><span>4. Oceania</span><span className="text-purple-400">13.9% Conv.</span></li>
+              <li className="flex justify-between">
+                <span>1. Downtown Dallas</span>
+                <span className="text-red-400 font-semibold">18.4%</span>
+              </li>
+              <li className="flex justify-between">
+                <span>2. Plano</span>
+                <span className="text-red-400 font-semibold">17.1%</span>
+              </li>
+              <li className="flex justify-between">
+                <span>3. Uptown Dallas</span>
+                <span className="text-orange-400 font-semibold">16.2%</span>
+              </li>
             </ul>
           </div>
 
           <div className="rounded-lg border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-6">
-            <div className="text-2xl mb-3">🎯</div>
-            <h3 className="font-bold text-cyan-300 mb-3">Optimization Opportunities</h3>
+            <div className="text-2xl mb-3">💡</div>
+            <h3 className="font-bold text-cyan-300 mb-3">Optimization Recommendations</h3>
             <ul className="space-y-2 text-sm text-gray-300">
-              <li className="flex items-start gap-2"><span className="text-cyan-400 mt-1">→</span><span>Africa region underperforming - increase budget allocation by 25%</span></li>
-              <li className="flex items-start gap-2"><span className="text-cyan-400 mt-1">→</span><span>Latin America shows growth potential - consider expansion</span></li>
-              <li className="flex items-start gap-2"><span className="text-cyan-400 mt-1">→</span><span>Scale successful campaigns from North America to Europe</span></li>
+              <li className="flex items-start gap-2">
+                <span className="text-cyan-400 mt-0.5">→</span>
+                <span>Increase investment in Downtown and Plano - highest ROI</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-cyan-400 mt-0.5">→</span>
+                <span>Rebalance Irving and Carrollton campaigns - underperforming</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-cyan-400 mt-0.5">→</span>
+                <span>Scale Uptown tactics to Fort Worth market</span>
+              </li>
             </ul>
           </div>
         </div>
