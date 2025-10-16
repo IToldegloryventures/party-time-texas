@@ -5,7 +5,7 @@ export default function MobileAppsAdminDemo() {
     <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-black">
       <div className="border-b border-gray-800 bg-gray-950 px-6 py-12">
         <div className="mx-auto max-w-7xl text-center">
-          <h1 className="mb-2 text-4xl font-bold text-white">Mobile Apps - Admin</h1>
+          <h1 className="mb-2 text-4xl font-bold text-white">Mobile App - Admin</h1>
           <p className="text-base text-gray-400">Manage Your Business On-The-Go</p>
         </div>
       </div>
