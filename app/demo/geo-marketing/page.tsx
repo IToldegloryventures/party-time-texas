@@ -66,35 +66,68 @@ export default function GeoMarketingDemo() {
           </div>
 
           <div className="relative rounded-lg overflow-hidden bg-gray-800 border border-gray-700">
-            <svg className="w-full" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid meet">
-              {/* Map background and grid */}
+            <svg className="w-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid meet">
               <defs>
                 <linearGradient id="mapBg" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style={{ stopColor: '#1a3a2a', stopOpacity: 1 }} />
-                  <stop offset="100%" style={{ stopColor: '#0f1f18', stopOpacity: 1 }} />
+                  <stop offset="0%" style={{ stopColor: '#e8f0e8', stopOpacity: 1 }} />
+                  <stop offset="100%" style={{ stopColor: '#d0e8d0', stopOpacity: 1 }} />
                 </linearGradient>
               </defs>
 
-              <rect width="1000" height="700" fill="url(#mapBg)" />
+              {/* Map background - light map style */}
+              <rect width="1200" height="800" fill="url(#mapBg)" />
 
-              {/* Road/highway network - simplified North DFW structure */}
-              <g stroke="#2a5a3a" strokeWidth="3" opacity="0.6" fill="none">
-                {/* I-35E North-South */}
-                <line x1="200" y1="50" x2="200" y2="650" />
-                {/* I-30 East-West */}
-                <line x1="50" y1="350" x2="950" y2="350" />
-                {/* Dallas Tollway North-South */}
-                <line x1="450" y1="80" x2="430" y2="600" />
-                {/* I-75 */}
-                <line x1="650" y1="100" x2="600" y2="600" />
+              {/* Water bodies - Lakes */}
+              <g fill="#a8d5ff" opacity="0.6">
+                <circle cx="280" cy="200" r="45" />
+                <ellipse cx="350" cy="350" rx="65" ry="55" />
+                <ellipse cx="500" cy="280" rx="40" ry="50" />
+                <circle cx="750" cy="450" r="38" />
               </g>
 
-              {/* City zones - light overlay */}
-              <g opacity="0.1">
-                <rect x="150" y="300" width="150" height="150" fill="#3b82f6" rx="10" />
-                <rect x="380" y="200" width="120" height="130" fill="#8b5cf6" rx="10" />
-                <rect x="250" y="480" width="140" height="140" fill="#ec4899" rx="10" />
-                <rect x="600" y="320" width="130" height="130" fill="#06b6d4" rx="10" />
+              {/* Major Highways - Interstate style */}
+              <g>
+                {/* I-35E - Main north-south */}
+                <line x1="180" y1="40" x2="170" y2="750" stroke="#d1512a" strokeWidth="6" />
+                <line x1="180" y1="40" x2="170" y2="750" stroke="#ff9d00" strokeWidth="3" opacity="0.7" />
+
+                {/* I-30 - East-West through Dallas */}
+                <path d="M 80 420 Q 300 380, 600 390 T 950 420" stroke="#d1512a" strokeWidth="6" fill="none" />
+                <path d="M 80 420 Q 300 380, 600 390 T 950 420" stroke="#ff9d00" strokeWidth="3" opacity="0.7" fill="none" />
+
+                {/* Dallas Tollway - Curved north-south */}
+                <path d="M 420 50 Q 440 200, 460 400 Q 450 550, 430 750" stroke="#0066cc" strokeWidth="5" fill="none" />
+
+                {/* I-75 - Northeast to southwest */}
+                <path d="M 650 80 Q 680 300, 650 500 Q 600 650, 500 750" stroke="#d1512a" strokeWidth="6" fill="none" />
+                <path d="M 650 80 Q 680 300, 650 500 Q 600 650, 500 750" stroke="#ff9d00" strokeWidth="3" opacity="0.7" fill="none" />
+
+                {/* 635 Loop */}
+                <path d="M 480 280 Q 550 290, 600 350 Q 580 420, 500 430" stroke="#666666" strokeWidth="4" fill="none" />
+
+                {/* Various state highways */}
+                <line x1="100" y1="300" x2="400" y2="280" stroke="#888888" strokeWidth="3" />
+                <line x1="700" y1="150" x2="950" y2="200" stroke="#888888" strokeWidth="3" />
+              </g>
+
+              {/* City boundaries - subtle grid */}
+              <g stroke="#cccccc" strokeWidth="1" opacity="0.3" fill="none">
+                <rect x="100" y="100" width="300" height="280" />
+                <rect x="420" y="80" width="200" height="250" />
+                <rect x="350" y="340" width="250" height="200" />
+                <rect x="650" y="280" width="280" height="220" />
+              </g>
+
+              {/* City name labels */}
+              <g fontSize="16" fontWeight="600" fill="#333333" opacity="0.8" textAnchor="middle">
+                <text x="200" y="180">Denton</text>
+                <text x="250" y="650">Fort Worth</text>
+                <text x="480" y="160">Frisco</text>
+                <text x="550" y="120">McKinney</text>
+                <text x="780" y="280">Plano</text>
+                <text x="520" y="470">Dallas</text>
+                <text x="350" y="530">Irving</text>
+                <text x="200" y="500">Arlington</text>
               </g>
 
               {/* Location Pins */}
