@@ -93,7 +93,7 @@ export default function DemoHub() {
 
           {/* Event Planner Demo */}
           <Link href="/demo/event-planner">
-            <div className="group overflow-hidden rounded-lg bg-gradient-to-br from-pink-600 to-pink-900 p-8 shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
+            <div className="group overflow-hidden rounded-lg bg-gradient-to-br from-pink-600 to-pink-900 p-8 shadow-xl transition-all hover:scale-105 hover:shadow-2xl h-full flex flex-col">
               <div className="mb-6 flex items-center justify-center">
                 <div className="rounded-full bg-white/20 p-4">
                   <svg
