@@ -118,8 +118,58 @@ export default function DemoHub() {
             </div>
           </Link>
 
-          {/* Hybrid User Demo */}
-          <Link href="/demo/hybrid-user">
+          {/* Event Planner Demo */}
+          <Link href="/demo/event-planner">
+            <div className="group overflow-hidden rounded-lg bg-gradient-to-br from-pink-600 to-pink-900 p-8 shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
+              <div className="mb-6 flex items-center justify-center">
+                <div className="rounded-full bg-white/20 p-4">
+                  <svg
+                    className="h-12 w-12 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M8 7V3m8 4V3m-9 8h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <h2 className="mb-3 text-center text-2xl font-bold text-white">
+                Event Planner
+              </h2>
+              <p className="mb-6 text-center text-sm text-pink-100">
+                Event management, guest check-in, and real-time analytics
+              </p>
+              <div className="space-y-2 text-sm text-pink-100">
+                <div className="flex items-center">
+                  <span className="mr-2">✓</span>
+                  <span>Event Manager</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-2">✓</span>
+                  <span>NFC Check-In Stations</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-2">✓</span>
+                  <span>Guest Management</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-2">✓</span>
+                  <span>Attendance Analytics</span>
+                </div>
+              </div>
+              <div className="mt-6 inline-block rounded-full bg-white px-6 py-2 font-semibold text-pink-600 transition-all group-hover:bg-pink-100">
+                View Demo →
+              </div>
+            </div>
+          </Link>
+
+          {/* Event Guest Demo */}
+          <Link href="/demo/event-guest">
             <div className="group overflow-hidden rounded-lg bg-gradient-to-br from-cyan-600 to-cyan-900 p-8 shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
               <div className="mb-6 flex items-center justify-center">
                 <div className="rounded-full bg-white/20 p-4">
@@ -133,33 +183,33 @@ export default function DemoHub() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={1.5}
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2 1m2-1l-2-1m2 1v2.5"
                     />
                   </svg>
                 </div>
               </div>
               <h2 className="mb-3 text-center text-2xl font-bold text-white">
-                Hybrid User
+                Event Guest
               </h2>
               <p className="mb-6 text-center text-sm text-cyan-100">
-                Unified dashboards across business and event activities
+                Guest check-in, event experience, and engagement tracking
               </p>
               <div className="space-y-2 text-sm text-cyan-100">
                 <div className="flex items-center">
                   <span className="mr-2">✓</span>
-                  <span>Unified Dashboard</span>
+                  <span>NFC Check-In</span>
                 </div>
                 <div className="flex items-center">
                   <span className="mr-2">✓</span>
-                  <span>Cross-Platform Tracking</span>
+                  <span>Event Schedule</span>
                 </div>
                 <div className="flex items-center">
                   <span className="mr-2">✓</span>
-                  <span>Data Correlation</span>
+                  <span>Photo Gallery</span>
                 </div>
                 <div className="flex items-center">
                   <span className="mr-2">✓</span>
-                  <span>Aggregated Insights</span>
+                  <span>Session Tracking</span>
                 </div>
               </div>
               <div className="mt-6 inline-block rounded-full bg-white px-6 py-2 font-semibold text-cyan-600 transition-all group-hover:bg-cyan-100">
@@ -180,10 +230,7 @@ export default function DemoHub() {
                 Business Users
               </div>
               <p className="text-sm text-gray-300">
-                Entrepreneurs and marketers need to track leads, measure ROI, and
-                understand conversion patterns. Our business dashboard provides
-                comprehensive analytics from NFC card taps to landing page
-                conversions.
+                Access the central dashboard with Landing Page Builder, Event Manager, NFC Device Manager, Analytics, Team & Roles management, and Task Manager. Full organization control with 5-tier RBAC.
               </p>
             </div>
 
@@ -192,20 +239,16 @@ export default function DemoHub() {
                 Event Planners
               </div>
               <p className="text-sm text-gray-300">
-                Event professionals need real-time guest management, attendance
-                tracking, and engagement metrics. Our event dashboard streamlines
-                check-in, RSVP management, and post-event recaps with galleries.
+                Manage events with NFC check-in stations, guest management, real-time attendance analytics, communications, and photo galleries. Track every attendee interaction from RSVP to post-event.
               </p>
             </div>
 
             <div>
               <div className="mb-3 text-lg font-bold text-cyan-400">
-                Hybrid Users
+                Event Guests
               </div>
               <p className="text-sm text-gray-300">
-                Corporate teams, nonprofits, and communities need to blend
-                business and event engagement. Our hybrid dashboard unifies all
-                activities for complete customer journey visibility.
+                Check in with NFC tap, view event schedules, access venue maps, upload photos, connect with attendees, and receive real-time updates. Passive guest role with limited tracking.
               </p>
             </div>
           </div>
@@ -217,45 +260,45 @@ export default function DemoHub() {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-4 shadow-lg">
               <div className="mb-2 font-bold text-white">
-                🏢 Trade Show Booths
+                🏢 Business Users
               </div>
               <p className="text-xs text-gray-400">
-                Capture leads with NFC business cards and measure engagement
+                Landing Page Builder, Event Manager, NFC Device Manager, Analytics
               </p>
             </div>
 
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-4 shadow-lg">
-              <div className="mb-2 font-bold text-white">💒 Weddings</div>
+              <div className="mb-2 font-bold text-white">📅 Event Planners</div>
               <p className="text-xs text-gray-400">
-                Guest check-in with photo gallery and attendance tracking
+                Event management, guest check-in, attendance analytics, communications
               </p>
             </div>
 
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-4 shadow-lg">
-              <div className="mb-2 font-bold text-white">🎓 Graduations</div>
+              <div className="mb-2 font-bold text-white">👥 Event Guests</div>
               <p className="text-xs text-gray-400">
-                Alumni engagement with business card follow-ups and reunions
+                Check-in experience, event schedule, photo gallery, networking
               </p>
             </div>
 
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-4 shadow-lg">
-              <div className="mb-2 font-bold text-white">🤝 Corporate Events</div>
+              <div className="mb-2 font-bold text-white">💒 Weddings & Life Events</div>
               <p className="text-xs text-gray-400">
-                Retreats combining team engagement with business development
+                Guest check-in, photo gallery, real-time attendance tracking
               </p>
             </div>
 
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-4 shadow-lg">
-              <div className="mb-2 font-bold text-white">🏠 HOA Meetings</div>
+              <div className="mb-2 font-bold text-white">🤝 Corporate Retreats</div>
               <p className="text-xs text-gray-400">
-                Community attendance tracking and engagement measurement
+                Team engagement, attendance analytics, session tracking
               </p>
             </div>
 
             <div className="rounded-lg border border-gray-600 bg-gray-800 p-4 shadow-lg">
-              <div className="mb-2 font-bold text-white">💰 Fundraisers</div>
+              <div className="mb-2 font-bold text-white">🎓 School Events</div>
               <p className="text-xs text-gray-400">
-                Donor tracking with follow-up sequences and impact measurement
+                Alumni check-in, event management, engagement insights
               </p>
             </div>
           </div>
