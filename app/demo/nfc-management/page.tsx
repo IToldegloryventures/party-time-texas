@@ -31,14 +31,15 @@ export default function NFCManagementDemo() {
           {/* Device Stats */}
           <div className="grid grid-cols-1 gap-4 mb-8 md:grid-cols-4">
             {[
-              { label: 'Total Devices', value: '247', color: 'orange' },
-              { label: 'Active', value: '236', color: 'green' },
-              { label: 'Inactive', value: '11', color: 'red' },
-              { label: 'Avg Scans/Day', value: '54.2K', color: 'blue' }
+              { label: 'Total Devices', value: '247', color: 'orange', subtext: '+12 this month' },
+              { label: 'Active', value: '236', color: 'green', subtext: '95.5% uptime' },
+              { label: 'Inactive', value: '11', color: 'red', subtext: 'needs attention' },
+              { label: 'Avg Scans/Day', value: '54.2K', color: 'blue', subtext: '+8% vs last week' }
             ].map((stat) => (
-              <div key={stat.label} className="rounded-lg border border-gray-700 bg-gray-800/50 p-4">
+              <div key={stat.label} className="rounded-lg border border-gray-700 bg-gray-800/50 p-4 hover:bg-gray-800 transition-colors">
                 <p className="text-xs text-gray-400 mb-1">{stat.label}</p>
-                <p className={`text-2xl font-bold text-${stat.color}-400`}>{stat.value}</p>
+                <p className={`text-2xl font-bold text-${stat.color}-400 mb-1`}>{stat.value}</p>
+                <p className="text-xs text-gray-500">{stat.subtext}</p>
               </div>
             ))}
           </div>
