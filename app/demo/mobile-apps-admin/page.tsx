@@ -13,130 +13,122 @@ export default function MobileAppsAdminDemo() {
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="mb-20 text-center">
           <h2 className="mb-4 text-3xl font-bold text-white">Complete Business Management from Any Device</h2>
-          <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-300">Access your dashboard, monitor devices, manage events, and track analytics in real-time from your mobile phone.</p>
-          <button className="rounded-lg bg-gradient-to-r from-pink-600 to-rose-600 px-8 py-3 font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
-            Download Admin App
-          </button>
+          <p className="text-gray-300">Access your dashboard from iOS, Android, or web</p>
         </div>
 
-        <div className="mb-20">
-          <h3 className="mb-12 text-center text-2xl font-bold text-white">Key Features</h3>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-8">
-              <div className="mb-4 text-3xl">📱</div>
-              <h4 className="mb-3 text-xl font-bold text-pink-300">Dashboard Access</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>✓ Full dashboard on mobile</li>
-                <li>✓ Real-time metrics display</li>
-                <li>✓ Responsive design</li>
-                <li>✓ Offline data caching</li>
-              </ul>
-            </div>
-
-            <div className="rounded-xl border border-rose-900/50 bg-gradient-to-br from-rose-950/50 to-rose-900/20 p-8">
-              <div className="mb-4 text-3xl">🏷️</div>
-              <h4 className="mb-3 text-xl font-bold text-rose-300">NFC Device Control</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>✓ Device status monitoring</li>
-                <li>✓ Batch device updates</li>
-                <li>✓ Real-time scan tracking</li>
-                <li>✓ Performance alerts</li>
-              </ul>
-            </div>
-
-            <div className="rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 p-8">
-              <div className="mb-4 text-3xl">📊</div>
-              <h4 className="mb-3 text-xl font-bold text-red-300">Real-Time Analytics</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>✓ Live engagement metrics</li>
-                <li>✓ Conversion rate tracking</li>
-                <li>✓ Revenue attribution</li>
-                <li>✓ Charts and visualizations</li>
-              </ul>
-            </div>
-
-            <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 p-8">
-              <div className="mb-4 text-3xl">📋</div>
-              <h4 className="mb-3 text-xl font-bold text-orange-300">Event Management</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>✓ Create and edit events</li>
-                <li>✓ Check-in station control</li>
-                <li>✓ Attendee tracking</li>
-                <li>✓ Team assignments</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="mb-20 rounded-xl bg-gradient-to-r from-pink-900/30 to-rose-900/30 p-12 text-center">
-          <h3 className="mb-8 text-2xl font-bold text-white">Business Value</h3>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            <div>
-              <div className="mb-2 text-3xl font-bold text-pink-400">Anywhere</div>
-              <p className="text-gray-300">Manage business from anywhere</p>
-            </div>
-            <div>
-              <div className="mb-2 text-3xl font-bold text-rose-400">Real-Time</div>
-              <p className="text-gray-300">Live insights and control</p>
-            </div>
-            <div>
-              <div className="mb-2 text-3xl font-bold text-red-400">Faster</div>
-              <p className="text-gray-300">Decision making on-the-go</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="mb-20">
-          <h3 className="mb-8 text-center text-2xl font-bold text-white">Technical Specifications</h3>
-          <div className="rounded-xl border border-gray-700 bg-gray-900/50 p-8">
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <div>
-                <h4 className="mb-3 font-bold text-pink-300">How It Works</h4>
-                <ul className="space-y-2 text-sm text-gray-300">
-                  <li>1. Download from App Store/Play Store</li>
-                  <li>2. Log in with admin credentials</li>
-                  <li>3. View dashboard on mobile</li>
-                  <li>4. Monitor devices and analytics</li>
-                  <li>5. Make real-time adjustments</li>
-                </ul>
+        {/* Mobile App Mockup */}
+        <div className="mb-20 flex justify-center">
+          <div className="w-full max-w-md">
+            {/* Phone Frame */}
+            <div className="relative bg-black rounded-3xl border-8 border-gray-800 shadow-2xl overflow-hidden">
+              {/* Status Bar */}
+              <div className="bg-gray-900 px-6 py-2 flex justify-between items-center text-white text-xs font-semibold">
+                <span>9:41</span>
+                <div className="flex gap-1">
+                  <span>📶</span>
+                  <span>🔋</span>
+                </div>
               </div>
-              <div>
-                <h4 className="mb-3 font-bold text-rose-300">Requirements</h4>
-                <ul className="space-y-2 text-sm text-gray-300">
-                  <li>✓ iOS 14+ and Android 10+</li>
-                  <li>✓ Admin account required</li>
-                  <li>✓ Internet connection recommended</li>
-                  <li>✓ 45MB app size</li>
-                  <li>✓ Touch ID/Face ID support</li>
-                </ul>
+
+              {/* App Content */}
+              <div className="bg-gradient-to-b from-gray-950 to-gray-900 min-h-screen">
+                {/* Header */}
+                <div className="bg-gradient-to-r from-pink-600 to-rose-600 text-white px-6 py-8">
+                  <p className="text-xs text-pink-100 mb-1">Welcome Back</p>
+                  <h1 className="text-2xl font-bold">Dashboard</h1>
+                </div>
+
+                {/* Content */}
+                <div className="px-4 py-6 space-y-4">
+                  {/* KPIs */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="rounded-lg bg-gray-800/50 border border-gray-700 p-4 text-center">
+                      <p className="text-xs text-gray-400 mb-1">Today's Scans</p>
+                      <p className="text-2xl font-bold text-pink-400">1,247</p>
+                    </div>
+                    <div className="rounded-lg bg-gray-800/50 border border-gray-700 p-4 text-center">
+                      <p className="text-xs text-gray-400 mb-1">Conversion</p>
+                      <p className="text-2xl font-bold text-blue-400">34.2%</p>
+                    </div>
+                  </div>
+
+                  {/* Quick Actions */}
+                  <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-700">
+                    <p className="text-xs font-semibold text-gray-400 mb-3">QUICK ACTIONS</p>
+                    <div className="grid grid-cols-3 gap-2">
+                      <button className="rounded bg-pink-600/20 text-pink-300 py-3 text-xs font-semibold hover:bg-pink-600/30">
+                        📊 Analytics
+                      </button>
+                      <button className="rounded bg-pink-600/20 text-pink-300 py-3 text-xs font-semibold hover:bg-pink-600/30">
+                        🏷️ Devices
+                      </button>
+                      <button className="rounded bg-pink-600/20 text-pink-300 py-3 text-xs font-semibold hover:bg-pink-600/30">
+                        📋 Events
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Device Status */}
+                  <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-700">
+                    <p className="text-xs font-semibold text-gray-400 mb-3">DEVICE STATUS</p>
+                    <div className="space-y-2">
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-gray-300">Main Entrance</span>
+                        <span className="w-2 h-2 rounded-full bg-green-400"></span>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-gray-300">VIP Lounge</span>
+                        <span className="w-2 h-2 rounded-full bg-green-400"></span>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-gray-300">Registration</span>
+                        <span className="w-2 h-2 rounded-full bg-red-400"></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bottom Navigation */}
+                  <div className="fixed bottom-0 left-0 right-0 bg-gray-900 border-t border-gray-800 px-4 py-3 flex justify-around">
+                    <button className="text-pink-400 text-2xl">🏠</button>
+                    <button className="text-gray-400 text-2xl">📊</button>
+                    <button className="text-gray-400 text-2xl">⚙️</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mb-12">
-          <h3 className="mb-8 text-center text-2xl font-bold text-white">Real-World Use Cases</h3>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            <div className="rounded-lg border border-gray-600 bg-gray-800/50 p-6">
-              <h4 className="mb-2 font-bold text-white">Multi-Location Manager</h4>
-              <p className="text-sm text-gray-300">Monitor and manage events across multiple locations simultaneously</p>
-            </div>
-            <div className="rounded-lg border border-gray-600 bg-gray-800/50 p-6">
-              <h4 className="mb-2 font-bold text-white">On-Site Event Director</h4>
-              <p className="text-sm text-gray-300">Control check-in stations and track attendees in real-time during events</p>
-            </div>
-            <div className="rounded-lg border border-gray-600 bg-gray-800/50 p-6">
-              <h4 className="mb-2 font-bold text-white">Remote Team Lead</h4>
-              <p className="text-sm text-gray-300">Monitor team activity, device performance, and campaign metrics remotely</p>
-            </div>
+        {/* Feature Highlights */}
+        <div className="mb-20 grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="rounded-lg border border-pink-900/50 bg-gray-900/50 p-6">
+            <div className="mb-3 text-2xl">📱</div>
+            <h3 className="font-bold text-pink-300 mb-2">Real-Time Dashboard</h3>
+            <p className="text-sm text-gray-400">View live metrics, device status, and analytics from anywhere</p>
+          </div>
+          <div className="rounded-lg border border-pink-900/50 bg-gray-900/50 p-6">
+            <div className="mb-3 text-2xl">🔔</div>
+            <h3 className="font-bold text-pink-300 mb-2">Smart Alerts</h3>
+            <p className="text-sm text-gray-400">Get notified of device issues, check-ins, and performance drops</p>
+          </div>
+          <div className="rounded-lg border border-pink-900/50 bg-gray-900/50 p-6">
+            <div className="mb-3 text-2xl">👥</div>
+            <h3 className="font-bold text-pink-300 mb-2">Team Management</h3>
+            <p className="text-sm text-gray-400">Assign tasks and collaborate with team members on-the-go</p>
+          </div>
+          <div className="rounded-lg border border-pink-900/50 bg-gray-900/50 p-6">
+            <div className="mb-3 text-2xl">⚡</div>
+            <h3 className="font-bold text-pink-300 mb-2">Offline Access</h3>
+            <p className="text-sm text-gray-400">Access cached data and stay productive without internet</p>
           </div>
         </div>
 
+        {/* Navigation */}
         <div className="flex justify-between">
-          <Link href="/demo" className="rounded-lg bg-gradient-to-r from-gray-700 to-gray-600 px-6 py-2 text-sm font-semibold text-white transition-all hover:scale-105">
-            ← Back to Demos
+          <Link href="/demo/white-label" className="rounded-lg bg-gradient-to-r from-gray-700 to-gray-600 px-6 py-2 text-sm font-semibold text-white hover:scale-105">
+            ← Previous Demo
           </Link>
-          <Link href="/demo/mobile-apps-customer" className="rounded-lg bg-gradient-to-r from-pink-600 to-rose-600 px-6 py-2 text-sm font-semibold text-white transition-all hover:scale-105">
+          <Link href="/demo/mobile-apps-customer" className="rounded-lg bg-gradient-to-r from-pink-600 to-rose-600 px-6 py-2 text-sm font-semibold text-white hover:scale-105">
             Next Demo →
           </Link>
         </div>
