@@ -76,17 +76,23 @@ export default function NFCAnalyticsDemo() {
               <p className="mb-4 text-sm font-semibold text-gray-300">Top Performing Devices</p>
               <div className="space-y-3">
                 {[
-                  { name: 'NFC-001', scans: 12451, percentage: 95 },
-                  { name: 'NFC-004', scans: 8923, percentage: 72 },
-                  { name: 'NFC-002', scans: 7654, percentage: 61 }
+                  { name: 'NFC-001', location: 'Main Entrance', scans: 12451, percentage: 95, status: '✓' },
+                  { name: 'NFC-004', location: 'Stage Area', scans: 8923, percentage: 72, status: '✓' },
+                  { name: 'NFC-002', location: 'VIP Lounge', scans: 7654, percentage: 61, status: '⚠' }
                 ].map((device) => (
-                  <div key={device.name}>
-                    <div className="flex justify-between text-xs mb-1">
-                      <span className="text-gray-300">{device.name}</span>
-                      <span className="text-gray-400">{device.scans.toLocaleString()}</span>
+                  <div key={device.name} className="group">
+                    <div className="flex justify-between items-center text-xs mb-1">
+                      <div>
+                        <span className="text-gray-300 font-mono">{device.name}</span>
+                        <span className="text-gray-500 ml-2">{device.location}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-gray-400">{device.scans.toLocaleString()}</span>
+                        <span className={device.status === '✓' ? 'text-green-400' : 'text-yellow-400'}>{device.status}</span>
+                      </div>
                     </div>
-                    <div className="w-full bg-gray-700 rounded-full h-2">
-                      <div className="bg-gradient-to-r from-cyan-600 to-blue-600 h-2 rounded-full" style={{ width: `${device.percentage}%` }}></div>
+                    <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
+                      <div className="bg-gradient-to-r from-cyan-600 to-blue-600 h-2 rounded-full transition-all group-hover:from-cyan-500 group-hover:to-blue-500" style={{ width: `${device.percentage}%` }}></div>
                     </div>
                   </div>
                 ))}
