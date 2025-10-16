@@ -33,14 +33,18 @@ export default function TaskManagementDemo() {
           {/* Task Stats */}
           <div className="grid grid-cols-1 gap-4 mb-8 md:grid-cols-4">
             {[
-              { label: 'Active Tasks', value: '24', color: 'green' },
-              { label: 'Completed This Week', value: '18', color: 'emerald' },
-              { label: 'Overdue', value: '2', color: 'red' },
-              { label: 'Team Members', value: '8', color: 'blue' }
+              { label: 'Active Tasks', value: '24', color: 'green', icon: '✓', trend: '75% on track' },
+              { label: 'Completed This Week', value: '18', color: 'emerald', icon: '✓✓', trend: '+5 vs last week' },
+              { label: 'Overdue', value: '2', color: 'red', icon: '!', trend: 'needs action' },
+              { label: 'Team Members', value: '8', color: 'blue', icon: '👥', trend: '100% active' }
             ].map((stat) => (
-              <div key={stat.label} className="rounded-lg border border-gray-700 bg-gray-800/50 p-4">
-                <p className="text-xs text-gray-400 mb-1">{stat.label}</p>
-                <p className={`text-2xl font-bold text-${stat.color}-400`}>{stat.value}</p>
+              <div key={stat.label} className="rounded-lg border border-gray-700 bg-gray-800/50 p-4 hover:bg-gray-800 transition-colors">
+                <div className="flex items-start justify-between mb-2">
+                  <p className="text-xs text-gray-400">{stat.label}</p>
+                  <span className="text-lg">{stat.icon}</span>
+                </div>
+                <p className={`text-2xl font-bold text-${stat.color}-400 mb-1`}>{stat.value}</p>
+                <p className="text-xs text-gray-500">{stat.trend}</p>
               </div>
             ))}
           </div>
