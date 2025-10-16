@@ -67,7 +67,7 @@ export default function DemoHub() {
               <p className="mb-6 text-center text-sm text-purple-100">
                 NFC business cards, conversion funnels, and ROI tracking
               </p>
-              <div className="space-y-2 text-sm text-purple-100">
+              <div className="space-y-2 text-sm text-purple-100 flex-grow">
                 <div className="flex items-center">
                   <span className="mr-2">✓</span>
                   <span>NFC Business Cards</span>
