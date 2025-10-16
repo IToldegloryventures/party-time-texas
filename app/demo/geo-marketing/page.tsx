@@ -65,107 +65,87 @@ export default function GeoMarketingDemo() {
             </select>
           </div>
 
-          <div className="relative rounded-lg overflow-hidden bg-gray-800 border border-gray-700">
-            <svg className="w-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid meet">
-              <defs>
-                <linearGradient id="mapBg" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style={{ stopColor: '#e8f0e8', stopOpacity: 1 }} />
-                  <stop offset="100%" style={{ stopColor: '#d0e8d0', stopOpacity: 1 }} />
-                </linearGradient>
-              </defs>
-
-              {/* Map background - light map style */}
-              <rect width="1200" height="800" fill="url(#mapBg)" />
-
-              {/* Water bodies - Lakes */}
-              <g fill="#a8d5ff" opacity="0.6">
-                <circle cx="280" cy="200" r="45" />
-                <ellipse cx="350" cy="350" rx="65" ry="55" />
-                <ellipse cx="500" cy="280" rx="40" ry="50" />
-                <circle cx="750" cy="450" r="38" />
+          <div className="relative rounded-lg overflow-hidden bg-gray-800 border border-gray-700 h-96" style={{
+            backgroundImage: 'linear-gradient(135deg, #e8f4e8 0%, #d4efd4 100%)',
+            backgroundAttachment: 'fixed'
+          }}>
+            <svg className="w-full h-full" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid meet">
+              {/* Roads Network - Local Streets (thin gray) */}
+              <g stroke="#aaa" strokeWidth="1.5" opacity="0.5" fill="none" strokeLinecap="round">
+                <path d="M 200 150 Q 350 180, 500 200" />
+                <path d="M 300 250 Q 450 280, 650 300" />
+                <path d="M 150 350 Q 400 380, 700 400" />
+                <path d="M 250 450 Q 500 480, 800 500" />
+                <path d="M 100 600 Q 450 620, 900 640" />
+                <path d="M 700 150 Q 800 280, 850 450" />
+                <path d="M 400 100 Q 450 300, 500 700" />
               </g>
 
-              {/* Major Highways - Interstate style */}
-              <g>
-                {/* I-35E - Main north-south */}
-                <line x1="180" y1="40" x2="170" y2="750" stroke="#d1512a" strokeWidth="6" />
-                <line x1="180" y1="40" x2="170" y2="750" stroke="#ff9d00" strokeWidth="3" opacity="0.7" />
-
-                {/* I-30 - East-West through Dallas */}
-                <path d="M 80 420 Q 300 380, 600 390 T 950 420" stroke="#d1512a" strokeWidth="6" fill="none" />
-                <path d="M 80 420 Q 300 380, 600 390 T 950 420" stroke="#ff9d00" strokeWidth="3" opacity="0.7" fill="none" />
-
-                {/* Dallas Tollway - Curved north-south */}
-                <path d="M 420 50 Q 440 200, 460 400 Q 450 550, 430 750" stroke="#0066cc" strokeWidth="5" fill="none" />
-
-                {/* I-75 - Northeast to southwest */}
-                <path d="M 650 80 Q 680 300, 650 500 Q 600 650, 500 750" stroke="#d1512a" strokeWidth="6" fill="none" />
-                <path d="M 650 80 Q 680 300, 650 500 Q 600 650, 500 750" stroke="#ff9d00" strokeWidth="3" opacity="0.7" fill="none" />
-
-                {/* 635 Loop */}
-                <path d="M 480 280 Q 550 290, 600 350 Q 580 420, 500 430" stroke="#666666" strokeWidth="4" fill="none" />
-
-                {/* Various state highways */}
-                <line x1="100" y1="300" x2="400" y2="280" stroke="#888888" strokeWidth="3" />
-                <line x1="700" y1="150" x2="950" y2="200" stroke="#888888" strokeWidth="3" />
+              {/* State Highways (medium gray) */}
+              <g stroke="#777" strokeWidth="2.5" opacity="0.7" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M 280 100 Q 320 250, 350 600" />
+                <path d="M 100 380 Q 400 400, 850 420" />
+                <path d="M 650 120 Q 700 350, 750 700" />
               </g>
 
-              {/* City boundaries - subtle grid */}
-              <g stroke="#cccccc" strokeWidth="1" opacity="0.3" fill="none">
-                <rect x="100" y="100" width="300" height="280" />
-                <rect x="420" y="80" width="200" height="250" />
-                <rect x="350" y="340" width="250" height="200" />
-                <rect x="650" y="280" width="280" height="220" />
+              {/* Interstate Highways - Realistic colors */}
+              <g strokeLinecap="round" strokeLinejoin="round">
+                {/* I-35E - Red (North-South) */}
+                <line x1="240" y1="80" x2="230" y2="850" stroke="#c30014" strokeWidth="7" />
+                <line x1="245" y1="80" x2="235" y2="850" stroke="white" strokeWidth="2" />
+
+                {/* I-30 - Red (East-West) */}
+                <path d="M 80 400 Q 400 390, 950 410" stroke="#c30014" strokeWidth="7" fill="none" />
+                <path d="M 80 400 Q 400 390, 950 410" stroke="white" strokeWidth="2" fill="none" />
+
+                {/* Dallas Tollway - Blue */}
+                <path d="M 480 100 Q 510 250, 540 500" stroke="#0052a3" strokeWidth="6" fill="none" />
+                <path d="M 480 100 Q 510 250, 540 500" stroke="white" strokeWidth="1.5" fill="none" />
+
+                {/* I-75 - Red (diagonal) */}
+                <path d="M 700 120 Q 680 350, 650 700" stroke="#c30014" strokeWidth="7" fill="none" />
+                <path d="M 700 120 Q 680 350, 650 700" stroke="white" strokeWidth="2" fill="none" />
               </g>
 
-              {/* City name labels */}
-              <g fontSize="16" fontWeight="600" fill="#333333" opacity="0.8" textAnchor="middle">
-                <text x="200" y="180">Denton</text>
-                <text x="250" y="650">Fort Worth</text>
-                <text x="480" y="160">Frisco</text>
-                <text x="550" y="120">McKinney</text>
-                <text x="780" y="280">Plano</text>
-                <text x="520" y="470">Dallas</text>
-                <text x="350" y="530">Irving</text>
-                <text x="200" y="500">Arlington</text>
+              {/* Water features - Lakes (blue) */}
+              <g fill="#5da3d5" opacity="0.4">
+                <ellipse cx="350" cy="220" rx="55" ry="48" />
+                <ellipse cx="650" cy="480" rx="50" ry="65" />
+                <circle cx="850" cy="280" r="40" />
+                <ellipse cx="200" cy="680" rx="45" ry="55" />
               </g>
 
-              {/* Location Pins */}
+              {/* City Labels - Prominent */}
+              <g textAnchor="middle">
+                <text x="240" y="130" fontSize="17" fontWeight="700" fill="#1a1a1a">Denton</text>
+                <text x="420" y="145" fontSize="17" fontWeight="700" fill="#1a1a1a">Frisco</text>
+                <text x="650" y="120" fontSize="17" fontWeight="700" fill="#1a1a1a">McKinney</text>
+                <text x="790" y="270" fontSize="18" fontWeight="700" fill="#1a1a1a">Plano</text>
+                <text x="520" y="440" fontSize="20" fontWeight="700" fill="#000">Dallas</text>
+                <text x="380" y="520" fontSize="16" fontWeight="700" fill="#222">Irving</text>
+                <text x="250" y="680" fontSize="16" fontWeight="700" fill="#222">Fort Worth</text>
+                <text x="180" y="390" fontSize="14" fontWeight="600" fill="#444">Arlington</text>
+                <text x="850" y="360" fontSize="14" fontWeight="600" fill="#444">Garland</text>
+              </g>
+
+              {/* Location Pins - Overlaid on map */}
               {locations.map((loc, idx) => {
-                const x = 150 + (loc.lng + 97.5) * 120;
-                const y = 350 - (loc.lat - 32.5) * 140;
+                const x = 240 + (loc.lng + 97.3) * 120;
+                const y = 400 - (loc.lat - 32.6) * 140;
                 let pinColor = '#ef4444';
-                let ringColor = '#fca5a5';
-                if (loc.status === 'warm') {
-                  pinColor = '#f59e0b';
-                  ringColor = '#fcd34d';
-                } else if (loc.status === 'medium') {
-                  pinColor = '#3b82f6';
-                  ringColor = '#93c5fd';
-                }
+                if (loc.status === 'warm') pinColor = '#f59e0b';
+                else if (loc.status === 'medium') pinColor = '#3b82f6';
 
                 return (
                   <g key={idx}>
-                    {/* Ripple effect */}
-                    <circle cx={x} cy={y} r="45" fill={ringColor} opacity="0.15" />
-                    <circle cx={x} cy={y} r="35" fill={ringColor} opacity="0.1" />
+                    {/* Glow effect */}
+                    <circle cx={x} cy={y} r="40" fill={pinColor} opacity="0.08" />
+                    <circle cx={x} cy={y} r="28" fill={pinColor} opacity="0.12" />
 
-                    {/* Pin circle */}
-                    <circle cx={x} cy={y} r="18" fill={pinColor} stroke="#fff" strokeWidth="2" />
-
-                    {/* Conversion rate text inside pin */}
-                    <text x={x} y={y} fontSize="10" fontWeight="bold" fill="#fff" textAnchor="middle" dy="0.3em">
+                    {/* Pin marker */}
+                    <circle cx={x} cy={y} r="14" fill={pinColor} stroke="#fff" strokeWidth="2" />
+                    <text x={x} y={y} fontSize="9" fontWeight="bold" fill="#fff" textAnchor="middle" dy="0.3em">
                       {loc.conversion}%
-                    </text>
-
-                    {/* Location label above */}
-                    <text x={x} y={y - 50} fontSize="11" fontWeight="600" fill="#e5e7eb" textAnchor="middle">
-                      {loc.name}
-                    </text>
-
-                    {/* Customer count below */}
-                    <text x={x} y={y + 50} fontSize="9" fill="#9ca3af" textAnchor="middle">
-                      {(loc.customers / 1000).toFixed(1)}K customers
                     </text>
                   </g>
                 );
@@ -173,19 +153,15 @@ export default function GeoMarketingDemo() {
 
               {/* Legend */}
               <g>
-                <rect x="730" y="20" width="260" height="140" fill="#111827" opacity="0.9" rx="8" />
-                <rect x="735" y="25" width="250" height="130" fill="none" stroke="#374151" strokeWidth="1" rx="6" />
-
-                <text x="750" y="45" fontSize="12" fontWeight="bold" fill="#e5e7eb">Conversion Performance</text>
-
-                <circle cx="750" cy="70" r="6" fill="#ef4444" />
-                <text x="765" y="74" fontSize="10" fill="#d1d5db">High (15%+)</text>
-
-                <circle cx="750" cy="95" r="6" fill="#f59e0b" />
-                <text x="765" y="99" fontSize="10" fill="#d1d5db">Warm (12-15%)</text>
-
-                <circle cx="750" cy="120" r="6" fill="#3b82f6" />
-                <text x="765" y="124" fontSize="10" fill="#d1d5db">Medium (&lt;12%)</text>
+                <rect x="1050" y="30" width="320" height="160" fill="#f5f5f5" rx="6" />
+                <rect x="1055" y="35" width="310" height="150" fill="none" stroke="#ddd" strokeWidth="1" rx="4" />
+                <text x="1070" y="55" fontSize="13" fontWeight="bold" fill="#222">Customer Engagement</text>
+                <circle cx="1075" cy="80" r="5" fill="#ef4444" />
+                <text x="1095" y="84" fontSize="11" fill="#444">High (15%+)</text>
+                <circle cx="1075" cy="105" r="5" fill="#f59e0b" />
+                <text x="1095" y="109" fontSize="11" fill="#444">Warm (12-15%)</text>
+                <circle cx="1075" cy="130" r="5" fill="#3b82f6" />
+                <text x="1095" y="134" fontSize="11" fill="#444">Medium (&lt;12%)</text>
               </g>
             </svg>
           </div>
