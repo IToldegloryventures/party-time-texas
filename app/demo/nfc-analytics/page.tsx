@@ -13,130 +13,102 @@ export default function NFCAnalyticsDemo() {
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="mb-20 text-center">
           <h2 className="mb-4 text-3xl font-bold text-white">2.4M Total Scans, 34.2% Conversion Rate</h2>
-          <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-300">Comprehensive analytics for NFC engagement, revenue attribution, and performance optimization.</p>
-          <button className="rounded-lg bg-gradient-to-r from-cyan-600 to-blue-600 px-8 py-3 font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
-            View Dashboard
-          </button>
+          <p className="text-gray-300">Comprehensive real-time analytics dashboard</p>
         </div>
 
-        <div className="mb-20">
-          <h3 className="mb-12 text-center text-2xl font-bold text-white">Key Features</h3>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            <div className="rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-8">
-              <div className="mb-4 text-3xl">📊</div>
-              <h4 className="mb-3 text-xl font-bold text-cyan-300">Real-Time Metrics</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>✓ Live scan tracking</li>
-                <li>✓ Conversion rate monitoring</li>
-                <li>✓ Revenue attribution</li>
-                <li>✓ Dashboard refresh every 5 seconds</li>
-              </ul>
-            </div>
-
-            <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-8">
-              <div className="mb-4 text-3xl">📈</div>
-              <h4 className="mb-3 text-xl font-bold text-blue-300">Device Performance</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>✓ Per-device analytics</li>
-                <li>✓ Success rate tracking</li>
-                <li>✓ Utilization optimization</li>
-                <li>✓ Performance rankings</li>
-              </ul>
-            </div>
-
-            <div className="rounded-xl border border-indigo-900/50 bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 p-8">
-              <div className="mb-4 text-3xl">📉</div>
-              <h4 className="mb-3 text-xl font-bold text-indigo-300">Time-Series Analysis</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>✓ Hourly, daily, monthly trends</li>
-                <li>✓ Peak time identification</li>
-                <li>✓ Seasonal patterns</li>
-                <li>✓ Forecasting capabilities</li>
-              </ul>
-            </div>
-
-            <div className="rounded-xl border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-8">
-              <div className="mb-4 text-3xl">📋</div>
-              <h4 className="mb-3 text-xl font-bold text-purple-300">Export Capabilities</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>✓ PDF reports</li>
-                <li>✓ CSV data export</li>
-                <li>✓ Custom date ranges</li>
-                <li>✓ Scheduled email reports</li>
-              </ul>
+        {/* Analytics Dashboard */}
+        <div className="mb-20 rounded-xl border border-cyan-900/50 bg-gray-900/50 p-8">
+          {/* Header */}
+          <div className="mb-6 flex items-center justify-between border-b border-gray-700 pb-4">
+            <h3 className="text-lg font-bold text-white">Analytics Overview</h3>
+            <div className="flex gap-2">
+              <select className="rounded bg-gray-800 text-sm text-gray-300 px-3 py-1 border border-gray-700">
+                <option>Last 30 Days</option>
+              </select>
+              <button className="rounded bg-cyan-600/20 text-cyan-300 px-3 py-1 text-sm hover:bg-cyan-600/30">
+                Export
+              </button>
             </div>
           </div>
-        </div>
 
-        <div className="mb-20 rounded-xl bg-gradient-to-r from-cyan-900/30 to-blue-900/30 p-12 text-center">
-          <h3 className="mb-8 text-2xl font-bold text-white">Business Value</h3>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            <div>
-              <div className="mb-2 text-3xl font-bold text-cyan-400">ROI Tracking</div>
-              <p className="text-gray-300">Track ROI from every NFC interaction</p>
-            </div>
-            <div>
-              <div className="mb-2 text-3xl font-bold text-blue-400">Performance</div>
-              <p className="text-gray-300">Identify high-performing devices</p>
-            </div>
-            <div>
-              <div className="mb-2 text-3xl font-bold text-indigo-400">Data-Driven</div>
-              <p className="text-gray-300">Make informed marketing decisions</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="mb-20">
-          <h3 className="mb-8 text-center text-2xl font-bold text-white">Technical Specifications</h3>
-          <div className="rounded-xl border border-gray-700 bg-gray-900/50 p-8">
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <div>
-                <h4 className="mb-3 font-bold text-cyan-300">How It Works</h4>
-                <ul className="space-y-2 text-sm text-gray-300">
-                  <li>1. NFC devices collect scan data</li>
-                  <li>2. Data streams to analytics engine</li>
-                  <li>3. Real-time aggregation</li>
-                  <li>4. Dashboard display updates</li>
-                  <li>5. Export to reports/csv</li>
-                </ul>
+          {/* Main KPIs */}
+          <div className="grid grid-cols-1 gap-4 mb-8 md:grid-cols-4">
+            {[
+              { label: 'Total Scans', value: '2.4M', trend: '+12%', color: 'cyan' },
+              { label: 'Conversion Rate', value: '34.2%', trend: '+2.3%', color: 'blue' },
+              { label: 'Avg Engagement', value: '8.5m', trend: '+15%', color: 'indigo' },
+              { label: 'Revenue Attributed', value: '$487K', trend: '+8%', color: 'purple' }
+            ].map((kpi) => (
+              <div key={kpi.label} className="rounded-lg border border-gray-700 bg-gradient-to-br from-gray-800 to-gray-900 p-4">
+                <p className="text-xs text-gray-400 mb-2">{kpi.label}</p>
+                <p className={`text-2xl font-bold text-${kpi.color}-400 mb-1`}>{kpi.value}</p>
+                <p className="text-xs text-green-400">{kpi.trend}</p>
               </div>
-              <div>
-                <h4 className="mb-3 font-bold text-blue-300">Requirements</h4>
-                <ul className="space-y-2 text-sm text-gray-300">
-                  <li>✓ Subscription tier: Professional+</li>
-                  <li>✓ Minimum 100 scans/month</li>
-                  <li>✓ 12-month historical data</li>
-                  <li>✓ Real-time API access</li>
-                  <li>✓ Custom report builder</li>
-                </ul>
+            ))}
+          </div>
+
+          {/* Charts Section */}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {/* Scan Trend Chart */}
+            <div className="rounded-lg border border-gray-700 bg-gray-800/30 p-6">
+              <p className="mb-4 text-sm font-semibold text-gray-300">Scan Trend (Daily)</p>
+              <div className="h-48 flex items-end justify-around gap-1">
+                {[45, 52, 48, 61, 55, 68, 72].map((val, idx) => (
+                  <div key={idx} className="flex-1 bg-gradient-to-t from-cyan-600 to-cyan-400 rounded-t" style={{ height: `${(val / 72) * 100}%` }}></div>
+                ))}
+              </div>
+              <div className="mt-4 text-xs text-gray-400 text-center">Mon - Sun</div>
+            </div>
+
+            {/* Device Performance */}
+            <div className="rounded-lg border border-gray-700 bg-gray-800/30 p-6">
+              <p className="mb-4 text-sm font-semibold text-gray-300">Top Performing Devices</p>
+              <div className="space-y-3">
+                {[
+                  { name: 'NFC-001', scans: 12451, percentage: 95 },
+                  { name: 'NFC-004', scans: 8923, percentage: 72 },
+                  { name: 'NFC-002', scans: 7654, percentage: 61 }
+                ].map((device) => (
+                  <div key={device.name}>
+                    <div className="flex justify-between text-xs mb-1">
+                      <span className="text-gray-300">{device.name}</span>
+                      <span className="text-gray-400">{device.scans.toLocaleString()}</span>
+                    </div>
+                    <div className="w-full bg-gray-700 rounded-full h-2">
+                      <div className="bg-gradient-to-r from-cyan-600 to-blue-600 h-2 rounded-full" style={{ width: `${device.percentage}%` }}></div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="mb-12">
-          <h3 className="mb-8 text-center text-2xl font-bold text-white">Real-World Use Cases</h3>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            <div className="rounded-lg border border-gray-600 bg-gray-800/50 p-6">
-              <h4 className="mb-2 font-bold text-white">Campaign Analysis</h4>
-              <p className="text-sm text-gray-300">Measure marketing campaign effectiveness through NFC engagement metrics</p>
-            </div>
-            <div className="rounded-lg border border-gray-600 bg-gray-800/50 p-6">
-              <h4 className="mb-2 font-bold text-white">Event ROI Tracking</h4>
-              <p className="text-sm text-gray-300">Calculate event success through real-time attendance and engagement data</p>
-            </div>
-            <div className="rounded-lg border border-gray-600 bg-gray-800/50 p-6">
-              <h4 className="mb-2 font-bold text-white">Conversion Optimization</h4>
-              <p className="text-sm text-gray-300">Identify bottlenecks and optimize conversion funnels with detailed analytics</p>
+          {/* Conversion Funnel */}
+          <div className="mt-8 rounded-lg border border-gray-700 bg-gray-800/30 p-6">
+            <p className="mb-6 text-sm font-semibold text-gray-300">Conversion Funnel</p>
+            <div className="space-y-2">
+              {[
+                { stage: 'Landing Page Loads', count: '487,234', percentage: 100 },
+                { stage: 'NFC Scans', count: '156,892', percentage: 32 },
+                { stage: 'Page Views', count: '98,456', percentage: 20 },
+                { stage: 'Conversions', count: '34,567', percentage: 7 }
+              ].map((step, idx) => (
+                <div key={idx} className="flex items-center gap-4">
+                  <div className={`w-full bg-gradient-to-r from-cyan-600 to-blue-600 h-10 rounded flex items-center px-4 font-semibold text-white text-sm`} style={{ maxWidth: `${step.percentage * 2}px` }}>
+                    {step.stage}: {step.count}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
+        {/* Navigation */}
         <div className="flex justify-between">
-          <Link href="/demo/nfc-management" className="rounded-lg bg-gradient-to-r from-gray-700 to-gray-600 px-6 py-2 text-sm font-semibold text-white transition-all hover:scale-105">
+          <Link href="/demo/nfc-management" className="rounded-lg bg-gradient-to-r from-gray-700 to-gray-600 px-6 py-2 text-sm font-semibold text-white hover:scale-105">
             ← Previous Demo
           </Link>
-          <Link href="/demo/task-management" className="rounded-lg bg-gradient-to-r from-cyan-600 to-blue-600 px-6 py-2 text-sm font-semibold text-white transition-all hover:scale-105">
+          <Link href="/demo/task-management" className="rounded-lg bg-gradient-to-r from-cyan-600 to-blue-600 px-6 py-2 text-sm font-semibold text-white hover:scale-105">
             Next Demo →
           </Link>
         </div>
