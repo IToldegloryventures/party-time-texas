@@ -36,8 +36,8 @@ export default function LandingPageBuilderDemo() {
               <div className="text-xs font-semibold text-gray-400">ELEMENTS</div>
               <div className="space-y-2">
                 {['Heading', 'Text', 'Image', 'Button', 'Form', 'Video'].map((item) => (
-                  <div key={item} className="rounded bg-gray-800/50 px-3 py-2 text-sm text-gray-300 cursor-move hover:bg-gray-700/50">
-                    {item}
+                  <div key={item} className="rounded bg-gray-800/50 px-3 py-2 text-sm text-gray-300 cursor-move hover:bg-gray-700/50 flex items-center gap-2">
+                    <span className="text-xs">⋮⋮</span> {item}
                   </div>
                 ))}
               </div>
@@ -45,15 +45,17 @@ export default function LandingPageBuilderDemo() {
 
             {/* Canvas Area */}
             <div className="col-span-2 rounded-lg border border-gray-700 bg-white/5 p-8">
-              <div className="space-y-4 text-center">
-                <div className="h-12 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-600 flex items-center justify-center text-white font-bold">
-                  Drag-Drop Title Here
+              <div className="space-y-6">
+                <div className="space-y-2 text-center">
+                  <h1 className="text-3xl font-bold text-white">Transform Your Business</h1>
+                  <p className="text-gray-300">Engage customers with NFC-powered experiences</p>
                 </div>
-                <div className="h-24 rounded-lg bg-gray-800/50 flex items-center justify-center text-gray-400">
-                  [Image Placeholder]
+                <div className="aspect-video rounded-lg bg-gradient-to-br from-blue-500/20 via-cyan-500/20 to-blue-500/20 flex items-center justify-center border border-gray-700">
+                  <span className="text-gray-400 text-sm">📸 Product Image</span>
                 </div>
-                <div className="h-10 rounded-lg bg-blue-600/30 flex items-center justify-center text-blue-300 font-semibold">
-                  Call-to-Action Button
+                <div className="flex gap-3 justify-center">
+                  <button className="px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700">Get Started</button>
+                  <button className="px-6 py-3 rounded-lg border border-blue-600 text-blue-400 font-semibold hover:bg-blue-600/10">Learn More</button>
                 </div>
               </div>
             </div>
@@ -63,14 +65,24 @@ export default function LandingPageBuilderDemo() {
               <div className="text-xs font-semibold text-gray-400">PROPERTIES</div>
               <div className="space-y-3">
                 <div>
-                  <label className="text-xs text-gray-400">Font Size</label>
-                  <input type="range" className="w-full mt-1" />
+                  <label className="text-xs text-gray-400 block mb-2">Font Size: 24px</label>
+                  <div className="w-full bg-gray-700 rounded-full h-2">
+                    <div className="bg-blue-600 h-2 rounded-full" style={{ width: '60%' }}></div>
+                  </div>
                 </div>
                 <div>
-                  <label className="text-xs text-gray-400">Color</label>
-                  <div className="flex gap-2 mt-1">
-                    {['#3B82F6', '#06B6D4', '#EC4899'].map((color) => (
-                      <div key={color} className="h-6 w-6 rounded" style={{ backgroundColor: color }}></div>
+                  <label className="text-xs text-gray-400 mb-2 block">Color</label>
+                  <div className="flex gap-2">
+                    {['#3B82F6', '#06B6D4', '#EC4899', '#8B5CF6'].map((color) => (
+                      <div key={color} className="h-6 w-6 rounded border-2 border-gray-600 cursor-pointer hover:border-white" style={{ backgroundColor: color }}></div>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <label className="text-xs text-gray-400 mb-2 block">Align</label>
+                  <div className="flex gap-2">
+                    {['◀', '◼', '▶'].map((align) => (
+                      <button key={align} className="flex-1 rounded bg-gray-700 text-gray-300 py-1 text-xs hover:bg-gray-600">{align}</button>
                     ))}
                   </div>
                 </div>
