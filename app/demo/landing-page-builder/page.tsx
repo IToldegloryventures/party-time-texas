@@ -95,12 +95,23 @@ export default function LandingPageBuilderDemo() {
         <div className="mb-20">
           <h3 className="mb-6 text-xl font-bold text-white">Template Library</h3>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-            {['Event', 'Business', 'Restaurant', 'Retail'].map((template) => (
-              <div key={template} className="rounded-lg border border-gray-700 bg-gray-900/50 p-4 text-center hover:border-blue-600/50 cursor-pointer">
-                <div className="aspect-video rounded bg-gradient-to-br from-gray-800 to-gray-900 mb-3 flex items-center justify-center">
-                  <span className="text-gray-500">{template} Template</span>
+            {[
+              { name: 'Event', color: 'from-purple-600 to-pink-600' },
+              { name: 'Business', color: 'from-blue-600 to-cyan-600' },
+              { name: 'Restaurant', color: 'from-orange-600 to-red-600' },
+              { name: 'Retail', color: 'from-green-600 to-emerald-600' }
+            ].map((template) => (
+              <div key={template.name} className="rounded-lg border border-gray-700 bg-gray-900/50 p-4 text-center hover:border-blue-600/50 cursor-pointer group transition-all">
+                <div className={`aspect-video rounded bg-gradient-to-br ${template.color} mb-3 flex flex-col items-center justify-center text-white relative overflow-hidden`}>
+                  <div className="absolute inset-0 opacity-20 flex flex-col gap-2 p-3 text-xs font-semibold">
+                    <div className="h-2 bg-white rounded w-3/4"></div>
+                    <div className="h-8 bg-white rounded w-full"></div>
+                    <div className="h-2 bg-white rounded w-1/2"></div>
+                  </div>
+                  <span className="text-lg font-bold relative z-10">{template.name}</span>
                 </div>
-                <p className="text-sm font-medium text-gray-300">{template}</p>
+                <p className="text-sm font-medium text-gray-300">{template.name} Template</p>
+                <p className="text-xs text-gray-500 mt-1">+2 other variations</p>
               </div>
             ))}
           </div>
