@@ -348,7 +348,7 @@ export default function DemoHub() {
             <Link href="/demo/mobile-apps-admin">
               <div className="group rounded-lg border border-pink-600/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-6 shadow-lg transition-all hover:border-pink-400/80 hover:shadow-pink-500/20">
                 <div className="mb-3 text-2xl">👨‍💼</div>
-                <h3 className="mb-2 font-bold text-pink-300">Mobile Apps - Admin</h3>
+                <h3 className="mb-2 font-bold text-pink-300">Mobile App - Admin</h3>
                 <p className="text-xs text-gray-300">Manage business on-the-go with real-time analytics</p>
                 <div className="mt-4 text-pink-400 transition-all group-hover:translate-x-1">View Demo →</div>
               </div>
@@ -357,7 +357,7 @@ export default function DemoHub() {
             <Link href="/demo/mobile-apps-customer">
               <div className="group rounded-lg border border-rose-600/50 bg-gradient-to-br from-rose-950/50 to-rose-900/20 p-6 shadow-lg transition-all hover:border-rose-400/80 hover:shadow-rose-500/20">
                 <div className="mb-3 text-2xl">👤</div>
-                <h3 className="mb-2 font-bold text-rose-300">Mobile Apps - Customer</h3>
+                <h3 className="mb-2 font-bold text-rose-300">Mobile App - Customer</h3>
                 <p className="text-xs text-gray-300">Discover events and location-based experiences</p>
                 <div className="mt-4 text-rose-400 transition-all group-hover:translate-x-1">View Demo →</div>
               </div>
