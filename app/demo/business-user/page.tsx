@@ -1,397 +1,223 @@
-export default function BusinessUserDemo() {
+export default function BusinessUserPortal() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-slate-800 to-slate-700 py-8">
-        <div className="mx-auto max-w-7xl px-4 text-center">
-          <h1 className="mb-2 text-4xl font-bold text-white">
-            Business User Dashboard
-          </h1>
-          <p className="text-lg text-gray-300">
-            NFC-enabled business cards, conversion funnel analysis, and per-user behavioral profiles
-          </p>
+      {/* Header with User Context */}
+      <div className="border-b border-gray-700 bg-gradient-to-r from-slate-800 to-slate-700 px-6 py-4">
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-bold text-white">Central Dashboard</h1>
+            <p className="text-sm text-gray-400">Organization: Acme Corp • Role: Admin</p>
+          </div>
+          <div className="text-right">
+            <div className="text-sm text-gray-300">Active Sessions: 12</div>
+            <div className="text-xs text-gray-500">Last sync: 2 min ago</div>
+          </div>
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 py-8">
+      <div className="mx-auto max-w-7xl px-6 py-8">
+        {/* Feature Modules Grid */}
+        <div className="mb-12">
+          <h2 className="mb-6 text-2xl font-bold text-white">Platform Features</h2>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {/* Landing Page Builder */}
+            <div className="overflow-hidden rounded-lg bg-gradient-to-br from-purple-600 to-purple-900 p-6 shadow-lg">
+              <div className="mb-4 flex items-center justify-between">
+                <h3 className="text-lg font-bold text-white">Landing Page Builder</h3>
+                <div className="text-2xl">🎨</div>
+              </div>
+              <p className="mb-4 text-sm text-purple-100">
+                Create branded landing pages with UTM tracking and cookie monitoring
+              </p>
+              <div className="space-y-2 border-t border-purple-500 pt-3">
+                <div className="flex justify-between text-xs">
+                  <span className="text-purple-200">Active Pages:</span>
+                  <span className="font-bold text-white">7</span>
+                </div>
+                <div className="flex justify-between text-xs">
+                  <span className="text-purple-200">Total Visits:</span>
+                  <span className="font-bold text-white">12,847</span>
+                </div>
+                <div className="flex justify-between text-xs">
+                  <span className="text-purple-200">Conversion Rate:</span>
+                  <span className="font-bold text-green-300">34.2%</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Event Manager */}
+            <div className="overflow-hidden rounded-lg bg-gradient-to-br from-pink-600 to-pink-900 p-6 shadow-lg">
+              <div className="mb-4 flex items-center justify-between">
+                <h3 className="text-lg font-bold text-white">Event Manager</h3>
+                <div className="text-2xl">📅</div>
+              </div>
+              <p className="mb-4 text-sm text-pink-100">
+                Manage events, RSVPs, attendees, and real-time check-ins
+              </p>
+              <div className="space-y-2 border-t border-pink-500 pt-3">
+                <div className="flex justify-between text-xs">
+                  <span className="text-pink-200">Upcoming Events:</span>
+                  <span className="font-bold text-white">3</span>
+                </div>
+                <div className="flex justify-between text-xs">
+                  <span className="text-pink-200">Total Registered:</span>
+                  <span className="font-bold text-white">2,143</span>
+                </div>
+                <div className="flex justify-between text-xs">
+                  <span className="text-pink-200">Checked In Today:</span>
+                  <span className="font-bold text-green-300">487</span>
+                </div>
+              </div>
+            </div>
+
+            {/* NFC Device Manager */}
+            <div className="overflow-hidden rounded-lg bg-gradient-to-br from-cyan-600 to-cyan-900 p-6 shadow-lg">
+              <div className="mb-4 flex items-center justify-between">
+                <h3 className="text-lg font-bold text-white">NFC Device Manager</h3>
+                <div className="text-2xl">📱</div>
+              </div>
+              <p className="mb-4 text-sm text-cyan-100">
+                Configure, provision, and monitor NFC hardware across all touchpoints
+              </p>
+              <div className="space-y-2 border-t border-cyan-500 pt-3">
+                <div className="flex justify-between text-xs">
+                  <span className="text-cyan-200">Active Devices:</span>
+                  <span className="font-bold text-white">24</span>
+                </div>
+                <div className="flex justify-between text-xs">
+                  <span className="text-cyan-200">Scans (Today):</span>
+                  <span className="font-bold text-white">8,942</span>
+                </div>
+                <div className="flex justify-between text-xs">
+                  <span className="text-cyan-200">Health Status:</span>
+                  <span className="font-bold text-green-300">100%</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Analytics Dashboard */}
+            <div className="overflow-hidden rounded-lg bg-gradient-to-br from-green-600 to-green-900 p-6 shadow-lg">
+              <div className="mb-4 flex items-center justify-between">
+                <h3 className="text-lg font-bold text-white">Analytics Dashboard</h3>
+                <div className="text-2xl">📊</div>
+              </div>
+              <p className="mb-4 text-sm text-green-100">
+                Track scans, conversions, heatmaps, geo-clustering, and visitor profiling
+              </p>
+              <div className="space-y-2 border-t border-green-500 pt-3">
+                <div className="flex justify-between text-xs">
+                  <span className="text-green-200">Unique Visitors:</span>
+                  <span className="font-bold text-white">3,421</span>
+                </div>
+                <div className="flex justify-between text-xs">
+                  <span className="text-green-200">Avg. Time on Page:</span>
+                  <span className="font-bold text-white">3m 42s</span>
+                </div>
+                <div className="flex justify-between text-xs">
+                  <span className="text-green-200">Return Visitors:</span>
+                  <span className="font-bold text-blue-300">42%</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Team & Roles */}
+            <div className="overflow-hidden rounded-lg bg-gradient-to-br from-orange-600 to-orange-900 p-6 shadow-lg">
+              <div className="mb-4 flex items-center justify-between">
+                <h3 className="text-lg font-bold text-white">Team & Roles</h3>
+                <div className="text-2xl">👥</div>
+              </div>
+              <p className="mb-4 text-sm text-orange-100">
+                Manage team members with 5-tier RBAC: Super Admin, Owner, Admin, Member, Guest
+              </p>
+              <div className="space-y-2 border-t border-orange-500 pt-3">
+                <div className="flex justify-between text-xs">
+                  <span className="text-orange-200">Team Members:</span>
+                  <span className="font-bold text-white">12</span>
+                </div>
+                <div className="flex justify-between text-xs">
+                  <span className="text-orange-200">Active Permissions:</span>
+                  <span className="font-bold text-white">48</span>
+                </div>
+                <div className="flex justify-between text-xs">
+                  <span className="text-orange-200">Audit Logs:</span>
+                  <span className="font-bold text-white">847</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Task Manager */}
+            <div className="overflow-hidden rounded-lg bg-gradient-to-br from-red-600 to-red-900 p-6 shadow-lg">
+              <div className="mb-4 flex items-center justify-between">
+                <h3 className="text-lg font-bold text-white">Task Manager</h3>
+                <div className="text-2xl">✅</div>
+              </div>
+              <p className="mb-4 text-sm text-red-100">
+                Automated workflows and task tracking for campaigns and events
+              </p>
+              <div className="space-y-2 border-t border-red-500 pt-3">
+                <div className="flex justify-between text-xs">
+                  <span className="text-red-200">Active Tasks:</span>
+                  <span className="font-bold text-white">23</span>
+                </div>
+                <div className="flex justify-between text-xs">
+                  <span className="text-red-200">Completed:</span>
+                  <span className="font-bold text-green-300">156</span>
+                </div>
+                <div className="flex justify-between text-xs">
+                  <span className="text-red-200">Pending:</span>
+                  <span className="font-bold text-yellow-300">8</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Key Metrics */}
         <div className="mb-12">
-          <h2 className="mb-8 text-2xl font-bold text-white">
-            Key Performance Metrics
-          </h2>
+          <h2 className="mb-6 text-2xl font-bold text-white">Organization Metrics</h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-lg bg-gradient-to-br from-purple-600 to-purple-700 p-6 shadow-lg">
-              <div className="mb-2 text-sm font-medium text-purple-100">
-                Total NFC Scans
-              </div>
-              <div className="text-4xl font-bold text-white">2,847</div>
-              <div className="mt-3 text-xs text-purple-200">
-                +12% from last month
-              </div>
+            <div className="rounded-lg bg-gray-800 p-6 shadow-lg">
+              <div className="text-sm text-gray-400">Total NFC Scans</div>
+              <div className="mt-2 text-4xl font-bold text-purple-400">247,892</div>
+              <div className="mt-2 text-xs text-gray-500">↑ 12% from last month</div>
             </div>
-            <div className="rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 p-6 shadow-lg">
-              <div className="mb-2 text-sm font-medium text-blue-100">
-                Conversion Rate
-              </div>
-              <div className="text-4xl font-bold text-white">34.2%</div>
-              <div className="mt-3 text-xs text-blue-200">
-                Tap to action completed
-              </div>
+            <div className="rounded-lg bg-gray-800 p-6 shadow-lg">
+              <div className="text-sm text-gray-400">Active Users</div>
+              <div className="mt-2 text-4xl font-bold text-cyan-400">1,247</div>
+              <div className="mt-2 text-xs text-gray-500">↑ 8% from last month</div>
             </div>
-            <div className="rounded-lg bg-gradient-to-br from-green-600 to-green-700 p-6 shadow-lg">
-              <div className="mb-2 text-sm font-medium text-green-100">
-                Unique Contacts
-              </div>
-              <div className="text-4xl font-bold text-white">1,256</div>
-              <div className="mt-3 text-xs text-green-200">
-                New leads this month
-              </div>
+            <div className="rounded-lg bg-gray-800 p-6 shadow-lg">
+              <div className="text-sm text-gray-400">Events</div>
+              <div className="mt-2 text-4xl font-bold text-pink-400">12</div>
+              <div className="mt-2 text-xs text-gray-500">3 upcoming</div>
             </div>
-            <div className="rounded-lg bg-gradient-to-br from-orange-600 to-orange-700 p-6 shadow-lg">
-              <div className="mb-2 text-sm font-medium text-orange-100">
-                Est. ROI
-              </div>
-              <div className="text-4xl font-bold text-white">$12.4K</div>
-              <div className="mt-3 text-xs text-orange-200">
-                Based on conversion value
-              </div>
+            <div className="rounded-lg bg-gray-800 p-6 shadow-lg">
+              <div className="text-sm text-gray-400">Subscription Status</div>
+              <div className="mt-2 text-2xl font-bold text-green-400">Pro Plan</div>
+              <div className="mt-2 text-xs text-gray-500">Renews in 23 days</div>
             </div>
           </div>
         </div>
 
-        {/* Active Business Cards */}
-        <div className="mb-12">
-          <h2 className="mb-8 text-2xl font-bold text-white">
-            Active Business Cards
-          </h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            <div className="overflow-hidden rounded-lg bg-white shadow-lg">
-              <div className="h-40 bg-gradient-to-br from-indigo-400 to-purple-600 p-6">
-                <div className="text-sm font-semibold text-white">
-                  Main Card
-                </div>
-                <div className="mt-2 text-2xl font-bold text-white">
-                  Standard NFC Card
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="mb-4">
-                  <span className="text-xs font-semibold text-gray-500">
-                    SCANS THIS MONTH
-                  </span>
-                  <div className="text-3xl font-bold text-gray-900">1,245</div>
-                </div>
-                <div className="mb-4">
-                  <span className="text-xs font-semibold text-gray-500">
-                    CONVERSION RATE
-                  </span>
-                  <div className="text-2xl font-bold text-gray-900">38%</div>
-                </div>
-                <div className="h-2 w-full rounded-full bg-gray-200">
-                  <div className="h-2 w-3/5 rounded-full bg-indigo-600"></div>
-                </div>
-              </div>
+        {/* Data Flow & Architecture Info */}
+        <div className="rounded-lg border border-gray-600 bg-gray-800 p-6 shadow-lg">
+          <h3 className="mb-4 text-lg font-bold text-white">Platform Architecture Overview</h3>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <div className="border-l-2 border-purple-500 pl-3">
+              <div className="text-xs font-semibold text-purple-300">Auth & Session</div>
+              <p className="mt-1 text-xs text-gray-300">Clerk + Session Fingerprinting</p>
             </div>
-
-            <div className="overflow-hidden rounded-lg bg-white shadow-lg">
-              <div className="h-40 bg-gradient-to-br from-pink-400 to-rose-600 p-6">
-                <div className="text-sm font-semibold text-white">
-                  Event Card
-                </div>
-                <div className="mt-2 text-2xl font-bold text-white">
-                  Signage Variant
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="mb-4">
-                  <span className="text-xs font-semibold text-gray-500">
-                    SCANS THIS MONTH
-                  </span>
-                  <div className="text-3xl font-bold text-gray-900">892</div>
-                </div>
-                <div className="mb-4">
-                  <span className="text-xs font-semibold text-gray-500">
-                    CONVERSION RATE
-                  </span>
-                  <div className="text-2xl font-bold text-gray-900">42%</div>
-                </div>
-                <div className="h-2 w-full rounded-full bg-gray-200">
-                  <div className="h-2 w-1/2 rounded-full bg-pink-600"></div>
-                </div>
-              </div>
+            <div className="border-l-2 border-cyan-500 pl-3">
+              <div className="text-xs font-semibold text-cyan-300">Data Layer</div>
+              <p className="mt-1 text-xs text-gray-300">Supabase + RLS Policies</p>
             </div>
-
-            <div className="overflow-hidden rounded-lg bg-white shadow-lg">
-              <div className="h-40 bg-gradient-to-br from-cyan-400 to-blue-600 p-6">
-                <div className="text-sm font-semibold text-white">
-                  Partner Card
-                </div>
-                <div className="mt-2 text-2xl font-bold text-white">
-                  Co-Marketing Variant
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="mb-4">
-                  <span className="text-xs font-semibold text-gray-500">
-                    SCANS THIS MONTH
-                  </span>
-                  <div className="text-3xl font-bold text-gray-900">710</div>
-                </div>
-                <div className="mb-4">
-                  <span className="text-xs font-semibold text-gray-500">
-                    CONVERSION RATE
-                  </span>
-                  <div className="text-2xl font-bold text-gray-900">28%</div>
-                </div>
-                <div className="h-2 w-full rounded-full bg-gray-200">
-                  <div className="h-2 w-1/3 rounded-full bg-cyan-600"></div>
-                </div>
-              </div>
+            <div className="border-l-2 border-green-500 pl-3">
+              <div className="text-xs font-semibold text-green-300">Tracking</div>
+              <p className="mt-1 text-xs text-gray-300">NFC + UTM + Cookies</p>
             </div>
-          </div>
-        </div>
-
-        {/* Conversion Funnel */}
-        <div className="mb-12">
-          <h2 className="mb-8 text-2xl font-bold text-white">
-            Conversion Funnel
-          </h2>
-          <div className="rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 p-8 shadow-lg">
-            <div className="space-y-6">
-              <div className="flex items-center">
-                <div className="flex-1">
-                  <div className="mb-2 flex items-center justify-between">
-                    <span className="text-sm font-semibold text-white">
-                      NFC Scans
-                    </span>
-                    <span className="text-sm font-bold text-blue-400">
-                      2,847
-                    </span>
-                  </div>
-                  <div className="h-4 w-full rounded-full bg-gray-700">
-                    <div className="h-4 w-full rounded-full bg-blue-600"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center">
-                <div className="flex-1">
-                  <div className="mb-2 flex items-center justify-between">
-                    <span className="text-sm font-semibold text-white">
-                      Visited Landing Page
-                    </span>
-                    <span className="text-sm font-bold text-green-400">
-                      2,103 (74%)
-                    </span>
-                  </div>
-                  <div className="h-4 w-full rounded-full bg-gray-700">
-                    <div className="h-4 w-3/4 rounded-full bg-green-600"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center">
-                <div className="flex-1">
-                  <div className="mb-2 flex items-center justify-between">
-                    <span className="text-sm font-semibold text-white">
-                      Engaged with Content
-                    </span>
-                    <span className="text-sm font-bold text-yellow-400">
-                      1,542 (54%)
-                    </span>
-                  </div>
-                  <div className="h-4 w-full rounded-full bg-gray-700">
-                    <div className="h-4 w-1/2 rounded-full bg-yellow-600"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center">
-                <div className="flex-1">
-                  <div className="mb-2 flex items-center justify-between">
-                    <span className="text-sm font-semibold text-white">
-                      Completed Action
-                    </span>
-                    <span className="text-sm font-bold text-purple-400">
-                      973 (34%)
-                    </span>
-                  </div>
-                  <div className="h-4 w-full rounded-full bg-gray-700">
-                    <div className="h-4 w-1/3 rounded-full bg-purple-600"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Behavioral Profiles */}
-        <div className="mb-12">
-          <h2 className="mb-8 text-2xl font-bold text-white">
-            Top Behavioral Profiles
-          </h2>
-          <div className="space-y-4">
-            <div className="flex items-center justify-between rounded-lg bg-gradient-to-r from-gray-800 to-gray-900 p-6 shadow-lg">
-              <div>
-                <div className="text-lg font-bold text-white">
-                  Enterprise Decision Maker
-                </div>
-                <div className="text-sm text-gray-300">
-                  High engagement, multiple touches
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-400">487</div>
-                <div className="text-xs text-gray-400">users</div>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between rounded-lg bg-gradient-to-r from-gray-800 to-gray-900 p-6 shadow-lg">
-              <div>
-                <div className="text-lg font-bold text-white">
-                  Quick Converter
-                </div>
-                <div className="text-sm text-gray-300">
-                  Rapid decision and action
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-400">324</div>
-                <div className="text-xs text-gray-400">users</div>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between rounded-lg bg-gradient-to-r from-gray-800 to-gray-900 p-6 shadow-lg">
-              <div>
-                <div className="text-lg font-bold text-white">
-                  Research Phase
-                </div>
-                <div className="text-sm text-gray-300">
-                  High engagement, low conversion
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-orange-400">256</div>
-                <div className="text-xs text-gray-400">users</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Landing Pages */}
-        <div className="mb-12">
-          <h2 className="mb-8 text-2xl font-bold text-white">
-            Custom Landing Pages
-          </h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <div className="rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 p-6 shadow-lg">
-              <div className="mb-4 h-32 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600"></div>
-              <div className="mb-3 text-lg font-bold text-white">
-                Lead Capture Page
-              </div>
-              <div className="mb-4 text-sm text-gray-400">
-                UTM + cookie tracking • Conversion optimized
-              </div>
-              <div className="flex justify-between text-sm">
-                <div>
-                  <div className="text-gray-400">Visits</div>
-                  <div className="text-2xl font-bold text-white">1,523</div>
-                </div>
-                <div>
-                  <div className="text-gray-400">CTR</div>
-                  <div className="text-2xl font-bold text-white">42%</div>
-                </div>
-                <div>
-                  <div className="text-gray-400">Bounce</div>
-                  <div className="text-2xl font-bold text-white">18%</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 p-6 shadow-lg">
-              <div className="mb-4 h-32 rounded-lg bg-gradient-to-r from-cyan-600 to-blue-600"></div>
-              <div className="mb-3 text-lg font-bold text-white">
-                Demo Request Page
-              </div>
-              <div className="mb-4 text-sm text-gray-400">
-                Form tracking • Lead qualification
-              </div>
-              <div className="flex justify-between text-sm">
-                <div>
-                  <div className="text-gray-400">Visits</div>
-                  <div className="text-2xl font-bold text-white">892</div>
-                </div>
-                <div>
-                  <div className="text-gray-400">CTR</div>
-                  <div className="text-2xl font-bold text-white">38%</div>
-                </div>
-                <div>
-                  <div className="text-gray-400">Bounce</div>
-                  <div className="text-2xl font-bold text-white">24%</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Features Available */}
-        <div className="mb-12">
-          <h2 className="mb-8 text-2xl font-bold text-white">
-            Business User Features
-          </h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <div className="rounded-lg border border-gray-600 bg-gray-800 p-6 shadow-lg">
-              <div className="mb-2 text-lg font-bold text-white">
-                ✓ NFC Business Cards & Signage
-              </div>
-              <p className="text-sm text-gray-300">
-                Custom-branded NFC-enabled business cards and signage with embedded tracking
-              </p>
-            </div>
-
-            <div className="rounded-lg border border-gray-600 bg-gray-800 p-6 shadow-lg">
-              <div className="mb-2 text-lg font-bold text-white">
-                ✓ Custom Landing Pages
-              </div>
-              <p className="text-sm text-gray-300">
-                Branded landing pages with UTM + cookie tracking for multi-touch attribution
-              </p>
-            </div>
-
-            <div className="rounded-lg border border-gray-600 bg-gray-800 p-6 shadow-lg">
-              <div className="mb-2 text-lg font-bold text-white">
-                ✓ Conversion Funnel Analysis
-              </div>
-              <p className="text-sm text-gray-300">
-                Track engagement from NFC tap to conversion with detailed funnel visualization
-              </p>
-            </div>
-
-            <div className="rounded-lg border border-gray-600 bg-gray-800 p-6 shadow-lg">
-              <div className="mb-2 text-lg font-bold text-white">
-                ✓ Behavioral Profiles
-              </div>
-              <p className="text-sm text-gray-300">
-                Per-user profiles tied to logins showing engagement patterns and behaviors
-              </p>
-            </div>
-
-            <div className="rounded-lg border border-gray-600 bg-gray-800 p-6 shadow-lg">
-              <div className="mb-2 text-lg font-bold text-white">
-                ✓ ROI Dashboards
-              </div>
-              <p className="text-sm text-gray-300">
-                Measure campaign effectiveness and tie NFC engagement to business outcomes
-              </p>
-            </div>
-
-            <div className="rounded-lg border border-gray-600 bg-gray-800 p-6 shadow-lg">
-              <div className="mb-2 text-lg font-bold text-white">
-                ✓ Multi-Source Tracking
-              </div>
-              <p className="text-sm text-gray-300">
-                Unified tracking across NFC scans, UTM parameters, and persistent cookies
-              </p>
+            <div className="border-l-2 border-yellow-500 pl-3">
+              <div className="text-xs font-semibold text-yellow-300">AI Agents</div>
+              <p className="mt-1 text-xs text-gray-300">Gemini + Behavior Analysis</p>
             </div>
           </div>
         </div>
