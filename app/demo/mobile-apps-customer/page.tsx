@@ -45,16 +45,21 @@ export default function MobileAppsCustomerDemo() {
                     <p className="text-xs font-semibold text-gray-400 mb-3">NEARBY EVENTS</p>
                     <div className="space-y-3">
                       {[
-                        { name: 'Tech Conference 2024', distance: '0.5 km', attendees: '234 going' },
-                        { name: 'Weekend Networking', distance: '1.2 km', attendees: '45 going' },
-                        { name: 'Local Coffee Night', distance: '2.1 km', attendees: '12 going' }
+                        { name: 'Tech Conference 2024', distance: '0.5 km', attendees: '234 going', time: 'Today 10am', featured: true },
+                        { name: 'Weekend Networking', distance: '1.2 km', attendees: '45 going', time: 'Tomorrow 6pm', featured: false },
+                        { name: 'Local Coffee Night', distance: '2.1 km', attendees: '12 going', time: 'Sat 7pm', featured: false }
                       ].map((event, idx) => (
-                        <div key={idx} className="rounded-lg border border-gray-700 bg-gray-800/50 p-4 hover:bg-gray-800">
+                        <div key={idx} className={`rounded-lg border p-4 hover:scale-105 transition-transform cursor-pointer ${
+                          event.featured
+                            ? 'border-blue-600/50 bg-gradient-to-r from-blue-900/30 to-cyan-900/30'
+                            : 'border-gray-700 bg-gray-800/50 hover:bg-gray-800'
+                        }`}>
                           <div className="flex justify-between items-start mb-2">
                             <h3 className="font-semibold text-blue-300 text-sm">{event.name}</h3>
-                            <span className="text-xs text-gray-400">{event.distance}</span>
+                            {event.featured && <span className="text-xs bg-blue-600/30 text-blue-300 px-2 py-1 rounded">Featured</span>}
                           </div>
-                          <p className="text-xs text-gray-400 mb-2">👥 {event.attendees}</p>
+                          <p className="text-xs text-gray-400 mb-1">📅 {event.time}</p>
+                          <p className="text-xs text-gray-400 mb-2">📍 {event.distance} • 👥 {event.attendees}</p>
                           <button className="w-full rounded bg-blue-600/20 text-blue-300 py-2 text-xs font-semibold hover:bg-blue-600/30">
                             View Details
                           </button>
