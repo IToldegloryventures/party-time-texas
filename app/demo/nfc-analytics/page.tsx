@@ -79,7 +79,6 @@ export default function NFCAnalyticsDemo() {
             <div className="flex items-center gap-6">
               <div className="flex-1">
                 <div className="flex items-center gap-4 mb-2">
-                  <span className="text-3xl">📱</span>
                   <div>
                     <p className="text-white font-semibold">NFC Scans</p>
                     <p className="text-sm text-gray-400">All tap interactions</p>
