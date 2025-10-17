@@ -290,76 +290,96 @@ export default function DemoHub() {
         {/* Feature Demos Section */}
         <div className="mt-12">
           <h2 className="mb-8 text-center text-2xl font-bold text-white">Feature Demos</h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <Link href="/demo/landing-page-builder">
-              <div className="group rounded-lg border border-blue-600/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-6 shadow-lg transition-all hover:border-blue-400/80 hover:shadow-blue-500/20">
-                <div className="mb-3 text-2xl">🎨</div>
-                <h3 className="mb-2 font-bold text-blue-300">Landing Page Builder</h3>
-                <p className="text-xs text-gray-300">Drag-and-drop interface with templates and NFC integration</p>
-                <div className="mt-4 text-blue-400 transition-all group-hover:translate-x-1">View Demo →</div>
-              </div>
-            </Link>
-
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-5">
+            {/* Row 1 */}
             <Link href="/demo/geo-marketing">
               <div className="group rounded-lg border border-purple-600/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-6 shadow-lg transition-all hover:border-purple-400/80 hover:shadow-purple-500/20">
-                <div className="mb-3 text-2xl">📍</div>
+                <div className="mb-3 text-2xl">🌍</div>
                 <h3 className="mb-2 font-bold text-purple-300">Geo-Marketing Intelligence</h3>
-                <p className="text-xs text-gray-300">Location heatmaps and user movement tracking</p>
+                <p className="text-xs text-gray-300">Location-driven insights and regional KPIs</p>
                 <div className="mt-4 text-purple-400 transition-all group-hover:translate-x-1">View Demo →</div>
               </div>
             </Link>
 
-            <Link href="/demo/nfc-management">
-              <div className="group rounded-lg border border-orange-600/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 p-6 shadow-lg transition-all hover:border-orange-400/80 hover:shadow-orange-500/20">
-                <div className="mb-3 text-2xl">📱</div>
-                <h3 className="mb-2 font-bold text-orange-300">NFC Device Management</h3>
-                <p className="text-xs text-gray-300">247+ devices with real-time performance tracking</p>
-                <div className="mt-4 text-orange-400 transition-all group-hover:translate-x-1">View Demo →</div>
+            <Link href="/demo/customer-journey-insights">
+              <div className="group rounded-lg border border-blue-600/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-6 shadow-lg transition-all hover:border-blue-400/80 hover:shadow-blue-500/20">
+                <div className="mb-3 text-2xl">🔄</div>
+                <h3 className="mb-2 font-bold text-blue-300">Customer Journey Insights</h3>
+                <p className="text-xs text-gray-300">Scan-to-sale funnel mapping and attribution</p>
+                <div className="mt-4 text-blue-400 transition-all group-hover:translate-x-1">View Demo →</div>
               </div>
             </Link>
 
-            <Link href="/demo/nfc-analytics">
-              <div className="group rounded-lg border border-cyan-600/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-6 shadow-lg transition-all hover:border-cyan-400/80 hover:shadow-cyan-500/20">
-                <div className="mb-3 text-2xl">📊</div>
-                <h3 className="mb-2 font-bold text-cyan-300">NFC Analytics Dashboard</h3>
-                <p className="text-xs text-gray-300">2.4M scans with 34.2% conversion rate tracking</p>
-                <div className="mt-4 text-cyan-400 transition-all group-hover:translate-x-1">View Demo →</div>
-              </div>
-            </Link>
-
-            <Link href="/demo/task-management">
-              <div className="group rounded-lg border border-green-600/50 bg-gradient-to-br from-green-950/50 to-green-900/20 p-6 shadow-lg transition-all hover:border-green-400/80 hover:shadow-green-500/20">
-                <div className="mb-3 text-2xl">✅</div>
-                <h3 className="mb-2 font-bold text-green-300">Task Management</h3>
-                <p className="text-xs text-gray-300">Team collaboration with role-based task distribution</p>
-                <div className="mt-4 text-green-400 transition-all group-hover:translate-x-1">View Demo →</div>
-              </div>
-            </Link>
-
-            <Link href="/demo/white-label">
-              <div className="group rounded-lg border border-indigo-600/50 bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 p-6 shadow-lg transition-all hover:border-indigo-400/80 hover:shadow-indigo-500/20">
-                <div className="mb-3 text-2xl">🏢</div>
-                <h3 className="mb-2 font-bold text-indigo-300">White-Label Customization</h3>
-                <p className="text-xs text-gray-300">Custom domains and complete brand control</p>
-                <div className="mt-4 text-indigo-400 transition-all group-hover:translate-x-1">View Demo →</div>
-              </div>
-            </Link>
-
-            <Link href="/demo/mobile-apps-admin">
+            <Link href="/demo/smart-social-scheduler">
               <div className="group rounded-lg border border-pink-600/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-6 shadow-lg transition-all hover:border-pink-400/80 hover:shadow-pink-500/20">
-                <div className="mb-3 text-2xl">👨‍💼</div>
-                <h3 className="mb-2 font-bold text-pink-300">Mobile App - Admin</h3>
-                <p className="text-xs text-gray-300">Manage business on-the-go with real-time analytics</p>
+                <div className="mb-3 text-2xl">🗓️</div>
+                <h3 className="mb-2 font-bold text-pink-300">Smart Social Scheduler</h3>
+                <p className="text-xs text-gray-300">Campaign calendar and social post automation</p>
                 <div className="mt-4 text-pink-400 transition-all group-hover:translate-x-1">View Demo →</div>
               </div>
             </Link>
 
-            <Link href="/demo/mobile-apps-customer">
-              <div className="group rounded-lg border border-rose-600/50 bg-gradient-to-br from-rose-950/50 to-rose-900/20 p-6 shadow-lg transition-all hover:border-rose-400/80 hover:shadow-rose-500/20">
+            <Link href="/demo/landing-page-builder">
+              <div className="group rounded-lg border border-cyan-600/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-6 shadow-lg transition-all hover:border-cyan-400/80 hover:shadow-cyan-500/20">
+                <div className="mb-3 text-2xl">🎨</div>
+                <h3 className="mb-2 font-bold text-cyan-300">Landing Page Builder</h3>
+                <p className="text-xs text-gray-300">Drag-and-drop with geo-personalization</p>
+                <div className="mt-4 text-cyan-400 transition-all group-hover:translate-x-1">View Demo →</div>
+              </div>
+            </Link>
+
+            <Link href="/demo/nfc-analytics">
+              <div className="group rounded-lg border border-green-600/50 bg-gradient-to-br from-green-950/50 to-green-900/20 p-6 shadow-lg transition-all hover:border-green-400/80 hover:shadow-green-500/20">
+                <div className="mb-3 text-2xl">📊</div>
+                <h3 className="mb-2 font-bold text-green-300">NFC Analytics Dashboard</h3>
+                <p className="text-xs text-gray-300">Real-time metrics and conversion tracking</p>
+                <div className="mt-4 text-green-400 transition-all group-hover:translate-x-1">View Demo →</div>
+              </div>
+            </Link>
+
+            {/* Row 2 */}
+            <Link href="/demo/nfc-management">
+              <div className="group rounded-lg border border-orange-600/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 p-6 shadow-lg transition-all hover:border-orange-400/80 hover:shadow-orange-500/20">
+                <div className="mb-3 text-2xl">🔧</div>
+                <h3 className="mb-2 font-bold text-orange-300">NFC Device Management</h3>
+                <p className="text-xs text-gray-300">Hardware control and deployment tracking</p>
+                <div className="mt-4 text-orange-400 transition-all group-hover:translate-x-1">View Demo →</div>
+              </div>
+            </Link>
+
+            <Link href="/demo/task-management">
+              <div className="group rounded-lg border border-red-600/50 bg-gradient-to-br from-red-950/50 to-red-900/20 p-6 shadow-lg transition-all hover:border-red-400/80 hover:shadow-red-500/20">
+                <div className="mb-3 text-2xl">📋</div>
+                <h3 className="mb-2 font-bold text-red-300">Task Management</h3>
+                <p className="text-xs text-gray-300">Geo-tagged tasks and team collaboration</p>
+                <div className="mt-4 text-red-400 transition-all group-hover:translate-x-1">View Demo →</div>
+              </div>
+            </Link>
+
+            <Link href="/demo/mobile-app-client">
+              <div className="group rounded-lg border border-indigo-600/50 bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 p-6 shadow-lg transition-all hover:border-indigo-400/80 hover:shadow-indigo-500/20">
+                <div className="mb-3 text-2xl">📱</div>
+                <h3 className="mb-2 font-bold text-indigo-300">Mobile App - Client</h3>
+                <p className="text-xs text-gray-300">Manage marketing from any device</p>
+                <div className="mt-4 text-indigo-400 transition-all group-hover:translate-x-1">View Demo →</div>
+              </div>
+            </Link>
+
+            <Link href="/demo/mobile-app-customer">
+              <div className="group rounded-lg border border-teal-600/50 bg-gradient-to-br from-teal-950/50 to-teal-900/20 p-6 shadow-lg transition-all hover:border-teal-400/80 hover:shadow-teal-500/20">
                 <div className="mb-3 text-2xl">👤</div>
-                <h3 className="mb-2 font-bold text-rose-300">Mobile App - Customer</h3>
-                <p className="text-xs text-gray-300">Discover events and location-based experiences</p>
-                <div className="mt-4 text-rose-400 transition-all group-hover:translate-x-1">View Demo →</div>
+                <h3 className="mb-2 font-bold text-teal-300">Mobile App - Customer</h3>
+                <p className="text-xs text-gray-300">Discover local offers and events</p>
+                <div className="mt-4 text-teal-400 transition-all group-hover:translate-x-1">View Demo →</div>
+              </div>
+            </Link>
+
+            <Link href="/demo/white-label">
+              <div className="group rounded-lg border border-amber-600/50 bg-gradient-to-br from-amber-950/50 to-amber-900/20 p-6 shadow-lg transition-all hover:border-amber-400/80 hover:shadow-amber-500/20">
+                <div className="mb-3 text-2xl">🏢</div>
+                <h3 className="mb-2 font-bold text-amber-300">White-Label Customization</h3>
+                <p className="text-xs text-gray-300">Branded domains and full customization</p>
+                <div className="mt-4 text-amber-400 transition-all group-hover:translate-x-1">View Demo →</div>
               </div>
             </Link>
           </div>
