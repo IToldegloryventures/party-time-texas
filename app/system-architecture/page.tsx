@@ -160,16 +160,12 @@ export default function SystemArchitecture() {
               <h3 className="mb-4 text-xl font-semibold text-purple-300 text-center">Real-Time Analytics</h3>
               <div className="space-y-4">
                 <div>
-                  <p className="font-semibold text-purple-200">Scan Analytics</p>
-                  <p className="mt-1 text-sm text-gray-400">2.4M scans, per-device tracking, time-series</p>
+                  <p className="font-semibold text-purple-200">Scan Metrics</p>
+                  <p className="mt-1 text-sm text-gray-400">Event check-in data · Campaign engagement</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-purple-200">Event Analytics</p>
-                  <p className="mt-1 text-sm text-gray-400">Check-in rates, attendance metrics</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-purple-200">Campaign Metrics</p>
-                  <p className="mt-1 text-sm text-gray-400">Reach, engagement, conversion rates</p>
+                  <p className="font-semibold text-purple-200">Time-Series Data</p>
+                  <p className="mt-1 text-sm text-gray-400">Graphs · Device-level tracking</p>
                 </div>
               </div>
             </div>
