@@ -127,7 +127,6 @@ export default function MobileAppClientDemo() {
           <h3 className="text-2xl font-bold text-white mb-6">Designed for Brand Managers &amp; Operations Teams</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="p-6 rounded-lg bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 border border-indigo-700/50">
-              <div className="text-3xl mb-4">👔</div>
               <h4 className="font-bold text-indigo-300 mb-4">Brand Managers</h4>
               <ul className="text-sm text-gray-300 space-y-3">
                 <li className="flex items-start gap-3">
@@ -245,7 +244,7 @@ export default function MobileAppClientDemo() {
               🍎 App Store
             </button>
             <button className="rounded-lg bg-black border border-gray-600 px-6 py-3 text-white font-semibold hover:border-gray-500 transition">
-              ��� Google Play
+              🔵 Google Play
             </button>
           </div>
         </div>
