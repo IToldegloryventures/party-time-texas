@@ -46,7 +46,6 @@ export default function MobileAppClientDemo() {
 
             {/* Feature 3 */}
             <div className="rounded-lg border border-gray-700 bg-gray-800/50 p-8 hover:border-indigo-600/50 transition">
-              <div className="text-5xl mb-4">📊</div>
               <h3 className="text-xl font-bold text-white mb-3">Quick Access Analytics</h3>
               <p className="text-gray-300 text-sm mb-4">View KPIs in seconds. Conversion rates, revenue attribution, top zones, and trend comparisons at your fingertips.</p>
               <ul className="text-sm text-gray-400 space-y-2">
