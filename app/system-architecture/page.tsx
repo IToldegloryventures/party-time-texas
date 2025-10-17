@@ -117,12 +117,11 @@ export default function SystemArchitecture() {
                   <path fillRule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 000-2H6V3a1 1 0 01-1 1zm0 0h8a4 4 0 110 8H5a1 1 0 000 2h8a6 6 0 100-12H6V1a1 1 0 00-1 1z"/>
                 </svg>
               </div>
-              <h3 className="mb-1 text-lg font-semibold text-red-300">Trigger & Automation</h3>
+              <h3 className="mb-1 text-lg font-semibold text-red-300">Trigger & Automation Engine</h3>
               <p className="text-sm text-gray-300">Smart Rules Engine</p>
               <ul className="mt-3 space-y-1 text-xs text-gray-400">
-                <li>• Scan-based triggers</li>
-                <li>• Time-based rules</li>
-                <li>• CRM automations</li>
+                <li>• Scan-based triggers · Time rules</li>
+                <li>• CRM / API actions</li>
               </ul>
             </div>
 
