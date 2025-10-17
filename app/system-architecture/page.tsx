@@ -203,15 +203,11 @@ export default function SystemArchitecture() {
               <div className="space-y-4">
                 <div>
                   <p className="font-semibold text-cyan-200">Revenue Analytics</p>
-                  <p className="mt-1 text-sm text-gray-400">Monthly growth, MRR tracking</p>
+                  <p className="mt-1 text-sm text-gray-400">User behavior · MRR growth</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-cyan-200">User Engagement</p>
-                  <p className="mt-1 text-sm text-gray-400">Active users, behavioral patterns</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-cyan-200">Performance Reports</p>
-                  <p className="mt-1 text-sm text-gray-400">KPI dashboards, exportable metrics</p>
+                  <p className="font-semibold text-cyan-200">Exportable Reports</p>
+                  <p className="mt-1 text-sm text-gray-400">Performance scoring · KPI tracking</p>
                 </div>
               </div>
             </div>
