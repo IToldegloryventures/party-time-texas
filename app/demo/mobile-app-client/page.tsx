@@ -112,7 +112,6 @@ export default function MobileAppClientDemo() {
                 <p className="text-xs font-semibold text-gray-400">Devices Screen</p>
               </div>
               <div className="flex-1 rounded-lg bg-gradient-to-br from-green-900/20 to-emerald-900/20 border border-gray-700 flex flex-col items-start justify-center p-3 space-y-2">
-                <div className="text-4xl mb-1">🟢</div>
                 <div className="h-2 bg-green-600 rounded w-12"></div>
                 <div className="h-2 bg-green-600 rounded w-10"></div>
                 <div className="h-2 bg-yellow-600 rounded w-8"></div>
@@ -246,7 +245,7 @@ export default function MobileAppClientDemo() {
               🍎 App Store
             </button>
             <button className="rounded-lg bg-black border border-gray-600 px-6 py-3 text-white font-semibold hover:border-gray-500 transition">
-              🔵 Google Play
+              ��� Google Play
             </button>
           </div>
         </div>
