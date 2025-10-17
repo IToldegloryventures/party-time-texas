@@ -148,6 +148,7 @@ export default function SystemArchitecture() {
             <h2 className="text-2xl font-bold text-white">Analytics & Intelligence Engine</h2>
             <p className="mt-2 text-base text-gray-400">Real-time insights and business intelligence</p>
           </div>
+          <p className="mb-8 text-center text-sm text-gray-500">Real-Time Analytics · Attribution & Intelligence · Business Intelligence</p>
 
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
             <div className="group rounded-xl border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-8 transition-all hover:border-purple-700/80 hover:bg-purple-950/40">
