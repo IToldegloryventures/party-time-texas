@@ -174,7 +174,7 @@ export default function NFCAnalyticsDemo() {
                     <td className="py-4 px-6 text-sm text-green-400 font-semibold">{metric.revenue}</td>
                     <td className="py-4 px-6 text-sm">
                       <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${metric.status === 'hot' ? 'bg-red-500/20 text-red-400' : 'bg-orange-500/20 text-orange-400'}`}>
-                        {metric.status === 'hot' ? '🔥 Hot' : '🌡️ Warm'}
+                        {metric.status === 'hot' ? 'Hot' : 'Warm'}
                       </span>
                     </td>
                   </tr>
