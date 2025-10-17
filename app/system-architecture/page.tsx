@@ -133,11 +133,10 @@ export default function SystemArchitecture() {
                 </svg>
               </div>
               <h3 className="mb-1 text-lg font-semibold text-violet-300">Queueing & Orchestration</h3>
-              <p className="text-sm text-gray-300">Job Processing</p>
+              <p className="text-sm text-gray-300">Job Execution & Scheduling</p>
               <ul className="mt-3 space-y-1 text-xs text-gray-400">
-                <li>• Delayed post queuing</li>
-                <li>• Service orchestration</li>
-                <li>• Workflow automation</li>
+                <li>• Delayed posting · Retry logic</li>
+                <li>• Automation chaining</li>
               </ul>
             </div>
           </div>
