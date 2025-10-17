@@ -22,7 +22,6 @@ export default function MobileAppClientDemo() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Feature 1 */}
             <div className="rounded-lg border border-gray-700 bg-gray-800/50 p-8 hover:border-indigo-600/50 transition">
-              <div className="text-5xl mb-4">📱</div>
               <h3 className="text-xl font-bold text-white mb-3">Real-Time Scan Activity</h3>
               <p className="text-gray-300 text-sm mb-4">Monitor NFC scans as they happen across all zones. Live dashboard with counts, conversion rates, and engagement metrics.</p>
               <ul className="text-sm text-gray-400 space-y-2">
