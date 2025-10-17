@@ -17,6 +17,7 @@ export default function SystemArchitecture() {
             <h2 className="text-2xl font-bold text-white">Client Layer</h2>
             <p className="mt-2 text-base text-gray-400">Multi-platform access points with unified authentication</p>
           </div>
+          <p className="mb-8 text-center text-sm text-gray-500">Web Dashboard · Mobile Apps · White-Label Domains · Clerk Authentication</p>
           
           <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
             {/* Web Dashboard */}
