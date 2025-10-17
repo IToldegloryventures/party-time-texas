@@ -74,8 +74,9 @@ export default function SystemArchitecture() {
         <div className="mb-32">
           <div className="mb-8 text-center">
             <h2 className="text-2xl font-bold text-white">API & Business Logic Layer</h2>
-            <p className="mt-2 text-base text-gray-400">Core business modules and service orchestration</p>
+            <p className="mt-2 text-base text-gray-400">Core business modules and orchestration engine</p>
           </div>
+          <p className="mb-8 text-center text-sm text-gray-500">NFC Device Manager · Campaign & Content · Trigger & Automation Engine · Queueing & Orchestration</p>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {/* NFC Device Manager */}
