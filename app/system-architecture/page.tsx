@@ -52,8 +52,8 @@ export default function SystemArchitecture() {
                 </svg>
               </div>
               <h3 className="mb-1 text-lg font-semibold text-purple-300">White-Label Domains</h3>
-              <p className="text-sm text-gray-300">Custom Branding</p>
-              <p className="mt-3 text-xs text-gray-400">Custom domains, CSS, email templates</p>
+              <p className="text-sm text-gray-300">Custom Branding, CNAME Support</p>
+              <p className="mt-3 text-xs text-gray-400">Subdomains · CSS overrides · Email templates</p>
             </div>
 
             {/* Authentication */}
