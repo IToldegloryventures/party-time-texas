@@ -27,19 +27,19 @@ export default function SystemArchitecture() {
               </div>
               <h3 className="mb-1 text-lg font-semibold text-blue-300">Web Dashboard</h3>
               <p className="text-sm text-gray-300">Next.js 15, React 19, Tailwind CSS</p>
-              <p className="mt-3 text-xs text-gray-400">Analytics, event management, device control</p>
+              <p className="mt-3 text-xs text-gray-400">Campaign management, analytics, device control</p>
             </div>
 
-            {/* Mobile App */}
+            {/* Mobile Apps */}
             <div className="group rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-6 transition-all hover:border-cyan-700/80 hover:bg-cyan-950/40 text-center">
               <div className="mb-4 flex justify-center rounded-lg bg-cyan-500/20 p-3 mx-auto">
                 <svg className="h-6 w-6 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M7 3a2 2 0 00-2 2v10a2 2 0 002 2h6a2 2 0 002-2V5a2 2 0 00-2-2H7zm0 2h6v10H7V5zm2 3a1 1 0 100 2h2a1 1 0 100-2H9z"/>
                 </svg>
               </div>
-              <h3 className="mb-1 text-lg font-semibold text-cyan-300">Mobile App</h3>
-              <p className="text-sm text-gray-300">PWA with NFC Scanning</p>
-              <p className="mt-3 text-xs text-gray-400">Check-in, event access, photos</p>
+              <h3 className="mb-1 text-lg font-semibold text-cyan-300">Mobile Apps</h3>
+              <p className="text-sm text-gray-300">Client & Customer Roles</p>
+              <p className="mt-3 text-xs text-gray-400">Real-time scans, event discovery, check-in</p>
             </div>
 
             {/* White-Label */}
@@ -51,7 +51,7 @@ export default function SystemArchitecture() {
               </div>
               <h3 className="mb-1 text-lg font-semibold text-purple-300">White-Label Domains</h3>
               <p className="text-sm text-gray-300">Custom Branding</p>
-              <p className="mt-3 text-xs text-gray-400">Enterprise customization, portals</p>
+              <p className="mt-3 text-xs text-gray-400">Custom domains, CSS, email templates</p>
             </div>
 
             {/* Authentication */}
@@ -93,51 +93,51 @@ export default function SystemArchitecture() {
               </ul>
             </div>
 
-            {/* Event Management */}
-            <div className="group rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 p-6 transition-all hover:border-red-700/80 hover:bg-red-950/40 text-center">
-              <div className="mb-4 flex justify-center rounded-lg bg-red-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-red-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
-                </svg>
-              </div>
-              <h3 className="mb-1 text-lg font-semibold text-red-300">Event Management</h3>
-              <p className="text-sm text-gray-300">Multi-Station Check-ins</p>
-              <ul className="mt-3 space-y-1 text-xs text-gray-400">
-                <li>• Event creation & scheduling</li>
-                <li>• Real-time attendance</li>
-                <li>• Guest lifecycle tracking</li>
-              </ul>
-            </div>
-
-            {/* Landing Page Builder */}
+            {/* Campaign & Content Module */}
             <div className="group rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-6 transition-all hover:border-pink-700/80 hover:bg-pink-950/40 text-center">
               <div className="mb-4 flex justify-center rounded-lg bg-pink-500/20 p-3 mx-auto">
                 <svg className="h-6 w-6 text-pink-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3.5a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4z"/>
+                  <path d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm3.293-1.293a1 1 0 011.414 0L9 7.586l2.293-2.293a1 1 0 111.414 1.414L10.414 9l2.293 2.293a1 1 0 01-1.414 1.414L9 10.414l-2.293 2.293a1 1 0 01-1.414-1.414L7.586 9 5.293 6.707a1 1 0 010-1.414z"/>
                 </svg>
               </div>
-              <h3 className="mb-1 text-lg font-semibold text-pink-300">Landing Page Builder</h3>
-              <p className="text-sm text-gray-300">Drag-and-Drop Editor</p>
+              <h3 className="mb-1 text-lg font-semibold text-pink-300">Campaign & Content</h3>
+              <p className="text-sm text-gray-300">Social + Email Scheduling</p>
               <ul className="mt-3 space-y-1 text-xs text-gray-400">
-                <li>• Custom pages & templates</li>
-                <li>• Template library</li>
-                <li>• One-click publishing</li>
+                <li>• Social media campaigns</li>
+                <li>• Email scheduling</li>
+                <li>• Content management</li>
               </ul>
             </div>
 
-            {/* Task Management */}
-            <div className="group rounded-xl border border-yellow-900/50 bg-gradient-to-br from-yellow-950/50 to-yellow-900/20 p-6 transition-all hover:border-yellow-700/80 hover:bg-yellow-950/40 text-center">
-              <div className="mb-4 flex justify-center rounded-lg bg-yellow-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"/>
+            {/* Trigger & Automation Engine */}
+            <div className="group rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 p-6 transition-all hover:border-red-700/80 hover:bg-red-950/40 text-center">
+              <div className="mb-4 flex justify-center rounded-lg bg-red-500/20 p-3 mx-auto">
+                <svg className="h-6 w-6 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 000-2H6V3a1 1 0 01-1 1zm0 0h8a4 4 0 110 8H5a1 1 0 000 2h8a6 6 0 100-12H6V1a1 1 0 00-1 1z"/>
                 </svg>
               </div>
-              <h3 className="mb-1 text-lg font-semibold text-yellow-300">Task Management</h3>
-              <p className="text-sm text-gray-300">Team Collaboration</p>
+              <h3 className="mb-1 text-lg font-semibold text-red-300">Trigger & Automation</h3>
+              <p className="text-sm text-gray-300">Smart Rules Engine</p>
               <ul className="mt-3 space-y-1 text-xs text-gray-400">
-                <li>• Assignments & tracking</li>
-                <li>• Progress monitoring</li>
-                <li>• Team coordination</li>
+                <li>• Scan-based triggers</li>
+                <li>• Time-based rules</li>
+                <li>• CRM automations</li>
+              </ul>
+            </div>
+
+            {/* Queueing & Orchestration */}
+            <div className="group rounded-xl border border-violet-900/50 bg-gradient-to-br from-violet-950/50 to-violet-900/20 p-6 transition-all hover:border-violet-700/80 hover:bg-violet-950/40 text-center">
+              <div className="mb-4 flex justify-center rounded-lg bg-violet-500/20 p-3 mx-auto">
+                <svg className="h-6 w-6 text-violet-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/>
+                </svg>
+              </div>
+              <h3 className="mb-1 text-lg font-semibold text-violet-300">Queueing & Orchestration</h3>
+              <p className="text-sm text-gray-300">Job Processing</p>
+              <ul className="mt-3 space-y-1 text-xs text-gray-400">
+                <li>• Delayed post queuing</li>
+                <li>• Service orchestration</li>
+                <li>• Workflow automation</li>
               </ul>
             </div>
           </div>
@@ -150,7 +150,7 @@ export default function SystemArchitecture() {
             <p className="mt-2 text-base text-gray-400">Real-time insights and business intelligence</p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
             <div className="group rounded-xl border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-8 transition-all hover:border-purple-700/80 hover:bg-purple-950/40">
               <div className="mb-6 flex justify-center rounded-lg bg-purple-500/20 p-3 mx-auto">
                 <svg className="h-6 w-6 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
@@ -161,19 +161,15 @@ export default function SystemArchitecture() {
               <div className="space-y-4">
                 <div>
                   <p className="font-semibold text-purple-200">Scan Analytics</p>
-                  <p className="mt-1 text-sm text-gray-400">2.4M total scans, per-device tracking, time-series</p>
+                  <p className="mt-1 text-sm text-gray-400">2.4M scans, per-device tracking, time-series</p>
                 </div>
                 <div>
                   <p className="font-semibold text-purple-200">Event Analytics</p>
-                  <p className="mt-1 text-sm text-gray-400">Check-in rates, attendance metrics, timelines</p>
+                  <p className="mt-1 text-sm text-gray-400">Check-in rates, attendance metrics</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-purple-200">Location Analytics</p>
-                  <p className="mt-1 text-sm text-gray-400">Station performance, geo-heatmaps, venue insights</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-purple-200">Conversion Tracking</p>
-                  <p className="mt-1 text-sm text-gray-400">ROI attribution, engagement scoring</p>
+                  <p className="font-semibold text-purple-200">Campaign Metrics</p>
+                  <p className="mt-1 text-sm text-gray-400">Reach, engagement, conversion rates</p>
                 </div>
               </div>
             </div>
@@ -184,23 +180,42 @@ export default function SystemArchitecture() {
                   <path fillRule="evenodd" d="M6 2a1 1 0 00-.894.553L2.482 8H1a1 1 0 000 2h.882l.5 2.721H2a1 1 0 100 2h.884l.5 2.721H2a1 1 0 000 2h.882l.5 2.721a1 1 0 00.894.553H19a2 2 0 002-2V4a2 2 0 00-2-2H6zm5 3a1 1 0 010 2H7a1 1 0 010-2h4zm0 3a1 1 0 010 2H7a1 1 0 010-2h4zm0 3a1 1 0 010 2H7a1 1 0 010-2h4z"/>
                 </svg>
               </div>
-              <h3 className="mb-4 text-xl font-semibold text-indigo-300 text-center">Business Intelligence</h3>
+              <h3 className="mb-4 text-xl font-semibold text-indigo-300 text-center">Attribution & Intelligence</h3>
               <div className="space-y-4">
                 <div>
-                  <p className="font-semibold text-indigo-200">Revenue Analytics</p>
-                  <p className="mt-1 text-sm text-gray-400">Monthly growth, MRR tracking, subscription metrics</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-indigo-200">User Engagement</p>
-                  <p className="mt-1 text-sm text-gray-400">Active users, scan frequency, behavioral patterns</p>
+                  <p className="font-semibold text-indigo-200">Cross-Channel Attribution</p>
+                  <p className="mt-1 text-sm text-gray-400">NFC → Landing → CRM tracking</p>
                 </div>
                 <div>
                   <p className="font-semibold text-indigo-200">Geo-Marketing Intelligence</p>
-                  <p className="mt-1 text-sm text-gray-400">Location insights, venue optimization, traffic</p>
+                  <p className="mt-1 text-sm text-gray-400">Regional performance, location insights</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-indigo-200">Predictive Analytics</p>
-                  <p className="mt-1 text-sm text-gray-400">Attendance forecasting, peak time analysis</p>
+                  <p className="font-semibold text-indigo-200">Predictive Modeling</p>
+                  <p className="mt-1 text-sm text-gray-400">Forecasting, trend analysis</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="group rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-8 transition-all hover:border-cyan-700/80 hover:bg-cyan-950/40">
+              <div className="mb-6 flex justify-center rounded-lg bg-cyan-500/20 p-3 mx-auto">
+                <svg className="h-6 w-6 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.3A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z"/>
+                </svg>
+              </div>
+              <h3 className="mb-4 text-xl font-semibold text-cyan-300 text-center">Business Intelligence</h3>
+              <div className="space-y-4">
+                <div>
+                  <p className="font-semibold text-cyan-200">Revenue Analytics</p>
+                  <p className="mt-1 text-sm text-gray-400">Monthly growth, MRR tracking</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-cyan-200">User Engagement</p>
+                  <p className="mt-1 text-sm text-gray-400">Active users, behavioral patterns</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-cyan-200">Performance Reports</p>
+                  <p className="mt-1 text-sm text-gray-400">KPI dashboards, exportable metrics</p>
                 </div>
               </div>
             </div>
@@ -225,12 +240,12 @@ export default function SystemArchitecture() {
               <h3 className="mb-4 text-lg font-semibold text-emerald-300 text-center">Supabase PostgreSQL</h3>
               <div className="space-y-2 text-sm text-gray-400">
                 <p><span className="font-semibold text-emerald-200">organizations</span> - Multi-tenant data</p>
-                <p><span className="font-semibold text-emerald-200">users</span> - Clerk integration</p>
                 <p><span className="font-semibold text-emerald-200">nfc_devices</span> - Device registry</p>
                 <p><span className="font-semibold text-emerald-200">nfc_scans</span> - Analytics data</p>
-                <p><span className="font-semibold text-emerald-200">events</span> - Event tracking</p>
-                <p><span className="font-semibold text-emerald-200">landing_pages</span> - Custom pages</p>
-                <p><span className="font-semibold text-emerald-200">tasks</span> - Team collaboration</p>
+                <p><span className="font-semibold text-emerald-200">campaigns</span> - Campaign data</p>
+                <p><span className="font-semibold text-emerald-200">campaign_posts</span> - Social posts</p>
+                <p><span className="font-semibold text-emerald-200">post_metrics</span> - Engagement data</p>
+                <p><span className="font-semibold text-emerald-200">social_accounts</span> - Connected accounts</p>
               </div>
             </div>
 
@@ -241,23 +256,23 @@ export default function SystemArchitecture() {
                   <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"/>
                 </svg>
               </div>
-              <h3 className="mb-4 text-lg font-semibold text-teal-300 text-center">Security & Access</h3>
+              <h3 className="mb-4 text-lg font-semibold text-teal-300 text-center">Security & Access Control</h3>
               <div className="space-y-3 text-sm text-gray-400">
                 <div>
-                  <p className="font-semibold text-teal-200">Row Level Security</p>
-                  <p className="text-xs">Multi-tenant data isolation</p>
+                  <p className="font-semibold text-teal-200">Row Level Security (RLS)</p>
+                  <p className="text-xs">Multi-tenant isolation</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-teal-200">RBAC System</p>
+                  <p className="font-semibold text-teal-200">Role-Based Access Control</p>
                   <p className="text-xs">5-tier role hierarchy</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-teal-200">API Protection</p>
-                  <p className="text-xs">Middleware authentication</p>
+                  <p className="font-semibold text-teal-200">Token Security</p>
+                  <p className="text-xs">JWT validation & encryption</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-teal-200">Encryption</p>
-                  <p className="text-xs">Data security & compliance</p>
+                  <p className="font-semibold text-teal-200">Compliance</p>
+                  <p className="text-xs">Data protection & encryption</p>
                 </div>
               </div>
             </div>
@@ -272,20 +287,20 @@ export default function SystemArchitecture() {
               <h3 className="mb-4 text-lg font-semibold text-amber-300 text-center">External Services</h3>
               <div className="space-y-3 text-sm text-gray-400">
                 <div>
-                  <p className="font-semibold text-amber-200">Stripe</p>
-                  <p className="text-xs">Payments & billing</p>
+                  <p className="font-semibold text-amber-200">Social APIs</p>
+                  <p className="text-xs">Meta, TikTok, Instagram, Facebook</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-amber-200">Google Gemini</p>
-                  <p className="text-xs">AI content generation</p>
+                  <p className="font-semibold text-amber-200">Email Services</p>
+                  <p className="text-xs">SendGrid, SES, Mailgun</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-amber-200">Supabase Realtime</p>
-                  <p className="text-xs">Live data sync</p>
+                  <p className="font-semibold text-amber-200">Stripe Payments</p>
+                  <p className="text-xs">Billing & subscriptions</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-amber-200">Email & Notifications</p>
-                  <p className="text-xs">User communications</p>
+                  <p className="font-semibold text-amber-200">Real-Time Sync</p>
+                  <p className="text-xs">Supabase Realtime</p>
                 </div>
               </div>
             </div>
@@ -295,8 +310,8 @@ export default function SystemArchitecture() {
         {/* Layer 5: Revenue Streams */}
         <div className="mb-16">
           <div className="mb-12 text-center">
-            <h2 className="text-2xl font-bold text-white">Revenue Streams</h2>
-            <p className="mt-2 text-base text-gray-400">Core platform features and monetization</p>
+            <h2 className="text-2xl font-bold text-white">Revenue Streams & Monetization</h2>
+            <p className="mt-2 text-base text-gray-400">Tiered pricing by feature depth and scale</p>
           </div>
 
           {/* Core Platform Features */}
@@ -310,7 +325,7 @@ export default function SystemArchitecture() {
                   </svg>
                 </div>
                 <h4 className="mb-2 font-semibold text-blue-300">Subscription Portals</h4>
-                <p className="text-xs text-gray-400">Multi-tenant SaaS platform access, monthly/annual billing</p>
+                <p className="text-xs text-gray-400">Multi-tenant SaaS, monthly/annual billing</p>
               </div>
 
               <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-6 text-center">
@@ -320,7 +335,7 @@ export default function SystemArchitecture() {
                   </svg>
                 </div>
                 <h4 className="mb-2 font-semibold text-pink-300">Landing Page Builder</h4>
-                <p className="text-xs text-gray-400">Drag-and-drop editor with templates and publishing</p>
+                <p className="text-xs text-gray-400">Drag-and-drop, templates, A/B testing</p>
               </div>
 
               <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 p-6 text-center">
@@ -331,7 +346,7 @@ export default function SystemArchitecture() {
                   </svg>
                 </div>
                 <h4 className="mb-2 font-semibold text-orange-300">NFC Device Management</h4>
-                <p className="text-xs text-gray-400">Device registration, batch management, monitoring</p>
+                <p className="text-xs text-gray-400">247 devices, batch management</p>
               </div>
 
               <div className="rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 p-6 text-center">
@@ -341,7 +356,7 @@ export default function SystemArchitecture() {
                   </svg>
                 </div>
                 <h4 className="mb-2 font-semibold text-red-300">Event Management</h4>
-                <p className="text-xs text-gray-400">Multi-station check-ins, real-time tracking</p>
+                <p className="text-xs text-gray-400">Multi-station check-ins, real-time</p>
               </div>
 
               <div className="rounded-xl border border-indigo-900/50 bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 p-6 text-center">
@@ -351,7 +366,7 @@ export default function SystemArchitecture() {
                   </svg>
                 </div>
                 <h4 className="mb-2 font-semibold text-indigo-300">Analytics Dashboard</h4>
-                <p className="text-xs text-gray-400">Real-time metrics, revenue tracking, analytics</p>
+                <p className="text-xs text-gray-400">Real-time metrics, KPI tracking</p>
               </div>
             </div>
           </div>
@@ -366,8 +381,8 @@ export default function SystemArchitecture() {
                     <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
                   </svg>
                 </div>
-                <h4 className="mb-2 font-semibold text-cyan-300">Geo Analytics</h4>
-                <p className="text-xs text-gray-400">Location insights, venue performance, traffic patterns</p>
+                <h4 className="mb-2 font-semibold text-cyan-300">Geo-Marketing Intelligence</h4>
+                <p className="text-xs text-gray-400">Location heatmaps, regional analytics</p>
               </div>
 
               <div className="rounded-xl border border-teal-900/50 bg-gradient-to-br from-teal-950/50 to-teal-900/20 p-6 text-center">
@@ -376,8 +391,8 @@ export default function SystemArchitecture() {
                     <path d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3.5a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4z"/>
                   </svg>
                 </div>
-                <h4 className="mb-2 font-semibold text-teal-300">Custom Landing Pages</h4>
-                <p className="text-xs text-gray-400">Professional design, branding, SEO optimization</p>
+                <h4 className="mb-2 font-semibold text-teal-300">Smart Social Scheduler</h4>
+                <p className="text-xs text-gray-400">Social + email automation</p>
               </div>
 
               <div className="rounded-xl border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-6 text-center">
@@ -387,7 +402,7 @@ export default function SystemArchitecture() {
                   </svg>
                 </div>
                 <h4 className="mb-2 font-semibold text-purple-300">White Label Domain</h4>
-                <p className="text-xs text-gray-400">Custom domains, branding removal, CSS styling</p>
+                <p className="text-xs text-gray-400">Custom domains, full branding</p>
               </div>
 
               <div className="rounded-xl border border-yellow-900/50 bg-gradient-to-br from-yellow-950/50 to-yellow-900/20 p-6 text-center">
@@ -397,7 +412,7 @@ export default function SystemArchitecture() {
                   </svg>
                 </div>
                 <h4 className="mb-2 font-semibold text-yellow-300">Task Management</h4>
-                <p className="text-xs text-gray-400">Team collaboration, assignments, progress tracking</p>
+                <p className="text-xs text-gray-400">Team collaboration, tracking</p>
               </div>
 
               <div className="rounded-xl border border-emerald-900/50 bg-gradient-to-br from-emerald-950/50 to-emerald-900/20 p-6 text-center">
@@ -407,23 +422,23 @@ export default function SystemArchitecture() {
                   </svg>
                 </div>
                 <h4 className="mb-2 font-semibold text-emerald-300">API Integration</h4>
-                <p className="text-xs text-gray-400">REST API, webhooks, data export, custom SDKs</p>
+                <p className="text-xs text-gray-400">REST API, webhooks, SDKs</p>
               </div>
             </div>
           </div>
 
-          {/* Business Intelligence */}
+          {/* Business Intelligence & Attribution */}
           <div>
-            <h3 className="mb-6 text-center text-xl font-semibold text-amber-300">Business Intelligence</h3>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <h3 className="mb-6 text-center text-xl font-semibold text-amber-300">Intelligence & Attribution</h3>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               <div className="rounded-xl border border-amber-900/50 bg-gradient-to-br from-amber-950/50 to-amber-900/20 p-6 text-center">
                 <div className="mb-4 flex justify-center rounded-lg bg-amber-500/20 p-3 mx-auto w-fit">
                   <svg className="h-5 w-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
                   </svg>
                 </div>
-                <h4 className="mb-2 font-semibold text-amber-300">Revenue Analytics</h4>
-                <p className="text-xs text-gray-400">Monthly growth tracking, business performance metrics</p>
+                <h4 className="mb-2 font-semibold text-amber-300">Cross-Channel Attribution</h4>
+                <p className="text-xs text-gray-400">Track conversions NFC → Landing → CRM for complete attribution</p>
               </div>
 
               <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 p-6 text-center">
@@ -432,8 +447,8 @@ export default function SystemArchitecture() {
                     <path d="M10 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zM4.293 9.293a1 1 0 011.414 0L9 12.586l4.293-4.293a1 1 0 111.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414z"/>
                   </svg>
                 </div>
-                <h4 className="mb-2 font-semibold text-orange-300">User Engagement Tracking</h4>
-                <p className="text-xs text-gray-400">Active users, scan frequency, behavioral patterns</p>
+                <h4 className="mb-2 font-semibold text-orange-300">Predictive Intelligence</h4>
+                <p className="text-xs text-gray-400">ML-powered forecasting and trend analysis</p>
               </div>
 
               <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-6 text-center">
@@ -442,18 +457,8 @@ export default function SystemArchitecture() {
                     <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"/>
                   </svg>
                 </div>
-                <h4 className="mb-2 font-semibold text-pink-300">Conversion Optimization</h4>
-                <p className="text-xs text-gray-400">ROI attribution, engagement scoring, performance</p>
-              </div>
-
-              <div className="rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 p-6 text-center">
-                <div className="mb-4 flex justify-center rounded-lg bg-red-500/20 p-3 mx-auto w-fit">
-                  <svg className="h-5 w-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.3A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z"/>
-                  </svg>
-                </div>
-                <h4 className="mb-2 font-semibold text-red-300">Strategic Insights</h4>
-                <p className="text-xs text-gray-400">Performance monitoring, data-driven recommendations</p>
+                <h4 className="mb-2 font-semibold text-pink-300">Advanced Analytics Tier</h4>
+                <p className="text-xs text-gray-400">Premium reporting, custom dashboards</p>
               </div>
             </div>
           </div>
@@ -462,7 +467,7 @@ export default function SystemArchitecture() {
         {/* Footer Navigation */}
         <div className="border-t border-gray-800 pt-12 text-center">
           <a
-            href="/demo"
+            href="/"
             className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-600 px-8 py-3 text-base font-semibold text-white transition-all hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50"
           >
             View All Demos
