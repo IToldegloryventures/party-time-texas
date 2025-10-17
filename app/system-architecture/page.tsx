@@ -280,20 +280,20 @@ export default function SystemArchitecture() {
               <h3 className="mb-4 text-lg font-semibold text-amber-300 text-center">External Services</h3>
               <div className="space-y-3 text-sm text-gray-400">
                 <div>
-                  <p className="font-semibold text-amber-200">Social APIs</p>
-                  <p className="text-xs">Meta, TikTok, Instagram, Facebook</p>
+                  <p className="font-semibold text-amber-200">Stripe (billing)</p>
+                  <p className="text-xs">Payment processing & subscriptions</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-amber-200">Email Services</p>
-                  <p className="text-xs">SendGrid, SES, Mailgun</p>
+                  <p className="font-semibold text-amber-200">Social APIs (Meta, TikTok)</p>
+                  <p className="text-xs">Campaign posting & engagement</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-amber-200">Stripe Payments</p>
-                  <p className="text-xs">Billing & subscriptions</p>
+                  <p className="font-semibold text-amber-200">Email providers (SendGrid, Mailgun)</p>
+                  <p className="text-xs">Transactional & campaign emails</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-amber-200">Real-Time Sync</p>
-                  <p className="text-xs">Supabase Realtime</p>
+                  <p className="font-semibold text-amber-200">Supabase Realtime</p>
+                  <p className="text-xs">Real-time data sync</p>
                 </div>
               </div>
             </div>
