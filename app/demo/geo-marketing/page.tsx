@@ -27,29 +27,6 @@ export default function GeoMarketingDemo() {
           <p className="text-gray-300">Visualize customer engagement and conversion metrics by location to optimize regional campaigns</p>
         </div>
 
-        {/* Location Map Placeholder */}
-        <div className="mb-20 rounded-xl border border-purple-900/50 bg-gray-900/50 p-8 overflow-hidden">
-          <div className="mb-6 flex items-center justify-between">
-            <div>
-              <h3 className="text-xl font-bold text-white">North DFW Location Map</h3>
-              <p className="text-sm text-gray-400 mt-1">Interactive map with location metrics</p>
-            </div>
-            <select className="rounded bg-gray-800 text-sm text-gray-300 px-4 py-2 border border-gray-700">
-              <option>Last 30 Days</option>
-              <option>Last 90 Days</option>
-              <option>Year to Date</option>
-            </select>
-          </div>
-
-          <div className="relative rounded-lg overflow-hidden bg-gray-800 border border-gray-700 h-96 flex items-center justify-center">
-            <div className="text-center">
-              <div className="text-6xl mb-4 opacity-50">🗺️</div>
-              <p className="text-gray-400 text-lg font-semibold">Location Map</p>
-              <p className="text-gray-500 text-sm mt-2">Interactive map visualization coming soon</p>
-            </div>
-          </div>
-        </div>
-
         {/* Regional KPI Cards */}
         <div className="grid grid-cols-1 gap-4 mb-8 md:grid-cols-4">
           <div className="rounded-lg border border-gray-700 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-6">
