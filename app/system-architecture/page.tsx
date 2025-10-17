@@ -5,7 +5,8 @@ export default function SystemArchitecture() {
       <div className="border-b border-gray-800 bg-gray-950 px-6 py-12">
         <div className="mx-auto max-w-7xl text-center">
           <h1 className="mb-2 text-4xl font-bold text-white">System Architecture</h1>
-          <p className="text-base text-gray-400">Cosmic Portals Multi-Tenant NFC Platform</p>
+          <p className="text-base text-gray-400">Cosmic Portals Multi-Tenant NFC & Engagement Platform</p>
+          <p className="mt-3 text-sm text-gray-500">Comprehensive architecture supporting campaign automation, geo-intelligence, real-time analytics, and white-label SaaS delivery.</p>
         </div>
       </div>
 
