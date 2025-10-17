@@ -347,7 +347,6 @@ export default function DemoHub() {
             {/* Row 1 */}
             <Link href="/demo/geo-marketing">
               <div className="group rounded-lg border border-purple-600/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-6 shadow-lg transition-all hover:border-purple-400/80 hover:shadow-purple-500/20">
-                <div className="mb-3 text-2xl">🌍</div>
                 <h3 className="mb-2 font-bold text-purple-300">Geo-Marketing Intelligence</h3>
                 <p className="text-xs text-gray-300">Location-driven insights and regional KPIs</p>
                 <div className="mt-4 text-purple-400 transition-all group-hover:translate-x-1">View Demo →</div>
@@ -356,7 +355,6 @@ export default function DemoHub() {
 
             <Link href="/demo/customer-journey-insights">
               <div className="group rounded-lg border border-blue-600/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-6 shadow-lg transition-all hover:border-blue-400/80 hover:shadow-blue-500/20">
-                <div className="mb-3 text-2xl">🔄</div>
                 <h3 className="mb-2 font-bold text-blue-300">Customer Journey Insights</h3>
                 <p className="text-xs text-gray-300">Scan-to-sale funnel mapping and attribution</p>
                 <div className="mt-4 text-blue-400 transition-all group-hover:translate-x-1">View Demo →</div>
@@ -365,7 +363,6 @@ export default function DemoHub() {
 
             <Link href="/demo/smart-social-scheduler">
               <div className="group rounded-lg border border-pink-600/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-6 shadow-lg transition-all hover:border-pink-400/80 hover:shadow-pink-500/20">
-                <div className="mb-3 text-2xl">🗓️</div>
                 <h3 className="mb-2 font-bold text-pink-300">Smart Social Scheduler</h3>
                 <p className="text-xs text-gray-300">Campaign calendar and social post automation</p>
                 <div className="mt-4 text-pink-400 transition-all group-hover:translate-x-1">View Demo →</div>
@@ -374,7 +371,6 @@ export default function DemoHub() {
 
             <Link href="/demo/landing-page-builder">
               <div className="group rounded-lg border border-cyan-600/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-6 shadow-lg transition-all hover:border-cyan-400/80 hover:shadow-cyan-500/20">
-                <div className="mb-3 text-2xl">🎨</div>
                 <h3 className="mb-2 font-bold text-cyan-300">Landing Page Builder</h3>
                 <p className="text-xs text-gray-300">Drag-and-drop with geo-personalization</p>
                 <div className="mt-4 text-cyan-400 transition-all group-hover:translate-x-1">View Demo →</div>
@@ -383,7 +379,6 @@ export default function DemoHub() {
 
             <Link href="/demo/nfc-analytics">
               <div className="group rounded-lg border border-green-600/50 bg-gradient-to-br from-green-950/50 to-green-900/20 p-6 shadow-lg transition-all hover:border-green-400/80 hover:shadow-green-500/20">
-                <div className="mb-3 text-2xl">📊</div>
                 <h3 className="mb-2 font-bold text-green-300">NFC Analytics Dashboard</h3>
                 <p className="text-xs text-gray-300">Real-time metrics and conversion tracking</p>
                 <div className="mt-4 text-green-400 transition-all group-hover:translate-x-1">View Demo →</div>
@@ -393,7 +388,6 @@ export default function DemoHub() {
             {/* Row 2 */}
             <Link href="/demo/nfc-management">
               <div className="group rounded-lg border border-orange-600/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 p-6 shadow-lg transition-all hover:border-orange-400/80 hover:shadow-orange-500/20">
-                <div className="mb-3 text-2xl">🔧</div>
                 <h3 className="mb-2 font-bold text-orange-300">NFC Device Management</h3>
                 <p className="text-xs text-gray-300">Hardware control and deployment tracking</p>
                 <div className="mt-4 text-orange-400 transition-all group-hover:translate-x-1">View Demo →</div>
@@ -402,7 +396,6 @@ export default function DemoHub() {
 
             <Link href="/demo/task-management">
               <div className="group rounded-lg border border-red-600/50 bg-gradient-to-br from-red-950/50 to-red-900/20 p-6 shadow-lg transition-all hover:border-red-400/80 hover:shadow-red-500/20">
-                <div className="mb-3 text-2xl">📋</div>
                 <h3 className="mb-2 font-bold text-red-300">Task Management</h3>
                 <p className="text-xs text-gray-300">Geo-tagged tasks and team collaboration</p>
                 <div className="mt-4 text-red-400 transition-all group-hover:translate-x-1">View Demo →</div>
@@ -411,7 +404,6 @@ export default function DemoHub() {
 
             <Link href="/demo/mobile-app-client">
               <div className="group rounded-lg border border-indigo-600/50 bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 p-6 shadow-lg transition-all hover:border-indigo-400/80 hover:shadow-indigo-500/20">
-                <div className="mb-3 text-2xl">📱</div>
                 <h3 className="mb-2 font-bold text-indigo-300">Mobile App - Client</h3>
                 <p className="text-xs text-gray-300">Manage marketing from any device</p>
                 <div className="mt-4 text-indigo-400 transition-all group-hover:translate-x-1">View Demo →</div>
@@ -420,7 +412,6 @@ export default function DemoHub() {
 
             <Link href="/demo/mobile-app-customer">
               <div className="group rounded-lg border border-teal-600/50 bg-gradient-to-br from-teal-950/50 to-teal-900/20 p-6 shadow-lg transition-all hover:border-teal-400/80 hover:shadow-teal-500/20">
-                <div className="mb-3 text-2xl">👤</div>
                 <h3 className="mb-2 font-bold text-teal-300">Mobile App - Customer</h3>
                 <p className="text-xs text-gray-300">Discover local offers and events</p>
                 <div className="mt-4 text-teal-400 transition-all group-hover:translate-x-1">View Demo →</div>
@@ -429,7 +420,6 @@ export default function DemoHub() {
 
             <Link href="/demo/white-label">
               <div className="group rounded-lg border border-amber-600/50 bg-gradient-to-br from-amber-950/50 to-amber-900/20 p-6 shadow-lg transition-all hover:border-amber-400/80 hover:shadow-amber-500/20">
-                <div className="mb-3 text-2xl">🏢</div>
                 <h3 className="mb-2 font-bold text-amber-300">White-Label Customization</h3>
                 <p className="text-xs text-gray-300">Branded domains and full customization</p>
                 <div className="mt-4 text-amber-400 transition-all group-hover:translate-x-1">View Demo →</div>
