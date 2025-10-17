@@ -64,8 +64,8 @@ export default function SystemArchitecture() {
                 </svg>
               </div>
               <h3 className="mb-1 text-lg font-semibold text-green-300">Clerk Authentication</h3>
-              <p className="text-sm text-gray-300">SSO, MFA, RBAC</p>
-              <p className="mt-3 text-xs text-gray-400">Role-based routing, isolation</p>
+              <p className="text-sm text-gray-300">SSO · MFA · RBAC</p>
+              <p className="mt-3 text-xs text-gray-400">Role-based isolation · Tenant-aware routing</p>
             </div>
           </div>
         </div>
