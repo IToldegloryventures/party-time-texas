@@ -58,7 +58,6 @@ export default function MobileAppClientDemo() {
 
             {/* Feature 4 */}
             <div className="rounded-lg border border-gray-700 bg-gray-800/50 p-8 hover:border-indigo-600/50 transition">
-              <div className="text-5xl mb-4">📅</div>
               <h3 className="text-xl font-bold text-white mb-3">Campaign &amp; Event Dashboards</h3>
               <p className="text-gray-300 text-sm mb-4">Manage active campaigns and events from the app. Launch social posts, update landing pages, and track performance in real-time.</p>
               <ul className="text-sm text-gray-400 space-y-2">
