@@ -256,7 +256,7 @@ export default function MobileAppCustomerDemo() {
           <p className="text-gray-300 mb-6">Discover local events, claim exclusive offers, and tap into the full North DFW experience.</p>
           <div className="flex gap-4 justify-center flex-wrap">
             <button className="rounded-lg bg-black border border-gray-600 px-6 py-3 text-white font-semibold hover:border-gray-500 transition">
-              🍎 App Store
+              App Store
             </button>
             <button className="rounded-lg bg-black border border-gray-600 px-6 py-3 text-white font-semibold hover:border-gray-500 transition">
               🔵 Google Play
