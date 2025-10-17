@@ -39,6 +39,59 @@ export default function DemoHub() {
           </Link>
         </div>
 
+        {/* From Tap to Insight Section */}
+        <div className="mb-20 rounded-xl border border-gradient-to-r from-cyan-900/50 to-blue-900/50 bg-gradient-to-br from-gray-900/80 via-cyan-900/20 to-gray-900/80 p-12 backdrop-blur">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white mb-3">
+              🌐 From Tap to Insight
+            </h2>
+            <p className="text-xl text-gray-300">
+              Track Who, What, When, Where — and Why It Matters
+            </p>
+            <p className="text-base text-gray-400 mt-4 max-w-3xl mx-auto">
+              Every time a customer taps an NFC tag, Cosmic Portals turns that interaction into rich, actionable insight.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="rounded-lg border border-cyan-700/30 bg-gradient-to-br from-cyan-950/50 to-cyan-900/10 p-6">
+              <p className="text-lg font-bold text-cyan-300 mb-2">→ Who & When</p>
+              <p className="text-sm text-gray-300">Identify the exact user and moment of engagement — powered by NFC hardware.</p>
+            </div>
+
+            <div className="rounded-lg border border-blue-700/30 bg-gradient-to-br from-blue-950/50 to-blue-900/10 p-6">
+              <p className="text-lg font-bold text-blue-300 mb-2">→ Where & Why</p>
+              <p className="text-sm text-gray-300">Pinpoint location with geo-tagged scans and regional heatmaps — revealing what's working in each city or venue.</p>
+            </div>
+
+            <div className="rounded-lg border border-purple-700/30 bg-gradient-to-br from-purple-950/50 to-purple-900/10 p-6">
+              <p className="text-lg font-bold text-purple-300 mb-2">→ What Happened</p>
+              <p className="text-sm text-gray-300">See what content was viewed, what offers converted, and how customers engaged on your landing pages.</p>
+            </div>
+
+            <div className="rounded-lg border border-pink-700/30 bg-gradient-to-br from-pink-950/50 to-pink-900/10 p-6">
+              <p className="text-lg font-bold text-pink-300 mb-2">→ What They Did</p>
+              <p className="text-sm text-gray-300">Track actions like signups, clicks, or lead capture — connected to each scan and region.</p>
+            </div>
+
+            <div className="rounded-lg border border-orange-700/30 bg-gradient-to-br from-orange-950/50 to-orange-900/10 p-6">
+              <p className="text-lg font-bold text-orange-300 mb-2">→ What Got Triggered</p>
+              <p className="text-sm text-gray-300">Automate personalized follow-ups, smart campaigns, or social posts tied to scan behavior.</p>
+            </div>
+
+            <div className="rounded-lg border border-green-700/30 bg-gradient-to-br from-green-950/50 to-green-900/10 p-6">
+              <p className="text-lg font-bold text-green-300 mb-2">→ What Worked</p>
+              <p className="text-sm text-gray-300">Measure ROI across regions, campaigns, devices, and channels — all in one connected dashboard.</p>
+            </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-lg text-gray-300">
+              <span className="font-bold text-white">Cosmic Portals doesn't just track engagement — it explains it.</span>
+            </p>
+          </div>
+        </div>
+
         {/* Demo Cards */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Business User Demo */}
