@@ -84,7 +84,6 @@ export default function MobileAppCustomerDemo() {
                 <p className="text-xs font-semibold text-gray-400">Discover Screen</p>
               </div>
               <div className="flex-1 rounded-lg bg-gradient-to-br from-teal-900/20 to-cyan-900/20 border border-gray-700 flex flex-col items-center justify-center p-4">
-                <div className="text-4xl mb-2">🗺️</div>
                 <div className="w-full space-y-2">
                   <div className="h-2 bg-teal-600 rounded" style={{ width: '90%' }}></div>
                   <div className="h-2 bg-cyan-600 rounded" style={{ width: '75%' }}></div>
@@ -100,7 +99,6 @@ export default function MobileAppCustomerDemo() {
                 <p className="text-xs font-semibold text-gray-400">Offers Screen</p>
               </div>
               <div className="flex-1 rounded-lg bg-gradient-to-br from-orange-900/20 to-pink-900/20 border border-gray-700 flex flex-col items-center justify-center p-4">
-                <div className="text-4xl mb-2">🎁</div>
                 <div className="w-full space-y-2">
                   <div className="h-4 bg-orange-600 rounded-lg flex items-center px-2">
                     <span className="text-xs text-white font-bold">25% OFF</span>
@@ -122,7 +120,6 @@ export default function MobileAppCustomerDemo() {
                 <p className="text-xs font-semibold text-gray-400">Events Screen</p>
               </div>
               <div className="flex-1 rounded-lg bg-gradient-to-br from-purple-900/20 to-pink-900/20 border border-gray-700 flex flex-col items-center justify-center p-4">
-                <div className="text-4xl mb-2">🎉</div>
                 <div className="w-full space-y-2 text-center">
                   <div className="h-2 bg-purple-600 rounded w-full"></div>
                   <div className="h-2 bg-pink-600 rounded w-4/5 mx-auto"></div>
@@ -139,7 +136,6 @@ export default function MobileAppCustomerDemo() {
                 <p className="text-xs font-semibold text-gray-400">Wallet Screen</p>
               </div>
               <div className="flex-1 rounded-lg bg-gradient-to-br from-blue-900/20 to-indigo-900/20 border border-gray-700 flex flex-col items-center justify-center p-4">
-                <div className="text-4xl mb-2">💳</div>
                 <div className="w-full space-y-2">
                   <div className="h-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded"></div>
                   <div className="h-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded opacity-70"></div>
@@ -157,7 +153,7 @@ export default function MobileAppCustomerDemo() {
             <div className="p-6 rounded-lg bg-gradient-to-r from-gray-900 to-gray-800 border border-gray-700">
               <div className="flex items-start justify-between mb-3">
                 <div>
-                  <p className="font-bold text-white text-lg">🎨 Deep Ellum Arts District</p>
+                  <p className="font-bold text-white text-lg">Deep Ellum Arts District</p>
                   <p className="text-sm text-gray-400">Dallas's vibrant arts & culture zone</p>
                 </div>
               </div>
@@ -167,7 +163,7 @@ export default function MobileAppCustomerDemo() {
             <div className="p-6 rounded-lg bg-gradient-to-r from-gray-900 to-gray-800 border border-gray-700">
               <div className="flex items-start justify-between mb-3">
                 <div>
-                  <p className="font-bold text-white text-lg">💼 Plano Tech Corridor</p>
+                  <p className="font-bold text-white text-lg">Plano Tech Corridor</p>
                   <p className="text-sm text-gray-400">Innovation hub with corporate events</p>
                 </div>
               </div>
@@ -177,7 +173,7 @@ export default function MobileAppCustomerDemo() {
             <div className="p-6 rounded-lg bg-gradient-to-r from-gray-900 to-gray-800 border border-gray-700">
               <div className="flex items-start justify-between mb-3">
                 <div>
-                  <p className="font-bold text-white text-lg">🛍️ Fort Worth Downtown</p>
+                  <p className="font-bold text-white text-lg">Fort Worth Downtown</p>
                   <p className="text-sm text-gray-400">Retail & dining destination</p>
                 </div>
               </div>
@@ -187,7 +183,7 @@ export default function MobileAppCustomerDemo() {
             <div className="p-6 rounded-lg bg-gradient-to-r from-gray-900 to-gray-800 border border-gray-700">
               <div className="flex items-start justify-between mb-3">
                 <div>
-                  <p className="font-bold text-white text-lg">🎪 Dallas Farmers Market</p>
+                  <p className="font-bold text-white text-lg">Dallas Farmers Market</p>
                   <p className="text-sm text-gray-400">Community gathering & local vendors</p>
                 </div>
               </div>
@@ -201,19 +197,16 @@ export default function MobileAppCustomerDemo() {
           <h3 className="text-2xl font-bold text-white mb-6">Engagement &amp; Gamification</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="p-6 rounded-lg bg-gradient-to-br from-teal-950/50 to-teal-900/20 border border-teal-700/50">
-              <div className="text-3xl mb-4">🏆</div>
               <h4 className="font-bold text-teal-300 mb-3">Event Badges</h4>
               <p className="text-sm text-gray-300">Unlock badges by attending events. Collect "Art Lover," "Foodie," "Tech Enthusiast," and more. Display badges on your profile.</p>
             </div>
 
             <div className="p-6 rounded-lg bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 border border-cyan-700/50">
-              <div className="text-3xl mb-4">⭐</div>
               <h4 className="font-bold text-cyan-300 mb-3">Loyalty Points</h4>
               <p className="text-sm text-gray-300">Earn points for every purchase, RSVP, or check-in. Redeem for exclusive perks, free items, or partner rewards.</p>
             </div>
 
             <div className="p-6 rounded-lg bg-gradient-to-br from-purple-950/50 to-purple-900/20 border border-purple-700/50">
-              <div className="text-3xl mb-4">🎯</div>
               <h4 className="font-bold text-purple-300 mb-3">Referral Rewards</h4>
               <p className="text-sm text-gray-300">Invite friends to events or offer shares. Both get bonus points. Build your network and unlock VIP status.</p>
             </div>
