@@ -29,7 +29,7 @@ export default function SystemArchitecture() {
               </div>
               <h3 className="mb-1 text-lg font-semibold text-blue-300">Web Dashboard</h3>
               <p className="text-sm text-gray-300">Next.js 15, React 19, Tailwind CSS</p>
-              <p className="mt-3 text-xs text-gray-400">Campaign management, analytics, device control</p>
+              <p className="mt-3 text-xs text-gray-400">Campaigns · Analytics · Device Control</p>
             </div>
 
             {/* Mobile Apps */}
