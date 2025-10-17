@@ -305,6 +305,7 @@ export default function SystemArchitecture() {
           <div className="mb-12 text-center">
             <h2 className="text-2xl font-bold text-white">Revenue Streams & Monetization</h2>
             <p className="mt-2 text-base text-gray-400">Tiered pricing by feature depth and scale</p>
+            <p className="mt-4 text-sm text-gray-500">Core Platform · Advanced Services · Intelligence & Attribution</p>
           </div>
 
           {/* Core Platform Features */}
