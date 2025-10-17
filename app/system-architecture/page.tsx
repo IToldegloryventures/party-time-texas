@@ -88,11 +88,10 @@ export default function SystemArchitecture() {
                 </svg>
               </div>
               <h3 className="mb-1 text-lg font-semibold text-orange-300">NFC Device Manager</h3>
-              <p className="text-sm text-gray-300">247 Active Devices</p>
+              <p className="text-sm text-gray-300">247 Devices · Real-time Monitoring</p>
               <ul className="mt-3 space-y-1 text-xs text-gray-400">
-                <li>• Device registration & status</li>
-                <li>• Batch management</li>
-                <li>• Real-time monitoring</li>
+                <li>• Device registration · Batch programming</li>
+                <li>• Uptime insights</li>
               </ul>
             </div>
 
