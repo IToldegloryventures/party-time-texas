@@ -218,8 +218,9 @@ export default function SystemArchitecture() {
         <div className="mb-32">
           <div className="mb-8 text-center">
             <h2 className="text-2xl font-bold text-white">Data & Security Layer</h2>
-            <p className="mt-2 text-base text-gray-400">Multi-tenant database with enterprise security</p>
+            <p className="mt-2 text-base text-gray-400">Multi-tenant database with enterprise-grade protection</p>
           </div>
+          <p className="mb-8 text-center text-sm text-gray-500">Supabase PostgreSQL · Security & Access Control · External Services</p>
 
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
             {/* Database */}
