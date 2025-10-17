@@ -149,7 +149,6 @@ export default function MobileAppClientDemo() {
             </div>
 
             <div className="p-6 rounded-lg bg-gradient-to-br from-orange-950/50 to-orange-900/20 border border-orange-700/50">
-              <div className="text-3xl mb-4">⚙️</div>
               <h4 className="font-bold text-orange-300 mb-4">Operations Teams</h4>
               <ul className="text-sm text-gray-300 space-y-3">
                 <li className="flex items-start gap-3">
