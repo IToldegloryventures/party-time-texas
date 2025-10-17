@@ -80,7 +80,6 @@ export default function MobileAppClientDemo() {
                 <p className="text-xs font-semibold text-gray-400">Home Screen</p>
               </div>
               <div className="flex-1 rounded-lg bg-gradient-to-br from-indigo-900/20 to-purple-900/20 border border-gray-700 flex flex-col items-center justify-center p-4">
-                <div className="text-4xl mb-2">📱</div>
                 <div className="w-full space-y-3">
                   <div className="h-6 bg-gray-700 rounded w-3/4 mx-auto"></div>
                   <div className="h-8 bg-indigo-600/30 rounded border border-indigo-600/50"></div>
