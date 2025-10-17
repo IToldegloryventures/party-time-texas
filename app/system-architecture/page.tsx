@@ -102,12 +102,11 @@ export default function SystemArchitecture() {
                   <path d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm3.293-1.293a1 1 0 011.414 0L9 7.586l2.293-2.293a1 1 0 111.414 1.414L10.414 9l2.293 2.293a1 1 0 01-1.414 1.414L9 10.414l-2.293 2.293a1 1 0 01-1.414-1.414L7.586 9 5.293 6.707a1 1 0 010-1.414z"/>
                 </svg>
               </div>
-              <h3 className="mb-1 text-lg font-semibold text-pink-300">Campaign & Content</h3>
-              <p className="text-sm text-gray-300">Social + Email Scheduling</p>
+              <h3 className="mb-1 text-lg font-semibold text-pink-300">Campaign & Content Module</h3>
+              <p className="text-sm text-gray-300">Social and Email Scheduling</p>
               <ul className="mt-3 space-y-1 text-xs text-gray-400">
-                <li>• Social media campaigns</li>
-                <li>• Email scheduling</li>
-                <li>• Content management</li>
+                <li>• Visual composer · Calendar view</li>
+                <li>• Drip logic</li>
               </ul>
             </div>
 
