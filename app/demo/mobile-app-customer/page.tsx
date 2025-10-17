@@ -259,7 +259,7 @@ export default function MobileAppCustomerDemo() {
               App Store
             </button>
             <button className="rounded-lg bg-black border border-gray-600 px-6 py-3 text-white font-semibold hover:border-gray-500 transition">
-              🔵 Google Play
+              Google Play
             </button>
           </div>
         </div>
