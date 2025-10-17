@@ -96,7 +96,6 @@ export default function MobileAppClientDemo() {
                 <p className="text-xs font-semibold text-gray-400">Analytics Screen</p>
               </div>
               <div className="flex-1 rounded-lg bg-gradient-to-br from-blue-900/20 to-cyan-900/20 border border-gray-700 flex flex-col items-center justify-center p-4">
-                <div className="text-4xl mb-2">📊</div>
                 <div className="w-full space-y-2">
                   <div className="h-3 bg-blue-600 rounded-full" style={{ width: '80%' }}></div>
                   <div className="h-3 bg-green-600 rounded-full" style={{ width: '65%' }}></div>
