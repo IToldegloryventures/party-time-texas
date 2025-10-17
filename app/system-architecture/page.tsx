@@ -179,16 +179,16 @@ export default function SystemArchitecture() {
               <h3 className="mb-4 text-xl font-semibold text-indigo-300 text-center">Attribution & Intelligence</h3>
               <div className="space-y-4">
                 <div>
-                  <p className="font-semibold text-indigo-200">Cross-Channel Attribution</p>
-                  <p className="mt-1 text-sm text-gray-400">NFC → Landing → CRM tracking</p>
+                  <p className="font-semibold text-indigo-200">NFC → Landing → CRM</p>
+                  <p className="mt-1 text-sm text-gray-400">Cross-channel tracking · Attribution</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-indigo-200">Geo-Marketing Intelligence</p>
-                  <p className="mt-1 text-sm text-gray-400">Regional performance, location insights</p>
+                  <p className="font-semibold text-indigo-200">Geo-Marketing</p>
+                  <p className="mt-1 text-sm text-gray-400">Regional performance · Geo heatmaps</p>
                 </div>
                 <div>
                   <p className="font-semibold text-indigo-200">Predictive Modeling</p>
-                  <p className="mt-1 text-sm text-gray-400">Forecasting, trend analysis</p>
+                  <p className="mt-1 text-sm text-gray-400">ML-powered forecasting</p>
                 </div>
               </div>
             </div>
