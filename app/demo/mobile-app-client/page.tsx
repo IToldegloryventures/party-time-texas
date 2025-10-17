@@ -34,7 +34,6 @@ export default function MobileAppClientDemo() {
 
             {/* Feature 2 */}
             <div className="rounded-lg border border-gray-700 bg-gray-800/50 p-8 hover:border-indigo-600/50 transition">
-              <div className="text-5xl mb-4">🔔</div>
               <h3 className="text-xl font-bold text-white mb-3">Device Status Alerts</h3>
               <p className="text-gray-300 text-sm mb-4">Stay informed with real-time device health monitoring. Get alerts for battery low, offline devices, or unusual activity patterns.</p>
               <ul className="text-sm text-gray-400 space-y-2">
