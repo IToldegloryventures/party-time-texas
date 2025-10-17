@@ -43,7 +43,7 @@ export default function DemoHub() {
         <div className="mb-20 rounded-xl border border-gradient-to-r from-cyan-900/50 to-blue-900/50 bg-gradient-to-br from-gray-900/80 via-cyan-900/20 to-gray-900/80 p-12 backdrop-blur">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-3">
-              🌐 From Tap to Insight
+              From Tap to Insight
             </h2>
             <p className="text-xl text-gray-300">
               Track Who, What, When, Where — and Why It Matters
