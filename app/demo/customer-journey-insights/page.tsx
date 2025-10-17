@@ -2,10 +2,10 @@ import Link from 'next/link';
 
 export default function CustomerJourneyDemo() {
   const journeyStages = [
-    { stage: 'Scan', count: 65700, color: 'blue', icon: '📱' },
-    { stage: 'Landing Page', count: 42380, color: 'purple', icon: '🌐' },
-    { stage: 'Lead Form', count: 18920, color: 'pink', icon: '📝' },
-    { stage: 'Sale', count: 9460, color: 'green', icon: '💰' }
+    { stage: 'Scan', count: 65700, color: 'blue', icon: '' },
+    { stage: 'Landing Page', count: 42380, color: 'purple', icon: '' },
+    { stage: 'Lead Form', count: 18920, color: 'pink', icon: '' },
+    { stage: 'Sale', count: 9460, color: 'green', icon: '' }
   ];
 
   const channels = [
