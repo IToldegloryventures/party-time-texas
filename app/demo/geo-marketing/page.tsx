@@ -72,7 +72,6 @@ export default function GeoMarketingDemo() {
 
           <div className="relative rounded-lg overflow-hidden bg-gray-800 border border-gray-700 h-96 flex items-center justify-center">
             <div className="text-center">
-              <div className="text-6xl mb-4 opacity-50">🗺️</div>
               <p className="text-gray-300 text-lg font-semibold">North DFW Interactive Heatmap</p>
               <p className="text-gray-500 text-sm mt-2">Color gradient: Deep red (high engagement) to light blue (lower engagement)</p>
               <div className="mt-6 inline-flex gap-4 text-sm">
@@ -207,7 +206,6 @@ export default function GeoMarketingDemo() {
         {/* Optimization Insights */}
         <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-2">
           <div className="rounded-lg border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-8">
-            <div className="text-4xl mb-4">🎯</div>
             <h3 className="font-bold text-purple-300 text-lg mb-4">Double Down Strategy</h3>
             <ul className="space-y-3 text-sm text-gray-300">
               <li className="flex items-start gap-3">
@@ -226,7 +224,6 @@ export default function GeoMarketingDemo() {
           </div>
 
           <div className="rounded-lg border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-8">
-            <div className="text-4xl mb-4">⚠️</div>
             <h3 className="font-bold text-cyan-300 text-lg mb-4">Rebalance Strategy</h3>
             <ul className="space-y-3 text-sm text-gray-300">
               <li className="flex items-start gap-3">
@@ -250,22 +247,18 @@ export default function GeoMarketingDemo() {
           <h3 className="text-2xl font-bold text-white mb-6">Coming Features — North DFW Examples</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="p-4 rounded-lg bg-gray-900/50 border border-gray-700">
-              <div className="text-2xl mb-3">🎯</div>
               <h4 className="font-bold text-white mb-2">Geo-Personalized Landing Pages</h4>
               <p className="text-sm text-gray-300">E.g., at the Dallas Farmers Market, users see "Special Offer for Deep Ellum Arts Festival"</p>
             </div>
             <div className="p-4 rounded-lg bg-gray-900/50 border border-gray-700">
-              <div className="text-2xl mb-3">⚡</div>
               <h4 className="font-bold text-white mb-2">Location-Triggered Automations</h4>
               <p className="text-sm text-gray-300">E.g., scan in Plano triggers SMS: "Visit our Frisco store for 20% off"</p>
             </div>
             <div className="p-4 rounded-lg bg-gray-900/50 border border-gray-700">
-              <div className="text-2xl mb-3">📊</div>
               <h4 className="font-bold text-white mb-2">Regional A/B Tests</h4>
               <p className="text-sm text-gray-300">E.g., test banner copy in Garland vs Lewisville to optimize messaging by locale</p>
             </div>
             <div className="p-4 rounded-lg bg-gray-900/50 border border-gray-700">
-              <div className="text-2xl mb-3">🎯</div>
               <h4 className="font-bold text-white mb-2">Lead Routing by Zone</h4>
               <p className="text-sm text-gray-300">E.g., scans in Carrollton auto-route to Carrollton sales rep for faster follow-up</p>
             </div>
