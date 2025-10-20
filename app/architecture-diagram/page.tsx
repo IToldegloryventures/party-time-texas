@@ -19,7 +19,7 @@ export default function ArchitectureDiagram() {
             <p className="text-sm text-gray-400">Web Dashboard • Mobile Apps • White-Label Domains • Clerk Authentication & RBAC</p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 justify-center">
             {/* Web Dashboard */}
             <div className="group rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 overflow-hidden transition-all hover:border-blue-700/80 hover:bg-blue-950/40">
               <div className="bg-gradient-to-r from-blue-600 to-blue-800 px-6 py-4">
@@ -90,7 +90,7 @@ export default function ArchitectureDiagram() {
             <p className="text-sm text-gray-400">API Gateway • NFC Device Manager • Landing Page Builder • Campaign & Content • Trigger Engine • Job Queue</p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2 justify-center max-w-3xl mx-auto">
             {/* API Gateway / BFF */}
             <div className="rounded-xl border border-slate-900/50 bg-gradient-to-br from-slate-950/50 to-slate-900/20 overflow-hidden">
               <div className="bg-gradient-to-r from-slate-600 to-slate-800 px-6 py-4">
@@ -206,7 +206,7 @@ export default function ArchitectureDiagram() {
             <p className="text-sm text-gray-400">Event Ingestion · Streaming/Batch Processing · Data Warehouse · BI Layer · ML/Prediction</p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-5">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5 justify-center">
             {/* Event Ingestion */}
             <div className="rounded-xl border border-sky-900/50 bg-gradient-to-br from-sky-950/50 to-sky-900/20 overflow-hidden">
               <div className="bg-gradient-to-r from-sky-600 to-sky-800 px-6 py-4">
@@ -279,7 +279,7 @@ export default function ArchitectureDiagram() {
           </div>
 
           {/* Analytics & Intelligence Features */}
-          <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
+          <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 justify-center max-w-4xl mx-auto">
             <div className="rounded-xl border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-6">
               <h3 className="mb-4 text-sm font-semibold text-white">Real-Time Analytics</h3>
               <div className="text-xs text-gray-300 space-y-2">
@@ -315,7 +315,7 @@ export default function ArchitectureDiagram() {
             <p className="text-sm text-gray-400">Supabase PostgreSQL · Cache/Realtime · Authentication/IAM · Encryption · External Services</p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-5">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5 justify-center">
             {/* Primary Database */}
             <div className="rounded-xl border border-emerald-900/50 bg-gradient-to-br from-emerald-950/50 to-emerald-900/20 overflow-hidden">
               <div className="bg-gradient-to-r from-emerald-600 to-emerald-800 px-6 py-4">
@@ -406,7 +406,7 @@ export default function ArchitectureDiagram() {
           {/* Core Platform Features */}
           <div className="mb-16">
             <h3 className="mb-8 text-center text-lg font-semibold text-white">Core Platform Features</h3>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5 justify-center">
               <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 overflow-hidden">
                 <div className="bg-gradient-to-r from-blue-600 to-blue-800 px-6 py-4">
                   <h4 className="font-semibold text-white">Subscription Portals</h4>
@@ -457,7 +457,7 @@ export default function ArchitectureDiagram() {
           {/* Advanced Services */}
           <div className="mb-16">
             <h3 className="mb-8 text-center text-lg font-semibold text-white">Advanced Services</h3>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5 justify-center">
               <div className="rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 overflow-hidden">
                 <div className="bg-gradient-to-r from-cyan-600 to-cyan-800 px-6 py-4">
                   <h4 className="font-semibold text-white">Geo-Marketing Intelligence</h4>
@@ -508,7 +508,7 @@ export default function ArchitectureDiagram() {
           {/* Intelligence & Attribution */}
           <div>
             <h3 className="mb-8 text-center text-lg font-semibold text-white">Intelligence & Attribution</h3>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3 justify-center max-w-4xl mx-auto">
               <div className="rounded-xl border border-amber-900/50 bg-gradient-to-br from-amber-950/50 to-amber-900/20 overflow-hidden">
                 <div className="bg-gradient-to-r from-amber-600 to-amber-800 px-6 py-4">
                   <h4 className="font-semibold text-white">Cross-Channel Attribution</h4>
