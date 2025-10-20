@@ -255,8 +255,8 @@ export default function ArchitectureDiagram() {
                 <h3 className="text-lg font-semibold text-white">BI Layer</h3>
               </div>
               <div className="p-6">
-                <p className="text-xs text-gray-400 mb-2">Dashboards & Visualization</p>
-                <div className="text-xs text-gray-500 space-y-1">
+                <p className="text-xs font-medium text-gray-300 mb-3">Dashboards & Visualization</p>
+                <div className="text-xs text-gray-300 space-y-2">
                   <p>Metabase, Superset, Looker</p>
                   <p>Custom React dashboards</p>
                 </div>
@@ -269,8 +269,8 @@ export default function ArchitectureDiagram() {
                 <h3 className="text-lg font-semibold text-white">ML/Prediction</h3>
               </div>
               <div className="p-6">
-                <p className="text-xs text-gray-400 mb-2">Predictive Intelligence</p>
-                <div className="text-xs text-gray-500 space-y-1">
+                <p className="text-xs font-medium text-gray-300 mb-3">Predictive Intelligence</p>
+                <div className="text-xs text-gray-300 space-y-2">
                   <p>Flask/FastAPI, AWS SageMaker</p>
                   <p>Engagement & peak time forecasting</p>
                 </div>
@@ -281,25 +281,25 @@ export default function ArchitectureDiagram() {
           {/* Analytics & Intelligence Features */}
           <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
             <div className="rounded-xl border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-6">
-              <h3 className="mb-3 text-sm font-semibold text-purple-300">Real-Time Analytics</h3>
-              <div className="text-xs text-gray-400 space-y-2">
+              <h3 className="mb-4 text-sm font-semibold text-white">Real-Time Analytics</h3>
+              <div className="text-xs text-gray-300 space-y-2">
                 <p>• Scan metrics & session tracking</p>
                 <p>�� Time-series device-level data</p>
                 <p>• Real-time engagement aggregation</p>
               </div>
             </div>
             <div className="rounded-xl border border-indigo-900/50 bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 p-6">
-              <h3 className="mb-3 text-sm font-semibold text-indigo-300">Attribution & Forecasting</h3>
-              <div className="text-xs text-gray-400 space-y-2">
+              <h3 className="mb-4 text-sm font-semibold text-white">Attribution & Forecasting</h3>
+              <div className="text-xs text-gray-300 space-y-2">
                 <p>• NFC → Landing → CRM flow tracking</p>
                 <p>• Cross-channel attribution</p>
                 <p>• Geo-heatmaps & behavioral trends</p>
               </div>
             </div>
             <div className="rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-6">
-              <h3 className="mb-3 text-sm font-semibold text-cyan-300">Business Intelligence</h3>
-              <div className="text-xs text-gray-400 space-y-2">
-                <p>• Revenue dashboards & MRR tracking</p>
+              <h3 className="mb-4 text-sm font-semibold text-white">Business Intelligence</h3>
+              <div className="text-xs text-gray-300 space-y-2">
+                <p>�� Revenue dashboards & MRR tracking</p>
                 <p>• KPI exports & performance scoring</p>
                 <p>• Custom reporting dashboards</p>
               </div>
@@ -309,11 +309,11 @@ export default function ArchitectureDiagram() {
 
         {/* LAYER 4: DATA & SECURITY LAYER */}
         <div className="mb-32">
-          <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-white">4. Data & Security Layer</h2>
-            <p className="mt-2 text-base text-gray-400">Multi-tenant database with enterprise-grade protection</p>
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold text-white mb-3">4. Data & Security Layer</h2>
+            <p className="text-lg text-gray-300 mb-4">Multi-tenant database with enterprise-grade protection</p>
+            <p className="text-sm text-gray-400">Supabase PostgreSQL · Cache/Realtime · Authentication/IAM · Encryption · External Services</p>
           </div>
-          <p className="mb-8 text-center text-sm text-gray-500">Supabase PostgreSQL · Cache/Realtime · Authentication/IAM · Encryption · External Services</p>
 
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
             {/* Primary Database */}
@@ -322,8 +322,8 @@ export default function ArchitectureDiagram() {
                 <h3 className="text-lg font-semibold text-white">Primary Database</h3>
               </div>
               <div className="p-6">
-                <p className="text-xs text-gray-400 mb-2">Supabase PostgreSQL + RLS</p>
-                <div className="text-xs text-gray-500 space-y-1">
+                <p className="text-xs font-medium text-gray-300 mb-3">Supabase PostgreSQL + RLS</p>
+                <div className="text-xs text-gray-300 space-y-2">
                   <p><code className="text-emerald-200">organizations, users</code></p>
                   <p><code className="text-emerald-200">nfc_devices, nfc_scans</code></p>
                   <p><code className="text-emerald-200">campaigns, campaign_posts</code></p>
@@ -340,8 +340,8 @@ export default function ArchitectureDiagram() {
                 <h3 className="text-lg font-semibold text-white">Cache & Realtime</h3>
               </div>
               <div className="p-6">
-                <p className="text-xs text-gray-400 mb-2">Redis or Memcached</p>
-                <div className="text-xs text-gray-500 space-y-1">
+                <p className="text-xs font-medium text-gray-300 mb-3">Redis or Memcached</p>
+                <div className="text-xs text-gray-300 space-y-2">
                   <p>Live metrics & device status</p>
                   <p>Supabase Realtime or Firebase</p>
                   <p>Session data & WebSocket sync</p>
@@ -355,8 +355,8 @@ export default function ArchitectureDiagram() {
                 <h3 className="text-lg font-semibold text-white">Authentication & IAM</h3>
               </div>
               <div className="p-6">
-                <p className="text-xs text-gray-400 mb-2">JWT, OAuth2, Token Storage</p>
-                <div className="text-xs text-gray-500 space-y-1">
+                <p className="text-xs font-medium text-gray-300 mb-3">JWT, OAuth2, Token Storage</p>
+                <div className="text-xs text-gray-300 space-y-2">
                   <p>JSON Web Tokens (JWT)</p>
                   <p>OAuth2 for social APIs</p>
                   <p>Secure credential handling</p>
@@ -370,8 +370,8 @@ export default function ArchitectureDiagram() {
                 <h3 className="text-lg font-semibold text-white">Encryption & Compliance</h3>
               </div>
               <div className="p-6">
-                <p className="text-xs text-gray-400 mb-2">AES-256 & TLS</p>
-                <div className="text-xs text-gray-500 space-y-1">
+                <p className="text-xs font-medium text-gray-300 mb-3">AES-256 & TLS</p>
+                <div className="text-xs text-gray-300 space-y-2">
                   <p>Data encryption at rest</p>
                   <p>TLS in transit</p>
                   <p>GDPR & SOC2 alignment</p>
@@ -385,8 +385,8 @@ export default function ArchitectureDiagram() {
                 <h3 className="text-lg font-semibold text-white">External Services</h3>
               </div>
               <div className="p-6">
-                <p className="text-xs text-gray-400 mb-2">3rd-Party Integrations</p>
-                <div className="text-xs text-gray-500 space-y-1">
+                <p className="text-xs font-medium text-gray-300 mb-3">3rd-Party Integrations</p>
+                <div className="text-xs text-gray-300 space-y-2">
                   <p>Stripe (billing & subscriptions)</p>
                   <p>SendGrid, Mailgun, Twilio</p>
                   <p>Meta, TikTok, Instagram APIs</p>
