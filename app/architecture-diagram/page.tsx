@@ -406,47 +406,37 @@ export default function ArchitectureDiagram() {
           <div className="mb-16">
             <h3 className="mb-8 text-center text-lg font-semibold text-white">Advanced Services</h3>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5 justify-center">
-              <div className="rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 overflow-hidden">
-                <div className="bg-gradient-to-r from-cyan-600 to-cyan-800 px-6 py-4">
-                  <h4 className="font-semibold text-white">Geo-Marketing Intelligence</h4>
-                </div>
-                <div className="p-6">
+              <div className="rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 overflow-hidden p-6">
+                <h4 className="font-semibold text-white mb-3">Geo-Marketing Intelligence</h4>
+                <div>
                   <p className="text-xs text-gray-300">Location heatmaps, regional analytics, trends</p>
                 </div>
               </div>
 
-              <div className="rounded-xl border border-teal-900/50 bg-gradient-to-br from-teal-950/50 to-teal-900/20 overflow-hidden">
-                <div className="bg-gradient-to-r from-teal-600 to-teal-800 px-6 py-4">
-                  <h4 className="font-semibold text-white">Smart Social Scheduler</h4>
-                </div>
-                <div className="p-6">
+              <div className="rounded-xl border border-teal-900/50 bg-gradient-to-br from-teal-950/50 to-teal-900/20 overflow-hidden p-6">
+                <h4 className="font-semibold text-white mb-3">Smart Social Scheduler</h4>
+                <div>
                   <p className="text-xs text-gray-300">Social + email automation, campaign composer</p>
                 </div>
               </div>
 
-              <div className="rounded-xl border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 overflow-hidden">
-                <div className="bg-gradient-to-r from-purple-600 to-purple-800 px-6 py-4">
-                  <h4 className="font-semibold text-white">White Label Enterprise</h4>
-                </div>
-                <div className="p-6">
+              <div className="rounded-xl border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 overflow-hidden p-6">
+                <h4 className="font-semibold text-white mb-3">White Label Enterprise</h4>
+                <div>
                   <p className="text-xs text-gray-300">Custom domains, full branding, premium support</p>
                 </div>
               </div>
 
-              <div className="rounded-xl border border-yellow-900/50 bg-gradient-to-br from-yellow-950/50 to-yellow-900/20 overflow-hidden">
-                <div className="bg-gradient-to-r from-yellow-600 to-yellow-800 px-6 py-4">
-                  <h4 className="font-semibold text-white">Task Management</h4>
-                </div>
-                <div className="p-6">
+              <div className="rounded-xl border border-yellow-900/50 bg-gradient-to-br from-yellow-950/50 to-yellow-900/20 overflow-hidden p-6">
+                <h4 className="font-semibold text-white mb-3">Task Management</h4>
+                <div>
                   <p className="text-xs text-gray-300">Team collaboration, workflow tracking</p>
                 </div>
               </div>
 
-              <div className="rounded-xl border border-emerald-900/50 bg-gradient-to-br from-emerald-950/50 to-emerald-900/20 overflow-hidden">
-                <div className="bg-gradient-to-r from-emerald-600 to-emerald-800 px-6 py-4">
-                  <h4 className="font-semibold text-white">API Integration Tier</h4>
-                </div>
-                <div className="p-6">
+              <div className="rounded-xl border border-emerald-900/50 bg-gradient-to-br from-emerald-950/50 to-emerald-900/20 overflow-hidden p-6">
+                <h4 className="font-semibold text-white mb-3">API Integration Tier</h4>
+                <div>
                   <p className="text-xs text-gray-300">REST API, webhooks, SDKs, per-request billing</p>
                 </div>
               </div>
