@@ -285,11 +285,9 @@ export default function ArchitectureDiagram() {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5 justify-center">
             {/* Primary Database */}
-            <div className="rounded-xl border border-emerald-900/50 bg-gradient-to-br from-emerald-950/50 to-emerald-900/20 overflow-hidden">
-              <div className="bg-gradient-to-r from-emerald-600 to-emerald-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">Primary Database</h3>
-              </div>
-              <div className="p-6">
+            <div className="rounded-xl border border-emerald-900/50 bg-gradient-to-br from-emerald-950/50 to-emerald-900/20 overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">Primary Database</h3>
+              <div>
                 <p className="text-xs font-medium text-gray-300 mb-3">Supabase PostgreSQL + RLS</p>
                 <div className="text-xs text-gray-300 space-y-2">
                   <p><code className="text-emerald-200">organizations, users</code></p>
@@ -303,11 +301,9 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* Cache & Realtime */}
-            <div className="rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 overflow-hidden">
-              <div className="bg-gradient-to-r from-cyan-600 to-cyan-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">Cache & Realtime</h3>
-              </div>
-              <div className="p-6">
+            <div className="rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">Cache & Realtime</h3>
+              <div>
                 <p className="text-xs font-medium text-gray-300 mb-3">Redis or Memcached</p>
                 <div className="text-xs text-gray-300 space-y-2">
                   <p>Live metrics & device status</p>
@@ -318,11 +314,9 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* Authentication & IAM */}
-            <div className="rounded-xl border border-teal-900/50 bg-gradient-to-br from-teal-950/50 to-teal-900/20 overflow-hidden">
-              <div className="bg-gradient-to-r from-teal-600 to-teal-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">Authentication & IAM</h3>
-              </div>
-              <div className="p-6">
+            <div className="rounded-xl border border-teal-900/50 bg-gradient-to-br from-teal-950/50 to-teal-900/20 overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">Authentication & IAM</h3>
+              <div>
                 <p className="text-xs font-medium text-gray-300 mb-3">JWT, OAuth2, Token Storage</p>
                 <div className="text-xs text-gray-300 space-y-2">
                   <p>JSON Web Tokens (JWT)</p>
@@ -333,11 +327,9 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* Encryption & Compliance */}
-            <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 overflow-hidden">
-              <div className="bg-gradient-to-r from-blue-600 to-blue-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">Encryption & Compliance</h3>
-              </div>
-              <div className="p-6">
+            <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">Encryption & Compliance</h3>
+              <div>
                 <p className="text-xs font-medium text-gray-300 mb-3">AES-256 & TLS</p>
                 <div className="text-xs text-gray-300 space-y-2">
                   <p>Data encryption at rest</p>
@@ -348,11 +340,9 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* External Services */}
-            <div className="rounded-xl border border-amber-900/50 bg-gradient-to-br from-amber-950/50 to-amber-900/20 overflow-hidden">
-              <div className="bg-gradient-to-r from-amber-600 to-amber-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">External Services</h3>
-              </div>
-              <div className="p-6">
+            <div className="rounded-xl border border-amber-900/50 bg-gradient-to-br from-amber-950/50 to-amber-900/20 overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">External Services</h3>
+              <div>
                 <p className="text-xs font-medium text-gray-300 mb-3">3rd-Party Integrations</p>
                 <div className="text-xs text-gray-300 space-y-2">
                   <p>Stripe (billing & subscriptions)</p>
