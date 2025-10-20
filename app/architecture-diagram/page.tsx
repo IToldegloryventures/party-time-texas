@@ -500,20 +500,16 @@ export default function ArchitectureDiagram() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 overflow-hidden">
-              <div className="bg-gradient-to-r from-pink-600 to-pink-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">4. Analytics Processing</h3>
-              </div>
-              <div className="p-6">
+            <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">4. Analytics Processing</h3>
+              <div>
                 <p className="text-sm text-gray-400">Real-time engagement fed to analytics dashboard; trigger engine evaluates conditions</p>
               </div>
             </div>
 
-            <div className="rounded-xl border border-green-900/50 bg-gradient-to-br from-green-950/50 to-green-900/20 overflow-hidden">
-              <div className="bg-gradient-to-r from-green-600 to-green-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">5. ROI Attribution & Actions</h3>
-              </div>
-              <div className="p-6">
+            <div className="rounded-xl border border-green-900/50 bg-gradient-to-br from-green-950/50 to-green-900/20 overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">5. ROI Attribution & Actions</h3>
+              <div>
                 <p className="text-sm text-gray-400">Conversion measured in campaigns & CRMs; automated responses triggered; revenue tracked</p>
               </div>
             </div>
