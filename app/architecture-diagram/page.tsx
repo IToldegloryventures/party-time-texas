@@ -144,7 +144,7 @@ export default function ArchitectureDiagram() {
               <div className="p-6">
                 <p className="text-xs text-gray-400 mb-2">Social & Email Scheduling</p>
                 <div className="text-xs text-gray-500 space-y-1">
-                  <p>• Visual composer & calendar view</p>
+                  <p>�� Visual composer & calendar view</p>
                   <p>• Social API integration (Meta, TikTok, Instagram)</p>
                   <p>• Drip campaign & scheduling logic</p>
                 </div>
@@ -317,85 +317,80 @@ export default function ArchitectureDiagram() {
 
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
             {/* Primary Database */}
-            <div className="rounded-xl border border-emerald-900/50 bg-gradient-to-br from-emerald-950/50 to-emerald-900/20 p-6">
-              <div className="mb-4 flex justify-center rounded-lg bg-emerald-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M3 12v3c0 1.657.895 3.146 2.457 3.958C7.02 19.748 8.961 20 10 20s2.98-.252 4.543-.084C16.105 19.146 17 17.657 17 16v-3m-6-4V5c0-1.657-.895-3.146-2.457-3.958C7.02.252 5.039 0 4 0 1.895 0 0 1.343 0 3v10c0 1.657.895 3.146 2.457 3.958C4.02 17.748 5.961 18 7 18s2.98-.252 4.543-.084C12.105 17.146 13 15.657 13 14v-3"/>
-                </svg>
+            <div className="rounded-xl border border-emerald-900/50 bg-gradient-to-br from-emerald-950/50 to-emerald-900/20 overflow-hidden">
+              <div className="bg-gradient-to-r from-emerald-600 to-emerald-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">Primary Database</h3>
               </div>
-              <h3 className="mb-2 text-sm font-semibold text-emerald-300 text-center">Primary Database</h3>
-              <p className="text-xs text-gray-400 text-center mb-2">Supabase PostgreSQL + RLS</p>
-              <div className="text-xs text-gray-500 space-y-1 text-center">
-                <p><code className="text-emerald-200">organizations, users</code></p>
-                <p><code className="text-emerald-200">nfc_devices, nfc_scans</code></p>
-                <p><code className="text-emerald-200">campaigns, campaign_posts</code></p>
-                <p><code className="text-emerald-200">landing_pages, events</code></p>
-                <p><code className="text-emerald-200">subscriptions, billing</code></p>
-                <p>Multi-tenant isolation via RLS</p>
+              <div className="p-6">
+                <p className="text-xs text-gray-400 mb-2">Supabase PostgreSQL + RLS</p>
+                <div className="text-xs text-gray-500 space-y-1">
+                  <p><code className="text-emerald-200">organizations, users</code></p>
+                  <p><code className="text-emerald-200">nfc_devices, nfc_scans</code></p>
+                  <p><code className="text-emerald-200">campaigns, campaign_posts</code></p>
+                  <p><code className="text-emerald-200">landing_pages, events</code></p>
+                  <p><code className="text-emerald-200">subscriptions, billing</code></p>
+                  <p>Multi-tenant isolation via RLS</p>
+                </div>
               </div>
             </div>
 
             {/* Cache & Realtime */}
-            <div className="rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-6">
-              <div className="mb-4 flex justify-center rounded-lg bg-cyan-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.3A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z"/>
-                </svg>
+            <div className="rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 overflow-hidden">
+              <div className="bg-gradient-to-r from-cyan-600 to-cyan-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">Cache & Realtime</h3>
               </div>
-              <h3 className="mb-2 text-sm font-semibold text-cyan-300 text-center">Cache & Realtime</h3>
-              <p className="text-xs text-gray-400 text-center mb-2">Redis or Memcached</p>
-              <div className="text-xs text-gray-500 space-y-1 text-center">
-                <p>Live metrics & device status</p>
-                <p>Supabase Realtime or Firebase</p>
-                <p>Session data & WebSocket sync</p>
+              <div className="p-6">
+                <p className="text-xs text-gray-400 mb-2">Redis or Memcached</p>
+                <div className="text-xs text-gray-500 space-y-1">
+                  <p>Live metrics & device status</p>
+                  <p>Supabase Realtime or Firebase</p>
+                  <p>Session data & WebSocket sync</p>
+                </div>
               </div>
             </div>
 
             {/* Authentication & IAM */}
-            <div className="rounded-xl border border-teal-900/50 bg-gradient-to-br from-teal-950/50 to-teal-900/20 p-6">
-              <div className="mb-4 flex justify-center rounded-lg bg-teal-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-teal-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"/>
-                </svg>
+            <div className="rounded-xl border border-teal-900/50 bg-gradient-to-br from-teal-950/50 to-teal-900/20 overflow-hidden">
+              <div className="bg-gradient-to-r from-teal-600 to-teal-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">Authentication & IAM</h3>
               </div>
-              <h3 className="mb-2 text-sm font-semibold text-teal-300 text-center">Authentication & IAM</h3>
-              <p className="text-xs text-gray-400 text-center mb-2">JWT, OAuth2, Token Storage</p>
-              <div className="text-xs text-gray-500 space-y-1 text-center">
-                <p>JSON Web Tokens (JWT)</p>
-                <p>OAuth2 for social APIs</p>
-                <p>Secure credential handling</p>
+              <div className="p-6">
+                <p className="text-xs text-gray-400 mb-2">JWT, OAuth2, Token Storage</p>
+                <div className="text-xs text-gray-500 space-y-1">
+                  <p>JSON Web Tokens (JWT)</p>
+                  <p>OAuth2 for social APIs</p>
+                  <p>Secure credential handling</p>
+                </div>
               </div>
             </div>
 
             {/* Encryption & Compliance */}
-            <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-6">
-              <div className="mb-4 flex justify-center rounded-lg bg-blue-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"/>
-                </svg>
+            <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 overflow-hidden">
+              <div className="bg-gradient-to-r from-blue-600 to-blue-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">Encryption & Compliance</h3>
               </div>
-              <h3 className="mb-2 text-sm font-semibold text-blue-300 text-center">Encryption & Compliance</h3>
-              <p className="text-xs text-gray-400 text-center mb-2">AES-256 & TLS</p>
-              <div className="text-xs text-gray-500 space-y-1 text-center">
-                <p>Data encryption at rest</p>
-                <p>TLS in transit</p>
-                <p>GDPR & SOC2 alignment</p>
+              <div className="p-6">
+                <p className="text-xs text-gray-400 mb-2">AES-256 & TLS</p>
+                <div className="text-xs text-gray-500 space-y-1">
+                  <p>Data encryption at rest</p>
+                  <p>TLS in transit</p>
+                  <p>GDPR & SOC2 alignment</p>
+                </div>
               </div>
             </div>
 
             {/* External Services */}
-            <div className="rounded-xl border border-amber-900/50 bg-gradient-to-br from-amber-950/50 to-amber-900/20 p-6">
-              <div className="mb-4 flex justify-center rounded-lg bg-amber-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
-                </svg>
+            <div className="rounded-xl border border-amber-900/50 bg-gradient-to-br from-amber-950/50 to-amber-900/20 overflow-hidden">
+              <div className="bg-gradient-to-r from-amber-600 to-amber-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">External Services</h3>
               </div>
-              <h3 className="mb-2 text-sm font-semibold text-amber-300 text-center">External Services</h3>
-              <p className="text-xs text-gray-400 text-center mb-2">3rd-Party Integrations</p>
-              <div className="text-xs text-gray-500 space-y-1 text-center">
-                <p>Stripe (billing & subscriptions)</p>
-                <p>SendGrid, Mailgun, Twilio</p>
-                <p>Meta, TikTok, Instagram APIs</p>
+              <div className="p-6">
+                <p className="text-xs text-gray-400 mb-2">3rd-Party Integrations</p>
+                <div className="text-xs text-gray-500 space-y-1">
+                  <p>Stripe (billing & subscriptions)</p>
+                  <p>SendGrid, Mailgun, Twilio</p>
+                  <p>Meta, TikTok, Instagram APIs</p>
+                </div>
               </div>
             </div>
           </div>
