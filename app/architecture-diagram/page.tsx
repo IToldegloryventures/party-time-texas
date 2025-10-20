@@ -365,47 +365,37 @@ export default function ArchitectureDiagram() {
           <div className="mb-16">
             <h3 className="mb-8 text-center text-lg font-semibold text-white">Core Platform Features</h3>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5 justify-center">
-              <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 overflow-hidden">
-                <div className="bg-gradient-to-r from-blue-600 to-blue-800 px-6 py-4">
-                  <h4 className="font-semibold text-white">Subscription Portals</h4>
-                </div>
-                <div className="p-6">
+              <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 overflow-hidden p-6">
+                <h4 className="font-semibold text-white mb-3">Subscription Portals</h4>
+                <div>
                   <p className="text-xs text-gray-300">Multi-tenant SaaS, monthly/annual billing, feature flags</p>
                 </div>
               </div>
 
-              <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 overflow-hidden">
-                <div className="bg-gradient-to-r from-pink-600 to-pink-800 px-6 py-4">
-                  <h4 className="font-semibold text-white">Landing Page Builder</h4>
-                </div>
-                <div className="p-6">
+              <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 overflow-hidden p-6">
+                <h4 className="font-semibold text-white mb-3">Landing Page Builder</h4>
+                <div>
                   <p className="text-xs text-gray-300">AI-assisted drag-and-drop, templates, A/B testing</p>
                 </div>
               </div>
 
-              <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 overflow-hidden">
-                <div className="bg-gradient-to-r from-orange-600 to-orange-800 px-6 py-4">
-                  <h4 className="font-semibold text-white">NFC Device Management</h4>
-                </div>
-                <div className="p-6">
+              <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 overflow-hidden p-6">
+                <h4 className="font-semibold text-white mb-3">NFC Device Management</h4>
+                <div>
                   <p className="text-xs text-gray-300">Registration, batch programming, tracking</p>
                 </div>
               </div>
 
-              <div className="rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 overflow-hidden">
-                <div className="bg-gradient-to-r from-red-600 to-red-800 px-6 py-4">
-                  <h4 className="font-semibold text-white">Event Management</h4>
-                </div>
-                <div className="p-6">
+              <div className="rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 overflow-hidden p-6">
+                <h4 className="font-semibold text-white mb-3">Event Management</h4>
+                <div>
                   <p className="text-xs text-gray-300">Multi-station check-ins, smart triggers, real-time</p>
                 </div>
               </div>
 
-              <div className="rounded-xl border border-indigo-900/50 bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 overflow-hidden">
-                <div className="bg-gradient-to-r from-indigo-600 to-indigo-800 px-6 py-4">
-                  <h4 className="font-semibold text-white">Analytics Dashboard</h4>
-                </div>
-                <div className="p-6">
+              <div className="rounded-xl border border-indigo-900/50 bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 overflow-hidden p-6">
+                <h4 className="font-semibold text-white mb-3">Analytics Dashboard</h4>
+                <div>
                   <p className="text-xs text-gray-300">Real-time metrics, KPI tracking, ROI analysis</p>
                 </div>
               </div>
