@@ -39,55 +39,104 @@ export default function DemoHub() {
           </Link>
         </div>
 
-        {/* From Tap to Insight Section */}
+        {/* 5W Signal Chain Section */}
         <div className="mb-20 rounded-xl border border-gradient-to-r from-cyan-900/50 to-blue-900/50 bg-gradient-to-br from-gray-900/80 via-cyan-900/20 to-gray-900/80 p-12 backdrop-blur">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-3">
-              From Tap to Insight
+              From NFC Tap to Revenue Impact
             </h2>
             <p className="text-xl text-gray-300">
-              Track Who, What, When, Where — and Why It Matters
+              The 5W Signal Chain
             </p>
-            <p className="text-base text-gray-400 mt-4 max-w-3xl mx-auto">
-              Every time a customer taps an NFC tag, Cosmic Portals turns that interaction into rich, actionable insight.
+            <p className="text-base text-gray-400 mt-4 max-w-4xl mx-auto">
+              Track What Happened, Where It Worked, and Why It Mattered — All from a Tap. Cosmic Portals transforms every physical interaction into actionable insight.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="rounded-lg border border-cyan-700/30 bg-gradient-to-br from-cyan-950/50 to-cyan-900/10 p-6">
-              <p className="text-lg font-bold text-cyan-300 mb-2">→ Who & When</p>
-              <p className="text-sm text-gray-300">Identify the exact user and moment of engagement — powered by NFC hardware.</p>
-            </div>
+          {/* Horizontal Funnel */}
+          <div className="overflow-x-auto">
+            <div className="flex justify-between items-stretch gap-4 min-w-max px-4">
+              {/* Stage 1: Identify */}
+              <div className="flex flex-col items-center flex-1 min-w-max">
+                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center mb-4 shadow-lg border-2 border-blue-400">
+                  <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-blue-300 mb-1">Identify</h3>
+                <p className="text-xs text-gray-400 text-center max-w-24">Who & When: NFC Tap</p>
+              </div>
 
-            <div className="rounded-lg border border-blue-700/30 bg-gradient-to-br from-blue-950/50 to-blue-900/10 p-6">
-              <p className="text-lg font-bold text-blue-300 mb-2">→ Where & Why</p>
-              <p className="text-sm text-gray-300">Pinpoint location with geo-tagged scans and regional heatmaps — revealing what's working in each city or venue.</p>
-            </div>
+              {/* Arrow 1 */}
+              <div className="flex items-center justify-center mb-12">
+                <div className="w-8 h-1 bg-gradient-to-r from-blue-500 to-indigo-500"></div>
+              </div>
 
-            <div className="rounded-lg border border-purple-700/30 bg-gradient-to-br from-purple-950/50 to-purple-900/10 p-6">
-              <p className="text-lg font-bold text-purple-300 mb-2">→ What Happened</p>
-              <p className="text-sm text-gray-300">See what content was viewed, what offers converted, and how customers engaged on your landing pages.</p>
-            </div>
+              {/* Stage 2: Engage */}
+              <div className="flex flex-col items-center flex-1 min-w-max">
+                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-indigo-600 to-indigo-800 flex items-center justify-center mb-4 shadow-lg border-2 border-indigo-400">
+                  <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-indigo-300 mb-1">Engage</h3>
+                <p className="text-xs text-gray-400 text-center max-w-24">What: Landing Page</p>
+              </div>
 
-            <div className="rounded-lg border border-pink-700/30 bg-gradient-to-br from-pink-950/50 to-pink-900/10 p-6">
-              <p className="text-lg font-bold text-pink-300 mb-2">→ What They Did</p>
-              <p className="text-sm text-gray-300">Track actions like signups, clicks, or lead capture — connected to each scan and region.</p>
-            </div>
+              {/* Arrow 2 */}
+              <div className="flex items-center justify-center mb-12">
+                <div className="w-8 h-1 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
+              </div>
 
-            <div className="rounded-lg border border-orange-700/30 bg-gradient-to-br from-orange-950/50 to-orange-900/10 p-6">
-              <p className="text-lg font-bold text-orange-300 mb-2">→ What Got Triggered</p>
-              <p className="text-sm text-gray-300">Automate personalized follow-ups, smart campaigns, or social posts tied to scan behavior.</p>
-            </div>
+              {/* Stage 3: Localize */}
+              <div className="flex flex-col items-center flex-1 min-w-max">
+                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center mb-4 shadow-lg border-2 border-purple-400">
+                  <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-purple-300 mb-1">Localize</h3>
+                <p className="text-xs text-gray-400 text-center max-w-24">Where & Why: Geo Context</p>
+              </div>
 
-            <div className="rounded-lg border border-green-700/30 bg-gradient-to-br from-green-950/50 to-green-900/10 p-6">
-              <p className="text-lg font-bold text-green-300 mb-2">→ What Worked</p>
-              <p className="text-sm text-gray-300">Measure ROI across regions, campaigns, devices, and channels — all in one connected dashboard.</p>
+              {/* Arrow 3 */}
+              <div className="flex items-center justify-center mb-12">
+                <div className="w-8 h-1 bg-gradient-to-r from-purple-500 to-pink-500"></div>
+              </div>
+
+              {/* Stage 4: Respond */}
+              <div className="flex flex-col items-center flex-1 min-w-max">
+                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-pink-600 to-pink-800 flex items-center justify-center mb-4 shadow-lg border-2 border-pink-400">
+                  <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-pink-300 mb-1">Respond</h3>
+                <p className="text-xs text-gray-400 text-center max-w-24">Automation & Triggers</p>
+              </div>
+
+              {/* Arrow 4 */}
+              <div className="flex items-center justify-center mb-12">
+                <div className="w-8 h-1 bg-gradient-to-r from-pink-500 to-green-500"></div>
+              </div>
+
+              {/* Stage 5: Measure */}
+              <div className="flex flex-col items-center flex-1 min-w-max">
+                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center mb-4 shadow-lg border-2 border-green-400">
+                  <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-green-300 mb-1">Measure</h3>
+                <p className="text-xs text-gray-400 text-center max-w-24">ROI: Analytics Dashboard</p>
+              </div>
             </div>
           </div>
 
-          <div className="mt-8 text-center">
+          <div className="mt-12 text-center">
             <p className="text-lg text-gray-300">
-              <span className="font-bold text-white">Cosmic Portals doesn't just track engagement — it explains it.</span>
+              <span className="font-bold text-white">Every tap tells a story. Cosmic Portals helps you understand and act on it.</span>
             </p>
           </div>
         </div>
