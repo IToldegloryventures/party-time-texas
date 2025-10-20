@@ -529,6 +529,56 @@ export default function DemoHub() {
             </Link>
           </div>
         </div>
+
+        {/* Modal Reveal */}
+        {activeModal && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+            onClick={() => setActiveModal(null)}
+          >
+            <div
+              className="relative w-full max-w-2xl rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-8 shadow-2xl border border-gray-700 m-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setActiveModal(null)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors text-2xl"
+              >
+                ✕
+              </button>
+
+              {/* Modal Content */}
+              {stages.map((stage) => {
+                if (stage.id === activeModal) {
+                  return (
+                    <div key={stage.id} className="space-y-4">
+                      {/* Color Accent Line */}
+                      <div className={`h-1 w-16 bg-gradient-to-r ${stage.color} rounded-full`}></div>
+
+                      {/* Modal Title */}
+                      <h2 className="text-3xl font-bold text-white">
+                        {stage.modalTitle}
+                      </h2>
+
+                      {/* Modal Content */}
+                      <p className="text-lg text-gray-300 leading-relaxed">
+                        {stage.modalContent}
+                      </p>
+
+                      {/* CTA */}
+                      <div className="mt-8 pt-6 border-t border-gray-700">
+                        <p className="text-sm text-gray-400">
+                          Ready to see this in action? Explore other stages or dive into our demo.
+                        </p>
+                      </div>
+                    </div>
+                  );
+                }
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
