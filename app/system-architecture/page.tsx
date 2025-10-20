@@ -10,16 +10,16 @@ export default function SystemArchitecture() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 py-20">
+      <div className="mx-auto max-w-7xl px-6 py-24">
         {/* Layer 1: Client Layer */}
-        <div className="mb-32">
+        <div className="mb-40">
           <div className="mb-8 text-center">
             <h2 className="text-2xl font-bold text-white">Client Layer</h2>
             <p className="mt-2 text-base text-gray-400">Front-end access points with unified authentication</p>
           </div>
           <p className="mb-8 text-center text-sm text-gray-500">Web Dashboard · Mobile Apps · White-Label Domains · Clerk Authentication & RBAC</p>
-          
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 justify-center">
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 justify-center">
             {/* Web Dashboard */}
             <div className="group rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-6 transition-all hover:border-blue-700/80 hover:bg-blue-950/40 text-center">
               <h3 className="mb-1 text-lg font-semibold text-blue-300">Web Dashboard</h3>
@@ -51,14 +51,14 @@ export default function SystemArchitecture() {
         </div>
 
         {/* Layer 2: API & Business Logic */}
-        <div className="mb-32">
+        <div className="mb-40">
           <div className="mb-8 text-center">
             <h2 className="text-2xl font-bold text-white">API & Business Logic Layer</h2>
             <p className="mt-2 text-base text-gray-400">Microservices and core orchestration</p>
           </div>
           <p className="mb-8 text-center text-sm text-gray-500">API Gateway · NFC Device Manager · Campaign & Content Module · Trigger Engine · Job Orchestration</p>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 justify-center">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 justify-center">
             {/* API Gateway */}
             <div className="group rounded-xl border border-slate-900/50 bg-gradient-to-br from-slate-950/50 to-slate-900/20 p-6 transition-all hover:border-slate-700/80 hover:bg-slate-950/40 text-center">
               <h3 className="mb-1 text-lg font-semibold text-slate-300">API Gateway / BFF</h3>
@@ -111,14 +111,14 @@ export default function SystemArchitecture() {
         </div>
 
         {/* Layer 3: Analytics & Intelligence */}
-        <div className="mb-32">
+        <div className="mb-40">
           <div className="mb-8 text-center">
             <h2 className="text-2xl font-bold text-white">Analytics & Intelligence Engine</h2>
             <p className="mt-2 text-base text-gray-400">Real-time ingestion, streaming, and ML-powered insights</p>
           </div>
           <p className="mb-8 text-center text-sm text-gray-500">Event Ingestion · Streaming/Batch Processing · Data Warehouse · BI Layer · ML/Prediction</p>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-5 justify-center">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5 justify-center">
             {/* Event Ingestion */}
             <div className="rounded-xl border border-sky-900/50 bg-gradient-to-br from-sky-950/50 to-sky-900/20 p-6">
               <h3 className="mb-2 text-sm font-semibold text-sky-300 text-center">Event Ingestion</h3>
@@ -152,14 +152,14 @@ export default function SystemArchitecture() {
         </div>
 
         {/* Layer 4: Data & Security */}
-        <div className="mb-32">
+        <div className="mb-40">
           <div className="mb-8 text-center">
             <h2 className="text-2xl font-bold text-white">Data & Security Layer</h2>
             <p className="mt-2 text-base text-gray-400">Multi-tenant database with enterprise-grade protection</p>
           </div>
           <p className="mb-8 text-center text-sm text-gray-500">Supabase PostgreSQL · Cache/Realtime · Authentication/IAM · Encryption · External Services</p>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-5 justify-center">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5 justify-center">
             {/* Primary Database */}
             <div className="rounded-xl border border-emerald-900/50 bg-gradient-to-br from-emerald-950/50 to-emerald-900/20 p-6">
               <h3 className="mb-2 text-sm font-semibold text-emerald-300 text-center">Primary Database</h3>
@@ -213,7 +213,7 @@ export default function SystemArchitecture() {
           </div>
 
           {/* Primary Revenue Streams */}
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-4 justify-center">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-4 justify-center">
             {/* Platform Subscription */}
             <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-6">
               <h3 className="mb-2 text-sm font-semibold text-blue-300 text-center">Platform Subscription</h3>
