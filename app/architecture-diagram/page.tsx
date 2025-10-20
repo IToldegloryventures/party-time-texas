@@ -206,7 +206,7 @@ export default function ArchitectureDiagram() {
             <p className="text-sm text-gray-400">Event Ingestion · Streaming/Batch Processing · Data Warehouse · BI Layer · ML/Prediction</p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-5">
             {/* Event Ingestion */}
             <div className="rounded-xl border border-sky-900/50 bg-gradient-to-br from-sky-950/50 to-sky-900/20 overflow-hidden">
               <div className="bg-gradient-to-r from-sky-600 to-sky-800 px-6 py-4">
@@ -315,7 +315,7 @@ export default function ArchitectureDiagram() {
             <p className="text-sm text-gray-400">Supabase PostgreSQL · Cache/Realtime · Authentication/IAM · Encryption · External Services</p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-5">
             {/* Primary Database */}
             <div className="rounded-xl border border-emerald-900/50 bg-gradient-to-br from-emerald-950/50 to-emerald-900/20 overflow-hidden">
               <div className="bg-gradient-to-r from-emerald-600 to-emerald-800 px-6 py-4">
