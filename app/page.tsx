@@ -45,7 +45,7 @@ export default function DemoHub() {
     {
       id: 'localize',
       title: 'Localize',
-      subtitle: 'Where & Why',
+      subtitle: 'Where',
       description: 'Map scan location, trigger local offers, and visualize trends via heatmaps.',
       color: 'from-purple-600 to-purple-800',
       borderColor: 'border-purple-400',
