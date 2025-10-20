@@ -11,11 +11,12 @@ export default function DemoHub() {
     {
       id: 'identify',
       title: 'Identify',
-      subtitle: 'Who: User Identity',
+      subtitle: 'Who & When',
+      description: 'Capture user identity, device ID, and timestamp at the exact moment of tap.',
       color: 'from-blue-600 to-blue-800',
       borderColor: 'border-blue-400',
       textColor: 'text-blue-300',
-      tooltip: 'Know exactly who engaged and when.',
+      tooltip: 'Capture user identity, device ID, and timestamp at the exact moment of tap.',
       icon: (
         <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 2C10.9 2 10 2.9 10 4s.9 2 2 2 2-.9 2-2-.9-2-2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/>
@@ -27,11 +28,12 @@ export default function DemoHub() {
     {
       id: 'engage',
       title: 'Engage',
-      subtitle: 'What: Content Viewed',
+      subtitle: 'What',
+      description: 'Track landing page engagement - scrolls, clicks, offers viewed.',
       color: 'from-indigo-600 to-indigo-800',
       borderColor: 'border-indigo-400',
       textColor: 'text-indigo-300',
-      tooltip: 'See what content caught their attention.',
+      tooltip: 'Track landing page engagement - scrolls, clicks, offers viewed.',
       icon: (
         <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 5a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 3h10M8 10h8m-4 6h4" />
@@ -43,11 +45,12 @@ export default function DemoHub() {
     {
       id: 'localize',
       title: 'Localize',
-      subtitle: 'Where: Location Context',
+      subtitle: 'Where & Why',
+      description: 'Map scan location, trigger local offers, and visualize trends via heatmaps.',
       color: 'from-purple-600 to-purple-800',
       borderColor: 'border-purple-400',
       textColor: 'text-purple-300',
-      tooltip: 'Track where engagement happens — and why.',
+      tooltip: 'Map scan location, trigger local offers, and visualize trends via heatmaps.',
       icon: (
         <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -60,11 +63,12 @@ export default function DemoHub() {
     {
       id: 'respond',
       title: 'Respond',
-      subtitle: 'When: Instant Action',
+      subtitle: 'What Got Triggered',
+      description: 'Launch automated workflows: emails, social posts, CRM actions - tied to tap data.',
       color: 'from-pink-600 to-pink-800',
       borderColor: 'border-pink-400',
       textColor: 'text-pink-300',
-      tooltip: 'Trigger actions based on scan behavior.',
+      tooltip: 'Launch automated workflows: emails, social posts, CRM actions - tied to tap data.',
       icon: (
         <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -76,11 +80,12 @@ export default function DemoHub() {
     {
       id: 'measure',
       title: 'Measure',
-      subtitle: 'Why It Matters: ROI Proof',
+      subtitle: 'What Worked',
+      description: 'Analyze ROI by location, campaign, and device with unified attribution.',
       color: 'from-green-600 to-green-800',
       borderColor: 'border-green-400',
       textColor: 'text-green-300',
-      tooltip: 'Prove ROI across every scan, post, and page.',
+      tooltip: 'Analyze ROI by location, campaign, and device with unified attribution.',
       icon: (
         <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
