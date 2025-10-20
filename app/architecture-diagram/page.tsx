@@ -143,7 +143,7 @@ export default function ArchitectureDiagram() {
                 <div className="text-xs text-gray-300 space-y-2">
                   <p>• Scan-based event triggers</p>
                   <p>• CRM sync & webhook actions</p>
-                  <p>• Smart rules engine for conditions & workflows</p>
+                  <p>��� Smart rules engine for conditions & workflows</p>
                 </div>
               </div>
             </div>
@@ -186,11 +186,9 @@ export default function ArchitectureDiagram() {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5 justify-center">
             {/* Event Ingestion */}
-            <div className="rounded-xl border border-sky-900/50 bg-gradient-to-br from-sky-950/50 to-sky-900/20 overflow-hidden">
-              <div className="bg-gradient-to-r from-sky-600 to-sky-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">Event Ingestion</h3>
-              </div>
-              <div className="p-6">
+            <div className="rounded-xl border border-sky-900/50 bg-gradient-to-br from-sky-950/50 to-sky-900/20 overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">Event Ingestion</h3>
+              <div>
                 <p className="text-xs font-medium text-gray-300 mb-3">Real-time Data Processing</p>
                 <div className="text-xs text-gray-300 space-y-2">
                   <p>NFC scans, landing page views, campaign triggers</p>
@@ -200,11 +198,9 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* Streaming/Batch Processing */}
-            <div className="rounded-xl border border-fuchsia-900/50 bg-gradient-to-br from-fuchsia-950/50 to-fuchsia-900/20 overflow-hidden">
-              <div className="bg-gradient-to-r from-fuchsia-600 to-fuchsia-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">Streaming/Batch</h3>
-              </div>
-              <div className="p-6">
+            <div className="rounded-xl border border-fuchsia-900/50 bg-gradient-to-br from-fuchsia-950/50 to-fuchsia-900/20 overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">Streaming/Batch</h3>
+              <div>
                 <p className="text-xs font-medium text-gray-300 mb-3">Apache Kafka + Processing</p>
                 <div className="text-xs text-gray-300 space-y-2">
                   <p>Kafka, Kinesis, Flink, Spark Streaming</p>
@@ -214,11 +210,9 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* Data Warehouse */}
-            <div className="rounded-xl border border-rose-900/50 bg-gradient-to-br from-rose-950/50 to-rose-900/20 overflow-hidden">
-              <div className="bg-gradient-to-r from-rose-600 to-rose-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">Data Warehouse</h3>
-              </div>
-              <div className="p-6">
+            <div className="rounded-xl border border-rose-900/50 bg-gradient-to-br from-rose-950/50 to-rose-900/20 overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">Data Warehouse</h3>
+              <div>
                 <p className="text-xs font-medium text-gray-300 mb-3">OLAP for Large-Scale Analytics</p>
                 <div className="text-xs text-gray-300 space-y-2">
                   <p>Snowflake, BigQuery, Redshift</p>
@@ -228,11 +222,9 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* BI Layer */}
-            <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 overflow-hidden">
-              <div className="bg-gradient-to-r from-orange-600 to-orange-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">BI Layer</h3>
-              </div>
-              <div className="p-6">
+            <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">BI Layer</h3>
+              <div>
                 <p className="text-xs font-medium text-gray-300 mb-3">Dashboards & Visualization</p>
                 <div className="text-xs text-gray-300 space-y-2">
                   <p>Metabase, Superset, Looker</p>
@@ -242,11 +234,9 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* ML/Prediction Service */}
-            <div className="rounded-xl border border-lime-900/50 bg-gradient-to-br from-lime-950/50 to-lime-900/20 overflow-hidden">
-              <div className="bg-gradient-to-r from-lime-600 to-lime-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">ML/Prediction</h3>
-              </div>
-              <div className="p-6">
+            <div className="rounded-xl border border-lime-900/50 bg-gradient-to-br from-lime-950/50 to-lime-900/20 overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">ML/Prediction</h3>
+              <div>
                 <p className="text-xs font-medium text-gray-300 mb-3">Predictive Intelligence</p>
                 <div className="text-xs text-gray-300 space-y-2">
                   <p>Flask/FastAPI, AWS SageMaker</p>
