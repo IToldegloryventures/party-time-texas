@@ -112,8 +112,8 @@ export default function ArchitectureDiagram() {
                 <h3 className="text-lg font-semibold text-white">NFC Device Manager</h3>
               </div>
               <div className="p-6">
-                <p className="text-xs text-gray-400 mb-2">Registration & Tracking</p>
-                <div className="text-xs text-gray-500 space-y-1">
+                <p className="text-xs font-medium text-gray-300 mb-3">Registration & Tracking</p>
+                <div className="text-xs text-gray-300 space-y-2">
                   <p>• Device registration & status tracking</p>
                   <p>• Device pool management & batch programming</p>
                   <p>• Kafka/RabbitMQ event messaging</p>
@@ -127,8 +127,8 @@ export default function ArchitectureDiagram() {
                 <h3 className="text-lg font-semibold text-white">Landing Page Builder</h3>
               </div>
               <div className="p-6">
-                <p className="text-xs text-gray-400 mb-2">CMS-Style Editor</p>
-                <div className="text-xs text-gray-500 space-y-1">
+                <p className="text-xs font-medium text-gray-300 mb-3">CMS-Style Editor</p>
+                <div className="text-xs text-gray-300 space-y-2">
                   <p>• Template management & publishing</p>
                   <p>• Headless CMS or custom logic</p>
                   <p>• Personalized page rendering</p>
@@ -142,8 +142,8 @@ export default function ArchitectureDiagram() {
                 <h3 className="text-lg font-semibold text-white">Campaign & Content Module</h3>
               </div>
               <div className="p-6">
-                <p className="text-xs text-gray-400 mb-2">Social & Email Scheduling</p>
-                <div className="text-xs text-gray-500 space-y-1">
+                <p className="text-xs font-medium text-gray-300 mb-3">Social & Email Scheduling</p>
+                <div className="text-xs text-gray-300 space-y-2">
                   <p>• Visual composer & calendar view</p>
                   <p>• Social API integration (Meta, TikTok, Instagram)</p>
                   <p>• Drip campaign & scheduling logic</p>
@@ -157,8 +157,8 @@ export default function ArchitectureDiagram() {
                 <h3 className="text-lg font-semibold text-white">Trigger & Automation Engine</h3>
               </div>
               <div className="p-6">
-                <p className="text-xs text-gray-400 mb-2">Event-Driven Rules</p>
-                <div className="text-xs text-gray-500 space-y-1">
+                <p className="text-xs font-medium text-gray-300 mb-3">Event-Driven Rules</p>
+                <div className="text-xs text-gray-300 space-y-2">
                   <p>• Scan-based event triggers</p>
                   <p>• CRM sync & webhook actions</p>
                   <p>• Smart rules engine for conditions & workflows</p>
@@ -172,8 +172,8 @@ export default function ArchitectureDiagram() {
                 <h3 className="text-lg font-semibold text-white">Job Queue / Orchestration</h3>
               </div>
               <div className="p-6">
-                <p className="text-xs text-gray-400 mb-2">BullMQ / AWS SQS + Step Functions</p>
-                <div className="text-xs text-gray-500 space-y-1">
+                <p className="text-xs font-medium text-gray-300 mb-3">BullMQ / AWS SQS + Step Functions</p>
+                <div className="text-xs text-gray-300 space-y-2">
                   <p>• Delayed post scheduling & job execution</p>
                   <p>• Retry logic & workflow chaining</p>
                   <p>• Orchestration of multi-step processes</p>
@@ -187,8 +187,8 @@ export default function ArchitectureDiagram() {
                 <h3 className="text-lg font-semibold text-white">Microservices & Serverless</h3>
               </div>
               <div className="p-6">
-                <p className="text-xs text-gray-400 mb-2">Modular Architecture</p>
-                <div className="text-xs text-gray-500 space-y-1">
+                <p className="text-xs font-medium text-gray-300 mb-3">Modular Architecture</p>
+                <div className="text-xs text-gray-300 space-y-2">
                   <p>• Deployed as separate services or functions</p>
                   <p>• AWS Lambda / Vercel Serverless</p>
                   <p>• Docker containerization</p>
@@ -200,11 +200,11 @@ export default function ArchitectureDiagram() {
 
         {/* LAYER 3: ANALYTICS & INTELLIGENCE ENGINE */}
         <div className="mb-32">
-          <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-white">3. Analytics & Intelligence Engine</h2>
-            <p className="mt-2 text-base text-gray-400">Real-time ingestion, streaming, and ML-powered insights</p>
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold text-white mb-3">3. Analytics & Intelligence Engine</h2>
+            <p className="text-lg text-gray-300 mb-4">Real-time ingestion, streaming, and ML-powered insights</p>
+            <p className="text-sm text-gray-400">Event Ingestion · Streaming/Batch Processing · Data Warehouse · BI Layer · ML/Prediction</p>
           </div>
-          <p className="mb-8 text-center text-sm text-gray-500">Event Ingestion · Streaming/Batch Processing · Data Warehouse · BI Layer · ML/Prediction</p>
 
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
             {/* Event Ingestion */}
@@ -213,8 +213,8 @@ export default function ArchitectureDiagram() {
                 <h3 className="text-lg font-semibold text-white">Event Ingestion</h3>
               </div>
               <div className="p-6">
-                <p className="text-xs text-gray-400 mb-2">Real-time Data Processing</p>
-                <div className="text-xs text-gray-500 space-y-1">
+                <p className="text-xs font-medium text-gray-300 mb-3">Real-time Data Processing</p>
+                <div className="text-xs text-gray-300 space-y-2">
                   <p>NFC scans, landing page views, campaign triggers</p>
                   <p>WebSocket / Pub-Sub (Google Pub/Sub, AWS SNS)</p>
                 </div>
@@ -227,8 +227,8 @@ export default function ArchitectureDiagram() {
                 <h3 className="text-lg font-semibold text-white">Streaming/Batch</h3>
               </div>
               <div className="p-6">
-                <p className="text-xs text-gray-400 mb-2">Apache Kafka + Processing</p>
-                <div className="text-xs text-gray-500 space-y-1">
+                <p className="text-xs font-medium text-gray-300 mb-3">Apache Kafka + Processing</p>
+                <div className="text-xs text-gray-300 space-y-2">
                   <p>Kafka, Kinesis, Flink, Spark Streaming</p>
                   <p>Kafka Connect for integrations</p>
                 </div>
@@ -241,8 +241,8 @@ export default function ArchitectureDiagram() {
                 <h3 className="text-lg font-semibold text-white">Data Warehouse</h3>
               </div>
               <div className="p-6">
-                <p className="text-xs text-gray-400 mb-2">OLAP for Large-Scale Analytics</p>
-                <div className="text-xs text-gray-500 space-y-1">
+                <p className="text-xs font-medium text-gray-300 mb-3">OLAP for Large-Scale Analytics</p>
+                <div className="text-xs text-gray-300 space-y-2">
                   <p>Snowflake, BigQuery, Redshift</p>
                   <p>Long-term storage & querying</p>
                 </div>
