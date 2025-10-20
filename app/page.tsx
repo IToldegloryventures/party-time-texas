@@ -1,6 +1,97 @@
 import Link from 'next/link';
 
+'use client'
+
+import { useState } from 'react'
+
 export default function DemoHub() {
+  const [activeModal, setActiveModal] = useState<string | null>(null)
+  const [hoveredStage, setHoveredStage] = useState<string | null>(null)
+
+  const stages = [
+    {
+      id: 'identify',
+      title: 'Identify',
+      subtitle: 'Who: User Identity',
+      color: 'from-blue-600 to-blue-800',
+      borderColor: 'border-blue-400',
+      textColor: 'text-blue-300',
+      tooltip: 'Know exactly who engaged and when.',
+      icon: (
+        <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C10.9 2 10 2.9 10 4s.9 2 2 2 2-.9 2-2-.9-2-2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/>
+        </svg>
+      ),
+      modalTitle: 'User Identity & Timestamp',
+      modalContent: 'Track every NFC scan with device ID, timestamp, session context, and referrer. → Ideal for identifying repeat customers, staff scans, and exact tap times.'
+    },
+    {
+      id: 'engage',
+      title: 'Engage',
+      subtitle: 'What: Content Viewed',
+      color: 'from-indigo-600 to-indigo-800',
+      borderColor: 'border-indigo-400',
+      textColor: 'text-indigo-300',
+      tooltip: 'See what content caught their attention.',
+      icon: (
+        <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 5a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 3h10M8 10h8m-4 6h4" />
+        </svg>
+      ),
+      modalTitle: 'Content Behavior Tracking',
+      modalContent: 'See which landing page was viewed, how far users scrolled, which CTAs were clicked, and what UTM links they followed. → Understand what drives engagement.'
+    },
+    {
+      id: 'localize',
+      title: 'Localize',
+      subtitle: 'Where: Location Context',
+      color: 'from-purple-600 to-purple-800',
+      borderColor: 'border-purple-400',
+      textColor: 'text-purple-300',
+      tooltip: 'Track where engagement happens — and why.',
+      icon: (
+        <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      ),
+      modalTitle: 'Location-Based Intelligence',
+      modalContent: 'Every scan is geo-tagged. Visualize activity across regions, heatmaps by venue, and location-triggered campaign results. → Optimize by city, district, or zone.'
+    },
+    {
+      id: 'respond',
+      title: 'Respond',
+      subtitle: 'When: Instant Action',
+      color: 'from-pink-600 to-pink-800',
+      borderColor: 'border-pink-400',
+      textColor: 'text-pink-300',
+      tooltip: 'Trigger actions based on scan behavior.',
+      icon: (
+        <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      ),
+      modalTitle: 'Automated Responses & Campaigns',
+      modalContent: 'Auto-launch follow-up actions like CRM updates, emails, or social posts. Responses are tied to location, time, or behavior. → Great for event check-ins or timed promos.'
+    },
+    {
+      id: 'measure',
+      title: 'Measure',
+      subtitle: 'Why It Matters: ROI Proof',
+      color: 'from-green-600 to-green-800',
+      borderColor: 'border-green-400',
+      textColor: 'text-green-300',
+      tooltip: 'Prove ROI across every scan, post, and page.',
+      icon: (
+        <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+      ),
+      modalTitle: 'Attribution & ROI Tracking',
+      modalContent: 'Measure conversions by scan source, location, or campaign. Compare NFC taps to social traffic in one ROI dashboard. → Show what\'s working, and where to invest more.'
+    }
+  ]
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black">
       {/* Header */}
