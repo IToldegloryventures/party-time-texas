@@ -230,11 +230,6 @@ export default function SystemArchitecture() {
 
             {/* Campaign Automation */}
             <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 p-6">
-              <div className="mb-4 flex justify-center rounded-lg bg-orange-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm3.293-1.293a1 1 0 011.414 0L9 7.586l2.293-2.293a1 1 0 111.414 1.414L10.414 9l2.293 2.293a1 1 0 01-1.414 1.414L9 10.414l-2.293 2.293a1 1 0 01-1.414-1.414L7.586 9 5.293 6.707a1 1 0 010-1.414z"/>
-                </svg>
-              </div>
               <h3 className="mb-2 text-sm font-semibold text-orange-300 text-center">Campaign Automation</h3>
               <p className="text-xs text-gray-400 text-center">Usage-based billing</p>
               <p className="text-xs text-gray-500 text-center mt-2">Per-post charges, drip campaigns, API throttling</p>
@@ -242,11 +237,6 @@ export default function SystemArchitecture() {
 
             {/* Geo-Intelligence & Analytics */}
             <div className="rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-6">
-              <div className="mb-4 flex justify-center rounded-lg bg-cyan-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
-                </svg>
-              </div>
               <h3 className="mb-2 text-sm font-semibold text-cyan-300 text-center">Geo-Intelligence Add-On</h3>
               <p className="text-xs text-gray-400 text-center">Premium analytics tier</p>
               <p className="text-xs text-gray-500 text-center mt-2">Region insights, heatmaps, predictive models</p>
@@ -254,11 +244,6 @@ export default function SystemArchitecture() {
 
             {/* API Integration */}
             <div className="rounded-xl border border-green-900/50 bg-gradient-to-br from-green-950/50 to-green-900/20 p-6">
-              <div className="mb-4 flex justify-center rounded-lg bg-green-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
-                </svg>
-              </div>
               <h3 className="mb-2 text-sm font-semibold text-green-300 text-center">API & Webhooks Tier</h3>
               <p className="text-xs text-gray-400 text-center">Per-request billing</p>
               <p className="text-xs text-gray-500 text-center mt-2">REST endpoints, webhook delivery, SDKs</p>
@@ -266,12 +251,6 @@ export default function SystemArchitecture() {
 
             {/* Device Licensing */}
             <div className="rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 p-6">
-              <div className="mb-4 flex justify-center rounded-lg bg-red-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-red-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
-                  <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1v-5a1 1 0 00-.293-.707l-2-2A1 1 0 0015 7h-1z"/>
-                </svg>
-              </div>
               <h3 className="mb-2 text-sm font-semibold text-red-300 text-center">Device Licensing</h3>
               <p className="text-xs text-gray-400 text-center">Per-device fees</p>
               <p className="text-xs text-gray-500 text-center mt-2">Provisioning, scan volume tracking, overage charges</p>
