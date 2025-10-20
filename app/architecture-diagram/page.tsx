@@ -547,73 +547,48 @@ export default function ArchitectureDiagram() {
           </div>
 
           <div className="space-y-4">
-            <div className="rounded-xl border border-gray-800 bg-gradient-to-r from-gray-900/50 to-gray-800/50 p-6">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 rounded-lg bg-blue-500/20 p-3">
-                  <svg className="h-6 w-6 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-blue-300">1. Guest Taps NFC Device</h3>
-                  <p className="mt-1 text-sm text-gray-400">Device triggers event & data packet; geolocation & device metadata captured</p>
-                </div>
+            <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 overflow-hidden">
+              <div className="bg-gradient-to-r from-blue-600 to-blue-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">1. Guest Taps NFC Device</h3>
+              </div>
+              <div className="p-6">
+                <p className="text-sm text-gray-400">Device triggers event & data packet; geolocation & device metadata captured</p>
               </div>
             </div>
 
-            <div className="rounded-xl border border-gray-800 bg-gradient-to-r from-gray-900/50 to-gray-800/50 p-6">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 rounded-lg bg-indigo-500/20 p-3">
-                  <svg className="h-6 w-6 text-indigo-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3.5a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-indigo-300">2. Landing Page Loads</h3>
-                  <p className="mt-1 text-sm text-gray-400">Personalized page rendered in-browser; user journey begins; session cookie set</p>
-                </div>
+            <div className="rounded-xl border border-indigo-900/50 bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 overflow-hidden">
+              <div className="bg-gradient-to-r from-indigo-600 to-indigo-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">2. Landing Page Loads</h3>
+              </div>
+              <div className="p-6">
+                <p className="text-sm text-gray-400">Personalized page rendered in-browser; user journey begins; session cookie set</p>
               </div>
             </div>
 
-            <div className="rounded-xl border border-gray-800 bg-gradient-to-r from-gray-900/50 to-gray-800/50 p-6">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 rounded-lg bg-purple-500/20 p-3">
-                  <svg className="h-6 w-6 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-purple-300">3. Session Tracking</h3>
-                  <p className="mt-1 text-sm text-gray-400">Geo + device metadata collected; landing page engagement tracked (scrolls, clicks, CTAs)</p>
-                </div>
+            <div className="rounded-xl border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 overflow-hidden">
+              <div className="bg-gradient-to-r from-purple-600 to-purple-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">3. Session Tracking</h3>
+              </div>
+              <div className="p-6">
+                <p className="text-sm text-gray-400">Geo + device metadata collected; landing page engagement tracked (scrolls, clicks, CTAs)</p>
               </div>
             </div>
 
-            <div className="rounded-xl border border-gray-800 bg-gradient-to-r from-gray-900/50 to-gray-800/50 p-6">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 rounded-lg bg-pink-500/20 p-3">
-                  <svg className="h-6 w-6 text-pink-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-pink-300">4. Analytics Processing</h3>
-                  <p className="mt-1 text-sm text-gray-400">Real-time engagement fed to analytics dashboard; trigger engine evaluates conditions</p>
-                </div>
+            <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 overflow-hidden">
+              <div className="bg-gradient-to-r from-pink-600 to-pink-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">4. Analytics Processing</h3>
+              </div>
+              <div className="p-6">
+                <p className="text-sm text-gray-400">Real-time engagement fed to analytics dashboard; trigger engine evaluates conditions</p>
               </div>
             </div>
 
-            <div className="rounded-xl border border-gray-800 bg-gradient-to-r from-gray-900/50 to-gray-800/50 p-6">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 rounded-lg bg-green-500/20 p-3">
-                  <svg className="h-6 w-6 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-green-300">5. ROI Attribution & Actions</h3>
-                  <p className="mt-1 text-sm text-gray-400">Conversion measured in campaigns & CRMs; automated responses triggered; revenue tracked</p>
-                </div>
+            <div className="rounded-xl border border-green-900/50 bg-gradient-to-br from-green-950/50 to-green-900/20 overflow-hidden">
+              <div className="bg-gradient-to-r from-green-600 to-green-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">5. ROI Attribution & Actions</h3>
+              </div>
+              <div className="p-6">
+                <p className="text-sm text-gray-400">Conversion measured in campaigns & CRMs; automated responses triggered; revenue tracked</p>
               </div>
             </div>
           </div>
