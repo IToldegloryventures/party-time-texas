@@ -458,54 +458,49 @@ export default function ArchitectureDiagram() {
           <div className="mb-12">
             <h3 className="mb-6 text-center text-lg font-semibold text-cyan-300">Advanced Services</h3>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-5">
-              <div className="rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-6 text-center">
-                <div className="mb-4 flex justify-center rounded-lg bg-cyan-500/20 p-3 mx-auto w-fit">
-                  <svg className="h-5 w-5 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
-                  </svg>
+              <div className="rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 overflow-hidden">
+                <div className="bg-gradient-to-r from-cyan-600 to-cyan-800 px-6 py-4">
+                  <h4 className="font-semibold text-white">Geo-Marketing Intelligence</h4>
                 </div>
-                <h4 className="mb-2 font-semibold text-cyan-300">Geo-Marketing Intelligence</h4>
-                <p className="text-xs text-gray-400">Location heatmaps, regional analytics, trends</p>
+                <div className="p-6">
+                  <p className="text-xs text-gray-400">Location heatmaps, regional analytics, trends</p>
+                </div>
               </div>
 
-              <div className="rounded-xl border border-teal-900/50 bg-gradient-to-br from-teal-950/50 to-teal-900/20 p-6 text-center">
-                <div className="mb-4 flex justify-center rounded-lg bg-teal-500/20 p-3 mx-auto w-fit">
-                  <svg className="h-5 w-5 text-teal-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3.5a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4z"/>
-                  </svg>
+              <div className="rounded-xl border border-teal-900/50 bg-gradient-to-br from-teal-950/50 to-teal-900/20 overflow-hidden">
+                <div className="bg-gradient-to-r from-teal-600 to-teal-800 px-6 py-4">
+                  <h4 className="font-semibold text-white">Smart Social Scheduler</h4>
                 </div>
-                <h4 className="mb-2 font-semibold text-teal-300">Smart Social Scheduler</h4>
-                <p className="text-xs text-gray-400">Social + email automation, campaign composer</p>
+                <div className="p-6">
+                  <p className="text-xs text-gray-400">Social + email automation, campaign composer</p>
+                </div>
               </div>
 
-              <div className="rounded-xl border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-6 text-center">
-                <div className="mb-4 flex justify-center rounded-lg bg-purple-500/20 p-3 mx-auto w-fit">
-                  <svg className="h-5 w-5 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M10.5 1.5H5a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V7.5M10.5 1.5l4 4M10.5 1.5v5h5"/>
-                  </svg>
+              <div className="rounded-xl border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 overflow-hidden">
+                <div className="bg-gradient-to-r from-purple-600 to-purple-800 px-6 py-4">
+                  <h4 className="font-semibold text-white">White Label Enterprise</h4>
                 </div>
-                <h4 className="mb-2 font-semibold text-purple-300">White Label Enterprise</h4>
-                <p className="text-xs text-gray-400">Custom domains, full branding, premium support</p>
+                <div className="p-6">
+                  <p className="text-xs text-gray-400">Custom domains, full branding, premium support</p>
+                </div>
               </div>
 
-              <div className="rounded-xl border border-yellow-900/50 bg-gradient-to-br from-yellow-950/50 to-yellow-900/20 p-6 text-center">
-                <div className="mb-4 flex justify-center rounded-lg bg-yellow-500/20 p-3 mx-auto w-fit">
-                  <svg className="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"/>
-                  </svg>
+              <div className="rounded-xl border border-yellow-900/50 bg-gradient-to-br from-yellow-950/50 to-yellow-900/20 overflow-hidden">
+                <div className="bg-gradient-to-r from-yellow-600 to-yellow-800 px-6 py-4">
+                  <h4 className="font-semibold text-white">Task Management</h4>
                 </div>
-                <h4 className="mb-2 font-semibold text-yellow-300">Task Management</h4>
-                <p className="text-xs text-gray-400">Team collaboration, workflow tracking</p>
+                <div className="p-6">
+                  <p className="text-xs text-gray-400">Team collaboration, workflow tracking</p>
+                </div>
               </div>
 
-              <div className="rounded-xl border border-emerald-900/50 bg-gradient-to-br from-emerald-950/50 to-emerald-900/20 p-6 text-center">
-                <div className="mb-4 flex justify-center rounded-lg bg-emerald-500/20 p-3 mx-auto w-fit">
-                  <svg className="h-5 w-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.3A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z"/>
-                  </svg>
+              <div className="rounded-xl border border-emerald-900/50 bg-gradient-to-br from-emerald-950/50 to-emerald-900/20 overflow-hidden">
+                <div className="bg-gradient-to-r from-emerald-600 to-emerald-800 px-6 py-4">
+                  <h4 className="font-semibold text-white">API Integration Tier</h4>
                 </div>
-                <h4 className="mb-2 font-semibold text-emerald-300">API Integration Tier</h4>
-                <p className="text-xs text-gray-400">REST API, webhooks, SDKs, per-request billing</p>
+                <div className="p-6">
+                  <p className="text-xs text-gray-400">REST API, webhooks, SDKs, per-request billing</p>
+                </div>
               </div>
             </div>
           </div>
