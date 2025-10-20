@@ -10,16 +10,16 @@ export default function ArchitectureDiagram() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 py-20">
+      <div className="mx-auto max-w-7xl px-6 py-24">
         {/* LAYER 1: CLIENT LAYER (Front-End) */}
-        <div className="mb-32">
+        <div className="mb-40">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold text-white mb-3">1. Client Layer (Front-End)</h2>
             <p className="text-lg text-gray-300 mb-4">Multi-platform access points with unified authentication</p>
             <p className="text-sm text-gray-400">Web Dashboard • Mobile Apps • White-Label Domains • Clerk Authentication & RBAC</p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             {/* Web Dashboard */}
             <div className="group rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 overflow-hidden transition-all hover:border-blue-700/80 hover:bg-blue-950/40">
               <div className="bg-gradient-to-r from-blue-600 to-blue-800 px-6 py-4">
@@ -83,14 +83,14 @@ export default function ArchitectureDiagram() {
         </div>
 
         {/* LAYER 2: API & BUSINESS LOGIC LAYER */}
-        <div className="mb-32">
+        <div className="mb-40">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold text-white mb-3">2. API & Business Logic Layer</h2>
             <p className="text-lg text-gray-300 mb-4">Microservices, orchestration, and core business modules</p>
             <p className="text-sm text-gray-400">API Gateway • NFC Device Manager • Landing Page Builder • Campaign & Content • Trigger Engine • Job Queue</p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {/* API Gateway / BFF */}
             <div className="rounded-xl border border-slate-900/50 bg-gradient-to-br from-slate-950/50 to-slate-900/20 overflow-hidden">
               <div className="bg-gradient-to-r from-slate-600 to-slate-800 px-6 py-4">
@@ -199,7 +199,7 @@ export default function ArchitectureDiagram() {
         </div>
 
         {/* LAYER 3: ANALYTICS & INTELLIGENCE ENGINE */}
-        <div className="mb-32">
+        <div className="mb-40">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold text-white mb-3">3. Analytics & Intelligence Engine</h2>
             <p className="text-lg text-gray-300 mb-4">Real-time ingestion, streaming, and ML-powered insights</p>
@@ -279,7 +279,7 @@ export default function ArchitectureDiagram() {
           </div>
 
           {/* Analytics & Intelligence Features */}
-          <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
+          <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
             <div className="rounded-xl border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-6">
               <h3 className="mb-4 text-sm font-semibold text-white">Real-Time Analytics</h3>
               <div className="text-xs text-gray-300 space-y-2">
@@ -308,7 +308,7 @@ export default function ArchitectureDiagram() {
         </div>
 
         {/* LAYER 4: DATA & SECURITY LAYER */}
-        <div className="mb-32">
+        <div className="mb-40">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold text-white mb-3">4. Data & Security Layer</h2>
             <p className="text-lg text-gray-300 mb-4">Multi-tenant database with enterprise-grade protection</p>
@@ -397,16 +397,16 @@ export default function ArchitectureDiagram() {
         </div>
 
         {/* LAYER 5: REVENUE STREAMS & MONETIZATION */}
-        <div className="mb-32">
+        <div className="mb-40">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold text-white mb-3">5. Revenue Streams & Monetization</h2>
             <p className="text-lg text-gray-300">Tiered pricing, feature gates, and usage-based models</p>
           </div>
 
           {/* Core Platform Features */}
-          <div className="mb-12">
-            <h3 className="mb-6 text-center text-lg font-semibold text-white">Core Platform Features</h3>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-5">
+          <div className="mb-16">
+            <h3 className="mb-8 text-center text-lg font-semibold text-white">Core Platform Features</h3>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
               <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 overflow-hidden">
                 <div className="bg-gradient-to-r from-blue-600 to-blue-800 px-6 py-4">
                   <h4 className="font-semibold text-white">Subscription Portals</h4>
@@ -455,9 +455,9 @@ export default function ArchitectureDiagram() {
           </div>
 
           {/* Advanced Services */}
-          <div className="mb-12">
-            <h3 className="mb-6 text-center text-lg font-semibold text-white">Advanced Services</h3>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-5">
+          <div className="mb-16">
+            <h3 className="mb-8 text-center text-lg font-semibold text-white">Advanced Services</h3>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
               <div className="rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 overflow-hidden">
                 <div className="bg-gradient-to-r from-cyan-600 to-cyan-800 px-6 py-4">
                   <h4 className="font-semibold text-white">Geo-Marketing Intelligence</h4>
@@ -507,8 +507,8 @@ export default function ArchitectureDiagram() {
 
           {/* Intelligence & Attribution */}
           <div>
-            <h3 className="mb-6 text-center text-lg font-semibold text-white">Intelligence & Attribution</h3>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            <h3 className="mb-8 text-center text-lg font-semibold text-white">Intelligence & Attribution</h3>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               <div className="rounded-xl border border-amber-900/50 bg-gradient-to-br from-amber-950/50 to-amber-900/20 overflow-hidden">
                 <div className="bg-gradient-to-r from-amber-600 to-amber-800 px-6 py-4">
                   <h4 className="font-semibold text-white">Cross-Channel Attribution</h4>
@@ -540,13 +540,13 @@ export default function ArchitectureDiagram() {
         </div>
 
         {/* NFC TAP FLOW TIMELINE */}
-        <div className="mb-16">
+        <div className="mb-24">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold text-white mb-3">NFC Tap Flow: Signal Chain</h2>
             <p className="text-lg text-gray-300">From physical tap to revenue measurement</p>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-6">
             <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 overflow-hidden">
               <div className="bg-gradient-to-r from-blue-600 to-blue-800 px-6 py-4">
                 <h3 className="text-lg font-semibold text-white">1. Guest Taps NFC Device</h3>
