@@ -208,77 +208,72 @@ export default function ArchitectureDiagram() {
 
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
             {/* Event Ingestion */}
-            <div className="rounded-xl border border-sky-900/50 bg-gradient-to-br from-sky-950/50 to-sky-900/20 p-6">
-              <div className="mb-4 flex justify-center rounded-lg bg-sky-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-sky-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
-                </svg>
+            <div className="rounded-xl border border-sky-900/50 bg-gradient-to-br from-sky-950/50 to-sky-900/20 overflow-hidden">
+              <div className="bg-gradient-to-r from-sky-600 to-sky-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">Event Ingestion</h3>
               </div>
-              <h3 className="mb-2 text-sm font-semibold text-sky-300 text-center">Event Ingestion</h3>
-              <p className="text-xs text-gray-400 text-center mb-2">Real-time Data Processing</p>
-              <div className="text-xs text-gray-500 space-y-1 text-center">
-                <p>NFC scans, landing page views, campaign triggers</p>
-                <p>WebSocket / Pub-Sub (Google Pub/Sub, AWS SNS)</p>
+              <div className="p-6">
+                <p className="text-xs text-gray-400 mb-2">Real-time Data Processing</p>
+                <div className="text-xs text-gray-500 space-y-1">
+                  <p>NFC scans, landing page views, campaign triggers</p>
+                  <p>WebSocket / Pub-Sub (Google Pub/Sub, AWS SNS)</p>
+                </div>
               </div>
             </div>
 
             {/* Streaming/Batch Processing */}
-            <div className="rounded-xl border border-fuchsia-900/50 bg-gradient-to-br from-fuchsia-950/50 to-fuchsia-900/20 p-6">
-              <div className="mb-4 flex justify-center rounded-lg bg-fuchsia-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-fuchsia-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10.5 1.5H5a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V7.5M10.5 1.5l4 4M10.5 1.5v5h5"/>
-                </svg>
+            <div className="rounded-xl border border-fuchsia-900/50 bg-gradient-to-br from-fuchsia-950/50 to-fuchsia-900/20 overflow-hidden">
+              <div className="bg-gradient-to-r from-fuchsia-600 to-fuchsia-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">Streaming/Batch</h3>
               </div>
-              <h3 className="mb-2 text-sm font-semibold text-fuchsia-300 text-center">Streaming/Batch</h3>
-              <p className="text-xs text-gray-400 text-center mb-2">Apache Kafka + Processing</p>
-              <div className="text-xs text-gray-500 space-y-1 text-center">
-                <p>Kafka, Kinesis, Flink, Spark Streaming</p>
-                <p>Kafka Connect for integrations</p>
+              <div className="p-6">
+                <p className="text-xs text-gray-400 mb-2">Apache Kafka + Processing</p>
+                <div className="text-xs text-gray-500 space-y-1">
+                  <p>Kafka, Kinesis, Flink, Spark Streaming</p>
+                  <p>Kafka Connect for integrations</p>
+                </div>
               </div>
             </div>
 
             {/* Data Warehouse */}
-            <div className="rounded-xl border border-rose-900/50 bg-gradient-to-br from-rose-950/50 to-rose-900/20 p-6">
-              <div className="mb-4 flex justify-center rounded-lg bg-rose-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-rose-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M3 12v3c0 1.657.895 3.146 2.457 3.958C7.02 19.748 8.961 20 10 20s2.98-.252 4.543-.084C16.105 19.146 17 17.657 17 16v-3m-6-4V5c0-1.657-.895-3.146-2.457-3.958C7.02.252 5.039 0 4 0 1.895 0 0 1.343 0 3v10c0 1.657.895 3.146 2.457 3.958C4.02 17.748 5.961 18 7 18s2.98-.252 4.543-.084C12.105 17.146 13 15.657 13 14v-3"/>
-                </svg>
+            <div className="rounded-xl border border-rose-900/50 bg-gradient-to-br from-rose-950/50 to-rose-900/20 overflow-hidden">
+              <div className="bg-gradient-to-r from-rose-600 to-rose-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">Data Warehouse</h3>
               </div>
-              <h3 className="mb-2 text-sm font-semibold text-rose-300 text-center">Data Warehouse</h3>
-              <p className="text-xs text-gray-400 text-center mb-2">OLAP for Large-Scale Analytics</p>
-              <div className="text-xs text-gray-500 space-y-1 text-center">
-                <p>Snowflake, BigQuery, Redshift</p>
-                <p>Long-term storage & querying</p>
+              <div className="p-6">
+                <p className="text-xs text-gray-400 mb-2">OLAP for Large-Scale Analytics</p>
+                <div className="text-xs text-gray-500 space-y-1">
+                  <p>Snowflake, BigQuery, Redshift</p>
+                  <p>Long-term storage & querying</p>
+                </div>
               </div>
             </div>
 
             {/* BI Layer */}
-            <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 p-6">
-              <div className="mb-4 flex justify-center rounded-lg bg-orange-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
-                </svg>
+            <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 overflow-hidden">
+              <div className="bg-gradient-to-r from-orange-600 to-orange-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">BI Layer</h3>
               </div>
-              <h3 className="mb-2 text-sm font-semibold text-orange-300 text-center">BI Layer</h3>
-              <p className="text-xs text-gray-400 text-center mb-2">Dashboards & Visualization</p>
-              <div className="text-xs text-gray-500 space-y-1 text-center">
-                <p>Metabase, Superset, Looker</p>
-                <p>Custom React dashboards</p>
+              <div className="p-6">
+                <p className="text-xs text-gray-400 mb-2">Dashboards & Visualization</p>
+                <div className="text-xs text-gray-500 space-y-1">
+                  <p>Metabase, Superset, Looker</p>
+                  <p>Custom React dashboards</p>
+                </div>
               </div>
             </div>
 
             {/* ML/Prediction Service */}
-            <div className="rounded-xl border border-lime-900/50 bg-gradient-to-br from-lime-950/50 to-lime-900/20 p-6">
-              <div className="mb-4 flex justify-center rounded-lg bg-lime-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-lime-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM15.657 14.243a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM11 17a1 1 0 102 0v-1a1 1 0 10-2 0v1zM5.757 15.657a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM2 10a1 1 0 011-1h1a1 1 0 110 2H3a1 1 0 01-1-1zM5.757 4.343a1 1 0 00-1.414 1.414l.707.707a1 1 0 001.414-1.414l-.707-.707z"/>
-                </svg>
+            <div className="rounded-xl border border-lime-900/50 bg-gradient-to-br from-lime-950/50 to-lime-900/20 overflow-hidden">
+              <div className="bg-gradient-to-r from-lime-600 to-lime-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">ML/Prediction</h3>
               </div>
-              <h3 className="mb-2 text-sm font-semibold text-lime-300 text-center">ML/Prediction</h3>
-              <p className="text-xs text-gray-400 text-center mb-2">Predictive Intelligence</p>
-              <div className="text-xs text-gray-500 space-y-1 text-center">
-                <p>Flask/FastAPI, AWS SageMaker</p>
-                <p>Engagement & peak time forecasting</p>
+              <div className="p-6">
+                <p className="text-xs text-gray-400 mb-2">Predictive Intelligence</p>
+                <div className="text-xs text-gray-500 space-y-1">
+                  <p>Flask/FastAPI, AWS SageMaker</p>
+                  <p>Engagement & peak time forecasting</p>
+                </div>
               </div>
             </div>
           </div>
