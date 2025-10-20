@@ -63,7 +63,7 @@ export default function DemoHub() {
     {
       id: 'respond',
       title: 'Respond',
-      subtitle: 'What Got Triggered',
+      subtitle: 'When',
       description: 'Launch automated workflows: emails, social posts, CRM actions - tied to tap data.',
       color: 'from-pink-600 to-pink-800',
       borderColor: 'border-pink-400',
