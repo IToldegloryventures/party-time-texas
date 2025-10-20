@@ -11,7 +11,7 @@ export default function DemoHub() {
     {
       id: 'identify',
       title: 'Identify',
-      subtitle: 'Who & When',
+      subtitle: 'Who',
       description: 'Capture user identity, device ID, and timestamp at the exact moment of tap.',
       color: 'from-blue-600 to-blue-800',
       borderColor: 'border-blue-400',
