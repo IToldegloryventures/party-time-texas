@@ -45,10 +45,13 @@ export default function DemoHub() {
             <h2 className="text-4xl font-bold text-white mb-3">
               From NFC Tap to Revenue Impact
             </h2>
-            <p className="text-xl text-gray-300">
+            <p className="text-xl text-gray-300 mb-4">
               The 5W Signal Chain
             </p>
-            <p className="text-base text-gray-400 mt-4 max-w-4xl mx-auto">
+            <p className="text-lg text-gray-300 mb-2">
+              Every tap tells a story. Cosmic Portals helps you understand and act on it.
+            </p>
+            <p className="text-base text-gray-400 max-w-4xl mx-auto">
               Track Who Engaged, What They Saw, Where They Are, When They Acted, and Why It Matters. Cosmic Portals shows you the complete ROI picture of your investment.
             </p>
           </div>
