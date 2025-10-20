@@ -92,117 +92,107 @@ export default function ArchitectureDiagram() {
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {/* API Gateway / BFF */}
-            <div className="rounded-xl border border-slate-900/50 bg-gradient-to-br from-slate-950/50 to-slate-900/20 p-6">
-              <div className="mb-4 flex justify-center rounded-lg bg-slate-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-slate-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2 4a1 1 0 011-1h6a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V4z"/>
-                  <path d="M13 4a1 1 0 011-1h4a1 1 0 011 1v5a1 1 0 01-1 1h-4a1 1 0 01-1-1V4z"/>
-                  <path d="M13 12a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"/>
-                </svg>
+            <div className="rounded-xl border border-slate-900/50 bg-gradient-to-br from-slate-950/50 to-slate-900/20 overflow-hidden">
+              <div className="bg-gradient-to-r from-slate-600 to-slate-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">API Gateway / BFF</h3>
               </div>
-              <h3 className="mb-2 text-sm font-semibold text-slate-300 text-center">API Gateway / BFF</h3>
-              <p className="text-xs text-gray-400 text-center mb-2">Node.js / NestJS / Fastify</p>
-              <div className="text-xs text-gray-500 space-y-1">
-                <p>• Backend-for-Frontends (BFF)</p>
-                <p>• Tenant & role context enforcement</p>
-                <p>• Web/mobile client routing</p>
+              <div className="p-6">
+                <p className="text-xs text-gray-400 mb-2">Node.js / NestJS / Fastify</p>
+                <div className="text-xs text-gray-500 space-y-1">
+                  <p>• Backend-for-Frontends (BFF)</p>
+                  <p>• Tenant & role context enforcement</p>
+                  <p>• Web/mobile client routing</p>
+                </div>
               </div>
             </div>
 
             {/* NFC Device Manager */}
-            <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 p-6">
-              <div className="mb-4 flex justify-center rounded-lg bg-orange-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
-                  <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1v-5a1 1 0 00-.293-.707l-2-2A1 1 0 0015 7h-1z"/>
-                </svg>
+            <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 overflow-hidden">
+              <div className="bg-gradient-to-r from-orange-600 to-orange-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">NFC Device Manager</h3>
               </div>
-              <h3 className="mb-2 text-sm font-semibold text-orange-300 text-center">NFC Device Manager</h3>
-              <p className="text-xs text-gray-400 text-center mb-2">Registration & Tracking</p>
-              <div className="text-xs text-gray-500 space-y-1">
-                <p>• Device registration & status tracking</p>
-                <p>• Device pool management & batch programming</p>
-                <p>• Kafka/RabbitMQ event messaging</p>
+              <div className="p-6">
+                <p className="text-xs text-gray-400 mb-2">Registration & Tracking</p>
+                <div className="text-xs text-gray-500 space-y-1">
+                  <p>• Device registration & status tracking</p>
+                  <p>• Device pool management & batch programming</p>
+                  <p>• Kafka/RabbitMQ event messaging</p>
+                </div>
               </div>
             </div>
 
             {/* Landing Page Builder Service */}
-            <div className="rounded-xl border border-yellow-900/50 bg-gradient-to-br from-yellow-950/50 to-yellow-900/20 p-6">
-              <div className="mb-4 flex justify-center rounded-lg bg-yellow-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3.5a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4z"/>
-                </svg>
+            <div className="rounded-xl border border-yellow-900/50 bg-gradient-to-br from-yellow-950/50 to-yellow-900/20 overflow-hidden">
+              <div className="bg-gradient-to-r from-yellow-600 to-yellow-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">Landing Page Builder</h3>
               </div>
-              <h3 className="mb-2 text-sm font-semibold text-yellow-300 text-center">Landing Page Builder</h3>
-              <p className="text-xs text-gray-400 text-center mb-2">CMS-Style Editor</p>
-              <div className="text-xs text-gray-500 space-y-1">
-                <p>• Template management & publishing</p>
-                <p>• Headless CMS or custom logic</p>
-                <p>• Personalized page rendering</p>
+              <div className="p-6">
+                <p className="text-xs text-gray-400 mb-2">CMS-Style Editor</p>
+                <div className="text-xs text-gray-500 space-y-1">
+                  <p>• Template management & publishing</p>
+                  <p>• Headless CMS or custom logic</p>
+                  <p>• Personalized page rendering</p>
+                </div>
               </div>
             </div>
 
             {/* Campaign & Content Module */}
-            <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-6">
-              <div className="mb-4 flex justify-center rounded-lg bg-pink-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-pink-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm3.293-1.293a1 1 0 011.414 0L9 7.586l2.293-2.293a1 1 0 111.414 1.414L10.414 9l2.293 2.293a1 1 0 01-1.414 1.414L9 10.414l-2.293 2.293a1 1 0 01-1.414-1.414L7.586 9 5.293 6.707a1 1 0 010-1.414z"/>
-                </svg>
+            <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 overflow-hidden">
+              <div className="bg-gradient-to-r from-pink-600 to-pink-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">Campaign & Content Module</h3>
               </div>
-              <h3 className="mb-2 text-sm font-semibold text-pink-300 text-center">Campaign & Content Module</h3>
-              <p className="text-xs text-gray-400 text-center mb-2">Social & Email Scheduling</p>
-              <div className="text-xs text-gray-500 space-y-1">
-                <p>• Visual composer & calendar view</p>
-                <p>• Social API integration (Meta, TikTok, Instagram)</p>
-                <p>• Drip campaign & scheduling logic</p>
+              <div className="p-6">
+                <p className="text-xs text-gray-400 mb-2">Social & Email Scheduling</p>
+                <div className="text-xs text-gray-500 space-y-1">
+                  <p>• Visual composer & calendar view</p>
+                  <p>• Social API integration (Meta, TikTok, Instagram)</p>
+                  <p>• Drip campaign & scheduling logic</p>
+                </div>
               </div>
             </div>
 
             {/* Trigger & Automation Engine */}
-            <div className="rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 p-6">
-              <div className="mb-4 flex justify-center rounded-lg bg-red-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-red-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 000-2H6V3a1 1 0 01-1 1zm0 0h8a4 4 0 110 8H5a1 1 0 000 2h8a6 6 0 100-12H6V1a1 1 0 00-1 1z"/>
-                </svg>
+            <div className="rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 overflow-hidden">
+              <div className="bg-gradient-to-r from-red-600 to-red-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">Trigger & Automation Engine</h3>
               </div>
-              <h3 className="mb-2 text-sm font-semibold text-red-300 text-center">Trigger & Automation Engine</h3>
-              <p className="text-xs text-gray-400 text-center mb-2">Event-Driven Rules</p>
-              <div className="text-xs text-gray-500 space-y-1">
-                <p>• Scan-based event triggers</p>
-                <p>• CRM sync & webhook actions</p>
-                <p>• Smart rules engine for conditions & workflows</p>
+              <div className="p-6">
+                <p className="text-xs text-gray-400 mb-2">Event-Driven Rules</p>
+                <div className="text-xs text-gray-500 space-y-1">
+                  <p>• Scan-based event triggers</p>
+                  <p>• CRM sync & webhook actions</p>
+                  <p>• Smart rules engine for conditions & workflows</p>
+                </div>
               </div>
             </div>
 
             {/* Job Queue / Orchestration */}
-            <div className="rounded-xl border border-violet-900/50 bg-gradient-to-br from-violet-950/50 to-violet-900/20 p-6">
-              <div className="mb-4 flex justify-center rounded-lg bg-violet-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-violet-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/>
-                </svg>
+            <div className="rounded-xl border border-violet-900/50 bg-gradient-to-br from-violet-950/50 to-violet-900/20 overflow-hidden">
+              <div className="bg-gradient-to-r from-violet-600 to-violet-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">Job Queue / Orchestration</h3>
               </div>
-              <h3 className="mb-2 text-sm font-semibold text-violet-300 text-center">Job Queue / Orchestration</h3>
-              <p className="text-xs text-gray-400 text-center mb-2">BullMQ / AWS SQS + Step Functions</p>
-              <div className="text-xs text-gray-500 space-y-1">
-                <p>• Delayed post scheduling & job execution</p>
-                <p>• Retry logic & workflow chaining</p>
-                <p>• Orchestration of multi-step processes</p>
+              <div className="p-6">
+                <p className="text-xs text-gray-400 mb-2">BullMQ / AWS SQS + Step Functions</p>
+                <div className="text-xs text-gray-500 space-y-1">
+                  <p>• Delayed post scheduling & job execution</p>
+                  <p>• Retry logic & workflow chaining</p>
+                  <p>• Orchestration of multi-step processes</p>
+                </div>
               </div>
             </div>
 
             {/* Microservices & Serverless */}
-            <div className="rounded-xl border border-indigo-900/50 bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 p-6">
-              <div className="mb-4 flex justify-center rounded-lg bg-indigo-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-indigo-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10.5 1.5H5a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V7.5M10.5 1.5l4 4M10.5 1.5v5h5"/>
-                </svg>
+            <div className="rounded-xl border border-indigo-900/50 bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 overflow-hidden">
+              <div className="bg-gradient-to-r from-indigo-600 to-indigo-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">Microservices & Serverless</h3>
               </div>
-              <h3 className="mb-2 text-sm font-semibold text-indigo-300 text-center">Microservices & Serverless</h3>
-              <p className="text-xs text-gray-400 text-center mb-2">Modular Architecture</p>
-              <div className="text-xs text-gray-500 space-y-1">
-                <p>• Deployed as separate services or functions</p>
-                <p>• AWS Lambda / Vercel Serverless</p>
-                <p>• Docker containerization</p>
+              <div className="p-6">
+                <p className="text-xs text-gray-400 mb-2">Modular Architecture</p>
+                <div className="text-xs text-gray-500 space-y-1">
+                  <p>• Deployed as separate services or functions</p>
+                  <p>• AWS Lambda / Vercel Serverless</p>
+                  <p>• Docker containerization</p>
+                </div>
               </div>
             </div>
           </div>
