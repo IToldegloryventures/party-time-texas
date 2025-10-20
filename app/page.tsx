@@ -80,7 +80,7 @@ export default function DemoHub() {
     {
       id: 'measure',
       title: 'Measure',
-      subtitle: 'What Worked',
+      subtitle: 'Why',
       description: 'Analyze ROI by location, campaign, and device with unified attribution.',
       color: 'from-green-600 to-green-800',
       borderColor: 'border-green-400',
