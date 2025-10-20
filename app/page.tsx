@@ -3,6 +3,7 @@ import Link from 'next/link';
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 
 export default function DemoHub() {
   const [activeModal, setActiveModal] = useState<string | null>(null)
