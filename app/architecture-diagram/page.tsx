@@ -398,21 +398,21 @@ export default function ArchitectureDiagram() {
 
         {/* LAYER 5: REVENUE STREAMS & MONETIZATION */}
         <div className="mb-32">
-          <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-white">5. Revenue Streams & Monetization</h2>
-            <p className="mt-2 text-base text-gray-400">Tiered pricing, feature gates, and usage-based models</p>
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold text-white mb-3">5. Revenue Streams & Monetization</h2>
+            <p className="text-lg text-gray-300">Tiered pricing, feature gates, and usage-based models</p>
           </div>
 
           {/* Core Platform Features */}
           <div className="mb-12">
-            <h3 className="mb-6 text-center text-lg font-semibold text-blue-300">Core Platform Features</h3>
+            <h3 className="mb-6 text-center text-lg font-semibold text-white">Core Platform Features</h3>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-5">
               <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 overflow-hidden">
                 <div className="bg-gradient-to-r from-blue-600 to-blue-800 px-6 py-4">
                   <h4 className="font-semibold text-white">Subscription Portals</h4>
                 </div>
                 <div className="p-6">
-                  <p className="text-xs text-gray-400">Multi-tenant SaaS, monthly/annual billing, feature flags</p>
+                  <p className="text-xs text-gray-300">Multi-tenant SaaS, monthly/annual billing, feature flags</p>
                 </div>
               </div>
 
@@ -421,7 +421,7 @@ export default function ArchitectureDiagram() {
                   <h4 className="font-semibold text-white">Landing Page Builder</h4>
                 </div>
                 <div className="p-6">
-                  <p className="text-xs text-gray-400">AI-assisted drag-and-drop, templates, A/B testing</p>
+                  <p className="text-xs text-gray-300">AI-assisted drag-and-drop, templates, A/B testing</p>
                 </div>
               </div>
 
@@ -430,7 +430,7 @@ export default function ArchitectureDiagram() {
                   <h4 className="font-semibold text-white">NFC Device Management</h4>
                 </div>
                 <div className="p-6">
-                  <p className="text-xs text-gray-400">Registration, batch programming, tracking</p>
+                  <p className="text-xs text-gray-300">Registration, batch programming, tracking</p>
                 </div>
               </div>
 
@@ -439,7 +439,7 @@ export default function ArchitectureDiagram() {
                   <h4 className="font-semibold text-white">Event Management</h4>
                 </div>
                 <div className="p-6">
-                  <p className="text-xs text-gray-400">Multi-station check-ins, smart triggers, real-time</p>
+                  <p className="text-xs text-gray-300">Multi-station check-ins, smart triggers, real-time</p>
                 </div>
               </div>
 
@@ -448,7 +448,7 @@ export default function ArchitectureDiagram() {
                   <h4 className="font-semibold text-white">Analytics Dashboard</h4>
                 </div>
                 <div className="p-6">
-                  <p className="text-xs text-gray-400">Real-time metrics, KPI tracking, ROI analysis</p>
+                  <p className="text-xs text-gray-300">Real-time metrics, KPI tracking, ROI analysis</p>
                 </div>
               </div>
             </div>
@@ -456,14 +456,14 @@ export default function ArchitectureDiagram() {
 
           {/* Advanced Services */}
           <div className="mb-12">
-            <h3 className="mb-6 text-center text-lg font-semibold text-cyan-300">Advanced Services</h3>
+            <h3 className="mb-6 text-center text-lg font-semibold text-white">Advanced Services</h3>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-5">
               <div className="rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 overflow-hidden">
                 <div className="bg-gradient-to-r from-cyan-600 to-cyan-800 px-6 py-4">
                   <h4 className="font-semibold text-white">Geo-Marketing Intelligence</h4>
                 </div>
                 <div className="p-6">
-                  <p className="text-xs text-gray-400">Location heatmaps, regional analytics, trends</p>
+                  <p className="text-xs text-gray-300">Location heatmaps, regional analytics, trends</p>
                 </div>
               </div>
 
@@ -472,7 +472,7 @@ export default function ArchitectureDiagram() {
                   <h4 className="font-semibold text-white">Smart Social Scheduler</h4>
                 </div>
                 <div className="p-6">
-                  <p className="text-xs text-gray-400">Social + email automation, campaign composer</p>
+                  <p className="text-xs text-gray-300">Social + email automation, campaign composer</p>
                 </div>
               </div>
 
@@ -481,7 +481,7 @@ export default function ArchitectureDiagram() {
                   <h4 className="font-semibold text-white">White Label Enterprise</h4>
                 </div>
                 <div className="p-6">
-                  <p className="text-xs text-gray-400">Custom domains, full branding, premium support</p>
+                  <p className="text-xs text-gray-300">Custom domains, full branding, premium support</p>
                 </div>
               </div>
 
@@ -490,7 +490,7 @@ export default function ArchitectureDiagram() {
                   <h4 className="font-semibold text-white">Task Management</h4>
                 </div>
                 <div className="p-6">
-                  <p className="text-xs text-gray-400">Team collaboration, workflow tracking</p>
+                  <p className="text-xs text-gray-300">Team collaboration, workflow tracking</p>
                 </div>
               </div>
 
@@ -499,7 +499,7 @@ export default function ArchitectureDiagram() {
                   <h4 className="font-semibold text-white">API Integration Tier</h4>
                 </div>
                 <div className="p-6">
-                  <p className="text-xs text-gray-400">REST API, webhooks, SDKs, per-request billing</p>
+                  <p className="text-xs text-gray-300">REST API, webhooks, SDKs, per-request billing</p>
                 </div>
               </div>
             </div>
@@ -507,14 +507,14 @@ export default function ArchitectureDiagram() {
 
           {/* Intelligence & Attribution */}
           <div>
-            <h3 className="mb-6 text-center text-lg font-semibold text-amber-300">Intelligence & Attribution</h3>
+            <h3 className="mb-6 text-center text-lg font-semibold text-white">Intelligence & Attribution</h3>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               <div className="rounded-xl border border-amber-900/50 bg-gradient-to-br from-amber-950/50 to-amber-900/20 overflow-hidden">
                 <div className="bg-gradient-to-r from-amber-600 to-amber-800 px-6 py-4">
                   <h4 className="font-semibold text-white">Cross-Channel Attribution</h4>
                 </div>
                 <div className="p-6">
-                  <p className="text-xs text-gray-400">Track NFC → Landing → CRM conversion flows for complete ROI attribution</p>
+                  <p className="text-xs text-gray-300">Track NFC → Landing → CRM conversion flows for complete ROI attribution</p>
                 </div>
               </div>
 
@@ -523,7 +523,7 @@ export default function ArchitectureDiagram() {
                   <h4 className="font-semibold text-white">Predictive Intelligence</h4>
                 </div>
                 <div className="p-6">
-                  <p className="text-xs text-gray-400">ML-powered forecasting and behavioral trend analysis</p>
+                  <p className="text-xs text-gray-300">ML-powered forecasting and behavioral trend analysis</p>
                 </div>
               </div>
 
@@ -532,7 +532,7 @@ export default function ArchitectureDiagram() {
                   <h4 className="font-semibold text-white">Advanced Analytics Tier</h4>
                 </div>
                 <div className="p-6">
-                  <p className="text-xs text-gray-400">Premium reporting, custom dashboards, KPI exports</p>
+                  <p className="text-xs text-gray-300">Premium reporting, custom dashboards, KPI exports</p>
                 </div>
               </div>
             </div>
@@ -541,9 +541,9 @@ export default function ArchitectureDiagram() {
 
         {/* NFC TAP FLOW TIMELINE */}
         <div className="mb-16">
-          <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-white">NFC Tap Flow: Signal Chain</h2>
-            <p className="mt-2 text-base text-gray-400">From physical tap to revenue measurement</p>
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold text-white mb-3">NFC Tap Flow: Signal Chain</h2>
+            <p className="text-lg text-gray-300">From physical tap to revenue measurement</p>
           </div>
 
           <div className="space-y-4">
