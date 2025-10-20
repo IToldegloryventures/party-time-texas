@@ -147,84 +147,43 @@ export default function DemoHub() {
             </p>
           </div>
 
-          {/* Horizontal Funnel */}
+          {/* Horizontal Funnel - Interactive */}
           <div className="overflow-x-auto">
             <div className="flex justify-between items-stretch gap-4 min-w-max px-4">
-              {/* Stage 1: Identify */}
-              <div className="flex flex-col items-center flex-1 min-w-max">
-                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center mb-4 shadow-lg border-2 border-blue-400">
-                  <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C10.9 2 10 2.9 10 4s.9 2 2 2 2-.9 2-2-.9-2-2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/>
-                  </svg>
+              {stages.map((stage, index) => (
+                <div key={stage.id}>
+                  {/* Stage Icon */}
+                  <div className="flex flex-col items-center flex-1 min-w-max relative">
+                    <button
+                      onClick={() => setActiveModal(stage.id)}
+                      onMouseEnter={() => setHoveredStage(stage.id)}
+                      onMouseLeave={() => setHoveredStage(null)}
+                      className={`w-24 h-24 rounded-full bg-gradient-to-br ${stage.color} flex items-center justify-center mb-4 border-2 ${stage.borderColor} transition-all duration-300 cursor-pointer ${
+                        hoveredStage === stage.id ? `shadow-2xl ${stage.color === 'from-blue-600 to-blue-800' ? 'shadow-blue-500/60' : stage.color === 'from-indigo-600 to-indigo-800' ? 'shadow-indigo-500/60' : stage.color === 'from-purple-600 to-purple-800' ? 'shadow-purple-500/60' : stage.color === 'from-pink-600 to-pink-800' ? 'shadow-pink-500/60' : 'shadow-green-500/60'} scale-110` : 'shadow-lg'
+                      }`}
+                    >
+                      {stage.icon}
+                    </button>
+
+                    {/* Tooltip on hover */}
+                    {hoveredStage === stage.id && (
+                      <div className="absolute bottom-full mb-2 bg-gray-800 text-white text-xs px-3 py-2 rounded whitespace-nowrap border border-gray-700 z-10">
+                        {stage.tooltip}
+                      </div>
+                    )}
+
+                    <h3 className={`text-xl font-bold ${stage.textColor} mb-1`}>{stage.title}</h3>
+                    <p className="text-xs text-gray-400 text-center max-w-24">{stage.subtitle}</p>
+                  </div>
+
+                  {/* Arrow between stages */}
+                  {index < stages.length - 1 && (
+                    <div className="flex items-center justify-center mb-12 mx-2">
+                      <div className="w-8 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-green-500"></div>
+                    </div>
+                  )}
                 </div>
-                <h3 className="text-xl font-bold text-blue-300 mb-1">Identify</h3>
-                <p className="text-xs text-gray-400 text-center max-w-24">Who: User Identity</p>
-              </div>
-
-              {/* Arrow 1 */}
-              <div className="flex items-center justify-center mb-12">
-                <div className="w-8 h-1 bg-gradient-to-r from-blue-500 to-indigo-500"></div>
-              </div>
-
-              {/* Stage 2: Engage */}
-              <div className="flex flex-col items-center flex-1 min-w-max">
-                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-indigo-600 to-indigo-800 flex items-center justify-center mb-4 shadow-lg border-2 border-indigo-400">
-                  <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 5a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 3h10M8 10h8m-4 6h4" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-indigo-300 mb-1">Engage</h3>
-                <p className="text-xs text-gray-400 text-center max-w-24">What: Content Viewed</p>
-              </div>
-
-              {/* Arrow 2 */}
-              <div className="flex items-center justify-center mb-12">
-                <div className="w-8 h-1 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
-              </div>
-
-              {/* Stage 3: Localize */}
-              <div className="flex flex-col items-center flex-1 min-w-max">
-                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center mb-4 shadow-lg border-2 border-purple-400">
-                  <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-purple-300 mb-1">Localize</h3>
-                <p className="text-xs text-gray-400 text-center max-w-24">Where: Location Context</p>
-              </div>
-
-              {/* Arrow 3 */}
-              <div className="flex items-center justify-center mb-12">
-                <div className="w-8 h-1 bg-gradient-to-r from-purple-500 to-pink-500"></div>
-              </div>
-
-              {/* Stage 4: Respond */}
-              <div className="flex flex-col items-center flex-1 min-w-max">
-                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-pink-600 to-pink-800 flex items-center justify-center mb-4 shadow-lg border-2 border-pink-400">
-                  <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-pink-300 mb-1">Respond</h3>
-                <p className="text-xs text-gray-400 text-center max-w-24">When: Instant Action</p>
-              </div>
-
-              {/* Arrow 4 */}
-              <div className="flex items-center justify-center mb-12">
-                <div className="w-8 h-1 bg-gradient-to-r from-pink-500 to-green-500"></div>
-              </div>
-
-              {/* Stage 5: Measure */}
-              <div className="flex flex-col items-center flex-1 min-w-max">
-                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center mb-4 shadow-lg border-2 border-green-400">
-                  <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-green-300 mb-1">Measure</h3>
-                <p className="text-xs text-gray-400 text-center max-w-24">Why It Matters: ROI Proof</p>
-              </div>
+              ))}
             </div>
           </div>
 
