@@ -21,66 +21,62 @@ export default function ArchitectureDiagram() {
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {/* Web Dashboard */}
-            <div className="group rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-6 transition-all hover:border-blue-700/80 hover:bg-blue-950/40">
-              <div className="mb-4 flex justify-center rounded-lg bg-blue-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 6a1 1 0 011-1h12a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM4 17a2 2 0 100 4h12a2 2 0 100-4H4z"/>
-                </svg>
+            <div className="group rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 overflow-hidden transition-all hover:border-blue-700/80 hover:bg-blue-950/40">
+              <div className="bg-gradient-to-r from-blue-600 to-blue-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">Web Dashboard</h3>
               </div>
-              <h3 className="mb-1 text-lg font-semibold text-blue-300">Web Dashboard</h3>
-              <p className="text-sm text-gray-300">Next.js 15, React 19, Tailwind CSS</p>
-              <div className="mt-3 space-y-1 text-xs text-gray-400">
-                <p>• Device & campaign UI</p>
-                <p>• Analytics view & dashboards</p>
-                <p>• Launcher modules & task management</p>
+              <div className="p-6">
+                <p className="text-sm text-gray-300">Next.js 15, React 19, Tailwind CSS</p>
+                <div className="mt-3 space-y-1 text-xs text-gray-400">
+                  <p>• Device & campaign UI</p>
+                  <p>• Analytics view & dashboards</p>
+                  <p>• Launcher modules & task management</p>
+                </div>
               </div>
             </div>
 
             {/* Mobile Apps */}
-            <div className="group rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-6 transition-all hover:border-cyan-700/80 hover:bg-cyan-950/40">
-              <div className="mb-4 flex justify-center rounded-lg bg-cyan-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M7 3a2 2 0 00-2 2v10a2 2 0 002 2h6a2 2 0 002-2V5a2 2 0 00-2-2H7zm0 2h6v10H7V5zm2 3a1 1 0 100 2h2a1 1 0 100-2H9z"/>
-                </svg>
+            <div className="group rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 overflow-hidden transition-all hover:border-cyan-700/80 hover:bg-cyan-950/40">
+              <div className="bg-gradient-to-r from-cyan-600 to-cyan-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">Mobile Apps</h3>
               </div>
-              <h3 className="mb-1 text-lg font-semibold text-cyan-300">Mobile Apps</h3>
-              <p className="text-sm text-gray-300">PWA or Native (iOS/Android)</p>
-              <div className="mt-3 space-y-1 text-xs text-gray-400">
-                <p>• React Native / Expo cross-platform</p>
-                <p>• Real-time scan interactions via WebSockets</p>
-                <p>• Supabase Realtime sync</p>
+              <div className="p-6">
+                <p className="text-sm text-gray-300">PWA or Native (iOS/Android)</p>
+                <div className="mt-3 space-y-1 text-xs text-gray-400">
+                  <p>• React Native / Expo cross-platform</p>
+                  <p>• Real-time scan interactions via WebSockets</p>
+                  <p>• Supabase Realtime sync</p>
+                </div>
               </div>
             </div>
 
             {/* White-Label Domains */}
-            <div className="group rounded-xl border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-6 transition-all hover:border-purple-700/80 hover:bg-purple-950/40">
-              <div className="mb-4 flex justify-center rounded-lg bg-purple-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10.5 1.5H5a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V7.5M10.5 1.5l4 4M10.5 1.5v5h5"/>
-                </svg>
+            <div className="group rounded-xl border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 overflow-hidden transition-all hover:border-purple-700/80 hover:bg-purple-950/40">
+              <div className="bg-gradient-to-r from-purple-600 to-purple-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">White-Label Domains</h3>
               </div>
-              <h3 className="mb-1 text-lg font-semibold text-purple-300">White-Label Domains</h3>
-              <p className="text-sm text-gray-300">Custom CNAME per tenant</p>
-              <div className="mt-3 space-y-1 text-xs text-gray-400">
-                <p>• Custom domain routing (Cloudflare/AWS Route 53)</p>
-                <p>• CSS overrides & branding service</p>
-                <p>• Tenant-specific portals</p>
+              <div className="p-6">
+                <p className="text-sm text-gray-300">Custom CNAME per tenant</p>
+                <div className="mt-3 space-y-1 text-xs text-gray-400">
+                  <p>• Custom domain routing (Cloudflare/AWS Route 53)</p>
+                  <p>• CSS overrides & branding service</p>
+                  <p>• Tenant-specific portals</p>
+                </div>
               </div>
             </div>
 
             {/* Authentication & RBAC */}
-            <div className="group rounded-xl border border-green-900/50 bg-gradient-to-br from-green-950/50 to-green-900/20 p-6 transition-all hover:border-green-700/80 hover:bg-green-950/40">
-              <div className="mb-4 flex justify-center rounded-lg bg-green-500/20 p-3 mx-auto">
-                <svg className="h-6 w-6 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"/>
-                </svg>
+            <div className="group rounded-xl border border-green-900/50 bg-gradient-to-br from-green-950/50 to-green-900/20 overflow-hidden transition-all hover:border-green-700/80 hover:bg-green-950/40">
+              <div className="bg-gradient-to-r from-green-600 to-green-800 px-6 py-4">
+                <h3 className="text-lg font-semibold text-white">Authentication & RBAC</h3>
               </div>
-              <h3 className="mb-1 text-lg font-semibold text-green-300">Authentication & RBAC</h3>
-              <p className="text-sm text-gray-300">Clerk.dev + NextAuth.js</p>
-              <div className="mt-3 space-y-1 text-xs text-gray-400">
-                <p>• SSO/MFA via Clerk.dev</p>
-                <p>• 5-tier roles: SuperAdmin, OrgOwner, Admin, Member, Guest</p>
-                <p>• Tenant-aware routing at UI level</p>
+              <div className="p-6">
+                <p className="text-sm text-gray-300">Clerk.dev + NextAuth.js</p>
+                <div className="mt-3 space-y-1 text-xs text-gray-400">
+                  <p>• SSO/MFA via Clerk.dev</p>
+                  <p>• 5-tier roles: SuperAdmin, OrgOwner, Admin, Member, Guest</p>
+                  <p>• Tenant-aware routing at UI level</p>
+                </div>
               </div>
             </div>
           </div>
