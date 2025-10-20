@@ -153,17 +153,18 @@ export default function DemoHub() {
 
           {/* Horizontal Funnel - Interactive */}
           <div className="overflow-x-auto">
-            <div className="flex justify-between items-stretch gap-4 min-w-max px-4">
+            <div className="flex justify-between items-start gap-6 min-w-max px-4 pb-4">
               {stages.map((stage, index) => (
-                <div key={stage.id}>
-                  {/* Stage Icon */}
-                  <div className="flex flex-col items-center flex-1 min-w-max relative">
+                <div key={stage.id} className="flex items-start gap-3">
+                  {/* Stage Column */}
+                  <div className="flex flex-col items-center flex-1 min-w-max">
+                    {/* Icon Button */}
                     <button
                       onClick={() => setActiveModal(stage.id)}
                       onMouseEnter={() => setHoveredStage(stage.id)}
                       onMouseLeave={() => setHoveredStage(null)}
-                      className={`w-24 h-24 rounded-full bg-gradient-to-br ${stage.color} flex items-center justify-center mb-4 border-2 ${stage.borderColor} transition-all duration-300 cursor-pointer ${
-                        hoveredStage === stage.id ? `shadow-2xl ${stage.color === 'from-blue-600 to-blue-800' ? 'shadow-blue-500/60' : stage.color === 'from-indigo-600 to-indigo-800' ? 'shadow-indigo-500/60' : stage.color === 'from-purple-600 to-purple-800' ? 'shadow-purple-500/60' : stage.color === 'from-pink-600 to-pink-800' ? 'shadow-pink-500/60' : 'shadow-green-500/60'} scale-110` : 'shadow-lg'
+                      className={`w-24 h-24 rounded-full bg-gradient-to-br ${stage.color} flex items-center justify-center mb-6 border-2 ${stage.borderColor} transition-all duration-300 cursor-pointer ${
+                        hoveredStage === stage.id ? `shadow-2xl ${stage.color === 'from-blue-600 to-blue-800' ? 'shadow-blue-500/60' : stage.color === 'from-indigo-600 to-indigo-800' ? 'shadow-indigo-500/60' : stage.color === 'from-purple-600 to-purple-800' ? 'shadow-purple-500/60' : stage.color === 'from-pink-600 to-pink-800' ? 'shadow-pink-500/60' : 'shadow-green-500/60'} scale-110` : 'shadow-lg hover:shadow-xl'
                       }`}
                     >
                       {stage.icon}
@@ -171,19 +172,25 @@ export default function DemoHub() {
 
                     {/* Tooltip on hover */}
                     {hoveredStage === stage.id && (
-                      <div className="absolute bottom-full mb-2 bg-gray-800 text-white text-xs px-3 py-2 rounded whitespace-nowrap border border-gray-700 z-10">
+                      <div className="absolute top-32 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-3 py-2 rounded border border-gray-700 z-10 w-48 text-center animate-fade-in">
                         {stage.tooltip}
                       </div>
                     )}
 
-                    <h3 className={`text-xl font-bold ${stage.textColor} mb-1`}>{stage.title}</h3>
-                    <p className="text-xs text-gray-400 text-center max-w-24">{stage.subtitle}</p>
+                    {/* Title */}
+                    <h3 className={`text-lg font-bold ${stage.textColor} mb-1 text-center`}>{stage.title}</h3>
+
+                    {/* Subtitle - smaller and lighter gray */}
+                    <p className="text-xs text-gray-500 text-center mb-2 max-w-24">{stage.subtitle}</p>
+
+                    {/* Description - ChatGPT 1-liner */}
+                    <p className="text-xs text-gray-400 text-center max-w-32 leading-snug">{stage.description}</p>
                   </div>
 
-                  {/* Arrow between stages */}
+                  {/* Connecting Line */}
                   {index < stages.length - 1 && (
-                    <div className="flex items-center justify-center mb-12 mx-2">
-                      <div className="w-8 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-green-500"></div>
+                    <div className="flex items-center justify-center pt-12 px-2">
+                      <div className="w-6 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-green-500 rounded-full"></div>
                     </div>
                   )}
                 </div>
@@ -191,9 +198,17 @@ export default function DemoHub() {
             </div>
           </div>
 
+          {/* New Tagline */}
           <div className="mt-12 text-center">
             <p className="text-lg text-gray-300">
-              <span className="font-bold text-white">Cosmic Portals connects the dots across every tap, page, post, and result - so clients can track not just engagement, but why it happened.</span>
+              <span className="font-bold text-white">Cosmic Portals transforms every NFC tap into a full-funnel signal - from engagement to revenue attribution.</span>
+            </p>
+          </div>
+
+          {/* Old CTA Tagline */}
+          <div className="mt-6 text-center">
+            <p className="text-base text-gray-400">
+              Cosmic Portals connects the dots across every tap, page, post, and result - so clients can track not just engagement, but why it happened.
             </p>
           </div>
         </div>
