@@ -59,8 +59,8 @@ export default function DemoHub() {
               {/* Stage 1: Identify */}
               <div className="flex flex-col items-center flex-1 min-w-max">
                 <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center mb-4 shadow-lg border-2 border-blue-400">
-                  <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C10.9 2 10 2.9 10 4s.9 2 2 2 2-.9 2-2-.9-2-2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/>
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-blue-300 mb-1">Identify</h3>
@@ -76,7 +76,7 @@ export default function DemoHub() {
               <div className="flex flex-col items-center flex-1 min-w-max">
                 <div className="w-24 h-24 rounded-full bg-gradient-to-br from-indigo-600 to-indigo-800 flex items-center justify-center mb-4 shadow-lg border-2 border-indigo-400">
                   <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 5a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 3h10M8 10h8m-4 6h4" />
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-indigo-300 mb-1">Engage</h3>
@@ -92,8 +92,7 @@ export default function DemoHub() {
               <div className="flex flex-col items-center flex-1 min-w-max">
                 <div className="w-24 h-24 rounded-full bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center mb-4 shadow-lg border-2 border-purple-400">
                   <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.553-.894L9 7.382v12.618zM15 5v14m4-11l2.894-1.789a1 1 0 011.106.894v10.75a1 1 0 01-1.106.894l-2.894-1.789" />
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-purple-300 mb-1">Localize</h3>
@@ -109,7 +108,7 @@ export default function DemoHub() {
               <div className="flex flex-col items-center flex-1 min-w-max">
                 <div className="w-24 h-24 rounded-full bg-gradient-to-br from-pink-600 to-pink-800 flex items-center justify-center mb-4 shadow-lg border-2 border-pink-400">
                   <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-pink-300 mb-1">Respond</h3>
