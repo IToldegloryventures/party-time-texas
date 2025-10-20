@@ -447,29 +447,23 @@ export default function ArchitectureDiagram() {
           <div>
             <h3 className="mb-8 text-center text-lg font-semibold text-white">Intelligence & Attribution</h3>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3 justify-center max-w-4xl mx-auto">
-              <div className="rounded-xl border border-amber-900/50 bg-gradient-to-br from-amber-950/50 to-amber-900/20 overflow-hidden">
-                <div className="bg-gradient-to-r from-amber-600 to-amber-800 px-6 py-4">
-                  <h4 className="font-semibold text-white">Cross-Channel Attribution</h4>
-                </div>
-                <div className="p-6">
+              <div className="rounded-xl border border-amber-900/50 bg-gradient-to-br from-amber-950/50 to-amber-900/20 overflow-hidden p-6">
+                <h4 className="font-semibold text-white mb-3">Cross-Channel Attribution</h4>
+                <div>
                   <p className="text-xs text-gray-300">Track NFC → Landing → CRM conversion flows for complete ROI attribution</p>
                 </div>
               </div>
 
-              <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 overflow-hidden">
-                <div className="bg-gradient-to-r from-orange-600 to-orange-800 px-6 py-4">
-                  <h4 className="font-semibold text-white">Predictive Intelligence</h4>
-                </div>
-                <div className="p-6">
+              <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 overflow-hidden p-6">
+                <h4 className="font-semibold text-white mb-3">Predictive Intelligence</h4>
+                <div>
                   <p className="text-xs text-gray-300">ML-powered forecasting and behavioral trend analysis</p>
                 </div>
               </div>
 
-              <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 overflow-hidden">
-                <div className="bg-gradient-to-r from-pink-600 to-pink-800 px-6 py-4">
-                  <h4 className="font-semibold text-white">Advanced Analytics Tier</h4>
-                </div>
-                <div className="p-6">
+              <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 overflow-hidden p-6">
+                <h4 className="font-semibold text-white mb-3">Advanced Analytics Tier</h4>
+                <div>
                   <p className="text-xs text-gray-300">Premium reporting, custom dashboards, KPI exports</p>
                 </div>
               </div>
@@ -485,29 +479,23 @@ export default function ArchitectureDiagram() {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 overflow-hidden">
-              <div className="bg-gradient-to-r from-blue-600 to-blue-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">1. Guest Taps NFC Device</h3>
-              </div>
-              <div className="p-6">
+            <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">1. Guest Taps NFC Device</h3>
+              <div>
                 <p className="text-sm text-gray-400">Device triggers event & data packet; geolocation & device metadata captured</p>
               </div>
             </div>
 
-            <div className="rounded-xl border border-indigo-900/50 bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 overflow-hidden">
-              <div className="bg-gradient-to-r from-indigo-600 to-indigo-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">2. Landing Page Loads</h3>
-              </div>
-              <div className="p-6">
+            <div className="rounded-xl border border-indigo-900/50 bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">2. Landing Page Loads</h3>
+              <div>
                 <p className="text-sm text-gray-400">Personalized page rendered in-browser; user journey begins; session cookie set</p>
               </div>
             </div>
 
-            <div className="rounded-xl border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 overflow-hidden">
-              <div className="bg-gradient-to-r from-purple-600 to-purple-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">3. Session Tracking</h3>
-              </div>
-              <div className="p-6">
+            <div className="rounded-xl border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">3. Session Tracking</h3>
+              <div>
                 <p className="text-sm text-gray-400">Geo + device metadata collected; landing page engagement tracked (scrolls, clicks, CTAs)</p>
               </div>
             </div>
