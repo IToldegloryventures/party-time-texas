@@ -49,7 +49,7 @@ export default function DemoHub() {
               The 5W Signal Chain
             </p>
             <p className="text-base text-gray-400 mt-4 max-w-4xl mx-auto">
-              Track What Happened, Where It Worked, and Why It Mattered — All from a Tap. Cosmic Portals transforms every physical interaction into actionable insight.
+              Track Who Engaged, What They Saw, Where They Are, When They Acted, and Why It Matters. Cosmic Portals shows you the complete ROI picture of your investment.
             </p>
           </div>
 
@@ -64,7 +64,7 @@ export default function DemoHub() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-blue-300 mb-1">Identify</h3>
-                <p className="text-xs text-gray-400 text-center max-w-24">Who & When: NFC Tap</p>
+                <p className="text-xs text-gray-400 text-center max-w-24">Who: User Identity</p>
               </div>
 
               {/* Arrow 1 */}
@@ -80,7 +80,7 @@ export default function DemoHub() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-indigo-300 mb-1">Engage</h3>
-                <p className="text-xs text-gray-400 text-center max-w-24">What: Landing Page</p>
+                <p className="text-xs text-gray-400 text-center max-w-24">What: Content Viewed</p>
               </div>
 
               {/* Arrow 2 */}
@@ -97,7 +97,7 @@ export default function DemoHub() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-purple-300 mb-1">Localize</h3>
-                <p className="text-xs text-gray-400 text-center max-w-24">Where & Why: Geo Context</p>
+                <p className="text-xs text-gray-400 text-center max-w-24">Where: Location Context</p>
               </div>
 
               {/* Arrow 3 */}
@@ -113,7 +113,7 @@ export default function DemoHub() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-pink-300 mb-1">Respond</h3>
-                <p className="text-xs text-gray-400 text-center max-w-24">Automation & Triggers</p>
+                <p className="text-xs text-gray-400 text-center max-w-24">When: Instant Action</p>
               </div>
 
               {/* Arrow 4 */}
@@ -129,7 +129,7 @@ export default function DemoHub() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-green-300 mb-1">Measure</h3>
-                <p className="text-xs text-gray-400 text-center max-w-24">ROI: Analytics Dashboard</p>
+                <p className="text-xs text-gray-400 text-center max-w-24">Why It Matters: ROI Proof</p>
               </div>
             </div>
           </div>
