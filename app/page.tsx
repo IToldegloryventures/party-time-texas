@@ -92,7 +92,8 @@ export default function DemoHub() {
               <div className="flex flex-col items-center flex-1 min-w-max">
                 <div className="w-24 h-24 rounded-full bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center mb-4 shadow-lg border-2 border-purple-400">
                   <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.553-.894L9 7.382v12.618zM15 5v14m4-11l2.894-1.789a1 1 0 011.106.894v10.75a1 1 0 01-1.106.894l-2.894-1.789" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-purple-300 mb-1">Localize</h3>
