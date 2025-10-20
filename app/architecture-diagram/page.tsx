@@ -13,11 +13,11 @@ export default function ArchitectureDiagram() {
       <div className="mx-auto max-w-7xl px-6 py-20">
         {/* LAYER 1: CLIENT LAYER (Front-End) */}
         <div className="mb-32">
-          <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-white">1. Client Layer (Front-End)</h2>
-            <p className="mt-2 text-base text-gray-400">Multi-platform access points with unified authentication</p>
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold text-white mb-3">1. Client Layer (Front-End)</h2>
+            <p className="text-lg text-gray-300 mb-4">Multi-platform access points with unified authentication</p>
+            <p className="text-sm text-gray-400">Web Dashboard • Mobile Apps • White-Label Domains • Clerk Authentication & RBAC</p>
           </div>
-          <p className="mb-8 text-center text-sm text-gray-500">Web Dashboard • Mobile Apps • White-Label Domains • Clerk Authentication & RBAC</p>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {/* Web Dashboard */}
@@ -26,8 +26,8 @@ export default function ArchitectureDiagram() {
                 <h3 className="text-lg font-semibold text-white">Web Dashboard</h3>
               </div>
               <div className="p-6">
-                <p className="text-sm text-gray-300">Next.js 15, React 19, Tailwind CSS</p>
-                <div className="mt-3 space-y-1 text-xs text-gray-400">
+                <p className="text-sm font-medium text-gray-200 mb-4">Next.js 15, React 19, Tailwind CSS</p>
+                <div className="space-y-2 text-xs text-gray-300">
                   <p>• Device & campaign UI</p>
                   <p>• Analytics view & dashboards</p>
                   <p>• Launcher modules & task management</p>
@@ -41,10 +41,10 @@ export default function ArchitectureDiagram() {
                 <h3 className="text-lg font-semibold text-white">Mobile Apps</h3>
               </div>
               <div className="p-6">
-                <p className="text-sm text-gray-300">PWA or Native (iOS/Android)</p>
-                <div className="mt-3 space-y-1 text-xs text-gray-400">
+                <p className="text-sm font-medium text-gray-200 mb-4">PWA or Native (iOS/Android)</p>
+                <div className="space-y-2 text-xs text-gray-300">
                   <p>• React Native / Expo cross-platform</p>
-                  <p>• Real-time scan interactions via WebSockets</p>
+                  <p>��� Real-time scan interactions via WebSockets</p>
                   <p>• Supabase Realtime sync</p>
                 </div>
               </div>
@@ -56,8 +56,8 @@ export default function ArchitectureDiagram() {
                 <h3 className="text-lg font-semibold text-white">White-Label Domains</h3>
               </div>
               <div className="p-6">
-                <p className="text-sm text-gray-300">Custom CNAME per tenant</p>
-                <div className="mt-3 space-y-1 text-xs text-gray-400">
+                <p className="text-sm font-medium text-gray-200 mb-4">Custom CNAME per tenant</p>
+                <div className="space-y-2 text-xs text-gray-300">
                   <p>• Custom domain routing (Cloudflare/AWS Route 53)</p>
                   <p>• CSS overrides & branding service</p>
                   <p>• Tenant-specific portals</p>
@@ -71,8 +71,8 @@ export default function ArchitectureDiagram() {
                 <h3 className="text-lg font-semibold text-white">Authentication & RBAC</h3>
               </div>
               <div className="p-6">
-                <p className="text-sm text-gray-300">Clerk.dev + NextAuth.js</p>
-                <div className="mt-3 space-y-1 text-xs text-gray-400">
+                <p className="text-sm font-medium text-gray-200 mb-4">Clerk.dev + NextAuth.js</p>
+                <div className="space-y-2 text-xs text-gray-300">
                   <p>• SSO/MFA via Clerk.dev</p>
                   <p>• 5-tier roles: SuperAdmin, OrgOwner, Admin, Member, Guest</p>
                   <p>• Tenant-aware routing at UI level</p>
@@ -84,11 +84,11 @@ export default function ArchitectureDiagram() {
 
         {/* LAYER 2: API & BUSINESS LOGIC LAYER */}
         <div className="mb-32">
-          <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-white">2. API & Business Logic Layer</h2>
-            <p className="mt-2 text-base text-gray-400">Microservices, orchestration, and core business modules</p>
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold text-white mb-3">2. API & Business Logic Layer</h2>
+            <p className="text-lg text-gray-300 mb-4">Microservices, orchestration, and core business modules</p>
+            <p className="text-sm text-gray-400">API Gateway • NFC Device Manager • Landing Page Builder • Campaign & Content • Trigger Engine • Job Queue</p>
           </div>
-          <p className="mb-8 text-center text-sm text-gray-500">API Gateway • NFC Device Manager • Landing Page Builder • Campaign & Content • Trigger Engine • Job Queue</p>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {/* API Gateway / BFF */}
@@ -97,8 +97,8 @@ export default function ArchitectureDiagram() {
                 <h3 className="text-lg font-semibold text-white">API Gateway / BFF</h3>
               </div>
               <div className="p-6">
-                <p className="text-xs text-gray-400 mb-2">Node.js / NestJS / Fastify</p>
-                <div className="text-xs text-gray-500 space-y-1">
+                <p className="text-xs font-medium text-gray-300 mb-3">Node.js / NestJS / Fastify</p>
+                <div className="text-xs text-gray-300 space-y-2">
                   <p>• Backend-for-Frontends (BFF)</p>
                   <p>• Tenant & role context enforcement</p>
                   <p>• Web/mobile client routing</p>
@@ -284,7 +284,7 @@ export default function ArchitectureDiagram() {
               <h3 className="mb-3 text-sm font-semibold text-purple-300">Real-Time Analytics</h3>
               <div className="text-xs text-gray-400 space-y-2">
                 <p>• Scan metrics & session tracking</p>
-                <p>• Time-series device-level data</p>
+                <p>�� Time-series device-level data</p>
                 <p>• Real-time engagement aggregation</p>
               </div>
             </div>
