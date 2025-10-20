@@ -290,7 +290,7 @@ export default function DemoHub() {
                   <span>Guest Management</span>
                 </div>
                 <div className="flex items-center">
-                  <span className="mr-2">���</span>
+                  <span className="mr-2">✓</span>
                   <span>Photo Gallery</span>
                 </div>
                 <div className="flex items-center">
