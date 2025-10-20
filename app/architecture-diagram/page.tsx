@@ -84,11 +84,9 @@ export default function ArchitectureDiagram() {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2 justify-center max-w-3xl mx-auto">
             {/* API Gateway / BFF */}
-            <div className="rounded-xl border border-slate-900/50 bg-gradient-to-br from-slate-950/50 to-slate-900/20 overflow-hidden">
-              <div className="bg-gradient-to-r from-slate-600 to-slate-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">API Gateway / BFF</h3>
-              </div>
-              <div className="p-6">
+            <div className="rounded-xl border border-slate-900/50 bg-gradient-to-br from-slate-950/50 to-slate-900/20 overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">API Gateway / BFF</h3>
+              <div>
                 <p className="text-xs font-medium text-gray-300 mb-3">Node.js / NestJS / Fastify</p>
                 <div className="text-xs text-gray-300 space-y-2">
                   <p>• Backend-for-Frontends (BFF)</p>
@@ -99,11 +97,9 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* NFC Device Manager */}
-            <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 overflow-hidden">
-              <div className="bg-gradient-to-r from-orange-600 to-orange-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">NFC Device Manager</h3>
-              </div>
-              <div className="p-6">
+            <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">NFC Device Manager</h3>
+              <div>
                 <p className="text-xs font-medium text-gray-300 mb-3">Registration & Tracking</p>
                 <div className="text-xs text-gray-300 space-y-2">
                   <p>• Device registration & status tracking</p>
@@ -114,11 +110,9 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* Landing Page Builder Service */}
-            <div className="rounded-xl border border-yellow-900/50 bg-gradient-to-br from-yellow-950/50 to-yellow-900/20 overflow-hidden">
-              <div className="bg-gradient-to-r from-yellow-600 to-yellow-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">Landing Page Builder</h3>
-              </div>
-              <div className="p-6">
+            <div className="rounded-xl border border-yellow-900/50 bg-gradient-to-br from-yellow-950/50 to-yellow-900/20 overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">Landing Page Builder</h3>
+              <div>
                 <p className="text-xs font-medium text-gray-300 mb-3">CMS-Style Editor</p>
                 <div className="text-xs text-gray-300 space-y-2">
                   <p>• Template management & publishing</p>
@@ -129,11 +123,9 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* Campaign & Content Module */}
-            <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 overflow-hidden">
-              <div className="bg-gradient-to-r from-pink-600 to-pink-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">Campaign & Content Module</h3>
-              </div>
-              <div className="p-6">
+            <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">Campaign & Content Module</h3>
+              <div>
                 <p className="text-xs font-medium text-gray-300 mb-3">Social & Email Scheduling</p>
                 <div className="text-xs text-gray-300 space-y-2">
                   <p>• Visual composer & calendar view</p>
@@ -144,11 +136,9 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* Trigger & Automation Engine */}
-            <div className="rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 overflow-hidden">
-              <div className="bg-gradient-to-r from-red-600 to-red-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">Trigger & Automation Engine</h3>
-              </div>
-              <div className="p-6">
+            <div className="rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">Trigger & Automation Engine</h3>
+              <div>
                 <p className="text-xs font-medium text-gray-300 mb-3">Event-Driven Rules</p>
                 <div className="text-xs text-gray-300 space-y-2">
                   <p>• Scan-based event triggers</p>
@@ -159,11 +149,9 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* Job Queue / Orchestration */}
-            <div className="rounded-xl border border-violet-900/50 bg-gradient-to-br from-violet-950/50 to-violet-900/20 overflow-hidden">
-              <div className="bg-gradient-to-r from-violet-600 to-violet-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">Job Queue / Orchestration</h3>
-              </div>
-              <div className="p-6">
+            <div className="rounded-xl border border-violet-900/50 bg-gradient-to-br from-violet-950/50 to-violet-900/20 overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">Job Queue / Orchestration</h3>
+              <div>
                 <p className="text-xs font-medium text-gray-300 mb-3">BullMQ / AWS SQS + Step Functions</p>
                 <div className="text-xs text-gray-300 space-y-2">
                   <p>• Delayed post scheduling & job execution</p>
@@ -174,11 +162,9 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* Microservices & Serverless */}
-            <div className="rounded-xl border border-indigo-900/50 bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 overflow-hidden">
-              <div className="bg-gradient-to-r from-indigo-600 to-indigo-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">Microservices & Serverless</h3>
-              </div>
-              <div className="p-6">
+            <div className="rounded-xl border border-indigo-900/50 bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 overflow-hidden p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">Microservices & Serverless</h3>
+              <div>
                 <p className="text-xs font-medium text-gray-300 mb-3">Modular Architecture</p>
                 <div className="text-xs text-gray-300 space-y-2">
                   <p>• Deployed as separate services or functions</p>
