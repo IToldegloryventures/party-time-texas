@@ -21,11 +21,9 @@ export default function ArchitectureDiagram() {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 justify-center">
             {/* Web Dashboard */}
-            <div className="group rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 overflow-hidden transition-all hover:border-blue-700/80 hover:bg-blue-950/40">
-              <div className="bg-gradient-to-r from-blue-600 to-blue-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">Web Dashboard</h3>
-              </div>
-              <div className="p-6">
+            <div className="group rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 overflow-hidden transition-all hover:border-blue-700/80 hover:bg-blue-950/40 p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">Web Dashboard</h3>
+              <div>
                 <p className="text-sm font-medium text-gray-200 mb-4">Next.js 15, React 19, Tailwind CSS</p>
                 <div className="space-y-2 text-xs text-gray-300">
                   <p>• Device & campaign UI</p>
@@ -36,11 +34,9 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* Mobile Apps */}
-            <div className="group rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 overflow-hidden transition-all hover:border-cyan-700/80 hover:bg-cyan-950/40">
-              <div className="bg-gradient-to-r from-cyan-600 to-cyan-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">Mobile Apps</h3>
-              </div>
-              <div className="p-6">
+            <div className="group rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 overflow-hidden transition-all hover:border-cyan-700/80 hover:bg-cyan-950/40 p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">Mobile Apps</h3>
+              <div>
                 <p className="text-sm font-medium text-gray-200 mb-4">PWA or Native (iOS/Android)</p>
                 <div className="space-y-2 text-xs text-gray-300">
                   <p>• React Native / Expo cross-platform</p>
@@ -51,11 +47,9 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* White-Label Domains */}
-            <div className="group rounded-xl border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 overflow-hidden transition-all hover:border-purple-700/80 hover:bg-purple-950/40">
-              <div className="bg-gradient-to-r from-purple-600 to-purple-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">White-Label Domains</h3>
-              </div>
-              <div className="p-6">
+            <div className="group rounded-xl border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 overflow-hidden transition-all hover:border-purple-700/80 hover:bg-purple-950/40 p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">White-Label Domains</h3>
+              <div>
                 <p className="text-sm font-medium text-gray-200 mb-4">Custom CNAME per tenant</p>
                 <div className="space-y-2 text-xs text-gray-300">
                   <p>• Custom domain routing (Cloudflare/AWS Route 53)</p>
@@ -66,11 +60,9 @@ export default function ArchitectureDiagram() {
             </div>
 
             {/* Authentication & RBAC */}
-            <div className="group rounded-xl border border-green-900/50 bg-gradient-to-br from-green-950/50 to-green-900/20 overflow-hidden transition-all hover:border-green-700/80 hover:bg-green-950/40">
-              <div className="bg-gradient-to-r from-green-600 to-green-800 px-6 py-4">
-                <h3 className="text-lg font-semibold text-white">Authentication & RBAC</h3>
-              </div>
-              <div className="p-6">
+            <div className="group rounded-xl border border-green-900/50 bg-gradient-to-br from-green-950/50 to-green-900/20 overflow-hidden transition-all hover:border-green-700/80 hover:bg-green-950/40 p-6">
+              <h3 className="text-lg font-semibold text-white mb-3">Authentication & RBAC</h3>
+              <div>
                 <p className="text-sm font-medium text-gray-200 mb-4">Clerk.dev + NextAuth.js</p>
                 <div className="space-y-2 text-xs text-gray-300">
                   <p>• SSO/MFA via Clerk.dev</p>
