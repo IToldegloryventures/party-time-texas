@@ -192,17 +192,10 @@ export default function DemoHub() {
             </div>
           </div>
 
-          {/* New Tagline */}
-          <div className="mt-12 text-center">
-            <p className="text-lg text-gray-300">
-              <span className="font-bold text-white">Cosmic Portals transforms every NFC tap into a full-funnel signal - from engagement to revenue attribution.</span>
-            </p>
-          </div>
-
-          {/* Old CTA Tagline */}
-          <div className="mt-6 text-center">
-            <p className="text-base text-gray-400">
-              Cosmic Portals connects the dots across every tap, page, post, and result - so clients can track not just engagement, but why it happened.
+          {/* Footer Tagline */}
+          <div className="mt-16 text-center">
+            <p className="text-lg font-semibold text-white">
+              Cosmic Portals transforms every NFC tap into a full-funnel signal - from engagement to revenue attribution.
             </p>
           </div>
         </div>
