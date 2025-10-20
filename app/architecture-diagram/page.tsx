@@ -509,34 +509,31 @@ export default function ArchitectureDiagram() {
           <div>
             <h3 className="mb-6 text-center text-lg font-semibold text-amber-300">Intelligence & Attribution</h3>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              <div className="rounded-xl border border-amber-900/50 bg-gradient-to-br from-amber-950/50 to-amber-900/20 p-6 text-center">
-                <div className="mb-4 flex justify-center rounded-lg bg-amber-500/20 p-3 mx-auto w-fit">
-                  <svg className="h-5 w-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
-                  </svg>
+              <div className="rounded-xl border border-amber-900/50 bg-gradient-to-br from-amber-950/50 to-amber-900/20 overflow-hidden">
+                <div className="bg-gradient-to-r from-amber-600 to-amber-800 px-6 py-4">
+                  <h4 className="font-semibold text-white">Cross-Channel Attribution</h4>
                 </div>
-                <h4 className="mb-2 font-semibold text-amber-300">Cross-Channel Attribution</h4>
-                <p className="text-xs text-gray-400">Track NFC → Landing → CRM conversion flows for complete ROI attribution</p>
+                <div className="p-6">
+                  <p className="text-xs text-gray-400">Track NFC → Landing → CRM conversion flows for complete ROI attribution</p>
+                </div>
               </div>
 
-              <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 p-6 text-center">
-                <div className="mb-4 flex justify-center rounded-lg bg-orange-500/20 p-3 mx-auto w-fit">
-                  <svg className="h-5 w-5 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M10 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zM4.293 9.293a1 1 0 011.414 0L9 12.586l4.293-4.293a1 1 0 111.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414z"/>
-                  </svg>
+              <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 overflow-hidden">
+                <div className="bg-gradient-to-r from-orange-600 to-orange-800 px-6 py-4">
+                  <h4 className="font-semibold text-white">Predictive Intelligence</h4>
                 </div>
-                <h4 className="mb-2 font-semibold text-orange-300">Predictive Intelligence</h4>
-                <p className="text-xs text-gray-400">ML-powered forecasting and behavioral trend analysis</p>
+                <div className="p-6">
+                  <p className="text-xs text-gray-400">ML-powered forecasting and behavioral trend analysis</p>
+                </div>
               </div>
 
-              <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-6 text-center">
-                <div className="mb-4 flex justify-center rounded-lg bg-pink-500/20 p-3 mx-auto w-fit">
-                  <svg className="h-5 w-5 text-pink-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"/>
-                  </svg>
+              <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 overflow-hidden">
+                <div className="bg-gradient-to-r from-pink-600 to-pink-800 px-6 py-4">
+                  <h4 className="font-semibold text-white">Advanced Analytics Tier</h4>
                 </div>
-                <h4 className="mb-2 font-semibold text-pink-300">Advanced Analytics Tier</h4>
-                <p className="text-xs text-gray-400">Premium reporting, custom dashboards, KPI exports</p>
+                <div className="p-6">
+                  <p className="text-xs text-gray-400">Premium reporting, custom dashboards, KPI exports</p>
+                </div>
               </div>
             </div>
           </div>
