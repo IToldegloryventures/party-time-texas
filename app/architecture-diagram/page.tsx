@@ -144,7 +144,7 @@ export default function ArchitectureDiagram() {
               <div className="p-6">
                 <p className="text-xs text-gray-400 mb-2">Social & Email Scheduling</p>
                 <div className="text-xs text-gray-500 space-y-1">
-                  <p>�� Visual composer & calendar view</p>
+                  <p>• Visual composer & calendar view</p>
                   <p>• Social API integration (Meta, TikTok, Instagram)</p>
                   <p>• Drip campaign & scheduling logic</p>
                 </div>
@@ -407,55 +407,49 @@ export default function ArchitectureDiagram() {
           <div className="mb-12">
             <h3 className="mb-6 text-center text-lg font-semibold text-blue-300">Core Platform Features</h3>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-5">
-              <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-6 text-center">
-                <div className="mb-4 flex justify-center rounded-lg bg-blue-500/20 p-3 mx-auto w-fit">
-                  <svg className="h-5 w-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
-                  </svg>
+              <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 overflow-hidden">
+                <div className="bg-gradient-to-r from-blue-600 to-blue-800 px-6 py-4">
+                  <h4 className="font-semibold text-white">Subscription Portals</h4>
                 </div>
-                <h4 className="mb-2 font-semibold text-blue-300">Subscription Portals</h4>
-                <p className="text-xs text-gray-400">Multi-tenant SaaS, monthly/annual billing, feature flags</p>
+                <div className="p-6">
+                  <p className="text-xs text-gray-400">Multi-tenant SaaS, monthly/annual billing, feature flags</p>
+                </div>
               </div>
 
-              <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-6 text-center">
-                <div className="mb-4 flex justify-center rounded-lg bg-pink-500/20 p-3 mx-auto w-fit">
-                  <svg className="h-5 w-5 text-pink-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3.5a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4z"/>
-                  </svg>
+              <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 overflow-hidden">
+                <div className="bg-gradient-to-r from-pink-600 to-pink-800 px-6 py-4">
+                  <h4 className="font-semibold text-white">Landing Page Builder</h4>
                 </div>
-                <h4 className="mb-2 font-semibold text-pink-300">Landing Page Builder</h4>
-                <p className="text-xs text-gray-400">AI-assisted drag-and-drop, templates, A/B testing</p>
+                <div className="p-6">
+                  <p className="text-xs text-gray-400">AI-assisted drag-and-drop, templates, A/B testing</p>
+                </div>
               </div>
 
-              <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 p-6 text-center">
-                <div className="mb-4 flex justify-center rounded-lg bg-orange-500/20 p-3 mx-auto w-fit">
-                  <svg className="h-5 w-5 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
-                    <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1v-5a1 1 0 00-.293-.707l-2-2A1 1 0 0015 7h-1z"/>
-                  </svg>
+              <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 overflow-hidden">
+                <div className="bg-gradient-to-r from-orange-600 to-orange-800 px-6 py-4">
+                  <h4 className="font-semibold text-white">NFC Device Management</h4>
                 </div>
-                <h4 className="mb-2 font-semibold text-orange-300">NFC Device Management</h4>
-                <p className="text-xs text-gray-400">Registration, batch programming, tracking</p>
+                <div className="p-6">
+                  <p className="text-xs text-gray-400">Registration, batch programming, tracking</p>
+                </div>
               </div>
 
-              <div className="rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 p-6 text-center">
-                <div className="mb-4 flex justify-center rounded-lg bg-red-500/20 p-3 mx-auto w-fit">
-                  <svg className="h-5 w-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
-                  </svg>
+              <div className="rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 overflow-hidden">
+                <div className="bg-gradient-to-r from-red-600 to-red-800 px-6 py-4">
+                  <h4 className="font-semibold text-white">Event Management</h4>
                 </div>
-                <h4 className="mb-2 font-semibold text-red-300">Event Management</h4>
-                <p className="text-xs text-gray-400">Multi-station check-ins, smart triggers, real-time</p>
+                <div className="p-6">
+                  <p className="text-xs text-gray-400">Multi-station check-ins, smart triggers, real-time</p>
+                </div>
               </div>
 
-              <div className="rounded-xl border border-indigo-900/50 bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 p-6 text-center">
-                <div className="mb-4 flex justify-center rounded-lg bg-indigo-500/20 p-3 mx-auto w-fit">
-                  <svg className="h-5 w-5 text-indigo-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
-                  </svg>
+              <div className="rounded-xl border border-indigo-900/50 bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 overflow-hidden">
+                <div className="bg-gradient-to-r from-indigo-600 to-indigo-800 px-6 py-4">
+                  <h4 className="font-semibold text-white">Analytics Dashboard</h4>
                 </div>
-                <h4 className="mb-2 font-semibold text-indigo-300">Analytics Dashboard</h4>
-                <p className="text-xs text-gray-400">Real-time metrics, KPI tracking, ROI analysis</p>
+                <div className="p-6">
+                  <p className="text-xs text-gray-400">Real-time metrics, KPI tracking, ROI analysis</p>
+                </div>
               </div>
             </div>
           </div>
