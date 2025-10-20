@@ -139,7 +139,7 @@ export default function DemoHub() {
 
           <div className="mt-12 text-center">
             <p className="text-lg text-gray-300">
-              <span className="font-bold text-white">Every tap tells a story. Cosmic Portals helps you understand and act on it.</span>
+              <span className="font-bold text-white">Cosmic Portals connects the dots across every tap, page, post, and result - so clients can track not just engagement, but why it happened.</span>
             </p>
           </div>
         </div>
