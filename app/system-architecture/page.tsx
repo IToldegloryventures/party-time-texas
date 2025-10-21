@@ -6,11 +6,43 @@ export default function SystemArchitecture() {
         <div className="mx-auto max-w-7xl text-center">
           <h1 className="mb-2 text-4xl font-bold text-white">System Architecture</h1>
           <p className="text-base text-gray-400">Cosmic Portals Multi-Tenant NFC & Engagement Platform</p>
-          <p className="mt-3 text-sm text-gray-500">Six-layer distributed architecture supporting enterprise-grade campaign automation, real-time analytics, and white-label SaaS delivery.</p>
+          <p className="mt-3 text-sm text-gray-500">Enterprise-grade distributed architecture with load balancing, comprehensive data access patterns, security infrastructure, and performance optimization.</p>
         </div>
       </div>
 
       <div className="mx-auto max-w-7xl px-6 py-24">
+        {/* Layer 0: Load Balancer & Gateway Tier */}
+        <div className="mb-40">
+          <div className="mb-8 text-center">
+            <h2 className="text-2xl font-bold text-white">Layer 0: Load Balancer & Gateway</h2>
+            <p className="mt-2 text-base text-gray-400">Request distribution, SSL termination, and health management</p>
+          </div>
+          <p className="mb-8 text-center text-sm text-gray-500">Load Balancer · SSL/TLS Management · Health Checks · Request Distribution</p>
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 justify-center">
+            {/* Vercel Load Balancer */}
+            <div className="group rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 p-6 transition-all hover:border-orange-700/80 hover:bg-orange-950/40 text-center">
+              <h3 className="mb-1 text-lg font-semibold text-orange-300">Vercel Load Balancer</h3>
+              <p className="text-sm text-gray-300">Request Distribution & Failover</p>
+              <p className="mt-3 text-xs text-gray-400">SSL termination, geo-routing, connection pooling, health checks</p>
+            </div>
+
+            {/* SSL/TLS Management */}
+            <div className="group rounded-xl border border-yellow-900/50 bg-gradient-to-br from-yellow-950/50 to-yellow-900/20 p-6 transition-all hover:border-yellow-700/80 hover:bg-yellow-950/40 text-center">
+              <h3 className="mb-1 text-lg font-semibold text-yellow-300">SSL/TLS Certificates</h3>
+              <p className="text-sm text-gray-300">Certificate Management & Renewal</p>
+              <p className="mt-3 text-xs text-gray-400">HTTPS everywhere, security headers, certificate automation</p>
+            </div>
+
+            {/* Health Monitoring */}
+            <div className="group rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 p-6 transition-all hover:border-red-700/80 hover:bg-red-950/40 text-center">
+              <h3 className="mb-1 text-lg font-semibold text-red-300">Health Checks</h3>
+              <p className="text-sm text-gray-300">Service Health & Availability</p>
+              <p className="mt-3 text-xs text-gray-400">Endpoint monitoring, failover detection, service status tracking</p>
+            </div>
+          </div>
+        </div>
+
         {/* Layer 1: Presentation Layer */}
         <div className="mb-40">
           <div className="mb-8 text-center">
@@ -47,23 +79,23 @@ export default function SystemArchitecture() {
         <div className="mb-40">
           <div className="mb-8 text-center">
             <h2 className="text-2xl font-bold text-white">Layer 2: API Gateway Layer</h2>
-            <p className="mt-2 text-base text-gray-400">Request routing, authentication, and rate limiting</p>
+            <p className="mt-2 text-base text-gray-400">Request routing, authentication, and security enforcement</p>
           </div>
-          <p className="mb-8 text-center text-sm text-gray-500">API Gateway · Authentication Service</p>
+          <p className="mb-8 text-center text-sm text-gray-500">API Gateway · Authentication · Rate Limiting · Request Routing</p>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 justify-center">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2 justify-center">
             {/* API Gateway */}
             <div className="group rounded-xl border border-amber-900/50 bg-gradient-to-br from-amber-950/50 to-amber-900/20 p-6 transition-all hover:border-amber-700/80 hover:bg-amber-950/40 text-center">
               <h3 className="mb-1 text-lg font-semibold text-amber-300">API Gateway</h3>
               <p className="text-sm text-gray-300">Vercel Edge Functions</p>
-              <p className="mt-3 text-xs text-gray-400">Rate Limiting, Authentication, Request Routing, Geo-routing</p>
+              <p className="mt-3 text-xs text-gray-400">Rate Limiting, Request Routing, Geo-routing, Request Distribution, Request Logging</p>
             </div>
 
-            {/* Authentication Service */}
+            {/* Authentication & Security */}
             <div className="group rounded-xl border border-green-900/50 bg-gradient-to-br from-green-950/50 to-green-900/20 p-6 transition-all hover:border-green-700/80 hover:bg-green-950/40 text-center">
-              <h3 className="mb-1 text-lg font-semibold text-green-300">Authentication Service</h3>
-              <p className="text-sm text-gray-300">Clerk Authentication</p>
-              <p className="mt-3 text-xs text-gray-400">Multi-tenant Orgs, 5-Tier Role System, SSO, MFA, JWT Tokens</p>
+              <h3 className="mb-1 text-lg font-semibold text-green-300">Authentication & Security</h3>
+              <p className="text-sm text-gray-300">Clerk Authentication, Auth Orchestration</p>
+              <p className="mt-3 text-xs text-gray-400">Multi-tenant Orgs, 5-Tier Roles, SSO, MFA, JWT Tokens, Permission Validation</p>
             </div>
           </div>
         </div>
@@ -220,7 +252,7 @@ export default function SystemArchitecture() {
             <h3 className="mb-6 text-lg font-semibold text-white text-center">Business Rules Engine</h3>
             <p className="mb-8 text-center text-sm text-gray-500">Event-Driven Rules · Validation Logic · Workflow Orchestration · Trigger Management · Automation</p>
 
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 justify-center">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center">
               {/* Event-Driven Rules System */}
               <div className="rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 p-6">
                 <h4 className="mb-3 text-sm font-semibold text-red-300 text-center">Event-Driven Rules System</h4>
@@ -272,7 +304,8 @@ export default function SystemArchitecture() {
               <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-6 lg:col-span-2">
                 <h4 className="mb-3 text-sm font-semibold text-pink-300 text-center">Automation Rules Engine</h4>
                 <div className="text-xs text-gray-400 space-y-2 text-center">
-                  <p>• Email sequence automation · SMS notification systems · Social media scheduling · Analytics report generation · Integration data synchronization</p>
+                  <p>• Email sequence automation · SMS notification systems · Social media scheduling</p>
+                  <p>• Analytics report generation · Integration data synchronization</p>
                 </div>
               </div>
             </div>
@@ -283,7 +316,7 @@ export default function SystemArchitecture() {
         <div className="mb-40">
           <div className="mb-8 text-center">
             <h2 className="text-2xl font-bold text-white">Layer 5: Data Access Layer</h2>
-            <p className="mt-2 text-base text-gray-400">Repository pattern and data services</p>
+            <p className="mt-2 text-base text-gray-400">Repository pattern, caching, and data optimization services</p>
           </div>
 
           {/* Repository Pattern */}
@@ -333,19 +366,37 @@ export default function SystemArchitecture() {
           {/* Data Services */}
           <div>
             <h3 className="mb-6 text-lg font-semibold text-white text-center">Data Services</h3>
-            <p className="mb-8 text-center text-sm text-gray-500">Caching, Search, and Query Optimization</p>
+            <p className="mb-8 text-center text-sm text-gray-500">Caching · Search · Optimization · Synchronization · Backup & Recovery</p>
 
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 justify-center">
-              {/* Cache Layer */}
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-5 justify-center">
+              {/* Redis Cache */}
               <div className="rounded-xl border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-6 text-center">
                 <h4 className="mb-2 text-sm font-semibold text-purple-300">Redis Cache</h4>
-                <p className="text-xs text-gray-400">Session storage, query caching, performance optimization, real-time data</p>
+                <p className="text-xs text-gray-400">Session storage, query caching, performance optimization</p>
               </div>
 
               {/* Search Service */}
               <div className="rounded-xl border border-yellow-900/50 bg-gradient-to-br from-yellow-950/50 to-yellow-900/20 p-6 text-center">
                 <h4 className="mb-2 text-sm font-semibold text-yellow-300">Search Service</h4>
-                <p className="text-xs text-gray-400">Full-text search, content indexing, query optimization, Elasticsearch</p>
+                <p className="text-xs text-gray-400">Full-text search, content indexing, query optimization</p>
+              </div>
+
+              {/* Query Optimization */}
+              <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-blue-300">Query Optimization</h4>
+                <p className="text-xs text-gray-400">Database tuning, index management, performance monitoring</p>
+              </div>
+
+              {/* Data Synchronization */}
+              <div className="rounded-xl border border-green-900/50 bg-gradient-to-br from-green-950/50 to-green-900/20 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-green-300">Data Synchronization</h4>
+                <p className="text-xs text-gray-400">Real-time sync, conflict resolution, backup management</p>
+              </div>
+
+              {/* Backup & Recovery */}
+              <div className="rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-red-300">Backup & Recovery</h4>
+                <p className="text-xs text-gray-400">Automated backups, point-in-time recovery, disaster recovery</p>
               </div>
             </div>
           </div>
@@ -355,7 +406,7 @@ export default function SystemArchitecture() {
         <div className="mb-40">
           <div className="mb-8 text-center">
             <h2 className="text-2xl font-bold text-white">Layer 6: Infrastructure Layer</h2>
-            <p className="mt-2 text-base text-gray-400">Database, storage, external services, and platform services</p>
+            <p className="mt-2 text-base text-gray-400">Database, storage, external services, and platform infrastructure</p>
           </div>
 
           {/* Database Layer */}
@@ -367,7 +418,7 @@ export default function SystemArchitecture() {
                 <h4 className="mb-2 text-sm font-semibold text-emerald-300">Supabase PostgreSQL</h4>
                 <p className="text-xs text-gray-400 mb-3">Multi-tenant relational database with advanced security and real-time capabilities</p>
                 <div className="text-xs text-gray-500">
-                  <p>Row Level Security (RLS) · Real-time Subscriptions · Automated Backups</p>
+                  <p>Row Level Security (RLS) · Real-time Subscriptions · Connection Pooling</p>
                   <p className="mt-2">Encryption at Rest · Point-in-time Recovery · Disaster Recovery</p>
                 </div>
               </div>
@@ -434,34 +485,93 @@ export default function SystemArchitecture() {
           </div>
 
           {/* Infrastructure Services */}
-          <div>
+          <div className="mb-12">
             <h3 className="mb-6 text-lg font-semibold text-white text-center">Infrastructure Services</h3>
-            <p className="mb-8 text-center text-sm text-gray-500">Hosting · Security · Monitoring · Logging</p>
+            <p className="mb-8 text-center text-sm text-gray-500">Hosting · Security · Monitoring · Logging · Performance</p>
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2 justify-center">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center">
               {/* Vercel Platform */}
               <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-6 text-center">
                 <h4 className="mb-2 text-sm font-semibold text-blue-300">Vercel Platform</h4>
-                <p className="text-xs text-gray-400 mb-2">Serverless hosting, edge computing, CDN, CI/CD pipeline</p>
+                <p className="text-xs text-gray-400">Serverless hosting, edge computing, CDN, CI/CD pipeline</p>
               </div>
 
               {/* Cloudflare Security */}
               <div className="rounded-xl border border-yellow-900/50 bg-gradient-to-br from-yellow-950/50 to-yellow-900/20 p-6 text-center">
                 <h4 className="mb-2 text-sm font-semibold text-yellow-300">Cloudflare Security</h4>
-                <p className="text-xs text-gray-400 mb-2">DNS management, DDoS protection, WAF, security rules</p>
+                <p className="text-xs text-gray-400">DNS management, DDoS protection, WAF, security rules</p>
               </div>
 
               {/* System Monitoring */}
               <div className="rounded-xl border border-violet-900/50 bg-gradient-to-br from-violet-950/50 to-violet-900/20 p-6 text-center">
                 <h4 className="mb-2 text-sm font-semibold text-violet-300">System Monitoring</h4>
-                <p className="text-xs text-gray-400 mb-2">Uptime tracking, performance metrics, alerting system</p>
+                <p className="text-xs text-gray-400">Uptime tracking, performance metrics, alerting system</p>
               </div>
 
               {/* Log Aggregation */}
               <div className="rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 p-6 text-center">
                 <h4 className="mb-2 text-sm font-semibold text-red-300">Log Aggregation</h4>
-                <p className="text-xs text-gray-400 mb-2">Error tracking, audit logs, performance analysis</p>
+                <p className="text-xs text-gray-400">Error tracking, audit logs, performance analysis</p>
               </div>
+
+              {/* Security Monitoring */}
+              <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-pink-300">Security Monitoring</h4>
+                <p className="text-xs text-gray-400">Threat detection, vulnerability scanning, compliance monitoring</p>
+              </div>
+
+              {/* Performance Optimization */}
+              <div className="rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-cyan-300">Performance Optimization</h4>
+                <p className="text-xs text-gray-400">CDN optimization, cache management, latency reduction</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Layer 7: Security & Compliance */}
+        <div className="mb-40">
+          <div className="mb-8 text-center">
+            <h2 className="text-2xl font-bold text-white">Layer 7: Security & Compliance</h2>
+            <p className="mt-2 text-base text-gray-400">Authentication, authorization, data protection, and regulatory compliance</p>
+          </div>
+          <p className="mb-8 text-center text-sm text-gray-500">Authentication · Authorization · Encryption · Compliance · Audit</p>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center">
+            {/* Authentication Layer */}
+            <div className="rounded-xl border border-amber-900/50 bg-gradient-to-br from-amber-950/50 to-amber-900/20 p-6 text-center">
+              <h4 className="mb-2 text-sm font-semibold text-amber-300">Authentication Layer</h4>
+              <p className="text-xs text-gray-400 mb-2">Multi-factor auth, SSO integration, audit logs</p>
+            </div>
+
+            {/* Authorization Layer */}
+            <div className="rounded-xl border border-emerald-900/50 bg-gradient-to-br from-emerald-950/50 to-emerald-900/20 p-6 text-center">
+              <h4 className="mb-2 text-sm font-semibold text-emerald-300">Authorization Layer</h4>
+              <p className="text-xs text-gray-400 mb-2">Row Level Security, role-based access, permission matrix</p>
+            </div>
+
+            {/* Data Encryption */}
+            <div className="rounded-xl border border-violet-900/50 bg-gradient-to-br from-violet-950/50 to-violet-900/20 p-6 text-center">
+              <h4 className="mb-2 text-sm font-semibold text-violet-300">Data Encryption</h4>
+              <p className="text-xs text-gray-400 mb-2">At rest + in transit, key management, backup encryption</p>
+            </div>
+
+            {/* Compliance Framework */}
+            <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-6 text-center">
+              <h4 className="mb-2 text-sm font-semibold text-blue-300">Compliance Framework</h4>
+              <p className="text-xs text-gray-400 mb-2">GDPR compliance, SOC 2 Type II, data privacy</p>
+            </div>
+
+            {/* Audit Logging */}
+            <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 p-6 text-center">
+              <h4 className="mb-2 text-sm font-semibold text-orange-300">Audit Logging</h4>
+              <p className="text-xs text-gray-400 mb-2">Activity tracking, access auditing, compliance reports</p>
+            </div>
+
+            {/* Incident Response */}
+            <div className="rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 p-6 text-center">
+              <h4 className="mb-2 text-sm font-semibold text-red-300">Incident Response</h4>
+              <p className="text-xs text-gray-400 mb-2">Threat detection, incident alerting, disaster recovery</p>
             </div>
           </div>
         </div>
