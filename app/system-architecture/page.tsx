@@ -326,38 +326,38 @@ export default function SystemArchitecture() {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center">
               {/* User Repository */}
-              <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-blue-300">User Repository</h4>
+              <div className="rounded-xl border-2 border-blue-500/60 bg-gradient-to-br from-blue-500/15 to-blue-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-blue-400">User Repository</h4>
                 <p className="text-xs text-gray-400">CRUD operations, queries, user data access</p>
               </div>
 
               {/* Organization Repository */}
-              <div className="rounded-xl border border-indigo-900/50 bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-indigo-300">Organization Repository</h4>
+              <div className="rounded-xl border-2 border-indigo-500/60 bg-gradient-to-br from-indigo-500/15 to-indigo-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-indigo-400">Organization Repository</h4>
                 <p className="text-xs text-gray-400">Organization queries, settings, configuration access</p>
               </div>
 
               {/* Event Repository */}
-              <div className="rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-cyan-300">Event Repository</h4>
+              <div className="rounded-xl border-2 border-cyan-500/60 bg-gradient-to-br from-cyan-500/15 to-cyan-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-cyan-400">Event Repository</h4>
                 <p className="text-xs text-gray-400">Event queries, attendee access, check-in data</p>
               </div>
 
               {/* NFC Repository */}
-              <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-orange-300">NFC Repository</h4>
+              <div className="rounded-xl border-2 border-orange-500/60 bg-gradient-to-br from-orange-500/15 to-orange-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-orange-400">NFC Repository</h4>
                 <p className="text-xs text-gray-400">Device queries, scan history, hardware data</p>
               </div>
 
               {/* Landing Page Repository */}
-              <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-pink-300">Landing Page Repository</h4>
+              <div className="rounded-xl border-2 border-pink-500/60 bg-gradient-to-br from-pink-500/15 to-pink-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-pink-400">Landing Page Repository</h4>
                 <p className="text-xs text-gray-400">Page queries, template access, content retrieval</p>
               </div>
 
               {/* Analytics Repository */}
-              <div className="rounded-xl border border-emerald-900/50 bg-gradient-to-br from-emerald-950/50 to-emerald-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-emerald-300">Analytics Repository</h4>
+              <div className="rounded-xl border-2 border-emerald-500/60 bg-gradient-to-br from-emerald-500/15 to-emerald-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-emerald-400">Analytics Repository</h4>
                 <p className="text-xs text-gray-400">Analytics queries, metrics, insights data</p>
               </div>
             </div>
@@ -370,32 +370,32 @@ export default function SystemArchitecture() {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-5 justify-center">
               {/* Redis Cache */}
-              <div className="rounded-xl border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-purple-300">Redis Cache</h4>
+              <div className="rounded-xl border-2 border-purple-500/60 bg-gradient-to-br from-purple-500/15 to-purple-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-purple-400">Redis Cache</h4>
                 <p className="text-xs text-gray-400">Session storage, query caching, performance optimization</p>
               </div>
 
               {/* Search Service */}
-              <div className="rounded-xl border border-yellow-900/50 bg-gradient-to-br from-yellow-950/50 to-yellow-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-yellow-300">Search Service</h4>
+              <div className="rounded-xl border-2 border-yellow-500/60 bg-gradient-to-br from-yellow-500/15 to-yellow-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-yellow-400">Search Service</h4>
                 <p className="text-xs text-gray-400">Full-text search, content indexing, query optimization</p>
               </div>
 
               {/* Query Optimization */}
-              <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-blue-300">Query Optimization</h4>
+              <div className="rounded-xl border-2 border-blue-500/60 bg-gradient-to-br from-blue-500/15 to-blue-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-blue-400">Query Optimization</h4>
                 <p className="text-xs text-gray-400">Database tuning, index management, performance monitoring</p>
               </div>
 
               {/* Data Synchronization */}
-              <div className="rounded-xl border border-green-900/50 bg-gradient-to-br from-green-950/50 to-green-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-green-300">Data Synchronization</h4>
+              <div className="rounded-xl border-2 border-green-500/60 bg-gradient-to-br from-green-500/15 to-green-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-green-400">Data Synchronization</h4>
                 <p className="text-xs text-gray-400">Real-time sync, conflict resolution, backup management</p>
               </div>
 
               {/* Backup & Recovery */}
-              <div className="rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-red-300">Backup & Recovery</h4>
+              <div className="rounded-xl border-2 border-red-500/60 bg-gradient-to-br from-red-500/15 to-red-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-red-400">Backup & Recovery</h4>
                 <p className="text-xs text-gray-400">Automated backups, point-in-time recovery, disaster recovery</p>
               </div>
             </div>
