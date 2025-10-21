@@ -1,12 +1,12 @@
 export default function SystemArchitecture() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-black">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
       {/* Header */}
-      <div className="border-b border-gray-800 bg-gradient-to-b from-gray-900 to-gray-950 px-6 py-16">
+      <div className="border-b border-gray-200 bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-16">
         <div className="mx-auto max-w-7xl text-center">
-          <h1 className="mb-3 text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">System Architecture</h1>
-          <p className="text-lg font-semibold text-gray-300">Cosmic Portals Complete Enterprise Platform</p>
-          <p className="mt-3 text-base text-gray-400">Enterprise-grade distributed architecture with comprehensive layering, security, and scalability.</p>
+          <h1 className="mb-3 text-5xl font-bold text-gray-900">System Architecture</h1>
+          <p className="text-lg font-semibold text-blue-100">Cosmic Portals Complete Enterprise Platform</p>
+          <p className="mt-3 text-base text-blue-100">Enterprise-grade distributed architecture with comprehensive layering, security, and scalability.</p>
         </div>
       </div>
 
