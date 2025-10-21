@@ -21,22 +21,22 @@ export default function SystemArchitecture() {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 justify-center">
             {/* Vercel Load Balancer */}
-            <div className="group rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 p-6 transition-all hover:border-orange-700/80 hover:bg-orange-950/40 text-center">
-              <h3 className="mb-1 text-lg font-semibold text-orange-300">Vercel Load Balancer</h3>
+            <div className="group rounded-xl border-2 border-orange-500/60 bg-gradient-to-br from-orange-500/15 to-orange-600/10 p-6 transition-all hover:border-orange-400/80 hover:bg-orange-500/20 text-center">
+              <h3 className="mb-1 text-lg font-semibold text-orange-400">Vercel Load Balancer</h3>
               <p className="text-sm text-gray-300">Request Distribution & Failover</p>
               <p className="mt-3 text-xs text-gray-400">SSL termination, geo-routing, connection pooling, health checks</p>
             </div>
 
             {/* SSL/TLS Management */}
-            <div className="group rounded-xl border border-yellow-900/50 bg-gradient-to-br from-yellow-950/50 to-yellow-900/20 p-6 transition-all hover:border-yellow-700/80 hover:bg-yellow-950/40 text-center">
-              <h3 className="mb-1 text-lg font-semibold text-yellow-300">SSL/TLS Certificates</h3>
+            <div className="group rounded-xl border-2 border-amber-500/60 bg-gradient-to-br from-amber-500/15 to-amber-600/10 p-6 transition-all hover:border-amber-400/80 hover:bg-amber-500/20 text-center">
+              <h3 className="mb-1 text-lg font-semibold text-amber-400">SSL/TLS Certificates</h3>
               <p className="text-sm text-gray-300">Certificate Management & Renewal</p>
               <p className="mt-3 text-xs text-gray-400">HTTPS everywhere, security headers, certificate automation</p>
             </div>
 
             {/* Health Monitoring */}
-            <div className="group rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 p-6 transition-all hover:border-red-700/80 hover:bg-red-950/40 text-center">
-              <h3 className="mb-1 text-lg font-semibold text-red-300">Health Checks</h3>
+            <div className="group rounded-xl border-2 border-rose-500/60 bg-gradient-to-br from-rose-500/15 to-rose-600/10 p-6 transition-all hover:border-rose-400/80 hover:bg-rose-500/20 text-center">
+              <h3 className="mb-1 text-lg font-semibold text-rose-400">Health Checks</h3>
               <p className="text-sm text-gray-300">Service Health & Availability</p>
               <p className="mt-3 text-xs text-gray-400">Endpoint monitoring, failover detection, service status tracking</p>
             </div>
@@ -53,22 +53,22 @@ export default function SystemArchitecture() {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 justify-center">
             {/* Web Applications */}
-            <div className="group rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-6 transition-all hover:border-blue-700/80 hover:bg-blue-950/40 text-center">
-              <h3 className="mb-1 text-lg font-semibold text-blue-300">Web Applications</h3>
+            <div className="group rounded-xl border-2 border-blue-500/60 bg-gradient-to-br from-blue-500/15 to-blue-600/10 p-6 transition-all hover:border-blue-400/80 hover:bg-blue-500/20 text-center">
+              <h3 className="mb-1 text-lg font-semibold text-blue-400">Web Applications</h3>
               <p className="text-sm text-gray-300">Next.js 15, React 19, TypeScript, Tailwind CSS</p>
               <p className="mt-3 text-xs text-gray-400">Admin Dashboard, Super Admin Panel, Organization Management</p>
             </div>
 
             {/* Mobile Applications */}
-            <div className="group rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-6 transition-all hover:border-cyan-700/80 hover:bg-cyan-950/40 text-center">
-              <h3 className="mb-1 text-lg font-semibold text-cyan-300">Mobile Applications</h3>
+            <div className="group rounded-xl border-2 border-cyan-500/60 bg-gradient-to-br from-cyan-500/15 to-cyan-600/10 p-6 transition-all hover:border-cyan-400/80 hover:bg-cyan-500/20 text-center">
+              <h3 className="mb-1 text-lg font-semibold text-cyan-400">Mobile Applications</h3>
               <p className="text-sm text-gray-300">React Native, Expo Framework</p>
               <p className="mt-3 text-xs text-gray-400">Client App, Customer App, Real-time Interactions</p>
             </div>
 
             {/* External Interfaces */}
-            <div className="group rounded-xl border border-purple-900/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-6 transition-all hover:border-purple-700/80 hover:bg-purple-950/40 text-center">
-              <h3 className="mb-1 text-lg font-semibold text-purple-300">External Interfaces</h3>
+            <div className="group rounded-xl border-2 border-purple-500/60 bg-gradient-to-br from-purple-500/15 to-purple-600/10 p-6 transition-all hover:border-purple-400/80 hover:bg-purple-500/20 text-center">
+              <h3 className="mb-1 text-lg font-semibold text-purple-400">External Interfaces</h3>
               <p className="text-sm text-gray-300">NFC Scan Interface, Landing Page Redirects</p>
               <p className="mt-3 text-xs text-gray-400">UTM Tracking, White-label Domains, CNAME Routing</p>
             </div>
@@ -85,15 +85,15 @@ export default function SystemArchitecture() {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2 justify-center">
             {/* API Gateway */}
-            <div className="group rounded-xl border border-amber-900/50 bg-gradient-to-br from-amber-950/50 to-amber-900/20 p-6 transition-all hover:border-amber-700/80 hover:bg-amber-950/40 text-center">
-              <h3 className="mb-1 text-lg font-semibold text-amber-300">API Gateway</h3>
+            <div className="group rounded-xl border-2 border-violet-500/60 bg-gradient-to-br from-violet-500/15 to-violet-600/10 p-6 transition-all hover:border-violet-400/80 hover:bg-violet-500/20 text-center">
+              <h3 className="mb-1 text-lg font-semibold text-violet-400">API Gateway</h3>
               <p className="text-sm text-gray-300">Vercel Edge Functions</p>
               <p className="mt-3 text-xs text-gray-400">Rate Limiting, Request Routing, Geo-routing, Request Distribution, Request Logging</p>
             </div>
 
             {/* Authentication & Security */}
-            <div className="group rounded-xl border border-green-900/50 bg-gradient-to-br from-green-950/50 to-green-900/20 p-6 transition-all hover:border-green-700/80 hover:bg-green-950/40 text-center">
-              <h3 className="mb-1 text-lg font-semibold text-green-300">Authentication & Security</h3>
+            <div className="group rounded-xl border-2 border-emerald-500/60 bg-gradient-to-br from-emerald-500/15 to-emerald-600/10 p-6 transition-all hover:border-emerald-400/80 hover:bg-emerald-500/20 text-center">
+              <h3 className="mb-1 text-lg font-semibold text-emerald-400">Authentication & Security</h3>
               <p className="text-sm text-gray-300">Clerk Authentication, Auth Orchestration</p>
               <p className="mt-3 text-xs text-gray-400">Multi-tenant Orgs, 5-Tier Roles, SSO, MFA, JWT Tokens, Permission Validation</p>
             </div>
@@ -114,38 +114,38 @@ export default function SystemArchitecture() {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center">
               {/* User Management Service */}
-              <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-blue-300">User Management Service</h4>
+              <div className="rounded-xl border-2 border-blue-500/60 bg-gradient-to-br from-blue-500/15 to-blue-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-blue-400">User Management Service</h4>
                 <p className="text-xs text-gray-400">User profiles, account management, team management, permission enforcement</p>
               </div>
 
               {/* Organization Service */}
-              <div className="rounded-xl border border-indigo-900/50 bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-indigo-300">Organization Service</h4>
+              <div className="rounded-xl border-2 border-indigo-500/60 bg-gradient-to-br from-indigo-500/15 to-indigo-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-indigo-400">Organization Service</h4>
                 <p className="text-xs text-gray-400">Organization creation, billing, settings, multi-tenant isolation</p>
               </div>
 
               {/* Role & Permission Service */}
-              <div className="rounded-xl border border-violet-900/50 bg-gradient-to-br from-violet-950/50 to-violet-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-violet-300">Role & Permission Service</h4>
+              <div className="rounded-xl border-2 border-violet-500/60 bg-gradient-to-br from-violet-500/15 to-violet-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-violet-400">Role & Permission Service</h4>
                 <p className="text-xs text-gray-400">5-tier role management, permission matrix, access control</p>
               </div>
 
               {/* Event Management Service */}
-              <div className="rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-cyan-300">Event Management Service</h4>
+              <div className="rounded-xl border-2 border-cyan-500/60 bg-gradient-to-br from-cyan-500/15 to-cyan-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-cyan-400">Event Management Service</h4>
                 <p className="text-xs text-gray-400">Event creation, attendee tracking, check-in management, scheduling</p>
               </div>
 
               {/* NFC Device Service */}
-              <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-orange-300">NFC Device Service</h4>
+              <div className="rounded-xl border-2 border-orange-500/60 bg-gradient-to-br from-orange-500/15 to-orange-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-orange-400">NFC Device Service</h4>
                 <p className="text-xs text-gray-400">Device registration, provisioning, monitoring, hardware management</p>
               </div>
 
               {/* Landing Page Service */}
-              <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-pink-300">Landing Page Service</h4>
+              <div className="rounded-xl border-2 border-pink-500/60 bg-gradient-to-br from-pink-500/15 to-pink-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-pink-400">Landing Page Service</h4>
                 <p className="text-xs text-gray-400">Page builder, template engine, visual composer, A/B testing, analytics</p>
               </div>
             </div>
@@ -158,38 +158,38 @@ export default function SystemArchitecture() {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center">
               {/* Payment Service */}
-              <div className="rounded-xl border border-emerald-900/50 bg-gradient-to-br from-emerald-950/50 to-emerald-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-emerald-300">Payment Service</h4>
+              <div className="rounded-xl border-2 border-emerald-500/60 bg-gradient-to-br from-emerald-500/15 to-emerald-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-emerald-400">Payment Service</h4>
                 <p className="text-xs text-gray-400">Stripe integration, billing engine, subscription management, webhooks</p>
               </div>
 
               {/* Social Scheduler Service */}
-              <div className="rounded-xl border border-sky-900/50 bg-gradient-to-br from-sky-950/50 to-sky-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-sky-300">Social Scheduler Service</h4>
+              <div className="rounded-xl border-2 border-sky-500/60 bg-gradient-to-br from-sky-500/15 to-sky-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-sky-400">Social Scheduler Service</h4>
                 <p className="text-xs text-gray-400">Metricool integration, campaign management, content scheduling, white-label social</p>
               </div>
 
               {/* AI Service */}
-              <div className="rounded-xl border border-fuchsia-900/50 bg-gradient-to-br from-fuchsia-950/50 to-fuchsia-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-fuchsia-300">AI Service</h4>
+              <div className="rounded-xl border-2 border-fuchsia-500/60 bg-gradient-to-br from-fuchsia-500/15 to-fuchsia-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-fuchsia-400">AI Service</h4>
                 <p className="text-xs text-gray-400">Grok AI integration, content generation, predictive analytics, insights</p>
               </div>
 
               {/* Geolocation Service */}
-              <div className="rounded-xl border border-rose-900/50 bg-gradient-to-br from-rose-950/50 to-rose-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-rose-300">Geolocation Service</h4>
+              <div className="rounded-xl border-2 border-rose-500/60 bg-gradient-to-br from-rose-500/15 to-rose-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-rose-400">Geolocation Service</h4>
                 <p className="text-xs text-gray-400">Location services, regional analytics, cross-marketing intelligence</p>
               </div>
 
               {/* CRM Integration Service */}
-              <div className="rounded-xl border border-lime-900/50 bg-gradient-to-br from-lime-950/50 to-lime-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-lime-300">CRM Integration Service</h4>
+              <div className="rounded-xl border-2 border-lime-500/60 bg-gradient-to-br from-lime-500/15 to-lime-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-lime-400">CRM Integration Service</h4>
                 <p className="text-xs text-gray-400">Salesforce/HubSpot integration, customer data sync, lead management</p>
               </div>
 
               {/* Communication Services */}
-              <div className="rounded-xl border border-yellow-900/50 bg-gradient-to-br from-yellow-950/50 to-yellow-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-yellow-300">Communication Services</h4>
+              <div className="rounded-xl border-2 border-yellow-500/60 bg-gradient-to-br from-yellow-500/15 to-yellow-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-yellow-400">Communication Services</h4>
                 <p className="text-xs text-gray-400">Email (SendGrid/Resend), SMS (Twilio/MessageBird), notifications, OTP</p>
               </div>
             </div>
