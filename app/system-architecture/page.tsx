@@ -11,15 +11,14 @@ export default function SystemArchitecture() {
       </div>
 
       <div className="mx-auto max-w-7xl px-6 py-24">
-        {/* Layer 1: Presentation Layer */}
-        <div className="mb-40">
-          <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-white">Presentation Layer</h2>
-            <p className="mt-2 text-base text-gray-400">Client applications and user interfaces</p>
+        {/* Layer 1: Presentation Layer - Light Blue */}
+        <div className="mb-40 rounded-2xl border-4 border-blue-400/40 bg-gradient-to-br from-blue-500/5 to-blue-600/5 p-12">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold text-white">Presentation Layer</h2>
+            <p className="mt-2 text-base text-gray-300">Client applications and user interfaces</p>
           </div>
-          <p className="mb-8 text-center text-sm text-gray-500">Web Applications · Mobile Applications · External Interfaces</p>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 justify-center">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-3 justify-center">
             {/* Web Applications */}
             <div className="group rounded-xl border-2 border-blue-500/60 bg-gradient-to-br from-blue-500/15 to-blue-600/10 p-6 transition-all hover:border-blue-400/80 hover:bg-blue-500/20 text-center">
               <h3 className="mb-1 text-lg font-semibold text-blue-400">Web Applications</h3>
@@ -43,13 +42,12 @@ export default function SystemArchitecture() {
           </div>
         </div>
 
-        {/* Layer 2: API Gateway Layer */}
-        <div className="mb-40">
-          <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-white">API Gateway Layer</h2>
-            <p className="mt-2 text-base text-gray-400">Request routing, authentication, and security enforcement</p>
+        {/* Layer 2: API Gateway Layer - Orange */}
+        <div className="mb-40 rounded-2xl border-4 border-orange-400/40 bg-gradient-to-br from-orange-500/5 to-orange-600/5 p-12">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold text-white">API Gateway Layer</h2>
+            <p className="mt-2 text-base text-gray-300">Request routing, authentication, and security enforcement</p>
           </div>
-          <p className="mb-8 text-center text-sm text-gray-500">API Gateway · Authentication Service</p>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2 justify-center">
             {/* API Gateway */}
@@ -68,17 +66,18 @@ export default function SystemArchitecture() {
           </div>
         </div>
 
-        {/* Layer 3: Application Layer */}
-        <div className="mb-40">
-          <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-white">Application Layer</h2>
-            <p className="mt-2 text-base text-gray-400">Core business services and integrations</p>
+        {/* Layer 3: Application Layer - Purple */}
+        <div className="mb-40 rounded-2xl border-4 border-purple-400/40 bg-gradient-to-br from-purple-500/5 to-purple-600/5 p-12">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold text-white">Application Layer</h2>
+            <p className="mt-2 text-base text-gray-300">Core business services and integrations</p>
           </div>
 
           {/* Core Business Services */}
-          <div className="mb-12">
-            <h3 className="mb-6 text-lg font-semibold text-white text-center">Core Business Services</h3>
-            <p className="mb-8 text-center text-sm text-gray-500">User Management · Organization · Role & Permissions · Event Management · NFC Devices · Landing Pages</p>
+          <div className="mb-16">
+            <div className="mb-8 text-center">
+              <h3 className="text-2xl font-semibold text-white">Core Business Services</h3>
+            </div>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center">
               {/* User Management Service */}
@@ -121,10 +120,11 @@ export default function SystemArchitecture() {
 
           {/* Integration Services */}
           <div>
-            <h3 className="mb-6 text-lg font-semibold text-white text-center">Integration Services</h3>
-            <p className="mb-8 text-center text-sm text-gray-500">Payment · AI · Social Media · Communications</p>
+            <div className="mb-8 text-center">
+              <h3 className="text-2xl font-semibold text-white">Integration Services</h3>
+            </div>
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2 justify-center">
               {/* Payment Service */}
               <div className="rounded-xl border-2 border-emerald-500/60 bg-gradient-to-br from-emerald-500/15 to-emerald-600/10 p-6 text-center">
                 <h4 className="mb-2 text-sm font-semibold text-emerald-400">Payment Service</h4>
@@ -148,27 +148,22 @@ export default function SystemArchitecture() {
                 <h4 className="mb-2 text-sm font-semibold text-orange-400">Email Services</h4>
                 <p className="text-xs text-gray-400">SendGrid, Resend, transactional + marketing, template engine</p>
               </div>
-
-              {/* SMS Services */}
-              <div className="rounded-xl border-2 border-pink-500/60 bg-gradient-to-br from-pink-500/15 to-pink-600/10 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-pink-400">SMS Services</h4>
-                <p className="text-xs text-gray-400">Twilio, MessageBird, notifications, OTP, delivery tracking</p>
-              </div>
             </div>
           </div>
         </div>
 
-        {/* Layer 4: Domain Layer */}
-        <div className="mb-40">
-          <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-white">Domain Layer</h2>
-            <p className="mt-2 text-base text-gray-400">Business entities and domain logic</p>
+        {/* Layer 4: Domain Layer - Green */}
+        <div className="mb-40 rounded-2xl border-4 border-green-400/40 bg-gradient-to-br from-green-500/5 to-green-600/5 p-12">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold text-white">Domain Layer</h2>
+            <p className="mt-2 text-base text-gray-300">Business entities and domain logic</p>
           </div>
 
           {/* Domain Models */}
-          <div className="mb-12">
-            <h3 className="mb-6 text-lg font-semibold text-white text-center">Domain Models</h3>
-            <p className="mb-8 text-center text-sm text-gray-500">User Domain · Organization Domain · Event Domain · NFC Device Domain · Landing Page Domain · Analytics Domain</p>
+          <div className="mb-16">
+            <div className="mb-8 text-center">
+              <h3 className="text-2xl font-semibold text-white">Domain Models</h3>
+            </div>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center">
               {/* User Domain */}
@@ -211,80 +206,84 @@ export default function SystemArchitecture() {
 
           {/* Business Rules Engine */}
           <div>
-            <h3 className="mb-6 text-lg font-semibold text-white text-center">Business Rules Engine</h3>
-            <p className="mb-8 text-center text-sm text-gray-500">Event-Driven Rules · Validation Logic · Workflow Orchestration · Trigger Management · Automation Rules</p>
+            <div className="mb-8 text-center">
+              <h3 className="text-2xl font-semibold text-white">Business Rules Engine</h3>
+            </div>
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center">
-              {/* Event-Driven Rules */}
-              <div className="rounded-xl border-2 border-red-500/60 bg-gradient-to-br from-red-500/15 to-red-600/10 p-6">
-                <h4 className="mb-3 text-sm font-semibold text-red-400 text-center">Event-Driven Rules</h4>
-                <div className="text-xs text-gray-400 space-y-2">
-                  <p>• NFC scan automation</p>
-                  <p>• Event check-in processing</p>
-                  <p>• Payment and billing triggers</p>
-                  <p>• User role enforcement</p>
-                  <p>• Geo-location content delivery</p>
+            <div className="rounded-xl border-2 border-purple-500/60 bg-gradient-to-br from-purple-500/15 to-purple-600/10 p-8">
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {/* Event-Driven Rules */}
+                <div>
+                  <h4 className="mb-3 text-sm font-semibold text-purple-400">Event-Driven Rules</h4>
+                  <div className="text-xs text-gray-400 space-y-2">
+                    <p>• NFC scan automation</p>
+                    <p>• Event check-in processing</p>
+                    <p>• Payment and billing triggers</p>
+                    <p>• User role enforcement</p>
+                    <p>• Geo-location content delivery</p>
+                  </div>
                 </div>
-              </div>
 
-              {/* Validation Logic */}
-              <div className="rounded-xl border-2 border-orange-500/60 bg-gradient-to-br from-orange-500/15 to-orange-600/10 p-6">
-                <h4 className="mb-3 text-sm font-semibold text-orange-400 text-center">Validation Logic</h4>
-                <div className="text-xs text-gray-400 space-y-2">
-                  <p>• Data sanitization and format validation</p>
-                  <p>• Permission and access control</p>
-                  <p>• Plan limit enforcement</p>
-                  <p>• Event capacity and constraints</p>
-                  <p>• NFC device authentication</p>
+                {/* Validation Logic */}
+                <div>
+                  <h4 className="mb-3 text-sm font-semibold text-orange-400">Validation Logic</h4>
+                  <div className="text-xs text-gray-400 space-y-2">
+                    <p>• Data sanitization and format validation</p>
+                    <p>• Permission and access control</p>
+                    <p>• Plan limit enforcement</p>
+                    <p>• Event capacity and constraints</p>
+                    <p>• NFC device authentication</p>
+                  </div>
                 </div>
-              </div>
 
-              {/* Workflow Orchestration */}
-              <div className="rounded-xl border-2 border-amber-500/60 bg-gradient-to-br from-amber-500/15 to-amber-600/10 p-6">
-                <h4 className="mb-3 text-sm font-semibold text-amber-400 text-center">Workflow Orchestration</h4>
-                <div className="text-xs text-gray-400 space-y-2">
-                  <p>• User onboarding flows</p>
-                  <p>• Event management pipelines</p>
-                  <p>• NFC campaign workflows</p>
-                  <p>• Payment processing chains</p>
-                  <p>• Content publishing workflows</p>
+                {/* Workflow Orchestration */}
+                <div>
+                  <h4 className="mb-3 text-sm font-semibold text-amber-400">Workflow Orchestration</h4>
+                  <div className="text-xs text-gray-400 space-y-2">
+                    <p>• User onboarding flows</p>
+                    <p>• Event management pipelines</p>
+                    <p>• NFC campaign workflows</p>
+                    <p>• Payment processing chains</p>
+                    <p>• Content publishing workflows</p>
+                  </div>
                 </div>
-              </div>
 
-              {/* Trigger Management */}
-              <div className="rounded-xl border-2 border-violet-500/60 bg-gradient-to-br from-violet-500/15 to-violet-600/10 p-6">
-                <h4 className="mb-3 text-sm font-semibold text-violet-400 text-center">Trigger Management</h4>
-                <div className="text-xs text-gray-400 space-y-2">
-                  <p>• Time-based scheduling</p>
-                  <p>• Event-driven automation</p>
-                  <p>• Condition-based responses</p>
-                  <p>• External webhook integration</p>
+                {/* Trigger Management */}
+                <div>
+                  <h4 className="mb-3 text-sm font-semibold text-violet-400">Trigger Management</h4>
+                  <div className="text-xs text-gray-400 space-y-2">
+                    <p>• Time-based scheduling</p>
+                    <p>• Event-driven automation</p>
+                    <p>• Condition-based responses</p>
+                    <p>• External webhook integration</p>
+                  </div>
                 </div>
-              </div>
 
-              {/* Automation Rules */}
-              <div className="rounded-xl border-2 border-pink-500/60 bg-gradient-to-br from-pink-500/15 to-pink-600/10 p-6 lg:col-span-2">
-                <h4 className="mb-3 text-sm font-semibold text-pink-400 text-center">Automation Rules</h4>
-                <div className="text-xs text-gray-400 space-y-2 text-center">
-                  <p>• Email sequence automation · SMS notification systems · Social media scheduling</p>
-                  <p>• Analytics report generation · Integration data synchronization</p>
+                {/* Automation Rules */}
+                <div className="md:col-span-2 lg:col-span-2">
+                  <h4 className="mb-3 text-sm font-semibold text-pink-400">Automation Rules</h4>
+                  <div className="text-xs text-gray-400 space-y-2">
+                    <p>• Email sequence automation · SMS notification systems · Social media scheduling</p>
+                    <p>• Analytics report generation · Integration data synchronization</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Layer 5: Data Access Layer */}
-        <div className="mb-40">
-          <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-white">Data Access Layer</h2>
-            <p className="mt-2 text-base text-gray-400">Repository pattern and data services</p>
+        {/* Layer 5: Data Access Layer - Yellow */}
+        <div className="mb-40 rounded-2xl border-4 border-yellow-400/40 bg-gradient-to-br from-yellow-500/5 to-yellow-600/5 p-12">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold text-white">Data Access Layer</h2>
+            <p className="mt-2 text-base text-gray-300">Repository pattern and data services</p>
           </div>
 
           {/* Repository Pattern */}
-          <div className="mb-12">
-            <h3 className="mb-6 text-lg font-semibold text-white text-center">Repository Pattern</h3>
-            <p className="mb-8 text-center text-sm text-gray-500">User Repository · Organization Repository · Event Repository · NFC Repository · Landing Page Repository · Analytics Repository</p>
+          <div className="mb-16">
+            <div className="mb-8 text-center">
+              <h3 className="text-2xl font-semibold text-white">Repository Pattern</h3>
+            </div>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center">
               {/* User Repository */}
@@ -327,51 +326,47 @@ export default function SystemArchitecture() {
 
           {/* Data Services */}
           <div>
-            <h3 className="mb-6 text-lg font-semibold text-white text-center">Data Services</h3>
-            <p className="mb-8 text-center text-sm text-gray-500">Supabase Realtime · Redis Cache</p>
+            <div className="mb-8 text-center">
+              <h3 className="text-2xl font-semibold text-white">Data Services</h3>
+            </div>
 
-            <div className="max-w-2xl mx-auto">
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 justify-center">
-                {/* Supabase Realtime */}
-                <div className="rounded-xl border-2 border-purple-500/60 bg-gradient-to-br from-purple-500/15 to-purple-600/10 p-6 text-center">
-                  <h4 className="mb-2 text-sm font-semibold text-purple-400">Supabase Realtime</h4>
-                  <p className="text-xs text-gray-400">Real-time subscriptions, live data updates, real-time collaboration</p>
-                </div>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 justify-center">
+              {/* Supabase Realtime */}
+              <div className="rounded-xl border-2 border-purple-500/60 bg-gradient-to-br from-purple-500/15 to-purple-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-purple-400">Supabase Realtime</h4>
+                <p className="text-xs text-gray-400">Real-time subscriptions, live data updates, real-time collaboration</p>
+              </div>
 
-                {/* Redis Cache */}
-                <div className="rounded-xl border-2 border-red-500/60 bg-gradient-to-br from-red-500/15 to-red-600/10 p-6 text-center">
-                  <h4 className="mb-2 text-sm font-semibold text-red-400">Redis Cache</h4>
-                  <p className="text-xs text-gray-400">Session storage, query caching, performance optimization</p>
-                </div>
+              {/* Redis Cache */}
+              <div className="rounded-xl border-2 border-red-500/60 bg-gradient-to-br from-red-500/15 to-red-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-red-400">Redis Cache</h4>
+                <p className="text-xs text-gray-400">Session storage, query caching, performance optimization</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Layer 6: Infrastructure Layer */}
-        <div className="mb-40">
-          <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-white">Infrastructure Layer</h2>
-            <p className="mt-2 text-base text-gray-400">Database, storage, external services, and platform infrastructure</p>
+        {/* Layer 6: Infrastructure Layer - Light Green */}
+        <div className="mb-40 rounded-2xl border-4 border-lime-400/40 bg-gradient-to-br from-lime-500/5 to-lime-600/5 p-12">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold text-white">Infrastructure Layer</h2>
+            <p className="mt-2 text-base text-gray-300">Database, storage, external services, and platform infrastructure</p>
           </div>
 
-          {/* Database Layer */}
-          <div className="mb-12">
-            <h3 className="mb-6 text-lg font-semibold text-white text-center">Database Layer</h3>
+          {/* Database & Storage */}
+          <div className="mb-16">
+            <div className="mb-8 text-center">
+              <h3 className="text-2xl font-semibold text-white">Database & Storage</h3>
+            </div>
 
-            <div className="max-w-2xl mx-auto">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 justify-center">
+              {/* Supabase PostgreSQL */}
               <div className="rounded-xl border-2 border-emerald-500/60 bg-gradient-to-br from-emerald-500/15 to-emerald-600/10 p-6 text-center">
                 <h4 className="mb-2 text-sm font-semibold text-emerald-400">Supabase PostgreSQL</h4>
                 <p className="text-xs text-gray-400 mb-3">Multi-tenant data, row level security, real-time subscriptions</p>
               </div>
-            </div>
-          </div>
 
-          {/* Storage Layer */}
-          <div className="mb-12">
-            <h3 className="mb-6 text-lg font-semibold text-white text-center">Storage Layer</h3>
-
-            <div className="max-w-2xl mx-auto">
+              {/* Supabase Storage */}
               <div className="rounded-xl border-2 border-cyan-500/60 bg-gradient-to-br from-cyan-500/15 to-cyan-600/10 p-6 text-center">
                 <h4 className="mb-2 text-sm font-semibold text-cyan-400">Supabase Storage</h4>
                 <p className="text-xs text-gray-400">File uploads, CDN distribution, asset management</p>
@@ -380,9 +375,10 @@ export default function SystemArchitecture() {
           </div>
 
           {/* External Services */}
-          <div className="mb-12">
-            <h3 className="mb-6 text-lg font-semibold text-white text-center">External Services</h3>
-            <p className="mb-8 text-center text-sm text-gray-500">Payment · AI · Social Media · Communications</p>
+          <div className="mb-16">
+            <div className="mb-8 text-center">
+              <h3 className="text-2xl font-semibold text-white">External Services</h3>
+            </div>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center">
               {/* Stripe */}
@@ -419,8 +415,9 @@ export default function SystemArchitecture() {
 
           {/* Infrastructure Services */}
           <div>
-            <h3 className="mb-6 text-lg font-semibold text-white text-center">Infrastructure Services</h3>
-            <p className="mb-8 text-center text-sm text-gray-500">Vercel Platform · Cloudflare · Monitoring · Logging · Security</p>
+            <div className="mb-8 text-center">
+              <h3 className="text-2xl font-semibold text-white">Infrastructure Services</h3>
+            </div>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center">
               {/* Vercel Platform */}
@@ -429,7 +426,7 @@ export default function SystemArchitecture() {
                 <p className="text-xs text-gray-400">Serverless hosting, edge computing, CI/CD pipeline</p>
               </div>
 
-              {/* Cloudflare Security */}
+              {/* Cloudflare */}
               <div className="rounded-xl border-2 border-yellow-500/60 bg-gradient-to-br from-yellow-500/15 to-yellow-600/10 p-6 text-center">
                 <h4 className="mb-2 text-sm font-semibold text-yellow-400">Cloudflare</h4>
                 <p className="text-xs text-gray-400">DNS management, DDoS protection, WAF, security</p>
@@ -456,13 +453,12 @@ export default function SystemArchitecture() {
           </div>
         </div>
 
-        {/* Layer 7: Security & Compliance Layer */}
-        <div className="mb-40">
-          <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-white">Security & Compliance Layer</h2>
-            <p className="mt-2 text-base text-gray-400">Authentication, authorization, data protection, and basic security</p>
+        {/* Layer 7: Security & Compliance Layer - Pink */}
+        <div className="mb-40 rounded-2xl border-4 border-pink-400/40 bg-gradient-to-br from-pink-500/5 to-pink-600/5 p-12">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold text-white">Security & Compliance Layer</h2>
+            <p className="mt-2 text-base text-gray-300">Authentication, authorization, data protection, and basic security</p>
           </div>
-          <p className="mb-8 text-center text-sm text-gray-500">Authentication Services · Authorization Services · Data Protection · Basic Security Framework · Audit & Monitoring</p>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center">
             {/* Authentication Services */}
