@@ -17,14 +17,21 @@ export default function SystemArchitecture() {
             <h2 className="text-2xl font-bold text-white">Presentation Layer</h2>
             <p className="mt-2 text-base text-gray-400">Client applications and user interfaces</p>
           </div>
-          <p className="mb-8 text-center text-sm text-gray-500">Web Applications · External Interfaces</p>
+          <p className="mb-8 text-center text-sm text-gray-500">Web Applications · Mobile Applications · External Interfaces</p>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2 justify-center">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 justify-center">
             {/* Web Applications */}
             <div className="group rounded-xl border-2 border-blue-500/60 bg-gradient-to-br from-blue-500/15 to-blue-600/10 p-6 transition-all hover:border-blue-400/80 hover:bg-blue-500/20 text-center">
               <h3 className="mb-1 text-lg font-semibold text-blue-400">Web Applications</h3>
               <p className="text-sm text-gray-300">Next.js 15, React 19, TypeScript, Tailwind CSS</p>
               <p className="mt-3 text-xs text-gray-400">Admin Dashboard, Super Admin Panel, Organization Management</p>
+            </div>
+
+            {/* Mobile Applications */}
+            <div className="group rounded-xl border-2 border-cyan-500/60 bg-gradient-to-br from-cyan-500/15 to-cyan-600/10 p-6 transition-all hover:border-cyan-400/80 hover:bg-cyan-500/20 text-center">
+              <h3 className="mb-1 text-lg font-semibold text-cyan-400">Mobile Applications</h3>
+              <p className="text-sm text-gray-300">React Native Mobile Apps (Client App + Customer App)</p>
+              <p className="mt-3 text-xs text-gray-400">Expo Framework</p>
             </div>
 
             {/* External Interfaces */}
@@ -101,7 +108,7 @@ export default function SystemArchitecture() {
               {/* NFC Device Service */}
               <div className="rounded-xl border-2 border-orange-500/60 bg-gradient-to-br from-orange-500/15 to-orange-600/10 p-6 text-center">
                 <h4 className="mb-2 text-sm font-semibold text-orange-400">NFC Device Service</h4>
-                <p className="text-xs text-gray-400">Device registration, provisioning, monitoring, hardware management</p>
+                <p className="text-xs text-gray-400">Device registration, provisioning, monitoring, hardware store management</p>
               </div>
 
               {/* Landing Page Service */}
@@ -115,7 +122,7 @@ export default function SystemArchitecture() {
           {/* Integration Services */}
           <div>
             <h3 className="mb-6 text-lg font-semibold text-white text-center">Integration Services</h3>
-            <p className="mb-8 text-center text-sm text-gray-500">Payment · AI · Social Media · CRM · Communications</p>
+            <p className="mb-8 text-center text-sm text-gray-500">Payment · AI · Social Media · Communications</p>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center">
               {/* Payment Service */}
@@ -130,16 +137,10 @@ export default function SystemArchitecture() {
                 <p className="text-xs text-gray-400">Grok AI API, content generation, insights</p>
               </div>
 
-              {/* Social Scheduler Service */}
+              {/* Social Media Service */}
               <div className="rounded-xl border-2 border-sky-500/60 bg-gradient-to-br from-sky-500/15 to-sky-600/10 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-sky-400">Social Scheduler Service</h4>
+                <h4 className="mb-2 text-sm font-semibold text-sky-400">Social Media Service</h4>
                 <p className="text-xs text-gray-400">Metricool API, white-label social, multi-platform posting</p>
-              </div>
-
-              {/* CRM Integration Service */}
-              <div className="rounded-xl border-2 border-lime-500/60 bg-gradient-to-br from-lime-500/15 to-lime-600/10 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-lime-400">CRM Integration Service</h4>
-                <p className="text-xs text-gray-400">Salesforce, HubSpot, customer data sync, lead management</p>
               </div>
 
               {/* Email Services */}
@@ -214,7 +215,7 @@ export default function SystemArchitecture() {
             <p className="mb-8 text-center text-sm text-gray-500">Event-Driven Rules · Validation Logic · Workflow Orchestration · Trigger Management · Automation Rules</p>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center">
-              {/* Event-Driven Rules System */}
+              {/* Event-Driven Rules */}
               <div className="rounded-xl border-2 border-red-500/60 bg-gradient-to-br from-red-500/15 to-red-600/10 p-6">
                 <h4 className="mb-3 text-sm font-semibold text-red-400 text-center">Event-Driven Rules</h4>
                 <div className="text-xs text-gray-400 space-y-2">
@@ -226,7 +227,7 @@ export default function SystemArchitecture() {
                 </div>
               </div>
 
-              {/* Validation Logic Engine */}
+              {/* Validation Logic */}
               <div className="rounded-xl border-2 border-orange-500/60 bg-gradient-to-br from-orange-500/15 to-orange-600/10 p-6">
                 <h4 className="mb-3 text-sm font-semibold text-orange-400 text-center">Validation Logic</h4>
                 <div className="text-xs text-gray-400 space-y-2">
@@ -250,7 +251,7 @@ export default function SystemArchitecture() {
                 </div>
               </div>
 
-              {/* Trigger Management System */}
+              {/* Trigger Management */}
               <div className="rounded-xl border-2 border-violet-500/60 bg-gradient-to-br from-violet-500/15 to-violet-600/10 p-6">
                 <h4 className="mb-3 text-sm font-semibold text-violet-400 text-center">Trigger Management</h4>
                 <div className="text-xs text-gray-400 space-y-2">
@@ -261,7 +262,7 @@ export default function SystemArchitecture() {
                 </div>
               </div>
 
-              {/* Automation Rules Engine */}
+              {/* Automation Rules */}
               <div className="rounded-xl border-2 border-pink-500/60 bg-gradient-to-br from-pink-500/15 to-pink-600/10 p-6 lg:col-span-2">
                 <h4 className="mb-3 text-sm font-semibold text-pink-400 text-center">Automation Rules</h4>
                 <div className="text-xs text-gray-400 space-y-2 text-center">
@@ -327,31 +328,21 @@ export default function SystemArchitecture() {
           {/* Data Services */}
           <div>
             <h3 className="mb-6 text-lg font-semibold text-white text-center">Data Services</h3>
-            <p className="mb-8 text-center text-sm text-gray-500">Supabase Realtime · Redis Cache · Search Service · Data Synchronization</p>
+            <p className="mb-8 text-center text-sm text-gray-500">Supabase Realtime · Redis Cache</p>
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2 justify-center">
-              {/* Supabase Realtime */}
-              <div className="rounded-xl border-2 border-purple-500/60 bg-gradient-to-br from-purple-500/15 to-purple-600/10 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-purple-400">Supabase Realtime</h4>
-                <p className="text-xs text-gray-400">Real-time subscriptions, live data updates, real-time collaboration</p>
-              </div>
+            <div className="max-w-2xl mx-auto">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 justify-center">
+                {/* Supabase Realtime */}
+                <div className="rounded-xl border-2 border-purple-500/60 bg-gradient-to-br from-purple-500/15 to-purple-600/10 p-6 text-center">
+                  <h4 className="mb-2 text-sm font-semibold text-purple-400">Supabase Realtime</h4>
+                  <p className="text-xs text-gray-400">Real-time subscriptions, live data updates, real-time collaboration</p>
+                </div>
 
-              {/* Redis Cache */}
-              <div className="rounded-xl border-2 border-red-500/60 bg-gradient-to-br from-red-500/15 to-red-600/10 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-red-400">Redis Cache</h4>
-                <p className="text-xs text-gray-400">Session storage, query caching, performance optimization</p>
-              </div>
-
-              {/* Search Service */}
-              <div className="rounded-xl border-2 border-yellow-500/60 bg-gradient-to-br from-yellow-500/15 to-yellow-600/10 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-yellow-400">Search Service</h4>
-                <p className="text-xs text-gray-400">Full-text search, content indexing, query optimization</p>
-              </div>
-
-              {/* Data Synchronization */}
-              <div className="rounded-xl border-2 border-green-500/60 bg-gradient-to-br from-green-500/15 to-green-600/10 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-green-400">Data Synchronization</h4>
-                <p className="text-xs text-gray-400">Real-time sync, conflict resolution, backup management</p>
+                {/* Redis Cache */}
+                <div className="rounded-xl border-2 border-red-500/60 bg-gradient-to-br from-red-500/15 to-red-600/10 p-6 text-center">
+                  <h4 className="mb-2 text-sm font-semibold text-red-400">Redis Cache</h4>
+                  <p className="text-xs text-gray-400">Session storage, query caching, performance optimization</p>
+                </div>
               </div>
             </div>
           </div>
@@ -391,7 +382,7 @@ export default function SystemArchitecture() {
           {/* External Services */}
           <div className="mb-12">
             <h3 className="mb-6 text-lg font-semibold text-white text-center">External Services</h3>
-            <p className="mb-8 text-center text-sm text-gray-500">Payment · AI · Social Media · CRM · Communications</p>
+            <p className="mb-8 text-center text-sm text-gray-500">Payment · AI · Social Media · Communications</p>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center">
               {/* Stripe */}
@@ -410,12 +401,6 @@ export default function SystemArchitecture() {
               <div className="rounded-xl border-2 border-sky-500/60 bg-gradient-to-br from-sky-500/15 to-sky-600/10 p-6 text-center">
                 <h4 className="mb-2 text-sm font-semibold text-sky-400">Metricool API</h4>
                 <p className="text-xs text-gray-400">Social media management, white-label social, multi-platform posting</p>
-              </div>
-
-              {/* CRM Integration */}
-              <div className="rounded-xl border-2 border-green-500/60 bg-gradient-to-br from-green-500/15 to-green-600/10 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-green-400">CRM Systems</h4>
-                <p className="text-xs text-gray-400">Salesforce, HubSpot, customer data sync, lead management</p>
               </div>
 
               {/* Email Services */}
@@ -462,10 +447,10 @@ export default function SystemArchitecture() {
                 <p className="text-xs text-gray-400">Error tracking, audit logs, performance analysis</p>
               </div>
 
-              {/* Security Monitoring */}
+              {/* Basic Security Services */}
               <div className="rounded-xl border-2 border-pink-500/60 bg-gradient-to-br from-pink-500/15 to-pink-600/10 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-pink-400">Security Monitoring</h4>
-                <p className="text-xs text-gray-400">Threat detection, vulnerability scanning, compliance monitoring</p>
+                <h4 className="mb-2 text-sm font-semibold text-pink-400">Basic Security Services</h4>
+                <p className="text-xs text-gray-400">Access auditing, basic security monitoring</p>
               </div>
             </div>
           </div>
@@ -475,9 +460,9 @@ export default function SystemArchitecture() {
         <div className="mb-40">
           <div className="mb-8 text-center">
             <h2 className="text-2xl font-bold text-white">Security & Compliance Layer</h2>
-            <p className="mt-2 text-base text-gray-400">Authentication, authorization, data protection, and regulatory compliance</p>
+            <p className="mt-2 text-base text-gray-400">Authentication, authorization, data protection, and basic security</p>
           </div>
-          <p className="mb-8 text-center text-sm text-gray-500">Authentication Services · Authorization Services · Data Protection · Compliance Framework · Audit & Monitoring</p>
+          <p className="mb-8 text-center text-sm text-gray-500">Authentication Services · Authorization Services · Data Protection · Basic Security Framework · Audit & Monitoring</p>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center">
             {/* Authentication Services */}
@@ -498,16 +483,16 @@ export default function SystemArchitecture() {
               <p className="text-xs text-gray-400">Encryption at rest + in transit, key management, backup encryption</p>
             </div>
 
-            {/* Compliance Framework */}
+            {/* Basic Security Framework */}
             <div className="rounded-xl border-2 border-blue-500/60 bg-gradient-to-br from-blue-500/15 to-blue-600/10 p-6 text-center">
-              <h4 className="mb-2 text-sm font-semibold text-blue-400">Compliance Framework</h4>
-              <p className="text-xs text-gray-400">GDPR compliance, SOC 2 Type II, data privacy</p>
+              <h4 className="mb-2 text-sm font-semibold text-blue-400">Basic Security Framework</h4>
+              <p className="text-xs text-gray-400">Access auditing, basic security monitoring</p>
             </div>
 
             {/* Audit & Monitoring */}
             <div className="rounded-xl border-2 border-orange-500/60 bg-gradient-to-br from-orange-500/15 to-orange-600/10 p-6 text-center">
               <h4 className="mb-2 text-sm font-semibold text-orange-400">Audit & Monitoring</h4>
-              <p className="text-xs text-gray-400">Activity tracking, access auditing, compliance reports</p>
+              <p className="text-xs text-gray-400">Activity tracking, access auditing, basic security reports</p>
             </div>
           </div>
         </div>
