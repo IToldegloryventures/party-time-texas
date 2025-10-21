@@ -14,7 +14,7 @@ export default function SystemArchitecture() {
         {/* Layer 0: Load Balancer & Gateway Tier */}
         <div className="mb-40">
           <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-white">Layer 0: Load Balancer & Gateway</h2>
+            <h2 className="text-2xl font-bold text-white">Load Balancer & Gateway Layer</h2>
             <p className="mt-2 text-base text-gray-400">Request distribution, SSL termination, and health management</p>
           </div>
           <p className="mb-8 text-center text-sm text-gray-500">Load Balancer · SSL/TLS Management · Health Checks · Request Distribution</p>
@@ -46,7 +46,7 @@ export default function SystemArchitecture() {
         {/* Layer 1: Presentation Layer */}
         <div className="mb-40">
           <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-white">Layer 1: Presentation Layer</h2>
+            <h2 className="text-2xl font-bold text-white">Presentation Layer</h2>
             <p className="mt-2 text-base text-gray-400">Client applications and user interfaces</p>
           </div>
           <p className="mb-8 text-center text-sm text-gray-500">Web Applications · Mobile Applications · External Interfaces</p>
@@ -78,7 +78,7 @@ export default function SystemArchitecture() {
         {/* Layer 2: API Gateway Layer */}
         <div className="mb-40">
           <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-white">Layer 2: API Gateway Layer</h2>
+            <h2 className="text-2xl font-bold text-white">API Gateway Layer</h2>
             <p className="mt-2 text-base text-gray-400">Request routing, authentication, and security enforcement</p>
           </div>
           <p className="mb-8 text-center text-sm text-gray-500">API Gateway · Authentication · Rate Limiting · Request Routing</p>
@@ -103,7 +103,7 @@ export default function SystemArchitecture() {
         {/* Layer 3: Application Layer */}
         <div className="mb-40">
           <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-white">Layer 3: Application Layer</h2>
+            <h2 className="text-2xl font-bold text-white">Application Layer</h2>
             <p className="mt-2 text-base text-gray-400">Core business services and integrations</p>
           </div>
 
@@ -199,7 +199,7 @@ export default function SystemArchitecture() {
         {/* Layer 4: Domain Layer */}
         <div className="mb-40">
           <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-white">Layer 4: Domain Layer</h2>
+            <h2 className="text-2xl font-bold text-white">Domain Layer</h2>
             <p className="mt-2 text-base text-gray-400">Business entities and domain logic</p>
           </div>
 
@@ -284,7 +284,7 @@ export default function SystemArchitecture() {
                   <p>• User onboarding flows</p>
                   <p>• Event management pipelines</p>
                   <p>• NFC campaign workflows</p>
-                  <p>• Payment processing chains</p>
+                  <p>��� Payment processing chains</p>
                   <p>• Content publishing workflows</p>
                 </div>
               </div>
@@ -315,7 +315,7 @@ export default function SystemArchitecture() {
         {/* Layer 5: Data Access Layer */}
         <div className="mb-40">
           <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-white">Layer 5: Data Access Layer</h2>
+            <h2 className="text-2xl font-bold text-white">Data Access Layer</h2>
             <p className="mt-2 text-base text-gray-400">Repository pattern, caching, and data optimization services</p>
           </div>
 
@@ -405,7 +405,7 @@ export default function SystemArchitecture() {
         {/* Layer 6: Infrastructure Layer */}
         <div className="mb-40">
           <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-white">Layer 6: Infrastructure Layer</h2>
+            <h2 className="text-2xl font-bold text-white">Infrastructure Layer</h2>
             <p className="mt-2 text-base text-gray-400">Database, storage, external services, and platform infrastructure</p>
           </div>
 
@@ -532,7 +532,7 @@ export default function SystemArchitecture() {
         {/* Layer 7: Security & Compliance */}
         <div className="mb-40">
           <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-white">Layer 7: Security & Compliance</h2>
+            <h2 className="text-2xl font-bold text-white">Security & Compliance Layer</h2>
             <p className="mt-2 text-base text-gray-400">Authentication, authorization, data protection, and regulatory compliance</p>
           </div>
           <p className="mb-8 text-center text-sm text-gray-500">Authentication · Authorization · Encryption · Compliance · Audit</p>
