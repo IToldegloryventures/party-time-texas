@@ -210,38 +210,38 @@ export default function SystemArchitecture() {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center">
               {/* User Domain */}
-              <div className="rounded-xl border border-blue-900/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-blue-300">User Domain</h4>
+              <div className="rounded-xl border-2 border-blue-500/60 bg-gradient-to-br from-blue-500/15 to-blue-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-blue-400">User Domain</h4>
                 <p className="text-xs text-gray-400">User entity, roles, permissions, team membership</p>
               </div>
 
               {/* Organization Domain */}
-              <div className="rounded-xl border border-indigo-900/50 bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-indigo-300">Organization Domain</h4>
+              <div className="rounded-xl border-2 border-indigo-500/60 bg-gradient-to-br from-indigo-500/15 to-indigo-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-indigo-400">Organization Domain</h4>
                 <p className="text-xs text-gray-400">Organization entity, settings, billing, configuration</p>
               </div>
 
               {/* Event Domain */}
-              <div className="rounded-xl border border-cyan-900/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-cyan-300">Event Domain</h4>
+              <div className="rounded-xl border-2 border-cyan-500/60 bg-gradient-to-br from-cyan-500/15 to-cyan-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-cyan-400">Event Domain</h4>
                 <p className="text-xs text-gray-400">Event entity, attendee, check-in, scheduling rules</p>
               </div>
 
               {/* NFC Domain */}
-              <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-orange-300">NFC Device Domain</h4>
+              <div className="rounded-xl border-2 border-orange-500/60 bg-gradient-to-br from-orange-500/15 to-orange-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-orange-400">NFC Device Domain</h4>
                 <p className="text-xs text-gray-400">Device entity, scan entity, hardware specifications</p>
               </div>
 
               {/* Landing Page Domain */}
-              <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-pink-300">Landing Page Domain</h4>
+              <div className="rounded-xl border-2 border-pink-500/60 bg-gradient-to-br from-pink-500/15 to-pink-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-pink-400">Landing Page Domain</h4>
                 <p className="text-xs text-gray-400">Page entity, template, configuration, content</p>
               </div>
 
               {/* Analytics Domain */}
-              <div className="rounded-xl border border-emerald-900/50 bg-gradient-to-br from-emerald-950/50 to-emerald-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-emerald-300">Analytics Domain</h4>
+              <div className="rounded-xl border-2 border-emerald-500/60 bg-gradient-to-br from-emerald-500/15 to-emerald-600/10 p-6 text-center">
+                <h4 className="mb-2 text-sm font-semibold text-emerald-400">Analytics Domain</h4>
                 <p className="text-xs text-gray-400">Analytics entity, metrics, reports, insights</p>
               </div>
             </div>
@@ -254,8 +254,8 @@ export default function SystemArchitecture() {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center">
               {/* Event-Driven Rules System */}
-              <div className="rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 p-6">
-                <h4 className="mb-3 text-sm font-semibold text-red-300 text-center">Event-Driven Rules System</h4>
+              <div className="rounded-xl border-2 border-red-500/60 bg-gradient-to-br from-red-500/15 to-red-600/10 p-6">
+                <h4 className="mb-3 text-sm font-semibold text-red-400 text-center">Event-Driven Rules System</h4>
                 <div className="text-xs text-gray-400 space-y-2">
                   <p>• NFC scan automation</p>
                   <p>• Event check-in processing</p>
@@ -266,8 +266,8 @@ export default function SystemArchitecture() {
               </div>
 
               {/* Validation Logic Engine */}
-              <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 p-6">
-                <h4 className="mb-3 text-sm font-semibold text-orange-300 text-center">Validation Logic Engine</h4>
+              <div className="rounded-xl border-2 border-orange-500/60 bg-gradient-to-br from-orange-500/15 to-orange-600/10 p-6">
+                <h4 className="mb-3 text-sm font-semibold text-orange-400 text-center">Validation Logic Engine</h4>
                 <div className="text-xs text-gray-400 space-y-2">
                   <p>• Data sanitization and format validation</p>
                   <p>• Permission and access control</p>
@@ -278,8 +278,8 @@ export default function SystemArchitecture() {
               </div>
 
               {/* Workflow Orchestration */}
-              <div className="rounded-xl border border-yellow-900/50 bg-gradient-to-br from-yellow-950/50 to-yellow-900/20 p-6">
-                <h4 className="mb-3 text-sm font-semibold text-yellow-300 text-center">Workflow Orchestration</h4>
+              <div className="rounded-xl border-2 border-amber-500/60 bg-gradient-to-br from-amber-500/15 to-amber-600/10 p-6">
+                <h4 className="mb-3 text-sm font-semibold text-amber-400 text-center">Workflow Orchestration</h4>
                 <div className="text-xs text-gray-400 space-y-2">
                   <p>• User onboarding flows</p>
                   <p>• Event management pipelines</p>
@@ -290,8 +290,8 @@ export default function SystemArchitecture() {
               </div>
 
               {/* Trigger Management System */}
-              <div className="rounded-xl border border-violet-900/50 bg-gradient-to-br from-violet-950/50 to-violet-900/20 p-6">
-                <h4 className="mb-3 text-sm font-semibold text-violet-300 text-center">Trigger Management System</h4>
+              <div className="rounded-xl border-2 border-violet-500/60 bg-gradient-to-br from-violet-500/15 to-violet-600/10 p-6">
+                <h4 className="mb-3 text-sm font-semibold text-violet-400 text-center">Trigger Management System</h4>
                 <div className="text-xs text-gray-400 space-y-2">
                   <p>• Time-based scheduling</p>
                   <p>• Event-driven automation</p>
@@ -301,8 +301,8 @@ export default function SystemArchitecture() {
               </div>
 
               {/* Automation Rules Engine */}
-              <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-6 lg:col-span-2">
-                <h4 className="mb-3 text-sm font-semibold text-pink-300 text-center">Automation Rules Engine</h4>
+              <div className="rounded-xl border-2 border-pink-500/60 bg-gradient-to-br from-pink-500/15 to-pink-600/10 p-6 lg:col-span-2">
+                <h4 className="mb-3 text-sm font-semibold text-pink-400 text-center">Automation Rules Engine</h4>
                 <div className="text-xs text-gray-400 space-y-2 text-center">
                   <p>• Email sequence automation · SMS notification systems · Social media scheduling</p>
                   <p>• Analytics report generation · Integration data synchronization</p>
