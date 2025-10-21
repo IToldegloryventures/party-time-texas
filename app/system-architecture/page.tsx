@@ -218,12 +218,62 @@ export default function SystemArchitecture() {
           {/* Business Rules Engine */}
           <div>
             <h3 className="mb-6 text-lg font-semibold text-white text-center">Business Rules Engine</h3>
-            <p className="mb-8 text-center text-sm text-gray-500">Validation Logic · Workflow Engine · Business Rules</p>
+            <p className="mb-8 text-center text-sm text-gray-500">Event-Driven Rules · Validation Logic · Workflow Orchestration · Trigger Management · Automation</p>
 
-            <div className="max-w-2xl mx-auto">
-              <div className="rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 p-6 text-center">
-                <h4 className="mb-2 text-sm font-semibold text-red-300">Business Rules Engine</h4>
-                <p className="text-xs text-gray-400">Event-driven rules, validation logic, workflow orchestration, trigger management, automation rules</p>
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 justify-center">
+              {/* Event-Driven Rules System */}
+              <div className="rounded-xl border border-red-900/50 bg-gradient-to-br from-red-950/50 to-red-900/20 p-6">
+                <h4 className="mb-3 text-sm font-semibold text-red-300 text-center">Event-Driven Rules System</h4>
+                <div className="text-xs text-gray-400 space-y-2">
+                  <p>• NFC scan automation</p>
+                  <p>• Event check-in processing</p>
+                  <p>• Payment and billing triggers</p>
+                  <p>• User role enforcement</p>
+                  <p>• Geo-location content delivery</p>
+                </div>
+              </div>
+
+              {/* Validation Logic Engine */}
+              <div className="rounded-xl border border-orange-900/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 p-6">
+                <h4 className="mb-3 text-sm font-semibold text-orange-300 text-center">Validation Logic Engine</h4>
+                <div className="text-xs text-gray-400 space-y-2">
+                  <p>• Data sanitization and format validation</p>
+                  <p>• Permission and access control</p>
+                  <p>• Plan limit enforcement</p>
+                  <p>• Event capacity and constraints</p>
+                  <p>• NFC device authentication</p>
+                </div>
+              </div>
+
+              {/* Workflow Orchestration */}
+              <div className="rounded-xl border border-yellow-900/50 bg-gradient-to-br from-yellow-950/50 to-yellow-900/20 p-6">
+                <h4 className="mb-3 text-sm font-semibold text-yellow-300 text-center">Workflow Orchestration</h4>
+                <div className="text-xs text-gray-400 space-y-2">
+                  <p>• User onboarding flows</p>
+                  <p>• Event management pipelines</p>
+                  <p>• NFC campaign workflows</p>
+                  <p>• Payment processing chains</p>
+                  <p>• Content publishing workflows</p>
+                </div>
+              </div>
+
+              {/* Trigger Management System */}
+              <div className="rounded-xl border border-violet-900/50 bg-gradient-to-br from-violet-950/50 to-violet-900/20 p-6">
+                <h4 className="mb-3 text-sm font-semibold text-violet-300 text-center">Trigger Management System</h4>
+                <div className="text-xs text-gray-400 space-y-2">
+                  <p>• Time-based scheduling</p>
+                  <p>• Event-driven automation</p>
+                  <p>• Condition-based responses</p>
+                  <p>• External webhook integration</p>
+                </div>
+              </div>
+
+              {/* Automation Rules Engine */}
+              <div className="rounded-xl border border-pink-900/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-6 lg:col-span-2">
+                <h4 className="mb-3 text-sm font-semibold text-pink-300 text-center">Automation Rules Engine</h4>
+                <div className="text-xs text-gray-400 space-y-2 text-center">
+                  <p>• Email sequence automation · SMS notification systems · Social media scheduling · Analytics report generation · Integration data synchronization</p>
+                </div>
               </div>
             </div>
           </div>
