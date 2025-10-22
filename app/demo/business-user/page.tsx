@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function BusinessUserDashboard() {
   return (
     <div className="min-h-screen bg-gray-950">
@@ -7,13 +9,21 @@ export default function BusinessUserDashboard() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-bold text-white">Dashboard</h1>
-              <p className="text-sm text-gray-400">Welcome back, Sarah Chen • Admin</p>
+              <p className="text-sm text-gray-400">
+                Welcome back, Sarah Chen • Admin
+              </p>
             </div>
             <div className="flex gap-4">
+              <Link
+                href="/demo"
+                className="rounded-lg border border-gray-700 bg-gray-800 px-4 py-2 text-sm text-gray-300 hover:bg-gray-700"
+              >
+                ← Back to Demo Hub
+              </Link>
               <button className="rounded-lg border border-gray-700 bg-gray-800 px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
                 + Create
               </button>
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600"></div>
+              <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600"></div>
             </div>
           </div>
         </div>
@@ -26,7 +36,9 @@ export default function BusinessUserDashboard() {
           <div className="rounded-lg border border-gray-800 bg-gray-900 p-4">
             <div className="mb-4 flex items-start justify-between">
               <div>
-                <p className="text-xs font-semibold text-gray-500 uppercase">NFC Devices</p>
+                <p className="text-xs font-semibold text-gray-500 uppercase">
+                  NFC Devices
+                </p>
                 <div className="mt-2 text-3xl font-bold text-white">24</div>
                 <p className="text-xs text-gray-500">3 inactive</p>
               </div>
@@ -41,7 +53,9 @@ export default function BusinessUserDashboard() {
           <div className="rounded-lg border border-gray-800 bg-gray-900 p-4">
             <div className="mb-4 flex items-start justify-between">
               <div>
-                <p className="text-xs font-semibold text-gray-500 uppercase">Events</p>
+                <p className="text-xs font-semibold text-gray-500 uppercase">
+                  Events
+                </p>
                 <div className="mt-2 text-3xl font-bold text-white">8</div>
                 <p className="text-xs text-gray-500">0 total attendees</p>
               </div>
@@ -56,7 +70,9 @@ export default function BusinessUserDashboard() {
           <div className="rounded-lg border border-gray-800 bg-gray-900 p-4">
             <div className="mb-4 flex items-start justify-between">
               <div>
-                <p className="text-xs font-semibold text-gray-500 uppercase">Landing Pages</p>
+                <p className="text-xs font-semibold text-gray-500 uppercase">
+                  Landing Pages
+                </p>
                 <div className="mt-2 text-3xl font-bold text-white">12</div>
                 <p className="text-xs text-gray-500">All active</p>
               </div>
@@ -71,7 +87,9 @@ export default function BusinessUserDashboard() {
           <div className="rounded-lg border border-gray-800 bg-gray-900 p-4">
             <div className="mb-4 flex items-start justify-between">
               <div>
-                <p className="text-xs font-semibold text-gray-500 uppercase">Analytics</p>
+                <p className="text-xs font-semibold text-gray-500 uppercase">
+                  Analytics
+                </p>
                 <div className="mt-2 text-3xl font-bold text-white">2,847</div>
                 <p className="text-xs text-gray-500">NFC scans total</p>
               </div>
@@ -85,7 +103,9 @@ export default function BusinessUserDashboard() {
 
         {/* Quick Actions */}
         <div className="mb-8 rounded-lg border border-gray-800 bg-gray-900 p-6">
-          <h2 className="mb-4 text-sm font-semibold text-white">Quick Actions</h2>
+          <h2 className="mb-4 text-sm font-semibold text-white">
+            Quick Actions
+          </h2>
           <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
             <button className="flex items-center gap-2 rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-xs font-medium text-gray-300 hover:bg-gray-700">
               📱 Add NFC Device
@@ -109,19 +129,34 @@ export default function BusinessUserDashboard() {
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           {/* Recent NFC Devices */}
           <div className="rounded-lg border border-gray-800 bg-gray-900 p-6 lg:col-span-2">
-            <h2 className="mb-4 text-sm font-semibold text-white">Recent Devices</h2>
+            <h2 className="mb-4 text-sm font-semibold text-white">
+              Recent Devices
+            </h2>
             <div className="space-y-3">
               {[
-                { name: 'Business Card - Batch #12', status: 'Active', scans: 847 },
+                {
+                  name: 'Business Card - Batch #12',
+                  status: 'Active',
+                  scans: 847,
+                },
                 { name: 'Trade Show Badge', status: 'Active', scans: 542 },
                 { name: 'Event Signage', status: 'Inactive', scans: 234 },
               ].map((device, idx) => (
-                <div key={idx} className="flex items-center justify-between border-b border-gray-800 pb-3">
+                <div
+                  key={idx}
+                  className="flex items-center justify-between border-b border-gray-800 pb-3"
+                >
                   <div>
-                    <p className="text-sm font-medium text-white">{device.name}</p>
-                    <p className="text-xs text-gray-500">{device.scans} scans</p>
+                    <p className="text-sm font-medium text-white">
+                      {device.name}
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      {device.scans} scans
+                    </p>
                   </div>
-                  <span className={`text-xs font-semibold ${device.status === 'Active' ? 'text-green-400' : 'text-yellow-400'}`}>
+                  <span
+                    className={`text-xs font-semibold ${device.status === 'Active' ? 'text-green-400' : 'text-yellow-400'}`}
+                  >
                     {device.status}
                   </span>
                 </div>

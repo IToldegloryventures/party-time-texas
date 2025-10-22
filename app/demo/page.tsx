@@ -43,7 +43,7 @@ export default function DemoHub() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Business User Demo */}
           <Link href="/demo/business-user">
-            <div className="group overflow-hidden rounded-lg bg-gradient-to-br from-purple-600 to-purple-900 p-8 shadow-xl transition-all hover:scale-105 hover:shadow-2xl h-full flex flex-col">
+            <div className="group flex h-full flex-col overflow-hidden rounded-lg bg-gradient-to-br from-purple-600 to-purple-900 p-8 shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
               <div className="mb-6 flex items-center justify-center">
                 <div className="rounded-full bg-white/20 p-4">
                   <svg
@@ -67,7 +67,7 @@ export default function DemoHub() {
               <p className="mb-6 text-center text-sm text-purple-100">
                 NFC business cards, conversion funnels, and ROI tracking
               </p>
-              <div className="space-y-2 text-sm text-purple-100 flex-grow">
+              <div className="flex-grow space-y-2 text-sm text-purple-100">
                 <div className="flex items-center">
                   <span className="mr-2">✓</span>
                   <span>NFC Business Cards</span>
@@ -93,7 +93,7 @@ export default function DemoHub() {
 
           {/* Event Planner Demo */}
           <Link href="/demo/event-planner">
-            <div className="group overflow-hidden rounded-lg bg-gradient-to-br from-pink-600 to-pink-900 p-8 shadow-xl transition-all hover:scale-105 hover:shadow-2xl h-full flex flex-col">
+            <div className="group flex h-full flex-col overflow-hidden rounded-lg bg-gradient-to-br from-pink-600 to-pink-900 p-8 shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
               <div className="mb-6 flex items-center justify-center">
                 <div className="rounded-full bg-white/20 p-4">
                   <svg
@@ -117,7 +117,7 @@ export default function DemoHub() {
               <p className="mb-6 text-center text-sm text-pink-100">
                 Guest check-in, RSVP management, and real-time attendance
               </p>
-              <div className="space-y-2 text-sm text-pink-100 flex-grow">
+              <div className="flex-grow space-y-2 text-sm text-pink-100">
                 <div className="flex items-center">
                   <span className="mr-2">✓</span>
                   <span>NFC Check-In</span>
@@ -143,7 +143,7 @@ export default function DemoHub() {
 
           {/* Event Guest Demo */}
           <Link href="/demo/event-guest">
-            <div className="group overflow-hidden rounded-lg bg-gradient-to-br from-cyan-600 to-cyan-900 p-8 shadow-xl transition-all hover:scale-105 hover:shadow-2xl h-full flex flex-col">
+            <div className="group flex h-full flex-col overflow-hidden rounded-lg bg-gradient-to-br from-cyan-600 to-cyan-900 p-8 shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
               <div className="mb-6 flex items-center justify-center">
                 <div className="rounded-full bg-white/20 p-4">
                   <svg
@@ -167,7 +167,7 @@ export default function DemoHub() {
               <p className="mb-6 text-center text-sm text-cyan-100">
                 Check-in, event experience, photo gallery, RSVP
               </p>
-              <div className="space-y-2 text-sm text-cyan-100 flex-grow">
+              <div className="flex-grow space-y-2 text-sm text-cyan-100">
                 <div className="flex items-center">
                   <span className="mr-2">✓</span>
                   <span>NFC Check-In</span>
@@ -193,7 +193,7 @@ export default function DemoHub() {
 
           {/* Super Admin Demo */}
           <Link href="/demo/super-admin">
-            <div className="group overflow-hidden rounded-lg bg-gradient-to-br from-red-600 to-red-900 p-8 shadow-xl transition-all hover:scale-105 hover:shadow-2xl h-full flex flex-col">
+            <div className="group flex h-full flex-col overflow-hidden rounded-lg bg-gradient-to-br from-red-600 to-red-900 p-8 shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
               <div className="mb-6 flex items-center justify-center">
                 <div className="rounded-full bg-white/20 p-4">
                   <svg
@@ -217,7 +217,7 @@ export default function DemoHub() {
               <p className="mb-6 text-center text-sm text-red-100">
                 Platform administration and controls
               </p>
-              <div className="space-y-2 text-sm text-red-100 flex-grow">
+              <div className="flex-grow space-y-2 text-sm text-red-100">
                 <div className="flex items-center">
                   <span className="mr-2">✓</span>
                   <span>All Organizations</span>
@@ -240,7 +240,6 @@ export default function DemoHub() {
               </div>
             </div>
           </Link>
-
         </div>
 
         {/* Description Section */}
@@ -254,7 +253,9 @@ export default function DemoHub() {
                 Business Users
               </div>
               <p className="text-sm text-gray-300">
-                Dashboard with NFC Devices, Events, Landing Pages, and Analytics modules. Quick actions, real-time metrics, and detailed device/event management.
+                Dashboard with NFC Devices, Events, Landing Pages, and Analytics
+                modules. Quick actions, real-time metrics, and detailed
+                device/event management.
               </p>
             </div>
 
@@ -263,7 +264,9 @@ export default function DemoHub() {
                 Event Planners
               </div>
               <p className="text-sm text-gray-300">
-                Comprehensive event management with NFC check-in stations, real-time attendee tracking, meal preferences, dietary restrictions, and check-in timelines.
+                Comprehensive event management with NFC check-in stations,
+                real-time attendee tracking, meal preferences, dietary
+                restrictions, and check-in timelines.
               </p>
             </div>
 
@@ -272,7 +275,9 @@ export default function DemoHub() {
                 Event Guests
               </div>
               <p className="text-sm text-gray-300">
-                Guest portal with event details, schedule, venue map, photo gallery for uploads/viewing, RSVP confirmation, meal selection, and attendee information.
+                Guest portal with event details, schedule, venue map, photo
+                gallery for uploads/viewing, RSVP confirmation, meal selection,
+                and attendee information.
               </p>
             </div>
 
@@ -281,7 +286,9 @@ export default function DemoHub() {
                 Super Admins
               </div>
               <p className="text-sm text-gray-300">
-                Platform-wide administration with organization management, revenue analytics, portal breakdowns, and advanced system controls across all customers.
+                Platform-wide administration with organization management,
+                revenue analytics, portal breakdowns, and advanced system
+                controls across all customers.
               </p>
             </div>
           </div>
@@ -289,77 +296,127 @@ export default function DemoHub() {
 
         {/* Feature Demos Section */}
         <div className="mt-12">
-          <h2 className="mb-8 text-center text-2xl font-bold text-white">Feature Demos</h2>
+          <h2 className="mb-8 text-center text-2xl font-bold text-white">
+            Feature Demos
+          </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             <Link href="/demo/landing-page-builder">
-              <div className="group rounded-lg border border-blue-600/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-6 shadow-lg transition-all hover:border-blue-400/80 hover:shadow-blue-500/20 h-full flex flex-col">
+              <div className="group flex h-full flex-col rounded-lg border border-blue-600/50 bg-gradient-to-br from-blue-950/50 to-blue-900/20 p-6 shadow-lg transition-all hover:border-blue-400/80 hover:shadow-blue-500/20">
                 <div className="mb-3 text-2xl">🎨</div>
-                <h3 className="mb-2 font-bold text-blue-300">Landing Page Builder</h3>
-                <p className="text-xs text-gray-300 flex-grow">Drag-and-drop interface with templates and NFC integration</p>
-                <div className="mt-4 text-blue-400 transition-all group-hover:translate-x-1">View Demo →</div>
+                <h3 className="mb-2 font-bold text-blue-300">
+                  Landing Page Builder
+                </h3>
+                <p className="flex-grow text-xs text-gray-300">
+                  Drag-and-drop interface with templates and NFC integration
+                </p>
+                <div className="mt-4 text-blue-400 transition-all group-hover:translate-x-1">
+                  View Demo →
+                </div>
               </div>
             </Link>
 
             <Link href="/demo/geo-marketing">
-              <div className="group rounded-lg border border-purple-600/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-6 shadow-lg transition-all hover:border-purple-400/80 hover:shadow-purple-500/20 h-full flex flex-col">
+              <div className="group flex h-full flex-col rounded-lg border border-purple-600/50 bg-gradient-to-br from-purple-950/50 to-purple-900/20 p-6 shadow-lg transition-all hover:border-purple-400/80 hover:shadow-purple-500/20">
                 <div className="mb-3 text-2xl">📍</div>
-                <h3 className="mb-2 font-bold text-purple-300">Geo-Marketing Intelligence</h3>
-                <p className="text-xs text-gray-300 flex-grow">Location heatmaps and user movement tracking</p>
-                <div className="mt-4 text-purple-400 transition-all group-hover:translate-x-1">View Demo →</div>
+                <h3 className="mb-2 font-bold text-purple-300">
+                  Geo-Marketing Intelligence
+                </h3>
+                <p className="flex-grow text-xs text-gray-300">
+                  Location heatmaps and user movement tracking
+                </p>
+                <div className="mt-4 text-purple-400 transition-all group-hover:translate-x-1">
+                  View Demo →
+                </div>
               </div>
             </Link>
 
             <Link href="/demo/nfc-management">
-              <div className="group rounded-lg border border-orange-600/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 p-6 shadow-lg transition-all hover:border-orange-400/80 hover:shadow-orange-500/20 h-full flex flex-col">
+              <div className="group flex h-full flex-col rounded-lg border border-orange-600/50 bg-gradient-to-br from-orange-950/50 to-orange-900/20 p-6 shadow-lg transition-all hover:border-orange-400/80 hover:shadow-orange-500/20">
                 <div className="mb-3 text-2xl">📱</div>
-                <h3 className="mb-2 font-bold text-orange-300">NFC Device Management</h3>
-                <p className="text-xs text-gray-300 flex-grow">247+ devices with real-time performance tracking</p>
-                <div className="mt-4 text-orange-400 transition-all group-hover:translate-x-1">View Demo →</div>
+                <h3 className="mb-2 font-bold text-orange-300">
+                  NFC Device Management
+                </h3>
+                <p className="flex-grow text-xs text-gray-300">
+                  247+ devices with real-time performance tracking
+                </p>
+                <div className="mt-4 text-orange-400 transition-all group-hover:translate-x-1">
+                  View Demo →
+                </div>
               </div>
             </Link>
 
             <Link href="/demo/nfc-analytics">
-              <div className="group rounded-lg border border-cyan-600/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-6 shadow-lg transition-all hover:border-cyan-400/80 hover:shadow-cyan-500/20 h-full flex flex-col">
+              <div className="group flex h-full flex-col rounded-lg border border-cyan-600/50 bg-gradient-to-br from-cyan-950/50 to-cyan-900/20 p-6 shadow-lg transition-all hover:border-cyan-400/80 hover:shadow-cyan-500/20">
                 <div className="mb-3 text-2xl">📊</div>
-                <h3 className="mb-2 font-bold text-cyan-300">NFC Analytics Dashboard</h3>
-                <p className="text-xs text-gray-300 flex-grow">2.4M scans with 34.2% conversion rate tracking</p>
-                <div className="mt-4 text-cyan-400 transition-all group-hover:translate-x-1">View Demo →</div>
+                <h3 className="mb-2 font-bold text-cyan-300">
+                  NFC Analytics Dashboard
+                </h3>
+                <p className="flex-grow text-xs text-gray-300">
+                  2.4M scans with 34.2% conversion rate tracking
+                </p>
+                <div className="mt-4 text-cyan-400 transition-all group-hover:translate-x-1">
+                  View Demo →
+                </div>
               </div>
             </Link>
 
             <Link href="/demo/task-management">
-              <div className="group rounded-lg border border-green-600/50 bg-gradient-to-br from-green-950/50 to-green-900/20 p-6 shadow-lg transition-all hover:border-green-400/80 hover:shadow-green-500/20 h-full flex flex-col">
+              <div className="group flex h-full flex-col rounded-lg border border-green-600/50 bg-gradient-to-br from-green-950/50 to-green-900/20 p-6 shadow-lg transition-all hover:border-green-400/80 hover:shadow-green-500/20">
                 <div className="mb-3 text-2xl">✅</div>
-                <h3 className="mb-2 font-bold text-green-300">Task Management</h3>
-                <p className="text-xs text-gray-300 flex-grow">Team collaboration with role-based task distribution</p>
-                <div className="mt-4 text-green-400 transition-all group-hover:translate-x-1">View Demo →</div>
+                <h3 className="mb-2 font-bold text-green-300">
+                  Task Management
+                </h3>
+                <p className="flex-grow text-xs text-gray-300">
+                  Team collaboration with role-based task distribution
+                </p>
+                <div className="mt-4 text-green-400 transition-all group-hover:translate-x-1">
+                  View Demo →
+                </div>
               </div>
             </Link>
 
             <Link href="/demo/white-label">
-              <div className="group rounded-lg border border-indigo-600/50 bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 p-6 shadow-lg transition-all hover:border-indigo-400/80 hover:shadow-indigo-500/20 h-full flex flex-col">
+              <div className="group flex h-full flex-col rounded-lg border border-indigo-600/50 bg-gradient-to-br from-indigo-950/50 to-indigo-900/20 p-6 shadow-lg transition-all hover:border-indigo-400/80 hover:shadow-indigo-500/20">
                 <div className="mb-3 text-2xl">🏢</div>
-                <h3 className="mb-2 font-bold text-indigo-300">White-Label Customization</h3>
-                <p className="text-xs text-gray-300 flex-grow">Custom domains and complete brand control</p>
-                <div className="mt-4 text-indigo-400 transition-all group-hover:translate-x-1">View Demo →</div>
+                <h3 className="mb-2 font-bold text-indigo-300">
+                  White-Label Customization
+                </h3>
+                <p className="flex-grow text-xs text-gray-300">
+                  Custom domains and complete brand control
+                </p>
+                <div className="mt-4 text-indigo-400 transition-all group-hover:translate-x-1">
+                  View Demo →
+                </div>
               </div>
             </Link>
 
             <Link href="/demo/mobile-apps-admin">
-              <div className="group rounded-lg border border-pink-600/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-6 shadow-lg transition-all hover:border-pink-400/80 hover:shadow-pink-500/20 h-full flex flex-col">
+              <div className="group flex h-full flex-col rounded-lg border border-pink-600/50 bg-gradient-to-br from-pink-950/50 to-pink-900/20 p-6 shadow-lg transition-all hover:border-pink-400/80 hover:shadow-pink-500/20">
                 <div className="mb-3 text-2xl">👨‍💼</div>
-                <h3 className="mb-2 font-bold text-pink-300">Mobile App - Admin</h3>
-                <p className="text-xs text-gray-300 flex-grow">Manage business on-the-go with real-time analytics</p>
-                <div className="mt-4 text-pink-400 transition-all group-hover:translate-x-1">View Demo →</div>
+                <h3 className="mb-2 font-bold text-pink-300">
+                  Mobile App - Admin
+                </h3>
+                <p className="flex-grow text-xs text-gray-300">
+                  Manage business on-the-go with real-time analytics
+                </p>
+                <div className="mt-4 text-pink-400 transition-all group-hover:translate-x-1">
+                  View Demo →
+                </div>
               </div>
             </Link>
 
             <Link href="/demo/mobile-apps-customer">
-              <div className="group rounded-lg border border-rose-600/50 bg-gradient-to-br from-rose-950/50 to-rose-900/20 p-6 shadow-lg transition-all hover:border-rose-400/80 hover:shadow-rose-500/20 h-full flex flex-col">
+              <div className="group flex h-full flex-col rounded-lg border border-rose-600/50 bg-gradient-to-br from-rose-950/50 to-rose-900/20 p-6 shadow-lg transition-all hover:border-rose-400/80 hover:shadow-rose-500/20">
                 <div className="mb-3 text-2xl">👤</div>
-                <h3 className="mb-2 font-bold text-rose-300">Mobile App - Customer</h3>
-                <p className="text-xs text-gray-300 flex-grow">Discover events and location-based experiences</p>
-                <div className="mt-4 text-rose-400 transition-all group-hover:translate-x-1">View Demo →</div>
+                <h3 className="mb-2 font-bold text-rose-300">
+                  Mobile App - Customer
+                </h3>
+                <p className="flex-grow text-xs text-gray-300">
+                  Discover events and location-based experiences
+                </p>
+                <div className="mt-4 text-rose-400 transition-all group-hover:translate-x-1">
+                  View Demo →
+                </div>
               </div>
             </Link>
           </div>

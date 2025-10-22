@@ -45,13 +45,13 @@ const Hero = () => {
           NFC-powered engagement for businesses, events, and communities.
         </p>
 
-        {/* CTA Button - Updated for Products Page */}
+        {/* CTA Button - Updated for Demo Site */}
         <div className="flex justify-center">
           <Link
-            href="/products"
+            href="/demo"
             className="group relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 text-lg font-semibold shadow-lg transition-all hover:scale-105 hover:shadow-purple-500/50"
           >
-            <span className="relative font-bold text-white">Get Started</span>
+            <span className="relative font-bold text-white">View Demo Site</span>
           </Link>
         </div>
       </div>

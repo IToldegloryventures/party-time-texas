@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function SuperAdminDashboard() {
   return (
     <div className="min-h-screen bg-gray-950">
@@ -10,6 +12,12 @@ export default function SuperAdminDashboard() {
               <p className="text-sm text-gray-400">Role: Super Admin • Full Platform Access</p>
             </div>
             <div className="flex gap-2">
+              <Link 
+                href="/demo" 
+                className="rounded-lg border border-gray-700 bg-gray-800 px-4 py-2 text-sm text-gray-300 hover:bg-gray-700"
+              >
+                ← Back to Demo Hub
+              </Link>
               <span className="inline-flex items-center gap-2 rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-xs font-semibold">
                 <div className="h-2 w-2 rounded-full bg-green-500"></div>
                 System Healthy

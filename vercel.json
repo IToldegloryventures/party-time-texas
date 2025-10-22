@@ -1,0 +1,19 @@
+{
+  "git": {
+    "deploymentEnabled": {
+      "main": true,
+      "vortex-garden": true
+    }
+  },
+  "github": {
+    "enabled": true,
+    "autoAlias": false
+  },
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "installCommand": "npm install",
+  "devCommand": "npm run dev"
+}
+
+

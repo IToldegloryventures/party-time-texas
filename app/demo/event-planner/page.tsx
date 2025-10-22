@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function EventPlannerDashboard() {
   return (
     <div className="min-h-screen bg-gray-950">
@@ -9,9 +11,17 @@ export default function EventPlannerDashboard() {
               <h1 className="text-2xl font-bold text-white">Event Management</h1>
               <p className="text-sm text-gray-400">Tech Summit 2025 • Active Now</p>
             </div>
-            <div className="flex items-center gap-4 rounded-lg border border-gray-700 bg-gray-800 px-4 py-2">
-              <div className="h-3 w-3 rounded-full bg-green-500"></div>
-              <span className="text-sm text-white">487 / 845 checked in</span>
+            <div className="flex items-center gap-4">
+              <Link 
+                href="/demo" 
+                className="rounded-lg border border-gray-700 bg-gray-800 px-4 py-2 text-sm text-gray-300 hover:bg-gray-700"
+              >
+                ← Back to Demo Hub
+              </Link>
+              <div className="flex items-center gap-4 rounded-lg border border-gray-700 bg-gray-800 px-4 py-2">
+                <div className="h-3 w-3 rounded-full bg-green-500"></div>
+                <span className="text-sm text-white">487 / 845 checked in</span>
+              </div>
             </div>
           </div>
         </div>
