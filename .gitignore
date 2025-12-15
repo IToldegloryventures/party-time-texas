@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Environments
+venv/
+.env/
+.envrc
+
+# Odoo build artifacts
+*.db
+*.zip
+*.pot
+*.po~
+*.swp
+*.swo
+
+# Odoo configuration (local development only)
+odoo.conf
+odoo.log
+
+# IDE / Editor
+.vscode/
+.idea/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Unrelated project files (should not be in Odoo repo)
+app/
+package.json
+pnpm-lock.yaml
+*.md
+!README.md
+.cache/
+.claude*/
+.codex/
+.config/
+.cursor/
+.dbclient/
+.github/
+.local/
+.node_repl_history
+.python_history
+.rest-client/
+.ssh/
+.vscode/
+OneDrive/
+Pictures/
+Downloads/
+Documents/
+Contacts/
+Favorites/
+Links/
+Music/
+Saved Games/
+Searches/
+*.log
+*.bak
+
